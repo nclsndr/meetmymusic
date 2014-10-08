@@ -32,6 +32,49 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
+	public $components = array(
+        'Session', 'RequestHandler',
+        'Auth' => array(
+        	'loginAction' => array(
+            'controller' => 'users',
+            'action' => 'login'
+        ),
+        'authError' => 'Vous n\'êtes pas autorisé à voir ce contenu',
+        'authenticate' => array(
+            'Form' => array(
+                'fields' => array(
+                	'username' => 'username',
+                	'password' => 'password'
+                ),
+                'passwordHasher'=>array(
+                    'className' => 'Simple',
+                    'HashType' => 'sha256'
+                )
+            )
+        ),
+        // 'logoutRedirect' => array('/'),
+        'loginRedirect' => array('controller'=> 'dashboard', 'action' => 'index'),
+        'authorize' => array('Controller')
+        )
+    );
 
+
+	/**
+	 * beforeFilter callback
+	 *
+	 * @return void
+	 */
+		public function beforeFilter() {
+			parent::beforeFilter();
+
+			// PROVISOIRE
+        $this->Auth->allow();
+
+
+        $this->request->addDetector('angular',array(
+            'env' => 'HTTP_INIREQUESTAJAX',
+            'value' => 'angular request'
+        ));
+		}
 	
 }
