@@ -18,7 +18,12 @@
     	<div class="container">
     		<?php echo $this->fetch('content'); ?>
     	</div>
-    <?php 
+    <?php
+    	if (!empty($angularUrls)) {
+    		foreach ($angularUrls as $k => $v) {
+    			echo '<script type="text/javascript" src="'.$v.'"></script>';
+    		}
+    	}
         echo $this->fetch('script');
      ?>
      <?php 

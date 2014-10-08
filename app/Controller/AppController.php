@@ -55,7 +55,8 @@ class AppController extends Controller {
         // 'logoutRedirect' => array('/'),
         'loginRedirect' => array('controller'=> 'dashboard', 'action' => 'index'),
         'authorize' => array('Controller')
-        )
+        ),
+        'Ressources'
     );
 
 
@@ -64,17 +65,31 @@ class AppController extends Controller {
 	 *
 	 * @return void
 	 */
-		public function beforeFilter() {
-			parent::beforeFilter();
+	public function beforeFilter() {
+		parent::beforeFilter();
 
-			// PROVISOIRE
+		// PROVISOIRE
         $this->Auth->allow();
-
 
         $this->request->addDetector('angular',array(
             'env' => 'HTTP_INIREQUESTAJAX',
             'value' => 'angular request'
         ));
-		}
+	}
+
+    /**
+     * beforeRender callback
+     *
+     * @return void
+     */
+    public function beforeRender() {
+        
+        parent::beforeRender();
+        // getAngular($suffix = 'ng', $release='1.2.26', $lib = true, $route=false, $ressource=false, $loader=false, $animate=false)
+        $angularUrls = $this->Ressources->getAngular('ng','1.2.26',true,true,true,true,true);
+        $this->set('angularUrls', $angularUrls);
+
+    }
+    
 	
 }
