@@ -1,0 +1,86 @@
+body {
+	background-color : #09C2BF;
+}
+
+#page {
+	position: absolute;
+	overflow-x : hidden;
+	top: 0; bottom: 0; left: 0; right: 0;
+}
+
+h1,h2 {
+	text-align : center;
+	color : #EEE;
+}
+
+.nextMusic {
+	color : #FA6E69;
+} 
+.friendAdded {
+	color : #97D17A;
+} 
+
+#album-cover {
+	position : relative;
+	margin : auto;
+	margin-top : 10px;
+	display : block;
+	/*transition*/
+	-webkit-transition:scale opacity 1.5s;
+	   -moz-transition:scale opacity 1.5s;
+	     -o-transition:scale opacity 1.5s;
+	        transition:scale opacity 1.5s;
+}
+
+#album-cover img{
+	position : relative;
+	width: 80%;
+	max-width: 400px;
+	margin : auto;
+	cursor : pointer;
+	display : block;
+	/*transition*/
+	-webkit-transition:all 0.5s;
+	   -moz-transition:all 0.5s;
+	     -o-transition:all 0.5s;
+	        transition:all 0.5s;
+}
+
+.swipeRight {
+	opacity : 0;
+
+	-moz-transform: scale(1.8) rotate(30deg) translate(100%, 0px) skew(0deg, 0deg);
+	-webkit-transform: scale(1.8) rotate(30deg) translate(100%, 0px) skew(0deg, 0deg);
+	-o-transform: scale(1.8) rotate(30deg) translate(100%, 0px) skew(0deg, 0deg);
+	-ms-transform: scale(1.8) rotate(30deg) translate(100%, 0px) skew(0deg, 0deg);
+	transform: scale(1.8) rotate(30deg) translate(100%, 0px) skew(0deg, 0deg);
+	
+	/*transition*/
+	-webkit-transition:all 0.5s;
+	   -moz-transition:all 0.5s;
+	     -o-transition:all 0.5s;
+	        transition:all 0.5s;
+}
+
+.swipeLeft {
+	opacity : 0;
+
+	-moz-transform: scale(1.8) rotate(-30deg) translate(-100%, 0px) skew(0deg, 0deg);
+	-webkit-transform: scale(1.8) rotate(-30deg) translate(-100%, 0px) skew(0deg, 0deg);
+	-o-transform: scale(1.8) rotate(-30deg) translate(-100%, 0px) skew(0deg, 0deg);
+	-ms-transform: scale(1.8) rotate(-30deg) translate(-100%, 0px) skew(0deg, 0deg);
+	transform: scale(1.8) rotate(-30deg) translate(-100%, 0px) skew(0deg, 0deg);
+	
+	/*transition*/
+	-webkit-transition:all 0.5s;
+	   -moz-transition:all 0.5s;
+	     -o-transition:all 0.5s;
+	        transition:all 0.5s;
+}
+
+#resetBtn{
+	font-size : 2em;
+	text-align: center;
+	cursor : pointer;
+} 
+
