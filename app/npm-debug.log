@@ -1,0 +1,530 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'learnyounode' ]
+2 info using npm@1.4.3
+3 info using node@v0.11.12-pre
+4 verbose cache add [ 'learnyounode', null ]
+5 verbose cache add name=undefined spec="learnyounode" args=["learnyounode",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'learnyounode',
+6 verbose parsed url   path: 'learnyounode',
+6 verbose parsed url   href: 'learnyounode' }
+7 silly lockFile 8d456d9f-learnyounode learnyounode
+8 verbose lock learnyounode /home/nclsndr/.npm/8d456d9f-learnyounode.lock
+9 silly lockFile 8d456d9f-learnyounode learnyounode
+10 silly lockFile 8d456d9f-learnyounode learnyounode
+11 verbose addNamed [ 'learnyounode', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile a353de34-learnyounode learnyounode@
+14 verbose lock learnyounode@ /home/nclsndr/.npm/a353de34-learnyounode.lock
+15 silly addNameRange { name: 'learnyounode', range: '*', hasData: false }
+16 verbose url raw learnyounode
+17 verbose url resolving [ 'https://registry.npmjs.org/', './learnyounode' ]
+18 verbose url resolved https://registry.npmjs.org/learnyounode
+19 info trying registry request attempt 1 at 19:07:44
+20 http GET https://registry.npmjs.org/learnyounode
+21 http 200 https://registry.npmjs.org/learnyounode
+22 silly registry.get cb [ 200,
+22 silly registry.get   { date: 'Fri, 10 Oct 2014 17:07:44 GMT',
+22 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+22 silly registry.get     etag: '"2NI21T5TX2BZU1LJOFGS32NSH"',
+22 silly registry.get     'content-type': 'application/json',
+22 silly registry.get     'cache-control': 'max-age=60',
+22 silly registry.get     'content-length': '59951',
+22 silly registry.get     'accept-ranges': 'bytes',
+22 silly registry.get     via: '1.1 varnish',
+22 silly registry.get     age: '6967',
+22 silly registry.get     'x-served-by': 'cache-fra1228-FRA',
+22 silly registry.get     'x-cache': 'HIT',
+22 silly registry.get     'x-cache-hits': '1',
+22 silly registry.get     'x-timer': 'S1412960864.494700,VS0,VE103',
+22 silly registry.get     vary: 'Accept',
+22 silly registry.get     connection: 'close' } ]
+23 silly addNameRange number 2 { name: 'learnyounode', range: '*', hasData: true }
+24 silly addNameRange versions [ 'learnyounode',
+24 silly addNameRange   [ '0.0.0',
+24 silly addNameRange     '0.0.1',
+24 silly addNameRange     '0.0.2',
+24 silly addNameRange     '0.0.3',
+24 silly addNameRange     '0.0.4',
+24 silly addNameRange     '0.0.5',
+24 silly addNameRange     '0.0.6',
+24 silly addNameRange     '0.0.7',
+24 silly addNameRange     '0.0.8',
+24 silly addNameRange     '0.0.9',
+24 silly addNameRange     '0.1.0',
+24 silly addNameRange     '0.1.1',
+24 silly addNameRange     '0.2.0',
+24 silly addNameRange     '0.2.1',
+24 silly addNameRange     '0.2.2',
+24 silly addNameRange     '0.2.3',
+24 silly addNameRange     '0.2.4',
+24 silly addNameRange     '0.2.5',
+24 silly addNameRange     '0.2.6',
+24 silly addNameRange     '0.2.7',
+24 silly addNameRange     '0.2.8',
+24 silly addNameRange     '0.2.9',
+24 silly addNameRange     '0.2.10',
+24 silly addNameRange     '0.2.11',
+24 silly addNameRange     '0.2.12',
+24 silly addNameRange     '0.2.13',
+24 silly addNameRange     '0.2.14',
+24 silly addNameRange     '0.2.15',
+24 silly addNameRange     '0.2.16',
+24 silly addNameRange     '0.2.16-mimbug',
+24 silly addNameRange     '0.3.0',
+24 silly addNameRange     '0.3.1',
+24 silly addNameRange     '0.3.2',
+24 silly addNameRange     '0.3.3',
+24 silly addNameRange     '0.4.0',
+24 silly addNameRange     '0.4.1',
+24 silly addNameRange     '1.0.0-alpha01',
+24 silly addNameRange     '1.0.0',
+24 silly addNameRange     '1.0.1',
+24 silly addNameRange     '1.0.2',
+24 silly addNameRange     '1.0.3' ] ]
+25 verbose addNamed [ 'learnyounode', '1.0.3' ]
+26 verbose addNamed [ '1.0.3', '1.0.3' ]
+27 silly lockFile bb669780-learnyounode-1-0-3 learnyounode@1.0.3
+28 verbose lock learnyounode@1.0.3 /home/nclsndr/.npm/bb669780-learnyounode-1-0-3.lock
+29 silly lockFile 8b85195b-rnyounode-learnyounode-1-0-3-tgz https://registry.npmjs.org/learnyounode/-/learnyounode-1.0.3.tgz
+30 verbose lock https://registry.npmjs.org/learnyounode/-/learnyounode-1.0.3.tgz /home/nclsndr/.npm/8b85195b-rnyounode-learnyounode-1-0-3-tgz.lock
+31 verbose addRemoteTarball [ 'https://registry.npmjs.org/learnyounode/-/learnyounode-1.0.3.tgz',
+31 verbose addRemoteTarball   '9a519179ca6373bf5d13f9f613e7045bb6e8b13b' ]
+32 info retry fetch attempt 1 at 19:07:44
+33 verbose fetch to= /home/nclsndr/tmp/npm-30229-K8fs5dmt/1412960864740-0.5184216934721917/tmp.tgz
+34 http GET https://registry.npmjs.org/learnyounode/-/learnyounode-1.0.3.tgz
+35 http 200 https://registry.npmjs.org/learnyounode/-/learnyounode-1.0.3.tgz
+36 verbose tar unpack /home/nclsndr/tmp/npm-30229-K8fs5dmt/1412960864740-0.5184216934721917/tmp.tgz
+37 silly lockFile 924fab95-64740-0-5184216934721917-package tar:///home/nclsndr/tmp/npm-30229-K8fs5dmt/1412960864740-0.5184216934721917/package
+38 verbose lock tar:///home/nclsndr/tmp/npm-30229-K8fs5dmt/1412960864740-0.5184216934721917/package /home/nclsndr/.npm/924fab95-64740-0-5184216934721917-package.lock
+39 silly lockFile e90e93a1-64740-0-5184216934721917-tmp-tgz tar:///home/nclsndr/tmp/npm-30229-K8fs5dmt/1412960864740-0.5184216934721917/tmp.tgz
+40 verbose lock tar:///home/nclsndr/tmp/npm-30229-K8fs5dmt/1412960864740-0.5184216934721917/tmp.tgz /home/nclsndr/.npm/e90e93a1-64740-0-5184216934721917-tmp-tgz.lock
+41 silly gunzTarPerm modes [ '755', '644' ]
+42 silly gunzTarPerm extractEntry package.json
+43 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+44 silly gunzTarPerm extractEntry .npmignore
+45 silly gunzTarPerm modified mode [ '.npmignore', 436, 420 ]
+46 silly gunzTarPerm extractEntry README.md
+47 silly gunzTarPerm modified mode [ 'README.md', 436, 420 ]
+48 silly gunzTarPerm extractEntry LICENSE
+49 silly gunzTarPerm modified mode [ 'LICENSE', 436, 420 ]
+50 silly gunzTarPerm extractEntry credits.js
+51 silly gunzTarPerm modified mode [ 'credits.js', 436, 420 ]
+52 silly gunzTarPerm extractEntry learnyounode.js
+53 silly gunzTarPerm modified mode [ 'learnyounode.js', 509, 493 ]
+54 silly gunzTarPerm extractEntry docs/bl.html
+55 silly gunzTarPerm modified mode [ 'docs/bl.html', 436, 420 ]
+56 silly gunzTarPerm extractEntry docs/concat-stream.html
+57 silly gunzTarPerm modified mode [ 'docs/concat-stream.html', 436, 420 ]
+58 silly gunzTarPerm extractEntry docs/through2-map.html
+59 silly gunzTarPerm modified mode [ 'docs/through2-map.html', 436, 420 ]
+60 silly gunzTarPerm extractEntry .jshintrc
+61 silly gunzTarPerm modified mode [ '.jshintrc', 436, 420 ]
+62 silly gunzTarPerm extractEntry help.txt
+63 silly gunzTarPerm modified mode [ 'help.txt', 436, 420 ]
+64 silly gunzTarPerm extractEntry credits.txt
+65 silly gunzTarPerm modified mode [ 'credits.txt', 436, 420 ]
+66 silly gunzTarPerm extractEntry lib/rndport.js
+67 silly gunzTarPerm modified mode [ 'lib/rndport.js', 436, 420 ]
+68 silly gunzTarPerm extractEntry node_apidoc/index.html
+69 silly gunzTarPerm modified mode [ 'node_apidoc/index.html', 436, 420 ]
+70 silly gunzTarPerm extractEntry node_apidoc/_toc.html
+71 silly gunzTarPerm modified mode [ 'node_apidoc/_toc.html', 436, 420 ]
+72 silly gunzTarPerm extractEntry node_apidoc/all.html
+73 silly gunzTarPerm modified mode [ 'node_apidoc/all.html', 436, 420 ]
+74 silly gunzTarPerm extractEntry node_apidoc/assert.html
+75 silly gunzTarPerm modified mode [ 'node_apidoc/assert.html', 436, 420 ]
+76 silly gunzTarPerm extractEntry node_apidoc/assets/sh.css
+77 silly gunzTarPerm modified mode [ 'node_apidoc/assets/sh.css', 436, 420 ]
+78 silly gunzTarPerm extractEntry node_apidoc/assets/style.css
+79 silly gunzTarPerm modified mode [ 'node_apidoc/assets/style.css', 436, 420 ]
+80 silly gunzTarPerm extractEntry node_apidoc/buffer.html
+81 silly gunzTarPerm modified mode [ 'node_apidoc/buffer.html', 436, 420 ]
+82 silly gunzTarPerm extractEntry node_apidoc/child_process.html
+83 silly gunzTarPerm modified mode [ 'node_apidoc/child_process.html', 436, 420 ]
+84 silly gunzTarPerm extractEntry node_apidoc/cluster.html
+85 silly gunzTarPerm modified mode [ 'node_apidoc/cluster.html', 436, 420 ]
+86 silly gunzTarPerm extractEntry node_apidoc/console.html
+87 silly gunzTarPerm modified mode [ 'node_apidoc/console.html', 436, 420 ]
+88 silly gunzTarPerm extractEntry node_apidoc/crypto.html
+89 silly gunzTarPerm modified mode [ 'node_apidoc/crypto.html', 436, 420 ]
+90 silly gunzTarPerm extractEntry node_apidoc/debugger.html
+91 silly gunzTarPerm modified mode [ 'node_apidoc/debugger.html', 436, 420 ]
+92 silly gunzTarPerm extractEntry node_apidoc/dgram.html
+93 silly gunzTarPerm modified mode [ 'node_apidoc/dgram.html', 436, 420 ]
+94 silly gunzTarPerm extractEntry node_apidoc/dns.html
+95 silly gunzTarPerm modified mode [ 'node_apidoc/dns.html', 436, 420 ]
+96 silly gunzTarPerm extractEntry node_apidoc/documentation.html
+97 silly gunzTarPerm modified mode [ 'node_apidoc/documentation.html', 436, 420 ]
+98 silly gunzTarPerm extractEntry node_apidoc/domain.html
+99 silly gunzTarPerm modified mode [ 'node_apidoc/domain.html', 436, 420 ]
+100 silly gunzTarPerm extractEntry node_apidoc/events.html
+101 silly gunzTarPerm modified mode [ 'node_apidoc/events.html', 436, 420 ]
+102 silly gunzTarPerm extractEntry node_apidoc/fs.html
+103 silly gunzTarPerm modified mode [ 'node_apidoc/fs.html', 436, 420 ]
+104 silly gunzTarPerm extractEntry node_apidoc/globals.html
+105 silly gunzTarPerm modified mode [ 'node_apidoc/globals.html', 436, 420 ]
+106 silly gunzTarPerm extractEntry node_apidoc/http.html
+107 silly gunzTarPerm modified mode [ 'node_apidoc/http.html', 436, 420 ]
+108 silly gunzTarPerm extractEntry node_apidoc/https.html
+109 silly gunzTarPerm modified mode [ 'node_apidoc/https.html', 436, 420 ]
+110 silly gunzTarPerm extractEntry node_apidoc/addons.html
+111 silly gunzTarPerm modified mode [ 'node_apidoc/addons.html', 436, 420 ]
+112 silly gunzTarPerm extractEntry node_apidoc/modules.html
+113 silly gunzTarPerm modified mode [ 'node_apidoc/modules.html', 436, 420 ]
+114 silly gunzTarPerm extractEntry node_apidoc/net.html
+115 silly gunzTarPerm modified mode [ 'node_apidoc/net.html', 436, 420 ]
+116 silly gunzTarPerm extractEntry node_apidoc/os.html
+117 silly gunzTarPerm modified mode [ 'node_apidoc/os.html', 436, 420 ]
+118 silly gunzTarPerm extractEntry node_apidoc/path.html
+119 silly gunzTarPerm modified mode [ 'node_apidoc/path.html', 436, 420 ]
+120 silly gunzTarPerm extractEntry node_apidoc/process.html
+121 silly gunzTarPerm modified mode [ 'node_apidoc/process.html', 436, 420 ]
+122 silly gunzTarPerm extractEntry node_apidoc/punycode.html
+123 silly gunzTarPerm modified mode [ 'node_apidoc/punycode.html', 436, 420 ]
+124 silly gunzTarPerm extractEntry node_apidoc/querystring.html
+125 silly gunzTarPerm modified mode [ 'node_apidoc/querystring.html', 436, 420 ]
+126 silly gunzTarPerm extractEntry node_apidoc/readline.html
+127 silly gunzTarPerm modified mode [ 'node_apidoc/readline.html', 436, 420 ]
+128 silly gunzTarPerm extractEntry node_apidoc/repl.html
+129 silly gunzTarPerm modified mode [ 'node_apidoc/repl.html', 436, 420 ]
+130 silly gunzTarPerm extractEntry node_apidoc/stream.html
+131 silly gunzTarPerm modified mode [ 'node_apidoc/stream.html', 436, 420 ]
+132 silly gunzTarPerm extractEntry node_apidoc/string_decoder.html
+133 silly gunzTarPerm modified mode [ 'node_apidoc/string_decoder.html', 436, 420 ]
+134 silly gunzTarPerm extractEntry node_apidoc/synopsis.html
+135 silly gunzTarPerm modified mode [ 'node_apidoc/synopsis.html', 436, 420 ]
+136 silly gunzTarPerm extractEntry node_apidoc/timers.html
+137 silly gunzTarPerm modified mode [ 'node_apidoc/timers.html', 436, 420 ]
+138 silly gunzTarPerm extractEntry node_apidoc/tls.html
+139 silly gunzTarPerm modified mode [ 'node_apidoc/tls.html', 436, 420 ]
+140 silly gunzTarPerm extractEntry node_apidoc/tty.html
+141 silly gunzTarPerm modified mode [ 'node_apidoc/tty.html', 436, 420 ]
+142 silly gunzTarPerm extractEntry node_apidoc/url.html
+143 silly gunzTarPerm modified mode [ 'node_apidoc/url.html', 436, 420 ]
+144 silly gunzTarPerm extractEntry node_apidoc/util.html
+145 silly gunzTarPerm modified mode [ 'node_apidoc/util.html', 436, 420 ]
+146 silly gunzTarPerm extractEntry node_apidoc/vm.html
+147 silly gunzTarPerm modified mode [ 'node_apidoc/vm.html', 436, 420 ]
+148 silly gunzTarPerm extractEntry node_apidoc/zlib.html
+149 silly gunzTarPerm modified mode [ 'node_apidoc/zlib.html', 436, 420 ]
+150 silly gunzTarPerm extractEntry exercises/http_uppercaserer/exercise.js
+151 silly gunzTarPerm modified mode [ 'exercises/http_uppercaserer/exercise.js', 436, 420 ]
+152 silly gunzTarPerm extractEntry exercises/http_uppercaserer/problem.md
+153 silly gunzTarPerm modified mode [ 'exercises/http_uppercaserer/problem.md', 436, 420 ]
+154 silly gunzTarPerm extractEntry exercises/http_uppercaserer/solution/solution.js
+155 silly gunzTarPerm modified mode [ 'exercises/http_uppercaserer/solution/solution.js', 436, 420 ]
+156 silly gunzTarPerm extractEntry exercises/baby_steps/exercise.js
+157 silly gunzTarPerm modified mode [ 'exercises/baby_steps/exercise.js', 436, 420 ]
+158 silly gunzTarPerm extractEntry exercises/baby_steps/problem.md
+159 silly gunzTarPerm modified mode [ 'exercises/baby_steps/problem.md', 436, 420 ]
+160 silly gunzTarPerm extractEntry exercises/baby_steps/solution/solution.js
+161 silly gunzTarPerm modified mode [ 'exercises/baby_steps/solution/solution.js', 436, 420 ]
+162 silly gunzTarPerm extractEntry exercises/hello_world/exercise.js
+163 silly gunzTarPerm modified mode [ 'exercises/hello_world/exercise.js', 436, 420 ]
+164 silly gunzTarPerm extractEntry exercises/hello_world/problem.md
+165 silly gunzTarPerm modified mode [ 'exercises/hello_world/problem.md', 436, 420 ]
+166 silly gunzTarPerm extractEntry exercises/hello_world/solution/solution.js
+167 silly gunzTarPerm modified mode [ 'exercises/hello_world/solution/solution.js', 436, 420 ]
+168 silly gunzTarPerm extractEntry exercises/http_client/exercise.js
+169 silly gunzTarPerm modified mode [ 'exercises/http_client/exercise.js', 436, 420 ]
+170 silly gunzTarPerm extractEntry exercises/http_client/problem.md
+171 silly gunzTarPerm modified mode [ 'exercises/http_client/problem.md', 436, 420 ]
+172 silly gunzTarPerm extractEntry exercises/http_client/solution/solution.js
+173 silly gunzTarPerm modified mode [ 'exercises/http_client/solution/solution.js', 436, 420 ]
+174 silly gunzTarPerm extractEntry exercises/http_collect/exercise.js
+175 silly gunzTarPerm modified mode [ 'exercises/http_collect/exercise.js', 436, 420 ]
+176 silly gunzTarPerm extractEntry exercises/http_collect/problem.md
+177 silly gunzTarPerm modified mode [ 'exercises/http_collect/problem.md', 436, 420 ]
+178 silly gunzTarPerm extractEntry exercises/http_collect/solution/solution.js
+179 silly gunzTarPerm modified mode [ 'exercises/http_collect/solution/solution.js', 436, 420 ]
+180 silly gunzTarPerm extractEntry exercises/http_file_server/exercise.js
+181 silly gunzTarPerm modified mode [ 'exercises/http_file_server/exercise.js', 436, 420 ]
+182 silly gunzTarPerm extractEntry exercises/http_file_server/problem.md
+183 silly gunzTarPerm modified mode [ 'exercises/http_file_server/problem.md', 436, 420 ]
+184 silly gunzTarPerm extractEntry exercises/http_file_server/solution/solution.js
+185 silly gunzTarPerm modified mode [ 'exercises/http_file_server/solution/solution.js', 436, 420 ]
+186 silly gunzTarPerm extractEntry exercises/http_json_api_server/exercise.js
+187 silly gunzTarPerm modified mode [ 'exercises/http_json_api_server/exercise.js', 436, 420 ]
+188 silly gunzTarPerm extractEntry exercises/http_json_api_server/problem.md
+189 silly gunzTarPerm modified mode [ 'exercises/http_json_api_server/problem.md', 436, 420 ]
+190 silly gunzTarPerm extractEntry exercises/http_json_api_server/solution/solution.js
+191 silly gunzTarPerm modified mode [ 'exercises/http_json_api_server/solution/solution.js',
+191 silly gunzTarPerm   436,
+191 silly gunzTarPerm   420 ]
+192 silly gunzTarPerm extractEntry exercises/filtered_ls/exercise.js
+193 silly gunzTarPerm modified mode [ 'exercises/filtered_ls/exercise.js', 436, 420 ]
+194 silly gunzTarPerm extractEntry exercises/filtered_ls/file-list.json
+195 silly gunzTarPerm modified mode [ 'exercises/filtered_ls/file-list.json', 436, 420 ]
+196 silly gunzTarPerm extractEntry exercises/filtered_ls/problem.md
+197 silly gunzTarPerm modified mode [ 'exercises/filtered_ls/problem.md', 436, 420 ]
+198 silly gunzTarPerm extractEntry exercises/filtered_ls/solution/solution.js
+199 silly gunzTarPerm modified mode [ 'exercises/filtered_ls/solution/solution.js', 436, 420 ]
+200 silly gunzTarPerm extractEntry exercises/juggling_async/exercise.js
+201 silly gunzTarPerm modified mode [ 'exercises/juggling_async/exercise.js', 436, 420 ]
+202 silly gunzTarPerm extractEntry exercises/juggling_async/problem.md
+203 silly gunzTarPerm modified mode [ 'exercises/juggling_async/problem.md', 436, 420 ]
+204 silly gunzTarPerm extractEntry exercises/juggling_async/solution/solution.js
+205 silly gunzTarPerm modified mode [ 'exercises/juggling_async/solution/solution.js', 436, 420 ]
+206 silly gunzTarPerm extractEntry exercises/make_it_modular/exercise.js
+207 silly gunzTarPerm modified mode [ 'exercises/make_it_modular/exercise.js', 436, 420 ]
+208 silly gunzTarPerm extractEntry exercises/make_it_modular/verify.js
+209 silly gunzTarPerm modified mode [ 'exercises/make_it_modular/verify.js', 436, 420 ]
+210 silly gunzTarPerm extractEntry exercises/make_it_modular/wrap-requires.js
+211 silly gunzTarPerm modified mode [ 'exercises/make_it_modular/wrap-requires.js', 436, 420 ]
+212 silly gunzTarPerm extractEntry exercises/make_it_modular/problem.md
+213 silly gunzTarPerm modified mode [ 'exercises/make_it_modular/problem.md', 436, 420 ]
+214 silly gunzTarPerm extractEntry exercises/make_it_modular/solution/solution.js
+215 silly gunzTarPerm modified mode [ 'exercises/make_it_modular/solution/solution.js', 436, 420 ]
+216 silly gunzTarPerm extractEntry exercises/make_it_modular/solution/solution_filter.js
+217 silly gunzTarPerm modified mode [ 'exercises/make_it_modular/solution/solution_filter.js',
+217 silly gunzTarPerm   436,
+217 silly gunzTarPerm   420 ]
+218 silly gunzTarPerm extractEntry exercises/menu.json
+219 silly gunzTarPerm modified mode [ 'exercises/menu.json', 436, 420 ]
+220 silly gunzTarPerm extractEntry exercises/my_first_async_io/exercise.js
+221 silly gunzTarPerm modified mode [ 'exercises/my_first_async_io/exercise.js', 436, 420 ]
+222 silly gunzTarPerm extractEntry exercises/my_first_async_io/problem.md
+223 silly gunzTarPerm modified mode [ 'exercises/my_first_async_io/problem.md', 436, 420 ]
+224 silly gunzTarPerm extractEntry exercises/my_first_async_io/solution/solution.js
+225 silly gunzTarPerm modified mode [ 'exercises/my_first_async_io/solution/solution.js', 436, 420 ]
+226 silly gunzTarPerm extractEntry exercises/my_first_io/exercise.js
+227 silly gunzTarPerm modified mode [ 'exercises/my_first_io/exercise.js', 436, 420 ]
+228 silly gunzTarPerm extractEntry exercises/my_first_io/wrap.js
+229 silly gunzTarPerm modified mode [ 'exercises/my_first_io/wrap.js', 436, 420 ]
+230 silly gunzTarPerm extractEntry exercises/my_first_io/problem.md
+231 silly gunzTarPerm modified mode [ 'exercises/my_first_io/problem.md', 436, 420 ]
+232 silly gunzTarPerm extractEntry exercises/my_first_io/solution/solution.js
+233 silly gunzTarPerm modified mode [ 'exercises/my_first_io/solution/solution.js', 436, 420 ]
+234 silly gunzTarPerm extractEntry exercises/time_server/exercise.js
+235 silly gunzTarPerm modified mode [ 'exercises/time_server/exercise.js', 436, 420 ]
+236 silly gunzTarPerm extractEntry exercises/time_server/setup.js
+237 silly gunzTarPerm modified mode [ 'exercises/time_server/setup.js', 436, 420 ]
+238 silly gunzTarPerm extractEntry exercises/time_server/problem.md
+239 silly gunzTarPerm modified mode [ 'exercises/time_server/problem.md', 436, 420 ]
+240 silly gunzTarPerm extractEntry exercises/time_server/solution/solution.js
+241 silly gunzTarPerm modified mode [ 'exercises/time_server/solution/solution.js', 436, 420 ]
+242 silly lockFile 924fab95-64740-0-5184216934721917-package tar:///home/nclsndr/tmp/npm-30229-K8fs5dmt/1412960864740-0.5184216934721917/package
+243 silly lockFile 924fab95-64740-0-5184216934721917-package tar:///home/nclsndr/tmp/npm-30229-K8fs5dmt/1412960864740-0.5184216934721917/package
+244 silly lockFile e90e93a1-64740-0-5184216934721917-tmp-tgz tar:///home/nclsndr/tmp/npm-30229-K8fs5dmt/1412960864740-0.5184216934721917/tmp.tgz
+245 silly lockFile e90e93a1-64740-0-5184216934721917-tmp-tgz tar:///home/nclsndr/tmp/npm-30229-K8fs5dmt/1412960864740-0.5184216934721917/tmp.tgz
+246 verbose tar pack [ '/home/nclsndr/.npm/learnyounode/1.0.3/package.tgz',
+246 verbose tar pack   '/home/nclsndr/tmp/npm-30229-K8fs5dmt/1412960864740-0.5184216934721917/package' ]
+247 verbose tarball /home/nclsndr/.npm/learnyounode/1.0.3/package.tgz
+248 verbose folder /home/nclsndr/tmp/npm-30229-K8fs5dmt/1412960864740-0.5184216934721917/package
+249 silly lockFile 924fab95-64740-0-5184216934721917-package tar:///home/nclsndr/tmp/npm-30229-K8fs5dmt/1412960864740-0.5184216934721917/package
+250 verbose lock tar:///home/nclsndr/tmp/npm-30229-K8fs5dmt/1412960864740-0.5184216934721917/package /home/nclsndr/.npm/924fab95-64740-0-5184216934721917-package.lock
+251 silly lockFile 56f8226c-m-learnyounode-1-0-3-package-tgz tar:///home/nclsndr/.npm/learnyounode/1.0.3/package.tgz
+252 verbose lock tar:///home/nclsndr/.npm/learnyounode/1.0.3/package.tgz /home/nclsndr/.npm/56f8226c-m-learnyounode-1-0-3-package-tgz.lock
+253 silly lockFile 924fab95-64740-0-5184216934721917-package tar:///home/nclsndr/tmp/npm-30229-K8fs5dmt/1412960864740-0.5184216934721917/package
+254 silly lockFile 924fab95-64740-0-5184216934721917-package tar:///home/nclsndr/tmp/npm-30229-K8fs5dmt/1412960864740-0.5184216934721917/package
+255 silly lockFile 56f8226c-m-learnyounode-1-0-3-package-tgz tar:///home/nclsndr/.npm/learnyounode/1.0.3/package.tgz
+256 silly lockFile 56f8226c-m-learnyounode-1-0-3-package-tgz tar:///home/nclsndr/.npm/learnyounode/1.0.3/package.tgz
+257 silly lockFile 4de2fdb8-r-npm-learnyounode-1-0-3-package /home/nclsndr/.npm/learnyounode/1.0.3/package
+258 verbose lock /home/nclsndr/.npm/learnyounode/1.0.3/package /home/nclsndr/.npm/4de2fdb8-r-npm-learnyounode-1-0-3-package.lock
+259 silly lockFile 4de2fdb8-r-npm-learnyounode-1-0-3-package /home/nclsndr/.npm/learnyounode/1.0.3/package
+260 silly lockFile 4de2fdb8-r-npm-learnyounode-1-0-3-package /home/nclsndr/.npm/learnyounode/1.0.3/package
+261 verbose tar unpack /home/nclsndr/.npm/learnyounode/1.0.3/package.tgz
+262 silly lockFile 0c9df5ed-r-npm-learnyounode-1-0-3-package tar:///home/nclsndr/.npm/learnyounode/1.0.3/package
+263 verbose lock tar:///home/nclsndr/.npm/learnyounode/1.0.3/package /home/nclsndr/.npm/0c9df5ed-r-npm-learnyounode-1-0-3-package.lock
+264 silly lockFile 56f8226c-m-learnyounode-1-0-3-package-tgz tar:///home/nclsndr/.npm/learnyounode/1.0.3/package.tgz
+265 verbose lock tar:///home/nclsndr/.npm/learnyounode/1.0.3/package.tgz /home/nclsndr/.npm/56f8226c-m-learnyounode-1-0-3-package-tgz.lock
+266 silly gunzTarPerm modes [ '755', '644' ]
+267 silly gunzTarPerm extractEntry package.json
+268 silly gunzTarPerm extractEntry .npmignore
+269 silly gunzTarPerm extractEntry README.md
+270 silly gunzTarPerm extractEntry LICENSE
+271 silly gunzTarPerm extractEntry credits.js
+272 silly gunzTarPerm extractEntry learnyounode.js
+273 silly gunzTarPerm extractEntry .jshintrc
+274 silly gunzTarPerm extractEntry exercises/http_uppercaserer/exercise.js
+275 silly gunzTarPerm extractEntry exercises/http_uppercaserer/problem.md
+276 silly gunzTarPerm extractEntry exercises/http_uppercaserer/solution/solution.js
+277 silly gunzTarPerm extractEntry exercises/baby_steps/exercise.js
+278 silly gunzTarPerm extractEntry exercises/baby_steps/problem.md
+279 silly gunzTarPerm extractEntry exercises/baby_steps/solution/solution.js
+280 silly gunzTarPerm extractEntry exercises/hello_world/exercise.js
+281 silly gunzTarPerm extractEntry exercises/hello_world/problem.md
+282 silly gunzTarPerm extractEntry exercises/hello_world/solution/solution.js
+283 silly gunzTarPerm extractEntry exercises/http_client/exercise.js
+284 silly gunzTarPerm extractEntry exercises/http_client/problem.md
+285 silly gunzTarPerm extractEntry exercises/http_client/solution/solution.js
+286 silly gunzTarPerm extractEntry exercises/http_collect/exercise.js
+287 silly gunzTarPerm extractEntry exercises/http_collect/problem.md
+288 silly gunzTarPerm extractEntry exercises/http_collect/solution/solution.js
+289 silly gunzTarPerm extractEntry exercises/http_file_server/exercise.js
+290 silly gunzTarPerm extractEntry exercises/http_file_server/problem.md
+291 silly gunzTarPerm extractEntry exercises/http_file_server/solution/solution.js
+292 silly gunzTarPerm extractEntry exercises/http_json_api_server/exercise.js
+293 silly gunzTarPerm extractEntry exercises/http_json_api_server/problem.md
+294 silly gunzTarPerm extractEntry exercises/http_json_api_server/solution/solution.js
+295 silly gunzTarPerm extractEntry exercises/filtered_ls/exercise.js
+296 silly gunzTarPerm extractEntry exercises/filtered_ls/file-list.json
+297 silly gunzTarPerm extractEntry exercises/filtered_ls/problem.md
+298 silly gunzTarPerm extractEntry exercises/filtered_ls/solution/solution.js
+299 silly gunzTarPerm extractEntry exercises/juggling_async/exercise.js
+300 silly gunzTarPerm extractEntry exercises/juggling_async/problem.md
+301 silly gunzTarPerm extractEntry exercises/juggling_async/solution/solution.js
+302 silly gunzTarPerm extractEntry exercises/make_it_modular/exercise.js
+303 silly gunzTarPerm extractEntry exercises/make_it_modular/verify.js
+304 silly gunzTarPerm extractEntry exercises/make_it_modular/wrap-requires.js
+305 silly gunzTarPerm extractEntry exercises/make_it_modular/problem.md
+306 silly gunzTarPerm extractEntry exercises/make_it_modular/solution/solution.js
+307 silly gunzTarPerm extractEntry exercises/make_it_modular/solution/solution_filter.js
+308 silly gunzTarPerm extractEntry exercises/menu.json
+309 silly gunzTarPerm extractEntry exercises/my_first_async_io/exercise.js
+310 silly gunzTarPerm extractEntry exercises/my_first_async_io/problem.md
+311 silly gunzTarPerm extractEntry exercises/my_first_async_io/solution/solution.js
+312 silly gunzTarPerm extractEntry exercises/my_first_io/exercise.js
+313 silly gunzTarPerm extractEntry exercises/my_first_io/wrap.js
+314 silly gunzTarPerm extractEntry exercises/my_first_io/problem.md
+315 silly gunzTarPerm extractEntry exercises/my_first_io/solution/solution.js
+316 silly gunzTarPerm extractEntry exercises/time_server/exercise.js
+317 silly gunzTarPerm extractEntry exercises/time_server/setup.js
+318 silly gunzTarPerm extractEntry exercises/time_server/problem.md
+319 silly gunzTarPerm extractEntry exercises/time_server/solution/solution.js
+320 silly gunzTarPerm extractEntry help.txt
+321 silly gunzTarPerm extractEntry credits.txt
+322 silly gunzTarPerm extractEntry lib/rndport.js
+323 silly gunzTarPerm extractEntry node_apidoc/index.html
+324 silly gunzTarPerm extractEntry node_apidoc/_toc.html
+325 silly gunzTarPerm extractEntry node_apidoc/all.html
+326 silly gunzTarPerm extractEntry node_apidoc/assert.html
+327 silly gunzTarPerm extractEntry node_apidoc/assets/sh.css
+328 silly gunzTarPerm extractEntry node_apidoc/assets/style.css
+329 silly gunzTarPerm extractEntry node_apidoc/buffer.html
+330 silly gunzTarPerm extractEntry node_apidoc/child_process.html
+331 silly gunzTarPerm extractEntry node_apidoc/cluster.html
+332 silly gunzTarPerm extractEntry node_apidoc/console.html
+333 silly gunzTarPerm extractEntry node_apidoc/crypto.html
+334 silly gunzTarPerm extractEntry node_apidoc/debugger.html
+335 silly gunzTarPerm extractEntry node_apidoc/dgram.html
+336 silly gunzTarPerm extractEntry node_apidoc/dns.html
+337 silly gunzTarPerm extractEntry node_apidoc/documentation.html
+338 silly gunzTarPerm extractEntry node_apidoc/domain.html
+339 silly gunzTarPerm extractEntry node_apidoc/events.html
+340 silly gunzTarPerm extractEntry node_apidoc/fs.html
+341 silly gunzTarPerm extractEntry node_apidoc/globals.html
+342 silly gunzTarPerm extractEntry node_apidoc/http.html
+343 silly gunzTarPerm extractEntry node_apidoc/https.html
+344 silly gunzTarPerm extractEntry node_apidoc/addons.html
+345 silly gunzTarPerm extractEntry node_apidoc/modules.html
+346 silly gunzTarPerm extractEntry node_apidoc/net.html
+347 silly gunzTarPerm extractEntry node_apidoc/os.html
+348 silly gunzTarPerm extractEntry node_apidoc/path.html
+349 silly gunzTarPerm extractEntry node_apidoc/process.html
+350 silly gunzTarPerm extractEntry node_apidoc/punycode.html
+351 silly gunzTarPerm extractEntry node_apidoc/querystring.html
+352 silly gunzTarPerm extractEntry node_apidoc/readline.html
+353 silly gunzTarPerm extractEntry node_apidoc/repl.html
+354 silly gunzTarPerm extractEntry node_apidoc/stream.html
+355 silly gunzTarPerm extractEntry node_apidoc/string_decoder.html
+356 silly gunzTarPerm extractEntry node_apidoc/synopsis.html
+357 silly gunzTarPerm extractEntry node_apidoc/timers.html
+358 silly gunzTarPerm extractEntry node_apidoc/tls.html
+359 silly gunzTarPerm extractEntry node_apidoc/tty.html
+360 silly gunzTarPerm extractEntry node_apidoc/url.html
+361 silly gunzTarPerm extractEntry node_apidoc/util.html
+362 silly gunzTarPerm extractEntry node_apidoc/vm.html
+363 silly gunzTarPerm extractEntry node_apidoc/zlib.html
+364 silly gunzTarPerm extractEntry docs/bl.html
+365 silly gunzTarPerm extractEntry docs/concat-stream.html
+366 silly gunzTarPerm extractEntry docs/through2-map.html
+367 silly lockFile 0c9df5ed-r-npm-learnyounode-1-0-3-package tar:///home/nclsndr/.npm/learnyounode/1.0.3/package
+368 silly lockFile 0c9df5ed-r-npm-learnyounode-1-0-3-package tar:///home/nclsndr/.npm/learnyounode/1.0.3/package
+369 silly lockFile 56f8226c-m-learnyounode-1-0-3-package-tgz tar:///home/nclsndr/.npm/learnyounode/1.0.3/package.tgz
+370 silly lockFile 56f8226c-m-learnyounode-1-0-3-package-tgz tar:///home/nclsndr/.npm/learnyounode/1.0.3/package.tgz
+371 verbose chmod /home/nclsndr/.npm/learnyounode/1.0.3/package.tgz 644
+372 verbose chown /home/nclsndr/.npm/learnyounode/1.0.3/package.tgz [ 1000, 1000 ]
+373 silly lockFile 8b85195b-rnyounode-learnyounode-1-0-3-tgz https://registry.npmjs.org/learnyounode/-/learnyounode-1.0.3.tgz
+374 silly lockFile 8b85195b-rnyounode-learnyounode-1-0-3-tgz https://registry.npmjs.org/learnyounode/-/learnyounode-1.0.3.tgz
+375 silly lockFile bb669780-learnyounode-1-0-3 learnyounode@1.0.3
+376 silly lockFile bb669780-learnyounode-1-0-3 learnyounode@1.0.3
+377 silly lockFile a353de34-learnyounode learnyounode@
+378 silly lockFile a353de34-learnyounode learnyounode@
+379 silly resolved [ { name: 'learnyounode',
+379 silly resolved     version: '1.0.3',
+379 silly resolved     description: 'Learn You The Node.js For Much Win! An intro to Node.js via a set of self-guided workshops.',
+379 silly resolved     author:
+379 silly resolved      { name: 'Rod Vagg',
+379 silly resolved        email: 'rod@vagg.org',
+379 silly resolved        url: 'https://github.com/rvagg' },
+379 silly resolved     contributors: [ [Object], [Object], [Object], [Object], [Object], [Object] ],
+379 silly resolved     repository:
+379 silly resolved      { type: 'git',
+379 silly resolved        url: 'https://github.com/rvagg/learnyounode.git' },
+379 silly resolved     license: 'MIT',
+379 silly resolved     dependencies:
+379 silly resolved      { workshopper: '^1.0.0-alpha05',
+379 silly resolved        'workshopper-exercise': '^0.2.2',
+379 silly resolved        'workshopper-wrappedexec': '^0.1.1',
+379 silly resolved        'workshopper-boilerplate': '0.0.1',
+379 silly resolved        'concat-stream': '^1.4.1',
+379 silly resolved        duplexer: '^0.1.1',
+379 silly resolved        through: '^2.3.4',
+379 silly resolved        boganipsum: '^0.1.0',
+379 silly resolved        hyperquest: '^0.2.0',
+379 silly resolved        bl: '^0.7.0',
+379 silly resolved        'through2-map': '^1.2.1',
+379 silly resolved        'colors-tmpl': '^0.1.0',
+379 silly resolved        after: '^0.8.1',
+379 silly resolved        rimraf: '^2.2.6',
+379 silly resolved        chalk: '^0.4.0',
+379 silly resolved        through2: '^0.4.1' },
+379 silly resolved     bin: { learnyounode: './learnyounode.js' },
+379 silly resolved     preferGlobal: true,
+379 silly resolved     readme: '# Learn You The Node.js For Much Win!\n\n**An intro to Node.js via a set of self-guided workshops.**\n\n[![NPM](https://nodei.co/npm/learnyounode.png?downloads=true&&downloadRank=true&stars=true)](https://nodei.co/npm/learnyounode/) [![NPM](https://nodei.co/npm-dl/learnyounode.png?months=3&height=3)](https://nodei.co/npm/learnyounode/)\n\n![Learn You The Node.js For Much Win!](https://raw.github.com/rvagg/learnyounode/master/learnyounode.png)\n\n  1. Install [Node.js](http://nodejs.org/)\n  2. Run `sudo npm install learnyounode -g`\n  3. Run `learnyounode`\n  4. **.. profit!**\n\n<b><code>learnyounode</code></b> will run through a series of Node.js workshops. Starting at a basic *"HELLO WORLD"* and moving on to more advanced exercises about dealing with synchronous & asynchronous I/O, filesystem operations, TCP and HTTP networking, events and streams.\n\nOnce you have finished <b><code>learnyounode</code></b>, graduate to <b><code>[stream-adventure](https://github.com/substack/stream-adventure)</code></b> for a set of exercises that dig in to Node\'s streams.\n\n### Contributors\n\n<b><code>learnyounode</code></b> is proudly brought to you by the following hackers:\n\n<table><tbody>\n<tr><th align="left">Rod Vagg</th><td><a href="https://github.com/rvagg">GitHub/rvagg</a></td><td><a href="http://twitter.com/rvagg">Twitter/@rvagg</a></td></tr>\n<tr><th align="left">Andrey Sidorov</th><td><a href="https://github.com/sidorares">GitHub/sidorares</a></td><td><a href="http://twitter.com/sidorares">Twitter/@sidorares</a></td></tr>\n<tr><th align="left">Julián Duque</th><td><a href="https://github.com/julianduque">GitHub/julianduque</a></td><td><a href="http://twitter.com/julian_duque">Twitter/@julian_duque</a></td></tr>\n<tr><th align="left">Lars-Magnus Skog</th><td><a href="https://github.com/ralphtheninja">GitHub/ralphtheninja</a></td><td><a href="http://twitter.com/ralphtheninja">Twitter/@ralphtheninja</a></td></tr>\n<tr><th align="left">Tim Inman</th><td><a href="https://github.com/thehack">GitHub/thehack</a></td><td><a href="http://twitter.com/timinman">Twitter/@timinman</a></td></tr>\n<tr><th align="left">Dan Flettre</th><td><a href="https://github.com/Flet">GitHub/Flet</a></td><td><a href="http://twitter.com/flettre">Twitter/@flettre</a></td></tr>\n</tbody></table>\n\n## License\n\n**learnyounode** is Copyright (c) 2013 Rod Vagg [@rvagg](https://twitter.com/rvagg) and licenced under the MIT licence. All rights not explicitly granted in the MIT license are reserved. See the included LICENSE file for more details.\n\n**learnyounode** builds on the excellent work by [@substack](https://github.com/substack) and [@maxogden](https://github.com/maxogden) who created **[stream-adventure](https://github.com/substack/stream-adventure)** which serves as the original foundation for **learnyounode**.\n',
+379 silly resolved     readmeFilename: 'README.md',
+379 silly resolved     bugs: { url: 'https://github.com/rvagg/learnyounode/issues' },
+379 silly resolved     homepage: 'https://github.com/rvagg/learnyounode',
+379 silly resolved     _id: 'learnyounode@1.0.3',
+379 silly resolved     dist: { shasum: '525e539e18fc13b70a51943613e39385efead7f9' },
+379 silly resolved     _from: 'learnyounode@',
+379 silly resolved     _resolved: 'https://registry.npmjs.org/learnyounode/-/learnyounode-1.0.3.tgz' } ]
+380 info install learnyounode@1.0.3 into /usr/local/lib
+381 info installOne learnyounode@1.0.3
+382 info /usr/local/lib/node_modules/learnyounode unbuild
+383 info preuninstall learnyounode@1.0.3
+384 info uninstall learnyounode@1.0.3
+385 verbose true,/usr/local/lib/node_modules,/usr/local/lib/node_modules unbuild learnyounode@1.0.3
+386 verbose /usr/local/bin,[object Object] binRoot
+387 info /usr/local/lib/node_modules/learnyounode unbuild
+388 info preuninstall learnyounode@1.0.3
+389 info uninstall learnyounode@1.0.3
+390 verbose true,/usr/local/lib/node_modules,/usr/local/lib/node_modules unbuild learnyounode@1.0.3
+391 verbose /usr/local/bin,[object Object] binRoot
+392 error error rolling back Error: EACCES, unlink '/usr/local/bin/learnyounode'
+392 error error rolling back  learnyounode@1.0.3 { [Error: EACCES, unlink '/usr/local/bin/learnyounode']
+392 error error rolling back   stack: 'Error: EACCES, unlink \'/usr/local/bin/learnyounode\'',
+392 error error rolling back   errno: -13,
+392 error error rolling back   code: 'EACCES',
+392 error error rolling back   path: '/usr/local/bin/learnyounode' }
+393 error Error: EACCES, unlink '/usr/local/bin/learnyounode'
+393 error  { [Error: EACCES, unlink '/usr/local/bin/learnyounode']
+393 error   stack: 'Error: EACCES, unlink \'/usr/local/bin/learnyounode\'',
+393 error   errno: -13,
+393 error   code: 'EACCES',
+393 error   path: '/usr/local/bin/learnyounode' }
+394 error Please try running this command again as root/Administrator.
+395 error System Linux 3.2.0-4-amd64
+396 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install" "-g" "learnyounode"
+397 error cwd /var/www/mmm/meetmymusic/app
+398 error node -v v0.11.12-pre
+399 error npm -v 1.4.3
+400 error path /usr/local/bin/learnyounode
+401 error code EACCES
+402 error errno -13
+403 error stack Error: EACCES, unlink '/usr/local/bin/learnyounode'
+404 verbose exit [ -13, true ]
