@@ -86,7 +86,7 @@ class AppController extends Controller {
         
         parent::beforeRender();
         // getAngular($suffix = 'ng', $release='1.2.26', $lib = true, $route=false, $ressource=false, $loader=false, $animate=false)
-        $angularUrls = $this->Ressources->getAngular('ng','1.2.26',true,true,true,true,true);
+        $angularUrls = $this->Ressources->getAngular('ng', 'meetmymusic.js','1.2.26',true,true,true,true,true);
         $this->set('angularUrls', $angularUrls);
 
     }

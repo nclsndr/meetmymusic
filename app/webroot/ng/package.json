@@ -1,0 +1,10 @@
+{
+  "name": "Meet My Music",
+  "description": "A new app to discover world's music and people",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "4.x",
+    "socket-io":"1.x"
+  }
+}

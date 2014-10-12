@@ -500,3 +500,52 @@ Request URL: /var/www/mmm/meetmymusic/app/webroot/ng/meetmymusic.js
 Stack Trace:
 #0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2014-10-11 17:54:35 Error: [MissingControllerException] Controller class Socket.ioController could not be found.
+Exception Attributes: array (
+  'class' => 'Socket.ioController',
+  'plugin' => NULL,
+)
+Request URL: /socket.io/socket.io.js
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-12 19:33:26 Error: Fatal Error (4): syntax error, unexpected '}' in [/var/www/mmm/meetmymusic/app/Controller/Component/RessourcesComponent.php, line 45]
+2014-10-12 19:33:26 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/mmm/me...', 45)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/mmm/me...', 45, Array)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/mmm/me...', 45, Array)
+#3 /var/www/mmm/meetmymusic/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-12 20:23:32 Error: Fatal Error (4): syntax error, unexpected '$libs' (T_VARIABLE) in [/var/www/mmm/meetmymusic/app/Controller/Component/RessourcesComponent.php, line 18]
+2014-10-12 20:23:32 Error: [FatalErrorException] syntax error, unexpected '$libs' (T_VARIABLE)
+Request URL: /
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/mmm/me...', 18)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/mmm/me...', 18, Array)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/mmm/me...', 18, Array)
+#3 /var/www/mmm/meetmymusic/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-12 20:25:00 Error: Fatal Error (4): syntax error, unexpected '$libs' (T_VARIABLE) in [/var/www/mmm/meetmymusic/app/Controller/Component/RessourcesComponent.php, line 18]
+2014-10-12 20:25:00 Error: [FatalErrorException] syntax error, unexpected '$libs' (T_VARIABLE)
+Request URL: /
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/mmm/me...', 18)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/mmm/me...', 18, Array)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/mmm/me...', 18, Array)
+#3 /var/www/mmm/meetmymusic/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-12 21:01:00 Error: Fatal Error (4): syntax error, unexpected '}' in [/var/www/mmm/meetmymusic/app/Controller/Component/RessourcesComponent.php, line 62]
+2014-10-12 21:01:00 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/mmm/me...', 62)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/mmm/me...', 62, Array)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/mmm/me...', 62, Array)
+#3 /var/www/mmm/meetmymusic/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

@@ -11,7 +11,6 @@ class PagesController extends AppController {
  */
 	public $uses = ['User'];
 
-
 	public function landing() {
 		
 	}

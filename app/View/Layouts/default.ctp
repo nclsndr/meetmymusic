@@ -14,7 +14,7 @@
 			
 		?>
     </head>
-    <body>
+    <body ng-app="mmmApp">
     	<div class="container">
     		<?php echo $this->fetch('content'); ?>
     	</div>
@@ -26,6 +26,19 @@
     	}
         echo $this->fetch('script');
      ?>
+     <?php 
+     // <script type="text/javascript" src="//code.angularjs.org/1.2.26/angular.min.js"></script>
+     // <script type="text/javascript" src="//code.angularjs.org/1.2.26/angular-route.min.js"></script>
+     // <script type="text/javascript" src="//code.angularjs.org/1.2.26/angular-resource.min.js"></script>
+     // <script type="text/javascript" src="//code.angularjs.org/1.2.26/angular-loader.min.js"></script>
+     // <script type="text/javascript" src="//code.angularjs.org/1.2.26/angular-animate.min.js"></script>
+     // <script type="text/javascript" src="/ng/meetmymusic.js"></script>
+     // <script type="text/javascript" src="/ng/services/SocketFactory.js"></script>
+     // <script type="text/javascript" src="/ng/controllers/DebugCtrl.js"></script>
+     // <script type="text/javascript" src="/ng/modules/socket.js"></script>
+      ?>
+    
+    
      <?php 
      	// Dump SQL pour le dev
      	echo $this->element('sql_dump');

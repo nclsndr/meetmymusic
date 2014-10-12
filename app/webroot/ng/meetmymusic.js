@@ -1,15 +1,18 @@
-var mmmApp = angular.module('mmmApp', ['ngRoute', 'ngResource']);
+'use strict';
+
+var mmmApp = angular.module('mmmApp', ['ngRoute', 'ngResource', 'btford.socket-io']);
 
 
-mmmApp.config(['$routeProvider', '$locationProvider',
-    function ($routeProvider, $locationProvider) {
+mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider',
+    function ($routeProvider, $locationProvider, $sceDelegateProvider) {
    
-    // var partialsF = '/ng/partials'
-    // $routeProvider
-    // .when('/users/login', {
-    //     templateUrl: partialsF+'/login.html',
-    //     controller: 'UsersCtrl'
-    // })
+    console.log();
+    var partialsF = 'http://mmm.nclsndr.fr/ng/partials'
+    $routeProvider
+    .when('/', {
+        templateUrl: partialsF+'/debug.html',
+        controller: 'DebugCtrl'
+    })
     // .when('/', {
     //     templateUrl: partialsF+'/dashboard.html',
     //     controller: 'DashboardCtrl',
@@ -37,4 +40,34 @@ mmmApp.config(['$routeProvider', '$locationProvider',
   //   templateUrl: 'chapter.html',
   //   controller: 'ChapterController'
   // });
+    
+    $sceDelegateProvider.resourceUrlWhitelist([
+        // Allow same origin resource loads.
+        'self',
+        // Allow loading from our assets domain.  Notice the difference between * and **.
+        'http://mmm.nclsndr.fr/**'
+    ]);
+
+    // $sceDelegateProvider.resourceUrlBlacklist([
+    //     'http://myapp.example.com/clickThru**'
+    // ]);
 }]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
