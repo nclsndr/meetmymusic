@@ -13,6 +13,10 @@ mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider',
         templateUrl: partialsF+'/debug.html',
         controller: 'DebugCtrl'
     })
+    .when('/login', {
+        templateUrl: partialsF+'/login.html',
+        controller: 'UserCtrl'
+    })
     // .when('/', {
     //     templateUrl: partialsF+'/dashboard.html',
     //     controller: 'DashboardCtrl',
