@@ -2,42 +2,40 @@
 /**
 * 
 */
+App::uses('AppController', 'Controller');
+
+
 class UsersController extends AppController
 {
+
+// —————————————————————————————————————————————————————————————————————————————————————  CAKE CORE FUNCTIONS
+	/**
+	 * beforeFilter callback
+	 *
+	 * @return void
+	 */
+		public function beforeFilter() {
+			parent::beforeFilter();
+			$this->Auth->allow('admin_login');
+		}
+	
+
+// —————————————————————————————————————————————————————————————————————————————————————  VISITORS FUNCTIONS
 	
 	public function login(){
-		// debug($this->request->method());
-		// die();
-		if ($this->request->is('angular')) {
+		if (!empty($this->request->data)) {
 			$data['User'] = $this->request->data;
 			if ($this->Auth->login($data)) {
 				$user = $this->generateToken($data, false);
 				return new CakeResponse(array('body' => json_encode($user)));
 			}else{
-				echo '[{error : une erreur est survenue}]';
-				return;
+				$error = ['error'=>'une erreur est survenue'];
+				return new CakeResponse(array('body' => json_encode('ok')));
 			}
-		}
-		if($this->request->data) {
-			$data = $this->request->data;
-
-			if($this->Auth->login()){
-
-				$user = $this->Auth->User();
-				$token = $this->generateToken($user);
-				$this->Session->setFlash('Vous êtes connecté(e)', 'flash_lustou', array('class' => 'succes'));
-
-			}else{
-				$this->Session->setFlash('Votre identifiant ou mot de passe n\'est pas valide', 'flash_lustou', array('class' => 'error'));
-			}
-			
 		}else{
-			return false;
+			$error = ['error'=>'une erreur est survenue'];
+			return new CakeResponse(array('body' => json_encode('ok')));
 		}
-	}
-
-	public function admin_login(){
-		return $this->redirect(array('controller'=>'users', 'action'=>'login', 'admin'=>false));
 	}
 
 	public function logout(){
@@ -106,6 +104,71 @@ class UsersController extends AppController
 			}
 		}
 	}
+// —————————————————————————————————————————————————————————————————————————————————————  ADMIN FUNCTIONS
+	public function admin_login(){
+		$auth = $this->Auth->User();
+		if (!empty($auth)) {
+			$this->Session->setFlash('Vous êtes déjà connecté(e)', 'flash_bck',array('class' => 'info'));
+		}
+		if($this->request->data) {
+			$data = $this->request->data;
+			if($this->Auth->login()){
+				$user = $this->Auth->User();
+				$token = $this->generateToken($user);
+				$this->Session->setFlash('Vous êtes connecté(e)', 'flash_bck', array('class' => 'success'));
+			}else{
+				$this->Session->setFlash('Votre identifiant ou mot de passe n\'est pas valide', 'flash_bck', array('class' => 'error'));
+			}
+		}else{
+			return false;
+		}
+	}
+
+	public function admin_logout(){
+		$user = $this->Auth->User();
+		$this->deleteToken($user['id']);
+		$this->Session->write('User', false);
+		$this->Auth->logout();
+		return true;
+	}
+
+	public function admin_edit($id=null){
+		if ($this->request->data) {
+			$data=$this->request->data;
+			if (!empty($data['User']['id'])) {
+				$this->User->id=$data['User']['id'];
+			}
+			$this->User->create();
+			$data['User']['password'] = $this->Auth->password($data['User']['password']);
+			if($this->User->save($data, false)){
+				$this->Session->setFlash('Enregistrement terminé', 'flash_bck', array('class' => 'success'));
+			}else{
+				$this->Session->setFlash('Enregistrement échoué', 'flash_bck', array('class' => 'error'));
+			}
+			
+		}
+
+		if ($id!=null) {
+			$res = $this->User->find('first', array(
+					'conditions'=>array('User.id'=>$id)
+				));	
+			if ($res!=null) {
+				$res['User']['password']='';
+				$this->request->data = $res;
+			}else{
+				return $this->redirect(array('controller'=>'users', 'action'=>'admin_index'));
+			}
+			
+		}
+	}
+
+
+
+
+// —————————————————————————————————————————————————————————————————————————————————————  GENERAL FUNCTIONS
+
+
+
 
 	protected function generateToken($data, $token_only=false){
 		

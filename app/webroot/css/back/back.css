@@ -1,0 +1,53 @@
+.flash_msg{
+
+}
+.flash_msg section{
+	margin: 30px;
+	padding: 20px;
+	opacity: .6;
+	color: #FFF;
+	background: #333;
+}
+.flash_msg section.success{
+	background: #16CC8D;
+}
+.flash_msg section.error{
+	background: #C90E13;
+}
+.flash_msg section p{
+	text-align: center;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	letter-spacing: .04rem;
+}
+
+.container{
+	padding-top: 50px;
+}
+.container h1{
+	text-transform: uppercase;
+	margin-bottom: 1rem;
+	border-bottom: 1px solid #555;
+}
+
+.nav_bck{
+	width: 100%;
+	background: #333;
+	position: fixed;
+	z-index: 1000;
+}
+.nav_bck .items li{
+	display: inline-block;;
+	border-left: 1px solid #555;
+}
+.nav_bck .items li:last-child{
+	border-right: 1px solid #555;
+}
+.nav_bck .items li a{
+	display: block;
+	padding: 10px;
+	color: #FFF;
+}
+.nav_bck .items li a:hover{
+	background: #444;
+}

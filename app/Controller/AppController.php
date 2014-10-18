@@ -52,8 +52,8 @@ class AppController extends Controller {
                 )
             )
         ),
-        // 'logoutRedirect' => array('/'),
-        'loginRedirect' => array('controller'=> 'dashboard', 'action' => 'index'),
+        'logoutRedirect' => array('controller'=> 'users', 'action' => 'login', 'admin'=>true),
+        // 'loginRedirect' => array('controller'=> 'dashboard', 'action' => 'index'),
         'authorize' => array('Controller')
         ),
         'Ressources'
@@ -75,6 +75,12 @@ class AppController extends Controller {
             'env' => 'HTTP_INIREQUESTAJAX',
             'value' => 'angular request'
         ));
+
+        if($this->Auth->user()){
+            $this->set('authUser',$this->Auth->user());
+        }else{
+            $this->set('authUser',false);
+        }
 	}
 
     /**
@@ -86,9 +92,16 @@ class AppController extends Controller {
         
         parent::beforeRender();
         // getAngular($suffix = 'ng', $release='1.2.26', $lib = true, $route=false, $ressource=false, $loader=false, $animate=false)
-        $angularUrls = $this->Ressources->getAngular('ng', 'meetmymusic.js','1.2.26',true,true,true,true,true);
-        $this->set('angularUrls', $angularUrls);
+        // $angularUrls = $this->Ressources->getAngular('ng', 'meetmymusic.js','1.2.26',true,true,true,true,true);
+        // $this->set('angularUrls', $angularUrls);
+    }
 
+    public function isAuthorized($user) {
+        
+        if (isset($user['role']) && $user['role'] === 'admin') {
+            return true;
+        }
+        return false;
     }
     
 	
