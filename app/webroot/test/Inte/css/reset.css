@@ -54,9 +54,26 @@ table {
 .human{
 	padding: 1rem;
 }
-.clearfix{
-	clear: both;
-	zoom:1;
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+ 
+.clearfix {
+    display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+    display: block;
+}
+ 
+* html .clearfix {
+    height: 1%;
 }
 
 .flr{

@@ -14,51 +14,49 @@
         <link rel="stylesheet" href="css/media.css">
     </head>
     <body>
-        <div id="loginPage">
-            <div id="centerLogin">
-                <header>
-                    <a href="#"><img src="images/logo.png" alt="Logo MMM" class="animated flipInY"></a>
-                    <h1 class="animated fadeInUp">MEET MY MUSIC</h1>
-                    <p class="animated fadeIn"><span>Come and share thousands of songs with </span> <span> users around the world.</span></p>
-                    <div class="animated zoomIn"></div>
-                </header>
-                
-                <p class="clearfix registerElem animated fadeIn">Please log in first to your SoundCloud account</p>
+        <div class="loginPage">
+            <header>
+                <a href="#"><img src="images/logo.png" alt="Logo MMM" class="animated flipInY"></a>
+                <h1 class="animated fadeInUp">MEET MY MUSIC</h1>
+                <p class="animated fadeIn"><span>Come and share thousands of songs with </span> <span> users around the world.</span></p>
+                <div class="animated zoomIn"></div>
+            </header>
+            
+            <p class="clearfix registerElem animated fadeIn">Please log in first to your SoundCloud account</p>
 
-                <div id="soundCloudConnect">
-                    <div></div>
-                    <div><b>SoundCloud</b> connect</div>
-                </div>
-
-                <!-- Login Form -->
-                <form action="" id="loginForm" class="animated fadeIn connectElem">
-                    <input type="text" name="login" placeholder="Login" required/>
-                    <input type="password" name="password" placeholder="Password" required/>
-                    <input type="submit">
-                </form>
-
-                <!-- Register Form -->
-                <form action="" id="registerForm" class="animated fadeIn">
-                    <input type="text" name="api_id" class="hide" disabled="disabled"> 
-                    <input type="text" name="username" placeholder="Username"> 
-                    <input type="text" name="password" placeholder="Password"> 
-                    <input type="email" name="mail" placeholder="Mail"> 
-                    <input type="text" name="name" placeholder="Name"> 
-                    <input type="text" name="tel" placeholder="Phone"> 
-                </form>
-
-                <a href="javascript:void(0);" id="accountBtn">Create an account</a> <br>
-
-                <a href="javascript:void(0);" id="loginSubmitBtn" class="ghostButton connectElem">
-                    <span class="invert"></span>
-                    <span class="text">Log In</span>
-                </a>
-
-                <a href="javascript:void(0);" id="registerSubmitBtn" class="ghostButton registerElem">
-                    <span class="invert"></span>
-                    <span class="text">Create an account</span>
-                </a>
+            <div id="soundCloudConnect">
+                <div></div>
+                <div><b>SoundCloud</b> connect</div>
             </div>
+
+            <!-- Login Form -->
+            <form action="" id="loginForm" class="animated fadeIn connectElem">
+                <input type="text" name="login" placeholder="Login" required/>
+                <input type="password" name="password" placeholder="Password" required/>
+                <input type="submit">
+            </form>
+
+            <!-- Register Form -->
+            <form action="" id="registerForm" class="animated fadeIn">
+                <input type="text" name="api_id" class="hide" disabled="disabled"> 
+                <input type="text" name="username" placeholder="Username"> 
+                <input type="text" name="password" placeholder="Password"> 
+                <input type="email" name="mail" placeholder="Mail"> 
+                <input type="text" name="name" placeholder="Name"> 
+                <input type="text" name="tel" placeholder="Phone"> 
+            </form>
+
+            <a href="javascript:void(0);" id="accountBtn">Create an account</a> 
+
+            <a href="javascript:void(0);" id="loginSubmitBtn" class="ghostButton connectElem">
+                <span class="invert"></span>
+                <span class="text">Log In</span>
+            </a>
+
+            <a href="javascript:void(0);" id="registerSubmitBtn" class="ghostButton registerElem">
+                <span class="invert"></span>
+                <span class="text">Create an account</span>
+            </a>
         </div>
         <script type="text/javascript" src="js/login.js"></script>
     </body>

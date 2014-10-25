@@ -51,9 +51,50 @@ a {
     }
 }
 
+.ghostButton {
+	display : block;
+	margin : auto;
+	clear : both;
+	border : 2px solid white;	
+	width : 160px;
+	text-transform : uppercase;
+	position  : relative;
+	color : white;
+	text-align:center;
+
+	.invert {
+		top: 0;
+		left: 0;
+		background: #fff;
+		color: black;
+		width: 0px;
+		height: 100%;
+		opacity: 1;
+		position: absolute;
+		@include transition(all, 0.3s, ease-in-out);
+	}
+	.text {
+		text-align: center;
+		width: 100%;
+		height: 40px;
+		line-height: 40px;
+		@include transition(all, 0.2s, ease-in-out);
+		position: relative;
+		z-index: 1;
+	}
+
+	&:hover {
+		.invert {
+			width : 100%;
+		}
+		.text {
+			color : black;
+		}
+	}
+}
 
 /* --------------- LOGIN PAGE --------------- */
-#loginPage {
+.loginPage {
 	background : url(../images/loginBg.jpg) no-repeat center fixed;
 	background-size : cover;
 	width:  100%;
@@ -92,6 +133,9 @@ a {
 			font-family : $titleFont;
 			font-weight : normal;
 			font-size : 2.2rem;
+			&:hover {
+				 
+			}
 		}
 		p {
 			text-align : center;
@@ -159,6 +203,9 @@ a {
 			}
 		}
 	}
+	#loginSubmitBtn, #registerSubmitBtn {
+		margin-top : 30px;
+	}
 	form {
 		width : 90%;
 		max-width : 250px;
@@ -194,45 +241,6 @@ a {
 	#accountBtn {
 		margin-top : 20px;
 	}
-	.ghostButton {
-		display : block;
-		margin : auto;
-		margin-top : 20px;
-		border : 2px solid white;	
-		width : 160px;
-		text-transform : uppercase;
-		position  : relative;
-
-		.invert {
-			top: 0;
-			left: 0;
-			background: #fff;
-			color: black;
-			width: 0px;
-			height: 100%;
-			opacity: 1;
-			position: absolute;
-			@include transition(all, 0.6s, ease-in-out);
-		}
-		.text {
-			text-align: center;
-			width: 100%;
-			height: 40px;
-			line-height: 40px;
-			@include transition(all, 0.2s, ease-in-out);
-			position: relative;
-			z-index: 1;
-		}
-
-		&:hover {
-			.invert {
-				width : 100%;
-			}
-			.text {
-				color : black;
-			}
-		}
-	}
 
 	.connectElem {
 		@include transition(all, 0.5s, ease-in-out);
@@ -240,12 +248,12 @@ a {
 }
 
 /* --------------- DASHBOARD PAGE --------------- */
-#dashboardPage {
+.dashboardPage {
 	background : black;
 	height : 100%;
 	width : 100%;
 }
-#dashboardContainer {
+.dashboardContainer {
 	position : relative;
 	overflow : hidden;
 	z-index : 1;
@@ -266,13 +274,12 @@ a {
 			cursor : pointer;
 			background : url(../images/logo.png) left  no-repeat;
 			background-size : 38px 38px;
-			float : left;
+			float : left
 		}
 		#userOption {
 			float : right;
-			width : 210px;
+			width : 240px;
 			color : white;
-			margin-right: 15px;
 
 			div:nth-child(1) {
 				float : left;
@@ -304,17 +311,78 @@ a {
 		position : absolute;
 		top : 50px;
 		bottom : 0px;
+		overflow-y : auto;
 
 		.topAside {
 			border-bottom : 1px solid rgba(255,255,255,0.4);
 			padding-top : 20px;
 			padding-bottom : 20px;
+			overflow-y : auto;
 			img {
 				margin :auto;
 				display : block;
 				width : 24px;
 				cursor : pointer;
 			}
+		}
+
+		.asideElem {
+			padding: 15px 7%;
+			width: 100%;
+			color : white;
+			cursor : pointer;
+			border-bottom : 1px solid rgba(255,255,255,0.4);
+			h3 {
+				font-size : 0.75rem;
+				margin-bottom : 10px;
+			}
+			img {
+				float : left;
+				border : 1px solid rgba(255,255,255,0.2);
+			}
+			.asideElemTxt {
+				float : left;
+				font-size: 0.72rem;
+				width : 100px;
+				div:nth-child(2) {
+					margin : 9px 0;
+				}
+				margin-left: 17px;
+			}
+		}
+		&::-webkit-scrollbar-track
+		{
+			-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+			background-color: #000;
+		}
+
+		&::-webkit-scrollbar
+		{
+			width: 6px;
+			background-color: #000;
+		}
+
+		&::-webkit-scrollbar-thumb
+		{
+			background-color: #5f5f5f;
+		}
+		scrollbar-base-color: #5f5f5f;
+		scrollbar-3dlight-color: #5f5f5f;
+		scrollbar-highlight-color: #5f5f5f;
+		scrollbar-track-color: #5f5f5f;
+		scrollbar-arrow-color: white;
+		scrollbar-shadow-color: #5f5f5f;
+		scrollbar-dark-shadow-color: #5f5f5f;
+	}
+	.ghostButton {
+		width : 270px;
+		border : 2px solid white;
+		font-size : 1.5rem;
+		cursor : pointer;
+		margin-left: 47%;
+		margin-top : 20%;
+		.text {
+			line-height: 45px;
 		}
 	}
 }
