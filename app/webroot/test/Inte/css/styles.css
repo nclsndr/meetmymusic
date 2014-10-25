@@ -1,0 +1,177 @@
+* {
+  outline: none;
+}
+
+body {
+  font-family: "Montserrat", helvetica, arial, sans-serif;
+}
+
+.clear {
+  clear: both;
+}
+
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+
+#loginPage {
+  background: url(../images/loginBg.jpg) no-repeat center fixed;
+  background-size: cover;
+  width: 100%;
+  padding-bottom: 50px;
+}
+#loginPage header {
+  height: 300px;
+  padding-top: 40px;
+}
+#loginPage header img {
+  display: block;
+  margin: auto;
+  width: 50%;
+  max-width: 130px;
+}
+#loginPage header h1 {
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-family: "SteelfishRg-Regular", helvetica, arial, sans-serif;
+  font-weight: normal;
+  font-size: 2.2rem;
+}
+#loginPage header p {
+  text-align: center;
+  color: white;
+  width: 80%;
+  margin: auto;
+  line-height: 1.2em;
+}
+#loginPage header p span {
+  display: block;
+}
+#loginPage header div:last-child {
+  border-bottom: 1px solid white;
+  width: 200px;
+  margin: 30px auto 30px auto;
+  height: 1px;
+}
+#loginPage #soundCloudConnect {
+  width: 90%;
+  max-width: 278px;
+  height: 35px;
+  background: white;
+  margin: 100px auto 15px auto;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+#loginPage #soundCloudConnect div:first-child {
+  height: 40px;
+  width: 25%;
+  background: url(../images/soundCloudIcon.png) center 7px no-repeat;
+  background-size: 50%;
+  border-right: 1px solid rgba(0, 0, 0, 0.8);
+  float: left;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+#loginPage #soundCloudConnect div:last-child {
+  float: left;
+  height: 40px;
+  text-align: center;
+  width: 75%;
+  line-height: 37px;
+  font-size: 0.9rem;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+#loginPage #soundCloudConnect:hover div:first-child {
+  background: url(../images/soundCloudIconHover.png) center 7px no-repeat;
+  background-size: 50%;
+}
+#loginPage form {
+  width: 90%;
+  max-width: 250px;
+  margin: auto;
+}
+#loginPage form input {
+  width: 100%;
+  height: 35px;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: -15px;
+  margin-top: 20px;
+}
+#loginPage form input[type='submit'] {
+  display: none;
+}
+#loginPage a {
+  text-decoration: none;
+  text-align: center;
+  font-family: "Montserrat", helvetica, arial, sans-serif;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.75);
+  display: block;
+  margin: auto;
+}
+#loginPage .ghostButton {
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  border: 2px solid white;
+  width: 160px;
+  text-transform: uppercase;
+  position: relative;
+}
+#loginPage .ghostButton .invert {
+  top: 0;
+  left: 0;
+  background: #fff;
+  color: black;
+  width: 0px;
+  height: 100%;
+  opacity: 1;
+  position: absolute;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+#loginPage .ghostButton .text {
+  text-align: center;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  z-index: 1;
+}
+#loginPage .ghostButton:hover .invert {
+  width: 100%;
+}
+#loginPage .ghostButton:hover .text {
+  color: black;
+}
