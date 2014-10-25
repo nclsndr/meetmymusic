@@ -4,7 +4,7 @@ $titleFont : 'SteelfishRg-Regular', helvetica, arial, sans-serif;
 $montserrat : 'Montserrat', helvetica, arial, sans-serif;
 $green : #0edfb5;
 
-/* --------------- General --------------- */
+/* --------------- GENERAL --------------- */
 * {
 	outline : none;
 }
@@ -27,8 +27,32 @@ html,body {
 	opacity : 1;
 }
 
+a {	
+	text-align : none;
+	color : white;
+	@include transition(all, 0.2s, linear);
+	&:hover {
+		color : #bbbbbb;
+		@include transition(all, 0.2s, linear);
+	}
+}
 
-/* --------------- General --------------- */
+.rotating {
+    -webkit-animation: rotating 2s linear infinite;
+
+}
+
+@-webkit-keyframes rotating {
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+    to{
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+
+/* --------------- LOGIN PAGE --------------- */
 #loginPage {
 	background : url(../images/loginBg.jpg) no-repeat center fixed;
 	background-size : cover;
@@ -213,5 +237,93 @@ html,body {
 	.connectElem {
 		@include transition(all, 0.5s, ease-in-out);
 	}
+}
 
+/* --------------- DASHBOARD PAGE --------------- */
+#dashboardPage {
+	background : black;
+	height : 100%;
+	width : 100%;
+}
+#dashboardContainer {
+	position : relative;
+	overflow : hidden;
+	z-index : 1;
+	height : 100%;
+	header {
+		background : black;
+		width : 100%;
+		height : 50px;
+		h1 {
+			text-transform  : uppercase;
+			color : white;
+			font-family : $titleFont;
+			font-weight : normal;
+			font-size : 1.8rem;
+			line-height : 50px;
+			margin-left : 30px;
+			padding-left : 55px;
+			cursor : pointer;
+			background : url(../images/logo.png) left  no-repeat;
+			background-size : 38px 38px;
+			float : left;
+		}
+		#userOption {
+			float : right;
+			width : 210px;
+			color : white;
+			margin-right: 15px;
+
+			div:nth-child(1) {
+				float : left;
+				width : 150px;
+				margin-right : 20px;
+				font-size : 0.9rem;
+				margin-top : 10px;
+				text-align : right;
+			}
+			div:nth-child(2) {
+				width : 35px;
+				height : 35px;
+				-webkit-border-radius:50%;
+			    -moz-border-radius:50%;
+			    border-radius:50%;
+			    overflow : hidden;
+			    border : 1px solid rgba(255,255,255,0.4);
+			    margin-top : 7px;
+			    margin-right : 30px;
+			    img {
+			    	width : 100%;
+			    }
+			}
+		}
+	}
+	aside {
+		width : 250px;
+		background : rgba(0,0,0,0.7);
+		position : absolute;
+		top : 50px;
+		bottom : 0px;
+
+		.topAside {
+			border-bottom : 1px solid rgba(255,255,255,0.4);
+			padding-top : 20px;
+			padding-bottom : 20px;
+			img {
+				margin :auto;
+				display : block;
+				width : 24px;
+				cursor : pointer;
+			}
+		}
+	}
+}
+
+#googleMaps {
+	background : url('../images/bgSample.png') center black;
+	background-size : cover;
+	width : 100%;
+	height : 100%;
+	opacity : 0.68	;
+	position : absolute;
 }

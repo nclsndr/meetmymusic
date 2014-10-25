@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>DashBoard</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/font.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/media.css">
+    </head>
+    <body>
+        <div id="dashboardPage">
+            <div id="googleMaps"></div>
+            <div id="dashboardContainer">
+                <header>
+                    <a href="#"><h1 class="animated fadeInDown">MEET MY MUSIC</h1></a>
+                    <div id="userOption">
+                        <div>
+                            <span id="username">Username</span><br>
+                            <a href="#">Edit my profil</a>        
+                        </div>
+                        <div>
+                            <img src="images/profilDefault.png" alt="">
+                        </div>
+                    </div>
+                </header>
+                <aside>
+                    <div class="topAside">
+                        <a href="javascript:void(0);"></a><img class="" src="images/refreshPicto.png" width="24" height="24" alt="refresh">
+                    </div>
+                </aside>
+            </div>  
+        </div>
+        <script>
+            var refreshBtn = document.querySelector('.topAside img');
+            refreshBtn.addEventListener("mouseover", function() {
+                this.classList.add('rotating');
+            }, false);
+            refreshBtn.addEventListener("mouseout", function(){
+                this.classList.remove('rotating');
+            }, false);
+        </script>
+    </body>
+</html>
