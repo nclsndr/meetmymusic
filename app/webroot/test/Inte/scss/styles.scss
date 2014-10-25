@@ -2,6 +2,7 @@
 
 $titleFont : 'SteelfishRg-Regular', helvetica, arial, sans-serif;
 $montserrat : 'Montserrat', helvetica, arial, sans-serif;
+$green : #0edfb5;
 
 /* --------------- General --------------- */
 * {
@@ -17,8 +18,17 @@ html,body {
 	clear: both;
 }
 
+.fadeOut{
+	@include transition(all, 0.5s, ease-in-out);
+	opacity : 0;
+}
+.fadeIn {
+	@include transition(all, 0.5s, ease-in-out);
+	opacity : 1;
+}
 
 
+/* --------------- General --------------- */
 #loginPage {
 	background : url(../images/loginBg.jpg) no-repeat center fixed;
 	background-size : cover;
@@ -29,10 +39,20 @@ html,body {
 	overflow-x : hidden;
 	padding-bottom : 50px;	
 
+	a {	
+		@include transition(all, 0.2s, linear);
+		&:hover {
+			color : #bbbbbb;
+			@include transition(all, 0.2s, linear);
+		}
+	}
 	header {
-		height : 300px;
 		padding-top : 40px;
-
+		a {
+			&:hover {
+				@include scale(1.05);
+			}
+		}
 		img {
 			display : block;
 			margin : auto;
@@ -67,15 +87,29 @@ html,body {
 			height : 1px;
 		}
 	} 
+	.registerElem {
+		display : none;
+	}
+	p.registerElem {
+		text-align : center;
+		color : white;
+		width: 80%;
+		margin : auto;
+		line-height : 0.8em;
+		margin-top : 50px;
+	}
+	#registerSubmitBtn {
+		display : none;
+	}
 	#soundCloudConnect {
 		width : 90%;
 		max-width : 278px;
 		height : 35px;
 		background : white;
-		margin : 100px auto 15px auto;
+		margin : 40px auto 15px auto;
 		cursor : pointer;
+		@include transition(all, 0.6s, ease-in-out);
 
-		@include transition(all, 0.2s, ease-in-out);
 		div:first-child {
 			height : 40px;
 			width : 25%;
@@ -121,6 +155,9 @@ html,body {
 			display : none;
 		}
 	}
+	#registerForm {
+		display : none;
+	}
 	a {
 		text-decoration : none;
 		text-align : center;
@@ -130,7 +167,9 @@ html,body {
 		display : block;
 		margin : auto;
 	}
-
+	#accountBtn {
+		margin-top : 20px;
+	}
 	.ghostButton {
 		display : block;
 		margin : auto;
@@ -149,14 +188,14 @@ html,body {
 			height: 100%;
 			opacity: 1;
 			position: absolute;
-			@include transition(all, 0.5s, ease-in-out);
+			@include transition(all, 0.6s, ease-in-out);
 		}
 		.text {
 			text-align: center;
 			width: 100%;
 			height: 40px;
 			line-height: 40px;
-			@include transition(all, 0.5s, ease-in-out);
+			@include transition(all, 0.2s, ease-in-out);
 			position: relative;
 			z-index: 1;
 		}
@@ -169,6 +208,10 @@ html,body {
 				color : black;
 			}
 		}
+	}
+
+	.connectElem {
+		@include transition(all, 0.5s, ease-in-out);
 	}
 
 }
