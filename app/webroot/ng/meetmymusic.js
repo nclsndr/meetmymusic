@@ -11,7 +11,8 @@ mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider', '$
     $httpProvider.defaults.headers.common['Content-Type'] = 'application/json; charset=utf-8';
     $httpProvider.defaults.useXDomain = true;
 
-    var partialsF = 'http://mmm.nclsndr.fr/ng/partials'
+    var partialsF = 'http://mmm.nclsndr.fr/ng/partials';
+    
     $routeProvider
     .when('/', {
         templateUrl: partialsF+'/debug.html',

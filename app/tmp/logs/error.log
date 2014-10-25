@@ -1143,3 +1143,107 @@ Stack Trace:
 #3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
 #4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+2014-10-24 17:23:01 Error: [MissingActionException] Action SoundcloudController::landig() could not be found.
+Exception Attributes: array (
+  'controller' => 'SoundcloudController',
+  'action' => 'landig',
+)
+Request URL: /soundcloud/landig
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SoundcloudController), Object(CakeRequest))
+#2 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-10-24 17:23:10 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Soundcloud/landing.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Soundcloud/landing.ctp',
+)
+Request URL: /soundcloud/landing
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SoundcloudController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-24 17:34:18 Error: [MissingActionException] Action SoundcloudController::auth() could not be found.
+Exception Attributes: array (
+  'controller' => 'SoundcloudController',
+  'action' => 'auth',
+)
+Request URL: /soundcloud/auth?code=53c279276c0db42eef46be6240b2a507
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SoundcloudController), Object(CakeRequest))
+#2 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-10-24 17:35:19 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Soundcloud/auth.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Soundcloud/auth.ctp',
+)
+Request URL: /soundcloud/auth?code=53c279276c0db42eef46be6240b2a507
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SoundcloudController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-24 17:35:35 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Soundcloud/auth.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Soundcloud/auth.ctp',
+)
+Request URL: /soundcloud/auth?code=53c279276c0db42eef46be6240b2a507
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SoundcloudController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-24 18:31:17 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Soundcloud/auth.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Soundcloud/auth.ctp',
+)
+Request URL: /soundcloud/auth?error=redirect_uri_mismatch&error_description=The+redirection+URI+provided+does+not+match+a+pre-registered+value.&state=SoundCloud_Dialog_af608
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SoundcloudController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-24 18:40:47 Error: [MissingActionException] Action SoundcloudController::landig() could not be found.
+Exception Attributes: array (
+  'controller' => 'SoundcloudController',
+  'action' => 'landig',
+)
+Request URL: /soundcloud/landig
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SoundcloudController), Object(CakeRequest))
+#2 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-10-24 18:41:01 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Soundcloud/auth.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Soundcloud/auth.ctp',
+)
+Request URL: /soundcloud/auth?error=redirect_uri_mismatch&error_description=The+redirection+URI+provided+does+not+match+a+pre-registered+value.&state=SoundCloud_Dialog_82e29
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SoundcloudController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-24 20:22:54 Error: [MissingActionException] Action QrController::jkshjsgd!() could not be found.
+Exception Attributes: array (
+  'controller' => 'QrController',
+  'action' => 'jkshjsgd!',
+)
+Request URL: /qr/jkshjsgd!
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(QrController), Object(CakeRequest))
+#2 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
