@@ -68,6 +68,9 @@ table {
 .block{
 	display: block !important;
 }
+.hide {
+	display : none !important;
+}
 
 
 
