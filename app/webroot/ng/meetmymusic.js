@@ -3,11 +3,16 @@
 var mmmApp = angular.module('mmmApp', ['ngRoute', 'ngResource', 'btford.socket-io']);
 
 
-mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider',
-    function ($routeProvider, $locationProvider, $sceDelegateProvider) {
+mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider', '$httpProvider',
+    function ($routeProvider, $locationProvider, $sceDelegateProvider, $httpProvider) {
    
-    console.log();
-    var partialsF = 'http://mmm.nclsndr.fr/ng/partials'
+    $httpProvider.defaults.headers.common['IniRequestAjax'] = 'angular request';
+    $httpProvider.defaults.headers.common['Accept'] = 'application/json, text/javascript';
+    $httpProvider.defaults.headers.common['Content-Type'] = 'application/json; charset=utf-8';
+    $httpProvider.defaults.useXDomain = true;
+
+    var partialsF = 'http://mmm.nclsndr.fr/ng/partials';
+    
     $routeProvider
     .when('/', {
         templateUrl: partialsF+'/debug.html',
@@ -56,13 +61,6 @@ mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider',
     //     'http://myapp.example.com/clickThru**'
     // ]);
 }]);
-
-
-
-
-
-
-
 
 
 

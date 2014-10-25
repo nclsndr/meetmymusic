@@ -1,8 +1,51 @@
 <div ng-controller="DebugCtrl" class="view landing">
-	<h1 ng-click="element()">Landing page avec Node Js</h1>
-	<h2>{{message}}</h2>
-	<form action="#" ng-submit="textSubmit()">
-		<input type="text" ng-model="text">
-	</form>
-	
+	<div class="row">
+		<h1>Landing page avec Node Js</h1>
+	</div>
+	<div class="row">
+		<h2>Socket io Chat</h2>
+	</div>
+	<div class="row">
+		<div class="large-6 columns">
+			<input type="text" ng-model="chat.text">
+			<button class="button" ng-click="textSubmit()">Tester</button>
+		</div>
+		<div class="large-6 columns">
+			<ul ng-repeat="message in messages">
+				<li>{{message.msg}}</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="row">
+		<h2>SoundCloud functions</h2>
+	</div>
+	<div class="row">
+		<div class="large-4 columns human">
+			<h3>User</h3>
+			<span class="button [secondary success alert]" ng-click="connectSC()">SoundCloud Connect</span>
+			<img src="{{SC.user.avatar_url}}" alt="">
+			<h4>{{SC.user.username}}</h4>
+			<ul ng-repeat="(key, value) in SC.user">
+				<li>{{key}} : {{value}}</li>
+			</ul>
+		</div>
+		<div class="large-4 columns human" ng-show="SC.user.username">
+			<h3>Favorites tracks</h3>
+			<span class="button [secondary success alert]" ng-click="getFavoritesTracks()">SC Get Favorites Tracks</span>
+			<ul ng-repeat="(key, value) in SC.favorites" class="click_list">
+				<li ng-click="selectTrack(value.id)">{{value.title}}</li>
+			</ul>
+		</div>
+		<div class="large-4 columns human" ng-show="SC.favorites">
+			<h3>Player</h3>
+			<div class="row">
+				<div ng-click="playCurrent()" class="columns large-6"><span class="button [tiny small large]">Play</span> </div>
+				<div ng-click="pauseCurrent()" class="columns large-6"><span class="button [tiny small large]">Pause</span> </div>
+			</div>
+			<div class="row">
+				<p>{{sound.sc.title}}</p>
+			</div>
+		</div>
+	</div>
 </div> 

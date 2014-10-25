@@ -549,3 +549,701 @@ Stack Trace:
 #3 /var/www/mmm/meetmymusic/lib/Cake/Core/App.php(904): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2014-10-18 00:01:37 Error: [MissingActionException] Action UsersController::index() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'index',
+)
+Request URL: /users
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#2 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-10-18 00:01:53 Error: [MissingActionException] Action UsersController::index() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'index',
+)
+Request URL: /users
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#2 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-10-18 00:11:30 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:12:39 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:13:24 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:13:57 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:14:37 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:15:53 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:16:01 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:18:55 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:19:33 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:19:41 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:20:46 Error: [MissingActionException] Action UsersController::admin_edit() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'admin_edit',
+)
+Request URL: /admin/users/edit
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#2 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-10-18 00:20:47 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:26:42 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Users/edit.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Users/edit.ctp',
+)
+Request URL: /users/edit
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-18 00:26:42 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:26:44 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:27:15 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:36:50 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:38:18 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:39:01 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:39:10 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:39:21 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:39:39 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:40:17 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:41:14 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:41:16 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:41:19 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:42:27 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:42:48 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 00:45:35 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/style.css
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-18 01:03:16 Error: Fatal Error (64): Can't use method return value in write context in [/var/www/mmm/meetmymusic/app/Controller/UsersController.php, line 121]
+2014-10-18 01:03:16 Error: [FatalErrorException] Can't use method return value in write context
+Request URL: /admin/users/login
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(64, 'Can't use metho...', '/var/www/mmm/me...', 121)
+#1 [internal function]: ErrorHandler::handleError(64, 'Can't use metho...', '/var/www/mmm/me...', 121, Array)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 64, 'Can't use metho...', '/var/www/mmm/me...', 121, Array)
+#3 /var/www/mmm/meetmymusic/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-18 01:49:26 Error: [MissingTableException] Table qrs for model Qr was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'qrs',
+  'class' => 'Qr',
+  'ds' => 'default',
+)
+Request URL: /admin/qr
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/Model/Model.php(3551): Model->setSource('qrs')
+#1 /var/www/mmm/meetmymusic/lib/Cake/Model/Model.php(1369): Model->getDataSource()
+#2 /var/www/mmm/meetmymusic/lib/Cake/View/Helper/FormHelper.php(215): Model->schema()
+#3 /var/www/mmm/meetmymusic/lib/Cake/View/Helper/FormHelper.php(468): FormHelper->_introspectModel('Qr', 'fields')
+#4 /var/www/mmm/meetmymusic/app/View/Qr/admin_index.ctp(3): FormHelper->create('Qr', Array)
+#5 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(948): include('/var/www/mmm/me...')
+#6 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(910): View->_evaluate('/var/www/mmm/me...', Array)
+#7 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(471): View->_render('/var/www/mmm/me...')
+#8 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#9 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#10 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(QrController), Object(CakeRequest))
+#11 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-10-18 01:54:56 Error: [MissingActionException] Action QrController::jkshjsgd!() could not be found.
+Exception Attributes: array (
+  'controller' => 'QrController',
+  'action' => 'jkshjsgd!',
+)
+Request URL: /qr/jkshjsgd!
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(QrController), Object(CakeRequest))
+#2 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-10-18 02:55:45 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Users/login.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Users/login.ctp',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-18 02:56:25 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Users/login.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Users/login.ctp',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-18 02:59:40 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Users/login.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Users/login.ctp',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-18 03:08:53 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Users/login.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Users/login.ctp',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-18 03:09:50 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Users/login.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Users/login.ctp',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-18 03:12:22 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Users/login.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Users/login.ctp',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-18 03:36:00 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Users/login.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Users/login.ctp',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-18 03:36:50 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Users/login.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Users/login.ctp',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-18 03:37:01 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Users/login.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Users/login.ctp',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-18 03:38:29 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Users/login.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Users/login.ctp',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-18 03:39:33 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Users/login.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Users/login.ctp',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-18 03:39:37 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Users/login.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Users/login.ctp',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-18 03:40:51 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Users/login.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Users/login.ctp',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-18 03:43:10 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Users/login.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Users/login.ctp',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-18 04:05:29 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Users/login.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Users/login.ctp',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-18 04:05:47 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Users/login.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Users/login.ctp',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-18 04:08:03 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Users/login.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Users/login.ctp',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-18 04:08:29 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Users/login.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Users/login.ctp',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-18 04:08:39 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Users/login.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Users/login.ctp',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-18 04:12:48 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Users/login.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Users/login.ctp',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-18 04:13:06 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Users/login.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Users/login.ctp',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-18 04:13:19 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Users/login.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Users/login.ctp',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-24 17:23:01 Error: [MissingActionException] Action SoundcloudController::landig() could not be found.
+Exception Attributes: array (
+  'controller' => 'SoundcloudController',
+  'action' => 'landig',
+)
+Request URL: /soundcloud/landig
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SoundcloudController), Object(CakeRequest))
+#2 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-10-24 17:23:10 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Soundcloud/landing.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Soundcloud/landing.ctp',
+)
+Request URL: /soundcloud/landing
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SoundcloudController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-24 17:34:18 Error: [MissingActionException] Action SoundcloudController::auth() could not be found.
+Exception Attributes: array (
+  'controller' => 'SoundcloudController',
+  'action' => 'auth',
+)
+Request URL: /soundcloud/auth?code=53c279276c0db42eef46be6240b2a507
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SoundcloudController), Object(CakeRequest))
+#2 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-10-24 17:35:19 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Soundcloud/auth.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Soundcloud/auth.ctp',
+)
+Request URL: /soundcloud/auth?code=53c279276c0db42eef46be6240b2a507
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SoundcloudController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-24 17:35:35 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Soundcloud/auth.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Soundcloud/auth.ctp',
+)
+Request URL: /soundcloud/auth?code=53c279276c0db42eef46be6240b2a507
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SoundcloudController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-24 18:31:17 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Soundcloud/auth.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Soundcloud/auth.ctp',
+)
+Request URL: /soundcloud/auth?error=redirect_uri_mismatch&error_description=The+redirection+URI+provided+does+not+match+a+pre-registered+value.&state=SoundCloud_Dialog_af608
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SoundcloudController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-24 18:40:47 Error: [MissingActionException] Action SoundcloudController::landig() could not be found.
+Exception Attributes: array (
+  'controller' => 'SoundcloudController',
+  'action' => 'landig',
+)
+Request URL: /soundcloud/landig
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SoundcloudController), Object(CakeRequest))
+#2 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-10-24 18:41:01 Error: [MissingViewException] View file "/var/www/mmm/meetmymusic/app/View/Soundcloud/auth.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/mmm/meetmymusic/app/View/Soundcloud/auth.ctp',
+)
+Request URL: /soundcloud/auth?error=redirect_uri_mismatch&error_description=The+redirection+URI+provided+does+not+match+a+pre-registered+value.&state=SoundCloud_Dialog_82e29
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/mmm/meetmymusic/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(SoundcloudController), Object(CakeRequest))
+#4 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-24 20:22:54 Error: [MissingActionException] Action QrController::jkshjsgd!() could not be found.
+Exception Attributes: array (
+  'controller' => 'QrController',
+  'action' => 'jkshjsgd!',
+)
+Request URL: /qr/jkshjsgd!
+Stack Trace:
+#0 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/mmm/meetmymusic/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(QrController), Object(CakeRequest))
+#2 /var/www/mmm/meetmymusic/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
