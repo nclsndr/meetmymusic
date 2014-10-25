@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded',function(){
+	// prevoir les resolutions trop grande pour le bg
 	var windowY = window.innerHeight;
 	var loginPage = document.getElementById('loginPage');
 	var logo = document.querySelector('header img');
@@ -8,8 +9,7 @@ document.addEventListener('DOMContentLoaded',function(){
 		loginPage.style.min-height = (windowY)+"px";
 	};
 
-	logo.addEventListener('mouseOver', function(){
-		alert('over');
-	})
+
+	
 
 })

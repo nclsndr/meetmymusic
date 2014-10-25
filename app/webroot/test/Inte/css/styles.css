@@ -1,20 +1,14 @@
+/* --------------- General --------------- */
 * {
   outline: none;
 }
 
-body {
+html, body {
   font-family: "Montserrat", helvetica, arial, sans-serif;
+  height: 100%;
 }
 
 .clear {
-  clear: both;
-}
-
-.clearfix:before, .clearfix:after {
-  content: " ";
-  display: table;
-}
-.clearfix:after {
   clear: both;
 }
 
@@ -22,6 +16,10 @@ body {
   background: url(../images/loginBg.jpg) no-repeat center fixed;
   background-size: cover;
   width: 100%;
+  height: 100%;
+  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   padding-bottom: 50px;
 }
 #loginPage header {
