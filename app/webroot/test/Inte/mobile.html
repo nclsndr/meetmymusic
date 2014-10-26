@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>DashBoard</title>
+        <title>MOBILE UI</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
@@ -14,31 +14,54 @@
     </head>
     <body>
         <div class="mobileContainer">
+            <!-- OVERLAY PAN ON ALBUM COVER -->
+            <div id="overlay">
+                <span class="passTheSong"><-- Pass the song</span>
+                <span class="addFriend">Add to friends --></span>
+            </div>
+
+            <!-- ADD FRIEND ANIMATION -->
+            <div id="addFrienOverlay" class="feedBackOverlay animated fadeIn">
+                <div class="animated pulse">
+                    <img class="animated zoomIn flash" src="images/validateMobile.png" alt="Add To Friends">
+                </div>
+                <p>An invitation has been sent to <strong>JackSparrow</strong> !</p>
+            </div>
+    
+            <div id="songPassedOverlay" class="feedBackOverlay animated fadeIn">
+                <div class="animated pulse">
+                    <img class="animated zoomIn flash" src="images/crossMobile.png" alt="Song Passed">
+                </div>
+                <p>You passed the song.<br> 
+                <strong>Waiting for another player...</strong></p>
+                <img class="loading" src="images/loader.gif" alt="Loading">
+            </div>
+
             <header>
                 <a href="#"><h1 class="animated fadeInDown">MEET MY MUSIC</h1></a>
             </header>  
 
-            <div id="step1" style="display : none;">
+            <div class="step animated fadeIn" id="step1">
                 <img src="images/laptop.png" width="204" height="114" alt="laptop">
                 <p class="animated fadeIn" >Please select a song<br>on your computer</p>
                 <img src="images/logo.png" width="303" height="303">
             </div>
     
-            <div id="step2" style="display : none;">
+            <div class="step animated fadeIn" id="step2">
                 <p>You have selected :</p>
-                <div class="albumCover">
+                <div class="albumCover animated fadeInDown">
                     <img src="images/albumSample.jpg"  alt="">
                 </div>
-                <h2 id="band">Lana Del Ray</h2>
-                <h3 id="title">Born to die</h2>
+                <h2 id="band" class="animated fadeInLeft">Lana Del Ray</h2>
+                <h3 id="title" class="animated fadeInRight">Born to die</h2>
             </div>
 
-            <div id="step3">
+            <div class="step animated fadeIn" id="step3">
                 <div class="otherPlayer">
                     You are playing with : <span>JackSparrow</span> <br>
                     From : <span>Paris, France</span>
                 </div>
-                <div class="albumCover">
+                <div id="albumCoverP2" class="albumCover animated fadeInDown">
                     <img src="images/albumSample2.jpg"  alt="">
                 </div>
                 <div id="timeCode">00:33</div>
@@ -47,22 +70,28 @@
 
                 <div class="controlPlayer">
                     <div class="volumeControler">
-                        <img src="images/mute.png" width="20" height="20" alt="">
-                         <div id="volumeBar">
-                            <div id="volumeCursor"></div>
+                        <img src="images/mute.png" class="animated fadeIn"width="20" height="20" alt="">
+                         <div id="volumeBar" class="animated zoomIn">
+                            <div id="volumeCursor" ></div>
                         </div>
-                        <img src="images/volume.png" width="20" height="20"  alt="">
+                        <img src="images/volume.png" class="animated fadeIn"width="20" height="20"  alt="">
                     </div>
                    
                     <div class="playPauseBtn">
-                        <img src="images/playBtn.png" width="36" height="36" alt="play">
-                        <img src="images/pauseBtn.png" width="36" height="36" alt="pause">
+                        <img src="images/playBtn.png" width="36" class="animated zoomIn" height="36" alt="play">
+                        <img src="images/pauseBtn.png" width="36" class="animated zoomIn" height="36" alt="pause">
                     </div>
                 </div>
                 <div class="clear"></div>
             </div>
 
-            <button>NEXT STEP</button>
+            <button id="nextStep">NEXT STEP</button>
         </div>
+        
+        <!-- PLUGIN HAMMER JS FOR GESTURES ACTIONS -->
+        <script type="text/javascript" src="js/hammer.min.js"></script>
+
+        <script type="text/javascript" src="js/mobile.js"></script>
+        
     </body>
 </html>

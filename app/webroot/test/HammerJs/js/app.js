@@ -8,11 +8,11 @@ var reqAnimationFrame = (function () {
 var msg           = document.getElementById('msg');
 var albumCover    = document.getElementById('albumCover');
 var overlay 	  = document.getElementById('overlay');
-var albumImgTab   = ['ShakeShookShaken-The_Do.jpg','muse-knight.jpg','foals.jpg', 'daft-punk.jpg','flume.jpg','coldplay.jpg','am.jpg','johnny.jpg','blackkeys.jpg','village.jpg'];
 
 
 var START_X = Math.round((window.innerWidth - albumCover.offsetWidth) / 2);
-// var START_Y = Math.round((window.innerHeight - albumCover.offsetHeight) / 2);
+// On bloque les gesture en Y
+// var START_Y = Math.round((window.innerHeight - albumCover.offsetHeight) / 2); 
 
 var ticking = false;
 var transform, timer;
@@ -26,7 +26,7 @@ var touchControl = new Hammer.Manager(albumCover);
 touchControl.add(new Hammer.Pan({ threshold: 0, pointers: 0 }));
 touchControl.add(new Hammer.Swipe()).recognizeWith(touchControl.get('pan'));
 
-
+// GESTION DE TOUT LES EVENTS
 touchControl.on("panmove panstart", onPan)
 			.on("panleft", onPanLeft)
 			.on("panright", onPanRight)
@@ -123,7 +123,6 @@ function onSwipeLeft(ev) {
 	albumCover.classList.add("swipeLeft");
 	setTimeout(function() {
 		albumReset();
-		randomCover(); 
 	}, 600)
 	console.log('swipeLeft');
 }
@@ -138,10 +137,6 @@ function onSwipeRight(ev) {
 	console.log('swipeRight');
 }
 
-function randomCover() {
-	var albumImg = albumImgTab[Math.floor(Math.random()*albumImgTab.length)];
-	albumCover.src = "images/"+albumImg; 
-};
 
 function albumReset(){
 	albumCover.classList.remove("swipeRight");
@@ -150,6 +145,7 @@ function albumReset(){
 };
 
 resetElement();
+
 window.onresize = function() {
     START_X = Math.round((window.innerWidth - albumCover.offsetWidth) / 2);
     resetElement();
