@@ -5,6 +5,8 @@ var step_1 = document.getElementById('step1');
 var step_2 = document.getElementById('step2');
 var step_3 = document.getElementById('step3');
 var otherPlayerBar = document.getElementsByClassName('otherPlayer')[0];
+var landscapeOverlay = document.getElementById('landscapeOverlay');
+var mobileWrapper = document.getElementById('mobileWrapper');
 var stepPostition = 1;
 var albumCover = document.getElementById('albumCoverP2');
 var START_X = Math.round((window.innerWidth - albumCover.offsetWidth) / 2);
@@ -35,6 +37,25 @@ function nextStep() {
     }
 };
 
+/* --------------- NO LANDSCAPE MODE --------------- */
+function doOnOrientationChange()
+{
+    switch(window.orientation) 
+    {  
+      case -90:
+      case 90:
+        landscapeOverlay.style.display = "block";
+        mobileWrapper.style.display = "none";
+        break; 
+      default:
+        landscapeOverlay.style.display = "none";
+        mobileWrapper.style.display = "block";
+        break; 
+    }
+}
+
+window.addEventListener('orientationchange', doOnOrientationChange);
+doOnOrientationChange();
 
 /* --------------- HAMMER INITIALISATION --------------- */
 
@@ -92,9 +113,9 @@ function resetElement() {
 
 function updateElementTransform() {
     var value = [
-            'translate3d(' + transform.translate.x + 'px, '  + '0px, 0)',
-            'scale(' + transform.scale + ', ' + transform.scale + ')',
-            'rotate3d('+ transform.rx +','+ transform.ry +','+ transform.rz +','+  transform.angle + 'deg)'
+        'translate3d(' + transform.translate.x + 'px, '  + '0px, 0)',
+        'scale(' + transform.scale + ', ' + transform.scale + ')',
+        'rotate3d('+ transform.rx +','+ transform.ry +','+ transform.rz +','+  transform.angle + 'deg)'
     ];
 
     value = value.join(" ");
@@ -166,6 +187,8 @@ function onSwipeLeft(ev) {
             songPassedOverlay.style.display = "none";
             songPassedOverlay.classList.remove("fadeOut");
             step3.style.display = "block";
+            START_X = Math.round((window.innerWidth - albumCover.offsetWidth) / 2);
+            resetElement();
         }, 400);
     }, 5000);
 }
@@ -180,16 +203,21 @@ function onSwipeRight(ev) {
             addFrienOverlay.style.display = "none";
             addFrienOverlay.classList.remove("fadeOut");
             step3.style.display = "block";
+            START_X = Math.round((window.innerWidth - albumCover.offsetWidth) / 2);
+            resetElement();
         }, 400);
     }, 2000);
 }
 
-
 resetElement();
 
 window.onresize = function() {
-    START_X = Math.round((window.innerWidth - albumCover.offsetWidth) / 2);
-    resetElement();
+    // START_X = Math.round((window.innerWidth - albumCover.offsetWidth) / 2);
+    // resetElement();
+    setTimeout(function() {
+        START_X = Math.round((window.innerWidth - albumCover.offsetWidth) / 2);
+        resetElement();
+    }, 600)
 };
 
 

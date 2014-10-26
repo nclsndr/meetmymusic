@@ -14,6 +14,12 @@
     </head>
     <body>
         <div class="mobileContainer">
+            <!-- LANDSCAPE MODE -->
+            <div id="landscapeOverlay" class="feedBackOverlay animated fadeIn">
+                <img src="images/turnPhone.png" alt="">
+                <p>Please use your phone on <strong>portrait mode.</strong></p>
+            </div>
+            
             <!-- OVERLAY PAN ON ALBUM COVER -->
             <div id="overlay">
                 <span class="passTheSong"><-- Pass the song</span>
@@ -27,7 +33,8 @@
                 </div>
                 <p>An invitation has been sent to <strong>JackSparrow</strong> !</p>
             </div>
-    
+            
+            <!-- PASS THE SONG ANIMATION -->
             <div id="songPassedOverlay" class="feedBackOverlay animated fadeIn">
                 <div class="animated pulse">
                     <img class="animated zoomIn flash" src="images/crossMobile.png" alt="Song Passed">
@@ -37,55 +44,59 @@
                 <img class="loading" src="images/loader.gif" alt="Loading">
             </div>
 
+            <!-- BEGIN OF THE NAVIGATION -->
             <header>
                 <a href="#"><h1 class="animated fadeInDown">MEET MY MUSIC</h1></a>
             </header>  
 
-            <div class="step animated fadeIn" id="step1">
-                <img src="images/laptop.png" width="204" height="114" alt="laptop">
-                <p class="animated fadeIn" >Please select a song<br>on your computer</p>
-                <img src="images/logo.png" width="303" height="303">
-            </div>
-    
-            <div class="step animated fadeIn" id="step2">
-                <p>You have selected :</p>
-                <div class="albumCover animated fadeInDown">
-                    <img src="images/albumSample.jpg"  alt="">
+            <!-- MOBILE CONTENT -->
+            <div id="mobileWrapper">
+                <div class="step animated fadeIn" id="step1">
+                    <img src="images/laptop.png" width="204" height="114" alt="laptop">
+                    <p class="animated fadeIn" >Please select a song<br>on your computer</p>
+                    <img src="images/logo.png" width="303" height="303">
                 </div>
-                <h2 id="band" class="animated fadeInLeft">Lana Del Ray</h2>
-                <h3 id="title" class="animated fadeInRight">Born to die</h2>
-            </div>
+        
+                <div class="step animated fadeIn" id="step2">
+                    <p>You have selected :</p>
+                    <div class="albumCover animated fadeInDown">
+                        <img src="images/albumSample.jpg"  alt="">
+                    </div>
+                    <h2 id="band" class="animated fadeInLeft">Lana Del Ray</h2>
+                    <h3 id="title" class="animated fadeInRight">Born to die</h2>
+                </div>
 
-            <div class="step animated fadeIn" id="step3">
-                <div class="otherPlayer">
-                    You are playing with : <span>JackSparrow</span> <br>
-                    From : <span>Paris, France</span>
-                </div>
-                <div id="albumCoverP2" class="albumCover animated fadeInDown">
-                    <img src="images/albumSample2.jpg"  alt="">
-                </div>
-                <div id="timeCode">00:33</div>
-                <h2 id="band">Black Keys</h2>
-                <h3 id="title">Lonely Boy</h2>
+                <div class="step animated fadeIn" id="step3">
+                    <div class="otherPlayer">
+                        You are playing with : <span>JackSparrow</span> <br>
+                        From : <span>Paris, France</span>
+                    </div>
+                    <div id="albumCoverP2" class="albumCover animated fadeInDown">
+                        <img src="images/albumSample2.jpg"  alt="">
+                    </div>
+                    <div id="timeCode">00:33</div>
+                    <h2 id="band">Black Keys</h2>
+                    <h3 id="title">Lonely Boy</h2>
 
-                <div class="controlPlayer">
-                    <div class="volumeControler">
-                        <img src="images/mute.png" class="animated fadeIn"width="20" height="20" alt="">
-                         <div id="volumeBar" class="animated zoomIn">
-                            <div id="volumeCursor" ></div>
+                    <div class="controlPlayer">
+                        <div class="volumeControler">
+                            <img src="images/mute.png" class="animated fadeIn"width="20" height="20" alt="">
+                             <div id="volumeBar" class="animated zoomIn">
+                                <div id="volumeCursor" ></div>
+                            </div>
+                            <img src="images/volume.png" class="animated fadeIn"width="20" height="20"  alt="">
                         </div>
-                        <img src="images/volume.png" class="animated fadeIn"width="20" height="20"  alt="">
+                       
+                        <div class="playPauseBtn">
+                            <img src="images/playBtn.png" width="36" class="animated zoomIn" height="36" alt="play">
+                            <img src="images/pauseBtn.png" width="36" class="animated zoomIn" height="36" alt="pause">
+                        </div>
                     </div>
-                   
-                    <div class="playPauseBtn">
-                        <img src="images/playBtn.png" width="36" class="animated zoomIn" height="36" alt="play">
-                        <img src="images/pauseBtn.png" width="36" class="animated zoomIn" height="36" alt="pause">
-                    </div>
+                    <div class="clear"></div>
                 </div>
-                <div class="clear"></div>
-            </div>
 
-            <button id="nextStep">NEXT STEP</button>
+                <button id="nextStep">NEXT STEP</button>
+            </div>
         </div>
         
         <!-- PLUGIN HAMMER JS FOR GESTURES ACTIONS -->

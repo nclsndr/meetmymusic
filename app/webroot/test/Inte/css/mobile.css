@@ -190,6 +190,16 @@ strong {
   display: block;
 }
 
+#landscapeOverlay {
+  width: 100%;
+}
+#landscapeOverlay img {
+  width: 20%;
+  max-width: 200px;
+  margin: 40px auto;
+  display: block;
+}
+
 .fadeOut {
   opacity: 0;
   -webkit-transition: all 0.3s ease;

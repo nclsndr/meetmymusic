@@ -173,6 +173,16 @@ strong {
 	}
 }
 
+#landscapeOverlay {
+	width: 100%;
+	img {
+		width : 20%;
+		max-width : 200px;
+		margin : 40px auto;
+		display : block;
+	}
+}
+
 .fadeOut {
 	opacity : 0;
 	@include transition(all, 0.3s, ease);
