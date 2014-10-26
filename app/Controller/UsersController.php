@@ -30,11 +30,29 @@ class UsersController extends AppController
 				return new CakeResponse(array('body' => json_encode($user)));
 			}else{
 				$error = ['error'=>'une erreur est survenue'];
-				return new CakeResponse(array('body' => json_encode('ok')));
+				return new CakeResponse(array('body' => json_encode($error)));
 			}
 		}else{
 			$error = ['error'=>'une erreur est survenue'];
-			return new CakeResponse(array('body' => json_encode('ok')));
+			return new CakeResponse(array('body' => json_encode('no POST')));
+		}
+	}
+
+	public function hasaccount(){
+		$return = ['hasNoAccount'=>true];
+		if (!empty($this->request->data) && is_int($this->request->data)) {
+			$api_id = $this->request->data;
+			$res = $this->User->find('count', ['conditions'=>['User.api_id'=>$api_id]]);
+			if($res>0){
+				$id = (int)($api_id);
+				$user = $this->generateToken($id, false);
+				$return = $user;
+				return new CakeResponse(array('body' => json_encode($return)));
+			}else{
+				return new CakeResponse(array('body' => json_encode($return)));
+			}
+		}else{
+			return new CakeResponse(array('body' => json_encode('no POST')));
 		}
 	}
 
@@ -171,12 +189,16 @@ class UsersController extends AppController
 
 
 	protected function generateToken($data, $token_only=false){
-		
+
 		if (isset($data['User']['username'])) {
 			$user = $this->User->findByUsername($data['User']['username']);
 			$user = $user['User'];
 		}else if(isset($data['username'])){
 			$user = $this->User->findByUsername($data['username']);
+		}else if(is_int($data)){
+			$user = $this->User->findByApiId($data);
+			// ('first', ['conditions'=>['User.api_id'=>$data]]);
+			$user = $user['User'];
 		}else{
 			return false;
 		}
@@ -194,7 +216,7 @@ class UsersController extends AppController
 			$this->User->save($this->User, false);
 			
 			$user['token'] = $token;
-			$this->Session->write('User', $user);
+			// $this->Session->write('User', $user);
 			if ($token_only) {
 				return $token;
 			}else{
