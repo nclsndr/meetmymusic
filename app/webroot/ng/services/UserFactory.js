@@ -2,7 +2,7 @@ mmmApp.factory('UserFactory', ['$http', '$location', '$q',
 function ($http, $location, $q) {
 	var Factory = {
 
-		user: {
+		User: {
 			token:''
 		},
 
@@ -15,7 +15,24 @@ function ($http, $location, $q) {
 					deferred.resolve(data);
 				})
 				.error(function(data, status){
-					deferred.reject('impossible de finaliser l\'enregistrement');
+					deferred.reject(data);
+				});
+			return deferred.promise;
+		},
+
+		hasAccount:function(api_id){
+			var deferred = $q.defer();
+			var url = 'http://mmm.nclsndr.fr/users/hasaccount';
+
+			$http({method:'POST', data:api_id, url:url})
+				.success(function(data, status){
+					if (!data.hasNoAccount) {
+						Factory.User = data;
+					}
+					deferred.resolve(data);
+				})
+				.error(function(data, status){
+					deferred.reject(data);
 				});
 			return deferred.promise;
 		}
