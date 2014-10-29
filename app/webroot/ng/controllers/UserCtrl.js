@@ -68,4 +68,5 @@ mmmApp.controller('UserCtrl', ['UserFactory', 'SoundcloudService', '$q','$scope'
 				});
 		};
 
+
 }]);
