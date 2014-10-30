@@ -35,6 +35,7 @@ mmmApp.service('SoundcloudService',['$http', '$q',
 			// initiate auth popup
 			self.SC.connect(function() {
 			  self.SC.get('/me', function(me) {
+			  	console.log(me);
 			  	self.SCUser = me;
 			  	deferred.resolve(me);
 			  });
@@ -68,10 +69,10 @@ mmmApp.service('SoundcloudService',['$http', '$q',
 			store.id = soundId;
 			self.SC.get("/tracks/"+soundId, function(track){
 				store.sc = track;
-				console.log('track : ', track);
 				self.SC.stream("/tracks/"+soundId, function(soundObj){
 					self.idList.push(store.id);
 					store.obj = soundObj;
+					console.log('store : ', store);
 					self.trackList[self.listIndex] = store;
 					self.listIndex++;
 					deferred.resolve(self.trackList);

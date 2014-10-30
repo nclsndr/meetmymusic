@@ -27,6 +27,7 @@ mmmApp.controller('UserCtrl', ['UserFactory', 'SoundcloudService', '$q','$scope'
 
 
 		$scope.registerForm = function(){
+			console.log($scope.register);
 			// UserFactory.register($scope.User.register)
 			// 	.then(
 			// 	function (data){
