@@ -22,8 +22,8 @@ class UsersController extends AppController
 
 // —————————————————————————————————————————————————————————————————————————————————————  VISITORS FUNCTIONS
 	public function index(){
-		debug('index on Users');
-		die();
+		$data = ['controller'=>'users'];
+		return new CakeResponse(array('body' => json_encode($data)));
 	}
 
 	public function login(){

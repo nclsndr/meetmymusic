@@ -1,5 +1,5 @@
-mmmApp.controller('UserCtrl', ['UserFactory', 'SoundcloudService', '$q','$scope', 
-	function (UserFactory, SoundcloudService, $q, $scope) {
+mmmApp.controller('UserCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q','$scope', 
+	function (NotificationFactory, UserFactory, SoundcloudService, $q, $scope) {
 
 		SoundcloudService.init();
 		$scope.SC = {};
@@ -57,13 +57,13 @@ mmmApp.controller('UserCtrl', ['UserFactory', 'SoundcloudService', '$q','$scope'
 								$scope.User.register.avatar_url = SCUser.avatar_url;
 								$scope.User.register.username = SCUser.username;
 							}else{
-								alert('you are logged');
+								NotificationFactory.add('You are logged', 'success');
 								console.log('need to redirect : user logged');
 								// REDIRECT TO DASHBOARD
 							}
 						},
 						function(data, status){
-							// NOTIF
+							NotificationFactory.add('There is a problem to log in', 'success');
 						});
 				});
 		};
