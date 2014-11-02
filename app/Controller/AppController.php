@@ -52,7 +52,7 @@ class AppController extends Controller {
                 )
             )
         ),
-        'logoutRedirect' => array('controller'=> 'users', 'action' => 'login', 'admin'=>true),
+        // 'logoutRedirect' => array('controller'=> 'users', 'action' => 'login', 'admin'=>true),
         // 'loginRedirect' => array('controller'=> 'dashboard', 'action' => 'index'),
         'authorize' => array('Controller')
         ),

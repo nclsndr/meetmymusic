@@ -19,7 +19,6 @@ mmmApp.controller('UserCtrl', ['UserFactory', 'SoundcloudService', '$q','$scope'
 			UserFactory.login($scope.User.login)
 				.then(
 				function (data){
-					UserFactory.user.token = data.token;
 				}, function (msg){
 					console.log(msg);
 				});
@@ -27,15 +26,14 @@ mmmApp.controller('UserCtrl', ['UserFactory', 'SoundcloudService', '$q','$scope'
 
 
 		$scope.registerForm = function(){
-			console.log($scope.register);
-			// UserFactory.register($scope.User.register)
-			// 	.then(
-			// 	function (data){
-			// 		console.log(data);
-			// 		UserFactory.user.token = data.token;
-			// 	}, function (msg){
-			// 		console.log(msg);
-			// 	});
+			console.log($scope.User.register);
+			UserFactory.register($scope.User.register)
+				// .then(
+				// function (data){
+				// 	console.log(data);
+				// }, function (msg){
+				// 	console.log(msg);
+				// });
 		}
 
 		$scope.showRegister = function(){
@@ -54,6 +52,7 @@ mmmApp.controller('UserCtrl', ['UserFactory', 'SoundcloudService', '$q','$scope'
 								$scope.ui.loginState = 'fadeOut';
 								$scope.ui.registerState = 'fadeIn';
 								$scope.ui.msgRegisterState = 'fadeOut';
+								$scope.ui.SCBtState = 'fadeOut';
 								$scope.User.register.api_id = SCUser.id;
 								$scope.User.register.avatar_url = SCUser.avatar_url;
 								$scope.User.register.username = SCUser.username;

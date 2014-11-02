@@ -8,21 +8,12 @@
     
     <p class="clearfix registerElem animated fadeIn">Connectez-vous tout d'abord à votre compte SoundCloud</p>
 
-    <div id="soundCloudConnect" ng-click="connectSC()">
+    <div id="soundCloudConnect" ng-click="connectSC()" class="animated {{ui.SCBtState}}">
         <div></div>
-        <div><b>SoundCloud</b> connect</div>
+        <div>Log in with <b>SoundCloud</b></div>
     </div>
 
-    <!-- Login Form -->
-    <div class="login animated {{ui.loginState}}">
-        <form ng-submit="loginForm()">
-            <input type="text" name="login" placeholder="Login" required ng-model="User.login.username">
-            <input type="password" name="password" placeholder="Password" required ng-model="User.login.password">
-            <span class="ghostButton connectElem">
-                <span class="invert"></span>
-                <input class="text" type="submit" value="LOG IN">
-            </span>
-        </form>    
+    <div class="login animated {{ui.loginState}}">  
         <span ng-click="showRegister()" class="ghostButton connectElem create_account">
             <span class="invert"></span>
             <span class="text">create an account</span>
@@ -44,7 +35,7 @@
             <input type="password" name="password" placeholder="Password" ng-model="User.register.password" required> 
             <span class="ghostButton connectElem">
                 <span class="invert"></span>
-                <input class="text" type="submit" value="REGISTER">
+                <input type="submit" class="text"  value="REGISTER">
             </span>
         </form>   
     </div>

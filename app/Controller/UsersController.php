@@ -21,15 +21,19 @@ class UsersController extends AppController
 	
 
 // —————————————————————————————————————————————————————————————————————————————————————  VISITORS FUNCTIONS
-	
+	public function index(){
+		debug('index on Users');
+		die();
+	}
+
 	public function login(){
 		if (!empty($this->request->data)) {
 			$data['User'] = $this->request->data;
-			if ($this->Auth->login($data)) {
+			if ($this->Auth->login()) {
 				$user = $this->generateToken($data, false);
 				return new CakeResponse(array('body' => json_encode($user)));
 			}else{
-				$error = ['error'=>'une erreur est survenue'];
+				$error = ['error'=>'Votre identifiant ou mot de passe n\'est pas valide'];
 				return new CakeResponse(array('body' => json_encode($error)));
 			}
 		}else{
@@ -84,41 +88,47 @@ class UsersController extends AppController
 		if($this->request->data){
 			
 			$this->User->set($this->request->data);
-
+				
 			if($this->User->validates()){
 				$data = $this->request->data;
+				
 
 				$this->User->create();
-				$data = array(
-					'username' => $data['User']['username'],
-					'password' => $this->Auth->password($data['User']['password']),
-					'name'     => $data['User']['name'],
-					'firstname'    => $data['User']['firstname'],
-					'mail'    => $data['User']['mail'],
-					'role' => $data['User']['role'],
-					'tel' => $data['User']['tel']
+				$dataToStore = array(
+					'api_id' => $data['api_id'],
+					'username' =>  $data['username'],
+					'password'     => $this->Auth->password($data['password']),
+					'role'    => 'user',
+					'mail'    => $data['mail'],
+					'avatar_url' => $data['avatar_url']
 				);
-				$this->User->save($data, true, array('username', 'password', 'name', 'firstname', 'mail', 'role', 'tel'));
-				if ($this->User->save()) {
-					App::uses('CakeEmail', 'Network/Email');
-					$mail = new CakeEmail('default');
-					$mail->to($this->request->data['User']['mail']);
-					$mail->subject('Votre Compte d\'administration | Frédéric Kazan');
-					$mail->viewVars(array(
-						'username'=>$this->request->data['User']['username'],
-						'password'=>$this->request->data['User']['password']
-					));
-					$mail->emailFormat('html');
-					$mail->template('adduser', 'admin_mail');
-					$mail->send();
+
+				if ($this->User->save($dataToStore, false, array('api_id', 'username', 'password', 'role', 'mail', 'avatar_url'))) {
+					$UID = [];
+					$UID['user_id'] = $this->User->id;
+					$user = $this->generateToken($UID);
+					return new CakeResponse(array('body' => json_encode($user)));
+
+					// RETURN USER
 					
-					$this->Session->setFlash('Enregistrement terminé', 'flash', array('class' => 'success'));
-					$this->redirect(array('admin' => true, 'controller' => 'dashboard', 'action' => 'index'));	
+					// DEBUT DE LOGIQUE POUR LA VERIF EMAIL NEW USER 
+
+					// App::uses('CakeEmail', 'Network/Email');
+					// $mail = new CakeEmail('default');
+					// $mail->to($this->request->data['User']['mail']);
+					// $mail->subject('Votre Compte d\'administration | Frédéric Kazan');
+					// $mail->viewVars(array(
+					// 	'username'=>$this->request->data['User']['username'],
+					// 	'password'=>$this->request->data['User']['password']
+					// ));
+					// $mail->emailFormat('html');
+					// $mail->template('adduser', 'admin_mail');
+					// $mail->send();	
 				}
 				
 			}else{
-				// $this->request->data = $this->User->validationErrors;
-				$this->Session->setFlash('Erreur', 'flash', array('class' => 'error'));
+				$error = $this->User->validationErrors;
+				return new CakeResponse(array('body' => json_encode($error)));
 			}
 		}
 	}
@@ -189,19 +199,19 @@ class UsersController extends AppController
 
 
 	protected function generateToken($data, $token_only=false){
-
 		if (isset($data['User']['username'])) {
 			$user = $this->User->findByUsername($data['User']['username']);
-			$user = $user['User'];
+		}else if(isset($data['user_id'])){
+			$user = $this->User->findById($data['user_id']);
 		}else if(isset($data['username'])){
 			$user = $this->User->findByUsername($data['username']);
 		}else if(is_int($data)){
 			$user = $this->User->findByApiId($data);
 			// ('first', ['conditions'=>['User.api_id'=>$data]]);
-			$user = $user['User'];
 		}else{
 			return false;
 		}
+		$user = $user['User'];
 
 		unset($user['password']);
 		$user['token'] = null;
