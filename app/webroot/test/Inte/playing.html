@@ -24,14 +24,15 @@
                         <div>
                             <img src="images/avatarSample.png" alt="">
                         </div>
-                        <div>▼</div>
+                        <div id="dropDownIcon">▼</div>
                     </div>
-                    <ul class="dropdownUser animated fadeInRight">
-                        <li>My profile</li>
-                        <li>Edit my profil</li>
-                        <li>Parameters</li>
-                    </ul>
                 </header>
+
+                <ul class="dropdownUser animated fadeInDown">
+                    <li>My profile</li>
+                    <li>Edit my profil</li>
+                    <li>Parameters</li>
+                </ul>
                <a href="#"><button class="backBtn">Back</button></a>
                <div class="playerContainer">
                    <div id="player1" class="player animated flipInY">
@@ -66,18 +67,22 @@
         <script>
             var dropdownUser = document.getElementsByClassName('dropdownUser')[0];
             var userOption = document.getElementById('userOption');
+            var dropDownIcon = document.getElementById('dropDownIcon');
             userOption.addEventListener('click', clickFct,false);
 
             function clickFct() {
                 if(!dropdownUser.classList.contains('visible')){
                     dropdownUser.classList.add("visible");
-                    dropdownUser.classList.remove("fadeOutRight");
+                    dropdownUser.classList.remove("fadeOutUp");
+                    dropDownIcon.classList.add("rotate");
+                    
                 }
                 else {
-                    dropdownUser.classList.add("fadeOutRight");
+                    dropdownUser.classList.add("fadeOutUp");
                     setTimeout(function() {
                         dropdownUser.classList.remove("visible");
-                        dropdownUser.classList.add("fadeOutRight");
+                        dropdownUser.classList.add("fadeOutUp");
+                        dropDownIcon.classList.remove("rotate");
                     }, 700) 
                 }
             }

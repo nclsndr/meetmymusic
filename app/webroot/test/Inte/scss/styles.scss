@@ -19,7 +19,7 @@ html,body {
 	clear: both;
 }
 
-.visible{
+.visible {
 	display : block!important;
 	opacity : 1!important;
 	@include transition(all, 0.5s, ease-in-out);
@@ -134,6 +134,7 @@ a {
 	}
 	header {
 		padding-top : 40px;
+		z-index : 100;
 		a {
 			&:hover {
 				@include scale(1.05);
@@ -274,16 +275,19 @@ a {
 	width : 100%;
 	height : 100%;
 	min-width : 800px;
+	position : relative;
+	z-index : 100;
 }
 
 .dashboardContainer,.desktopContainer {
-	position : relative;
-	z-index : 1;
 	height : 100%;
 	header {
+		position : relative;
+		z-index : 100;
 		background : black;
 		width : 100%;
 		height : 50px;
+		overflow : hidden;
 		h1 {
 			text-transform  : uppercase;
 			color : white;
@@ -302,6 +306,16 @@ a {
 			float : right;
 			color : white;
 			cursor : pointer;
+			.rotate {
+				@include rotate (180);
+				@include transition(all, 0.2s, ease-in-out);
+			}
+			&:hover {
+				div:nth-child(3) {
+					color : $green;
+					@include transition(all, 0.1s, ease-in-out);
+				}
+			}
 			div:nth-child(1) {
 				float : left;
 				width : 150px;
@@ -329,49 +343,49 @@ a {
 			div:nth-child(3) {
 				cursor : pointer;
 				float : left;
-				height : 35px;
 				line-height : 60px;
 				font-size : 0.75rem;
 				margin-right : 20px;
+				@include transition(all, 0.1s, ease-in-out);
 			}
 		}
-		.dropdownUser {
-			background : rgba(255,255,255,0.3);
-			width : 220px;
-			height : auto;
-			position : absolute;
-			top : 50px;
-			right : 0;
-			display : none;
-			opacity : 0;
-			z-index : 10;
-			
-			li{
-				height : 40px;
-				line-height : 40px;
-				padding-left : 50px;
-				color : white;
-				font-size : 0.8rem;
-				cursor : pointer;
-				background-position :  25px center;
-				background-repeat : no-repeat;
+	}
+	.dropdownUser {
+		background : rgba(255,255,255,0.3);
+		width : 220px;
+		height : auto;
+		position : absolute;
+		top : 50px;
+		right : 0;
+		display : none;
+		opacity : 0;
+		z-index : 10;
+		
+		li{
+			height : 40px;
+			line-height : 40px;
+			padding-left : 50px;
+			color : white;
+			font-size : 0.8rem;
+			cursor : pointer;
+			background-position :  25px center;
+			background-repeat : no-repeat;
+			@include transition(all, 0.1s, ease-in-out);
+			&:nth-child(1) {
+				background-image : url('../images/pictoUser.png');
+				border-bottom : 1px solid rgba(255,255,255,0.1);
+			}
+			&:nth-child(2) {
+				background-image : url('../images/pictoPen.png');
+				border-bottom : 1px solid rgba(255,255,255,0.1);
+			}
+			&:nth-child(3) {
+				background-image : url('../images/pictoSettings.png');
+			}
+			&:hover {
+				color : $green;
+				background-position : 20px center;
 				@include transition(all, 0.1s, ease-in-out);
-				&:nth-child(1) {
-					background-image : url('../images/pictoUser.png');
-					border-bottom : 1px solid rgba(255,255,255,0.1);
-				}
-				&:nth-child(2) {
-					background-image : url('../images/pictoPen.png');
-					border-bottom : 1px solid rgba(255,255,255,0.1);
-				}
-				&:nth-child(3) {
-					background-image : url('../images/pictoSettings.png');
-				}
-				&:hover {
-					color : $green;
-					background-position : 20px center;
-					@include transition(all, 0.1s, ease-in-out);
-				}
 			}
 		}
 	}
@@ -382,6 +396,27 @@ a {
 		top : 50px;
 		bottom : 0px;
 		overflow-y : auto;
+		&::-webkit-scrollbar-track
+		{
+			-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+			background-color: #000;
+		}
+		&::-webkit-scrollbar
+		{
+			width: 6px;
+			background-color: #000;
+		}
+		&::-webkit-scrollbar-thumb
+		{
+			background-color: #5f5f5f;
+		}
+		scrollbar-base-color: #5f5f5f;
+		scrollbar-3dlight-color: #5f5f5f;
+		scrollbar-highlight-color: #5f5f5f;
+		scrollbar-track-color: #5f5f5f;
+		scrollbar-arrow-color: white;
+		scrollbar-shadow-color: #5f5f5f;
+		scrollbar-dark-shadow-color: #5f5f5f;
 
 		.topAside {
 			border-bottom : 1px solid rgba(255,255,255,0.4);
@@ -563,8 +598,8 @@ a {
 	background-size : cover;
 	overflow : hidden;
 	.topSeach {
-		height : 280px;
-		padding-top : 35px;
+		height : 260px;
+		padding-top : 30px;
 		padding-bottom : 20px;
 		h1 {
 			font-size : 1.8rem;
@@ -598,7 +633,7 @@ a {
 		background : black;
 		.songRecapHalf {
 			width : 50%;
-			height : 300px;
+			height : 100%;
 			float : left;
 			overflow : hidden;
 			h2 {
@@ -633,7 +668,7 @@ a {
 			background : black;
 		}
 		ul {
-			width  : 100%;
+			width  : 99.8%;
 			margin:auto;
 			list-style : none;
 			overflow-y : auto;
