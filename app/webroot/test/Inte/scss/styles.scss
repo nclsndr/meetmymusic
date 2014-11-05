@@ -19,6 +19,12 @@ html,body {
 	clear: both;
 }
 
+.visible{
+	display : block!important;
+	opacity : 1!important;
+	@include transition(all, 0.5s, ease-in-out);
+} 
+
 .fadeOut{
 	@include transition(all, 0.5s, ease-in-out);
 	opacity : 0;
@@ -93,6 +99,21 @@ a {
 		}
 	}
 }
+
+.backBtn {
+	position : absolute;
+	cursor : pointer;
+	top : 70px;
+	left : 50px;
+	height : 46px;
+	padding-left : 60px;
+	font-weight : bold;
+	color : white;
+	border:  0;
+	font-size : 1.1rem;
+	background: url('../images/back.png') left center no-repeat; 
+}
+
 
 /* --------------- LOGIN PAGE --------------- */
 .loginPage {
@@ -250,10 +271,11 @@ a {
 /* --------------- DASHBOARD PAGE --------------- */
 .dashboardPage,.desktopPage {
 	background : black;
-	
 	width : 100%;
+	height : 100%;
 	min-width : 800px;
 }
+
 .dashboardContainer,.desktopContainer {
 	position : relative;
 	z-index : 1;
@@ -278,17 +300,17 @@ a {
 		}
 		#userOption {
 			float : right;
-			width : 240px;
 			color : white;
-
+			cursor : pointer;
 			div:nth-child(1) {
 				float : left;
 				width : 150px;
 				margin-right : 20px;
 				font-size : 0.9rem;
-				margin-top : 10px;
+				margin-top : 17px;
 				text-align : right;
 			}
+
 			div:nth-child(2) {
 				width : 35px;
 				height : 35px;
@@ -298,10 +320,58 @@ a {
 			    overflow : hidden;
 			    border : 1px solid rgba(255,255,255,0.4);
 			    margin-top : 7px;
-			    margin-right : 30px;
+			    margin-right : 10px;
+			    float : left;
 			    img {
 			    	width : 100%;
 			    }
+			}
+			div:nth-child(3) {
+				cursor : pointer;
+				float : left;
+				height : 35px;
+				line-height : 60px;
+				font-size : 0.75rem;
+				margin-right : 20px;
+			}
+		}
+		.dropdownUser {
+			background : rgba(255,255,255,0.3);
+			width : 220px;
+			height : auto;
+			position : absolute;
+			top : 50px;
+			right : 0;
+			display : none;
+			opacity : 0;
+			z-index : 10;
+			
+			li{
+				height : 40px;
+				line-height : 40px;
+				padding-left : 50px;
+				color : white;
+				font-size : 0.8rem;
+				cursor : pointer;
+				background-position :  25px center;
+				background-repeat : no-repeat;
+				@include transition(all, 0.1s, ease-in-out);
+				&:nth-child(1) {
+					background-image : url('../images/pictoUser.png');
+					border-bottom : 1px solid rgba(255,255,255,0.1);
+				}
+				&:nth-child(2) {
+					background-image : url('../images/pictoPen.png');
+					border-bottom : 1px solid rgba(255,255,255,0.1);
+				}
+				&:nth-child(3) {
+					background-image : url('../images/pictoSettings.png');
+				}
+				&:hover {
+					color : $green;
+					background-position : 20px center;
+					@include transition(all, 0.1s, ease-in-out);
+				}
 			}
 		}
 	}
@@ -350,29 +420,6 @@ a {
 				margin-left: 17px;
 			}
 		}
-		&::-webkit-scrollbar-track
-		{
-			-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-			background-color: #000;
-		}
-
-		&::-webkit-scrollbar
-		{
-			width: 6px;
-			background-color: #000;
-		}
-
-		&::-webkit-scrollbar-thumb
-		{
-			background-color: #5f5f5f;
-		}
-		scrollbar-base-color: #5f5f5f;
-		scrollbar-3dlight-color: #5f5f5f;
-		scrollbar-highlight-color: #5f5f5f;
-		scrollbar-track-color: #5f5f5f;
-		scrollbar-arrow-color: white;
-		scrollbar-shadow-color: #5f5f5f;
-		scrollbar-dark-shadow-color: #5f5f5f;
 	}
 	.ghostButton {
 		width : 270px;
@@ -397,19 +444,13 @@ a {
 }
 
 /* --------------- PLAYING PAGE --------------- */
-.backBtn {
-	position : absolute;
-	cursor : pointer;
-	top : 70px;
-	left : 50px;
-	height : 46px;
-	padding-left : 60px;
-	font-weight : bold;
-	color : white;
-	border:  0;
-	font-size : 1.1rem;
-	background: url('../images/back.png') left center no-repeat; 
+
+.playingPage {
+	background : black;
+	width : 100%;
+	min-width : 800px;
 }
+
 .playerContainer{
 	width : 80%;
 	max-width : 850px;
@@ -508,6 +549,177 @@ a {
 		}
 		img:last-of-type{
 			float : right;
+		}
+	}
+}
+
+
+/* --------------- SEARCH PAGE --------------- */
+.searchContainer {
+	color : white;
+	width : 100%;
+	text-align : center;
+	background : url('../images/bgBlack.jpg') center black;
+	background-size : cover;
+	overflow : hidden;
+	.topSeach {
+		height : 280px;
+		padding-top : 35px;
+		padding-bottom : 20px;
+		h1 {
+			font-size : 1.8rem;
+			line-height : 1.3;
+			font-weight : bold;
+		}
+		img {
+			margin : 40px auto;
+		}
+	}
+	.searchBar {
+		width : 100%;
+		height : 60px;
+		background : white;
+		color : #aaaaaa;
+		overflow : hidden;
+		input {
+			width : 80%;
+			margin : auto;
+			height : 100%;
+			padding : 0;
+			border : 0;
+			font-size : 1.4em;
+			background : url('../images/pictoLoupe.jpg') center left no-repeat;
+			background-size : 35px 30px;
+			padding-left : 45px;
+		}
+	}
+	.songRecap {
+		width : 100%;
+		background : black;
+		.songRecapHalf {
+			width : 50%;
+			height : 300px;
+			float : left;
+			overflow : hidden;
+			h2 {
+				height : 50px;
+				line-height : 50px;
+				font-weight : normal;
+				font-size : 1.25rem;
+				text-align : left;
+				margin-left :  10%;
+			}
+			.greySep {
+				width : 100%;
+				height : 1px;
+				background : #303030;
+			} 
+		}
+		.songYouLike {
+			h2 {
+				background : url('../images/pictoCoeur.png') left 15px no-repeat;
+				padding-left : 30px;
+				background-size : 20px 18px;
+
+			}
+			background : url('../images/greypixel.jpg') black right repeat-y !important;
+		}
+		.songYouReposted {
+			h2 {
+				background : url('../images/pictoRepost.png') left center no-repeat;
+				padding-left : 45px;
+				background-size : 33px 18px;
+			}
+			background : black;
+		}
+		ul {
+			width  : 100%;
+			margin:auto;
+			list-style : none;
+			overflow-y : auto;
+			overflow-x : hidden;
+			&::-webkit-scrollbar-track
+			{
+				-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+				background-color: #000;
+			}
+			&::-webkit-scrollbar
+			{
+				width: 6px;
+				background-color: #000;
+			}
+			&::-webkit-scrollbar-thumb
+			{
+				background-color: #5f5f5f;
+			}
+			scrollbar-base-color: #5f5f5f;
+			scrollbar-3dlight-color: #5f5f5f;
+			scrollbar-highlight-color: #5f5f5f;
+			scrollbar-track-color: #5f5f5f;
+			scrollbar-arrow-color: white;
+			scrollbar-shadow-color: #5f5f5f;
+			scrollbar-dark-shadow-color: #5f5f5f;
+			li {
+				width : 100%;
+				display : block;
+				text-align : left;
+				padding-top : 10px;
+				padding-bottom : 10px;
+				border-bottom : 1px solid #303030;
+				cursor : pointer;
+				img {
+					float : left;
+					display : block;
+					width : 55px;
+					height : 55px;
+					margin-left : 5%;
+					margin-right : 20px;
+					@include transition(all, 0.5s, ease-in-out);
+				}
+				.description {
+					float : left;
+				}
+				.title {
+					font-size : 0.95rem;
+					margin-top : 10px;
+					margin-bottom : 5px;
+					@include transition(all, 0.5s, ease-in-out);
+				}
+				.timeLength {
+					font-size : 0.8rem;
+				}
+				.validate {
+					width : 40px;
+					height : 40px;
+					margin-right : 5%;
+					margin-top : 7px;
+					float: right;
+					svg {
+						stroke : white;
+						@include transition(all, 0.2s, linear);
+					}
+				}
+
+				&:hover {
+					img {
+						@include transition(all, 0.1s, linear);
+					}
+					.title {
+						font-size : 0.95rem;
+						margin-top : 10px;
+						margin-bottom : 5px;
+						color : $green;
+						@include transition(all, 0.2s, linear);
+					}
+					.validate {
+						svg {
+							stroke : $green;
+							@include transition(all, 0.2s, linear);
+						}
+					}
+					
+				}
+			}
 		}
 	}
 }

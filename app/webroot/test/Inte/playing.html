@@ -14,20 +14,23 @@
         <link rel="stylesheet" href="css/media.css">
     </head>
     <body>
-        <div class="desktopPage">
+        <div class="playingPage">
             <div id="googleMaps"></div>
             <div class="desktopContainer">
                 <header>
                     <a href="#"><h1 class="animated fadeInDown">MEET MY MUSIC</h1></a>
                     <div id="userOption">
-                        <div>
-                            <span id="username">Username</span><br>
-                            <a href="#">Edit my profil</a>        
-                        </div>
+                        <div id="username">Jack Sparrow</div>
                         <div>
                             <img src="images/avatarSample.png" alt="">
                         </div>
+                        <div>▼</div>
                     </div>
+                    <ul class="dropdownUser animated fadeInRight">
+                        <li>My profile</li>
+                        <li>Edit my profil</li>
+                        <li>Parameters</li>
+                    </ul>
                 </header>
                <a href="#"><button class="backBtn">Back</button></a>
                <div class="playerContainer">
@@ -61,7 +64,23 @@
         </div>
         
         <script>
-            
+            var dropdownUser = document.getElementsByClassName('dropdownUser')[0];
+            var userOption = document.getElementById('userOption');
+            userOption.addEventListener('click', clickFct,false);
+
+            function clickFct() {
+                if(!dropdownUser.classList.contains('visible')){
+                    dropdownUser.classList.add("visible");
+                    dropdownUser.classList.remove("fadeOutRight");
+                }
+                else {
+                    dropdownUser.classList.add("fadeOutRight");
+                    setTimeout(function() {
+                        dropdownUser.classList.remove("visible");
+                        dropdownUser.classList.add("fadeOutRight");
+                    }, 700) 
+                }
+            }
         </script>
     </body>
 </html>
