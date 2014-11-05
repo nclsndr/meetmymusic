@@ -16,7 +16,11 @@ mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider', '$
     $routeProvider
     .when('/', {
         templateUrl: partialsF+'/home.html',
-        controller: 'UserCtrl'
+        controller: 'StartCtrl'
+    })
+    .when('/dashboard', {
+        templateUrl: partialsF+'/dashboard.html',
+        controller: 'DashboardCtrl' 
     })
     .when('/debug', {
         templateUrl: partialsF+'/debug.html',
@@ -26,28 +30,6 @@ mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider', '$
         templateUrl: partialsF+'/login.html',
         controller: 'UserCtrl'
     })
-    // .when('/', {
-    //     templateUrl: partialsF+'/dashboard.html',
-    //     controller: 'DashboardCtrl',
-    //     resolve: {
-    //         auth : function(UserFactory, $location){
-    //             if (!UserFactory.isAuth()) {
-    //                 $location.path('/users/login');
-    //             }
-    //         }
-    //     }
-    // })
-    // .when('/clients/edit', {
-    //     templateUrl: partialsF+'/clients_edit.html',
-    //     controller: 'ClientsCtrl',
-    //     resolve: {
-    //         auth : function(UserFactory, $location){
-    //             if (!UserFactory.isAuth()) {
-    //                 $location.path('/users/login');
-    //             }
-    //         }
-    //     }
-    // });
     // .otherwise({redirectTo : '/'});
   // .when('/Book/:bookId/ch/:chapterId', {
   //   templateUrl: 'chapter.html',

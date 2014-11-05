@@ -1,5 +1,5 @@
-mmmApp.controller('UserCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q','$scope', 
-	function (NotificationFactory, UserFactory, SoundcloudService, $q, $scope) {
+mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q','$scope', '$location',
+	function (NotificationFactory, UserFactory, SoundcloudService, $q, $scope, $location) {
 
 		SoundcloudService.init();
 		$scope.SC = {};
@@ -47,7 +47,6 @@ mmmApp.controller('UserCtrl', ['NotificationFactory', 'UserFactory', 'Soundcloud
 					var SCUser = data;
 					UserFactory.hasAccount(data.id)
 						.then(function(dataSuccess){
-							console.log(dataSuccess);
 							if (dataSuccess.hasNoAccount) {
 								$scope.ui.loginState = 'fadeOut';
 								$scope.ui.registerState = 'fadeIn';
@@ -58,7 +57,7 @@ mmmApp.controller('UserCtrl', ['NotificationFactory', 'UserFactory', 'Soundcloud
 								$scope.User.register.username = SCUser.username;
 							}else{
 								NotificationFactory.add('You are logged', 'success');
-								console.log('need to redirect : user logged');
+								$location.path('/dashboard');
 								// REDIRECT TO DASHBOARD
 							}
 						},

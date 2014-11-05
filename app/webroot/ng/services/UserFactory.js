@@ -2,9 +2,7 @@ mmmApp.factory('UserFactory', ['$http', '$location', '$q',
 function ($http, $location, $q) {
 	var Factory = {
 
-		User: {
-			token:''
-		},
+		User: {},
 
 		login:function(params){
 			var deferred = $q.defer();
@@ -34,6 +32,16 @@ function ($http, $location, $q) {
 					deferred.reject(data);
 				});
 			return deferred.promise;
+		},
+
+		isNotLogged:function(){
+			if (Factory.User == null) return true;
+		    if (Factory.User.length > 0)    return false;
+		    if (Factory.User.length === 0)  return true;
+		    for (var key in Factory.User) {
+		        if (hasOwnProperty.call(Factory.User, key)) return false;
+		    }
+		    return true;
 		},
 
 		hasAccount:function(api_id){

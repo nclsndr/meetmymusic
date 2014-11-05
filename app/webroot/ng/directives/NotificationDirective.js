@@ -9,7 +9,7 @@ mmmApp.directive('notifications', ['NotificationFactory', function(NotificationF
 			elmt.bind('click',function(e){
 				var index = e.target.attributes[1].value;
 				NotificationFactory.delete(index, function(item){
-					console.log(item);
+					// console.log(item);
 				});
 			});
 		}
