@@ -20,15 +20,19 @@
                 <header>
                     <a href="#"><h1 class="animated fadeInDown">MEET MY MUSIC</h1></a>
                     <div id="userOption">
-                        <div>
-                            <span id="username">Username</span><br>
-                            <a href="#">Edit my profil</a>        
-                        </div>
+                        <div id="username">Jack Sparrow</div>
                         <div>
                             <img src="images/avatarSample.png" alt="">
                         </div>
+                        <div id="dropDownIcon">▼</div>
                     </div>
                 </header>
+
+                <ul class="dropdownUser animated fadeInDown">
+                    <li>My profile</li>
+                    <li>Edit my profil</li>
+                    <li>Parameters</li>
+                </ul>
                 <aside>
                     <div class="topAside">
                         <img class="" src="images/refreshPicto.png" width="24" height="24" alt="refresh">
@@ -118,6 +122,28 @@
             </div>  
         </div>
         <script>
+            var dropdownUser = document.getElementsByClassName('dropdownUser')[0];
+            var userOption = document.getElementById('userOption');
+            var dropDownIcon = document.getElementById('dropDownIcon');
+            userOption.addEventListener('click', clickFct,false);
+
+            function clickFct() {
+                if(!dropdownUser.classList.contains('visible')){
+                    dropdownUser.classList.add("visible");
+                    dropdownUser.classList.remove("fadeOutUp");
+                    dropDownIcon.classList.add("rotate");
+                    
+                }
+                else {
+                    dropdownUser.classList.add("fadeOutUp");
+                    setTimeout(function() {
+                        dropdownUser.classList.remove("visible");
+                        dropdownUser.classList.add("fadeOutUp");
+                        dropDownIcon.classList.remove("rotate");
+                    }, 700) 
+                }
+            }
+            
             var refreshBtn = document.querySelector('.topAside img');
             refreshBtn.addEventListener("mouseover", function() {
                 this.classList.add('rotating');

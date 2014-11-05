@@ -30,6 +30,18 @@ mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider', '$
         templateUrl: partialsF+'/login.html',
         controller: 'UserCtrl'
     })
+
+    // .when('/', {
+    //     templateUrl: partialsF+'/dashboard.html',
+    //     controller: 'DashboardCtrl',
+    //     resolve: {
+    //         auth : function(UserFactory, $location){
+    //             if (!UserFactory.isAuth()) {
+    //                 $location.path('/users/login');
+    //             }
+    //         }
+    //     }
+    // })
     // .otherwise({redirectTo : '/'});
   // .when('/Book/:bookId/ch/:chapterId', {
   //   templateUrl: 'chapter.html',
