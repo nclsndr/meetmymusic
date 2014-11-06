@@ -20,7 +20,15 @@ mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider', '$
     })
     .when('/dashboard', {
         templateUrl: partialsF+'/dashboard.html',
-        controller: 'DashboardCtrl' 
+        controller: 'DashboardCtrl',
+        resolve: {
+            auth : function(UserFactory, $location, NotificationFactory){
+                if (UserFactory.isNotLogged()) {
+                    NotificationFactory.add('You are not logged', 'error');
+                    $location.path('/');
+                }
+            }
+        }
     })
     .when('/debug', {
         templateUrl: partialsF+'/debug.html',

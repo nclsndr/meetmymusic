@@ -1,5 +1,5 @@
-mmmApp.factory('NotificationFactory', ['$http','$q', '$interval',
-function ($http, $q, $interval) {
+mmmApp.factory('NotificationFactory', ['$http','$q', '$interval', '$rootScope',
+function ($http, $q, $interval, $rootScope) {
 	var Factory = {
 		List : [],
 		isRunning : false,
@@ -28,6 +28,7 @@ function ($http, $q, $interval) {
 		delete:function(index, callback){
 			index = parseInt(index);
 			var item = Factory.List.splice(index,1);
+			$rootScope.$apply();
 			callback.call(this, item);
 		}
 	}
