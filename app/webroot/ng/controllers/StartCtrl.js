@@ -3,10 +3,6 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 
 		SoundcloudService.init();
 		$scope.SC = {};
-		$scope.User = {
-			register : {},
-			login : {} 
-		};
 		$scope.ui = {
 			loginState : 'fadeIn',
 			registerState : 'fadeOut',
@@ -52,9 +48,9 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 								$scope.ui.registerState = 'fadeIn';
 								$scope.ui.msgRegisterState = 'fadeOut';
 								$scope.ui.SCBtState = 'fadeOut';
-								$scope.User.register.api_id = SCUser.id;
-								$scope.User.register.avatar_url = SCUser.avatar_url;
-								$scope.User.register.username = SCUser.username;
+								$scope.register.api_id = SCUser.id;
+								$scope.register.avatar_url = SCUser.avatar_url;
+								$scope.register.username = SCUser.username;
 							}else{
 								NotificationFactory.add('You are logged', 'success');
 								$location.path('/dashboard');

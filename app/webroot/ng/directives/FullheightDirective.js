@@ -1,4 +1,4 @@
-mmmApp.directive('fullheight', ['$window', function($window){
+mmmApp.directive('fullheight', ['$window', function ($window){
 	return {
 		restrict: 'A',
 		priority : 1001,
@@ -12,9 +12,14 @@ mmmApp.directive('fullheight', ['$window', function($window){
 	        scope.getWindowDimensions = function () {
 	            return { 'h': $window.innerHeight, 'w': $window.innerWidth };
 	        };
-	        scope.$watch(scope.getWindowDimensions, function (newValue, oldValue) {
-	            scope.setHeight(newValue.h);
-	        }, true);
+	        
+	        scope.$watch(
+	        	scope.getWindowDimensions, 
+	        	function (newValue, oldValue) {
+		            scope.setHeight(newValue.h);
+		        }
+	        	, true
+	        );
 
 	        w.bind('resize', function () {
 	            scope.$apply();

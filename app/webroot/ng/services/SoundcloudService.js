@@ -1,5 +1,5 @@
-mmmApp.service('SoundcloudService',['$http', '$q',
-	function ($http, $q){
+mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
+	function ($http, $q, $rootScope){
 
 		this.SC = {};
 		this.SCUser = {};
@@ -15,7 +15,7 @@ mmmApp.service('SoundcloudService',['$http', '$q',
 			if (window.SC) {
 				self.SC = window.SC;
 			}else{
-				alert('SoundCloud SDK js is not loaded');
+				alert('SoundCloud SDK is not loaded');
 			}
 			self.SC.initialize({
 			  client_id: self.clientID,
@@ -37,6 +37,7 @@ mmmApp.service('SoundcloudService',['$http', '$q',
 			  self.SC.get('/me', function(me) {
 			  	console.log(me);
 			  	self.SCUser = me;
+			  	$rootScope.$apply();
 			  	deferred.resolve(me);
 			  });
 			});

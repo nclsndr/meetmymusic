@@ -26,15 +26,16 @@
     
     <!-- Register Form -->
     <div class="register animated {{ui.registerState}}">
-        <img src="{{User.register.avatar_url}}" alt="" class="avatar">
-        <form ng-submit="registerForm()" novalidate>
-            <input type="hidden" name="api_id" ng-model="User.register.api_id"> 
-            <input type="hidden" name="lat" ng-model="User.register.lat">
-            <input type="hidden" name="lng" ng-model="User.register.lng">
-            <input type="hidden" name="avatar_url" ng-model="User.register.avatar_url"> 
-            <input type="text" name="username" placeholder="Username" ng-model="User.register.username" required>
-            <input type="email" name="mail" placeholder="Mail" ng-model="User.register.mail" required>
-            <input type="text" name="city" placeholder="City, Country" ng-model="User.register.city_country" required> 
+        <form ng-submit="registerForm()" novalidate name="register">
+            <img src="{{register.avatar_url}}" alt="" class="avatar">
+            <input type="hidden" name="api_id" ng-model="register.api_id"> 
+            <input type="hidden" name="lat" ng-model="register.lat">
+            <input type="hidden" name="lng" ng-model="register.lng">
+            <input type="hidden" name="avatar_url" ng-model="register.avatar_url"> 
+            <input type="text" name="username" placeholder="Username" ng-model="register.username" username-valid>
+            <input type="email" overwrite-email placeholder="Mail" ng-model="register.mail">
+            <span ng-show="register.overwrittenEmail.$error.mail">This email format is invalid!</span>
+            <input type="text" name="city" placeholder="City, Country" ng-model="register.city_country" > 
             <span class="ghostButton connectElem">
                 <span class="invert"></span>
                 <input type="submit" class="text"  value="REGISTER">
