@@ -60,6 +60,22 @@ class UsersController extends AppController
 		}
 	}
 
+	public function usernameexist(){
+		$return = ['usernameExist'=>false];
+		if (!empty($this->request->data)) {
+			$username = $this->request->data;
+			$res = $this->User->find('count', ['conditions'=>['User.username'=>$username]]);
+			if($res>0){
+				$return = ['usernameExist'=>true];
+				return new CakeResponse(array('body' => json_encode($return)));
+			}else{
+				return new CakeResponse(array('body' => json_encode($return)));
+			}
+		}else{
+			return new CakeResponse(array('body' => json_encode('no POST')));
+		}
+	}
+
 	public function logout(){
 		$user = $this->Auth->User();
 		$this->deleteToken($user['id']);

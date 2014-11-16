@@ -77,3 +77,70 @@ mmmApp.controller('DebugCtrl', ['socket', '$scope', 'QrFactory', 'SoundcloudServ
 
 	}]
 );
+
+
+//            HOW TO $timeout 
+//  var def = $q.defer();
+            
+// var timer = $timeout(
+//     function() {
+//         console.log( "Timeout executed", Date.now() );
+//     },
+//     2000
+// );
+// // Let's bind to the resolve/reject handlers of
+// // the timer promise so that we can make sure our
+// // cancel approach is actually working.
+// timer.then(
+//     function() {
+//         console.log("Timer resolved!", Date.now());
+        
+
+//         UserFactory.usernameExist
+//         .then(
+//             function (data){
+
+//             }, 
+//             function (msg){
+//                 console.log(msg);
+//         });
+
+//         def.resolve();
+
+
+//         def.reject();
+
+//         if (usernames.indexOf(modelValue) === -1) {
+//             // The username is available
+            
+//           } else {
+            
+//           }
+//     },
+//     function() {
+//         console.log( "Timer rejected!", Date.now() );
+//     }
+// );
+// // When the DOM element is removed from the page,
+// // AngularJS will trigger the $destroy event on
+// // the scope. This gives us a chance to cancel any
+// // pending timer that we may have.
+// $scope.$on(
+//     "$destroy",
+//     function(event) {
+//         $timeout.cancel( timer );
+//     }
+// );
+
+
+
+// // console.log(modelValue);
+// // if (ctrl.$isEmpty(modelValue)) {
+// //   // consider empty model valid
+// //   return $q.when();
+// // }
+
+
+// console.log(time);
+
+// return def.promise;

@@ -15,7 +15,8 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 			UserFactory.login($scope.User.login)
 				.then(
 				function (data){
-				}, function (msg){
+				}, 
+				function (msg){
 					console.log(msg);
 				});
 		}

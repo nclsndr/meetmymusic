@@ -59,6 +59,25 @@ function ($http, $location, $q) {
 					deferred.reject(data);
 				});
 			return deferred.promise;
+		},
+
+		usernameExists:function(username){
+			var cleanUsername = username.trim();
+			var deferred = $q.defer();
+			var url = 'http://mmm.nclsndr.fr/users/usernameexist';
+
+			$http({method:'POST', data:username, url:url})
+				.success(function(data, status){
+					if (!data.hasNoAccount) {
+						Factory.User = data;
+					}
+					deferred.resolve(data);
+				})
+				.error(function(data, status){
+					var error = {'error':true}
+					deferred.reject(error);
+				});
+			return deferred.promise;
 		}
 	}
 	return Factory;
