@@ -23,30 +23,19 @@ mmmApp.directive('username', function($q, $timeout, UserFactory) {
     // var usernames = ['Jim', 'John', 'Jill', 'Jackie'];
         console.log(ctrl);
 
-      ctrl.$asyncValidators.username = function(modelValue, viewValue) {
-
-        console.log(modelValue);
-        if (ctrl.$isEmpty(modelValue)) {
-          // consider empty model valid
-          return $q.when();
-        }
-
-        var def = $q.defer();
-
-        var time = $timeout(function() {
-          // Mock a delayed response
-          // if (usernames.indexOf(modelValue) === -1) {
-          //   // The username is available
-          //   def.resolve();
-          // } else {
-          //   def.reject();
-          // }
-
-        }, 2000);
-
-        console.log(time);
-
-        return def.promise;
+        ctrl.$asyncValidators.username = function(modelValue, viewValue) {
+            var value = modelValue || viewValue;
+            // Lookup user by username
+            
+            return UserFactory.usernameExists.
+               then(function resolved() {
+                 //username exists, this means validation fails
+                 return $q.reject('exists');
+               }, function rejected() {
+                 //username does not exist, therefore this validation passes
+                 return true;
+               });
+            };
       };
     }
   };
