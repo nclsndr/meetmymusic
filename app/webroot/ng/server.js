@@ -21,12 +21,15 @@ io.on('connection', function(socket){
 
 
 app.get('/', function(req, res){
-	res.sendfile('index.html');
+	res.sendfile(__dirname+'/index.html');
+});
+app.get('/mobile', function(req, res){
+	res.sendfile(__dirname+'/mobile.html');
 });
 
 // Login Redirect URI from SoundCloud API
 app.get('/scauth', function(req, res){
-	res.sendfile('node_tpl/auth_sc.html');
+	res.sendfile(__dirname+'/node_tpl/auth_sc.html');
 });
 
 // app.use(function (req, res, next) {
@@ -50,3 +53,4 @@ app.get('/scauth', function(req, res){
 http.listen(3000, function(){
 	console.log('listening on *:3000');
 });
+

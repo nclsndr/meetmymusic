@@ -54,11 +54,12 @@
 	<div class="row">
 		<form name="register" novalidate>
 			<input type="email" overwrite-email ng-model="email" name="overwrittenEmail">
-			
 			<span ng-show="register.overwrittenEmail.$error.email">This email is not valid</span>
 			<br>
 			<input type="text" username ng-model="username" ng-model-options="{ debounce: 250 }" name="username">
 			<span ng-show="register.username.$error.username">This user already exists</span>
+			<br>
+			<input type="text" maps-auto-complete ng-model="city" ng-model-options="{ debounce: 250 }" name="city">
 		</form>
 	</div>
 	<div style="height:200px"></div>

@@ -14,13 +14,13 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 			// initialize client with app credentials
 			if (window.SC) {
 				self.SC = window.SC;
+				self.SC.initialize({
+				  client_id: self.clientID,
+				  redirect_uri: self.redirectUrl
+				});
 			}else{
 				alert('SoundCloud SDK is not loaded');
 			}
-			self.SC.initialize({
-			  client_id: self.clientID,
-			  redirect_uri: self.redirectUrl
-			});
 		}
 
 		this.isDefine=function(){

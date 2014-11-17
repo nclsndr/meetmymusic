@@ -75,6 +75,49 @@ a:hover {
   }
 }
 
+
+/* ———————————————————————————— END GENERAL ———————————————————————————— */
+
+/* ———————————————————————————————————————————————————————————— NOTIFICATIONS ———————————————————————————————————————————————————————————— */
+.notifications_container{
+  position: fixed;
+  right: .6rem;
+  top: 0;
+  z-index: 101;
+  width: 200px;
+}
+.notifications_container ul{
+  list-style: none;
+}
+.notifications_container ul li{
+  position: relative;
+  display: block;
+  padding: .6rem;
+  background: rgba(255,255,255, .8);
+  border: 1px solid #0edfb5;
+  border-radius: 4px;
+  width: 100%;
+  color: #333;
+  margin-top: .6rem;
+  text-align: center;
+}
+.notifications_container ul li.error{
+  color: #e40151;
+  border: 1px solid #e40151;
+}
+
+/* ———————————————————————————— END NOTIFICATIONS ———————————————————————————— */
+
+/* ———————————————————————————————————————————————————————————— FORM ———————————————————————————————————————————————————————————— */
+
+form span.form_error{
+  display: block;
+  background: rgba(228, 1, 81, .7);
+  color: #FFF;
+  padding: .5rem;
+  font-size: .8rem;
+  margin: 0;
+}
 .ghostButton {
   display: block;
   margin: auto;
@@ -121,37 +164,18 @@ a:hover {
   color: black;
 }
 
-/* ———————————————————————————— END GENERAL ———————————————————————————— */
-
-/* ———————————————————————————————————————————————————————————— NOTIFICATIONS ———————————————————————————————————————————————————————————— */
-.notifications_container{
-  position: fixed;
-  right: .6rem;
-  top: 0;
-  z-index: 101;
-  width: 200px;
+.ghostButton.disabled{
+  opacity: .4;
 }
-.notifications_container ul{
-  list-style: none;
+.ghostButton.disabled:hover .invert {
+  width: 0%;
 }
-.notifications_container ul li{
-  position: relative;
-  display: block;
-  padding: .6rem;
-  background: rgba(255,255,255, .8);
-  border: 1px solid #0edfb5;
-  border-radius: 4px;
-  width: 100%;
-  color: #333;
-  margin-top: .6rem;
-  text-align: center;
-}
-.notifications_container ul li.error{
-  color: #e40151;
-  border: 1px solid #e40151;
+.ghostButton.disabled:hover .text {
+  color: inherit;
 }
 
-/* ———————————————————————————— END NOTIFICATIONS ———————————————————————————— */
+/* ———————————————————————————— END FORM ———————————————————————————— */
+
 
 /* ———————————————————————————————————————————————————————————— LOGIN ———————————————————————————————————————————————————————————— */
 .user.login_register {
@@ -293,6 +317,7 @@ a:hover {
   padding-left: 15px;
   padding-right: 15px;
   margin-top: 20px;
+  margin-bottom: 0;
 }
 .user.login_register form input[type='submit'] {
   display: block;
