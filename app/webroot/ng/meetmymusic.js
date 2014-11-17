@@ -12,32 +12,52 @@ mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider', '$
     $httpProvider.defaults.useXDomain = true;
 
     var partialsF = 'http://mmm.nclsndr.fr/ng/partials';
-    
-    $routeProvider
-    .when('/', {
-        templateUrl: partialsF+'/home.html',
-        controller: 'StartCtrl'
-    })
-    .when('/dashboard', {
-        templateUrl: partialsF+'/dashboard.html',
-        controller: 'DashboardCtrl',
-        resolve: {
-            auth : function(UserFactory, $location, NotificationFactory){
-                if (UserFactory.isNotLogged()) {
-                    NotificationFactory.add('You are not logged', 'error');
-                    $location.path('/');
+    var mbPartialsF = 'http://mmm.nclsndr.fr/ng/mb_partials';
+
+    if (window.location.pathname == '/mobile/' || window.location.pathname == '/mobile') {
+        $routeProvider
+        .when('/', {
+            templateUrl: mbPartialsF+'/start.html',
+            controller: 'MbStartCtrl'
+        })
+        .when('/songSelected', {
+            templateUrl: mbPartialsF+'/songSelected.html',
+            controller: 'MbSongSelected'
+        })
+        .when('/remote', {
+            templateUrl: mbPartialsF+'/musicRemote.html',
+            controller: 'MbMusicRemote'
+        }); 
+
+    }else{
+        $routeProvider
+        .when('/', {
+            templateUrl: partialsF+'/home.html',
+            controller: 'StartCtrl'
+        })
+        .when('/dashboard', {
+            templateUrl: partialsF+'/dashboard.html',
+            controller: 'DashboardCtrl',
+            resolve: {
+                auth : function(UserFactory, $location, NotificationFactory){
+                    if (UserFactory.isNotLogged()) {
+                        NotificationFactory.add('You are not logged', 'error');
+                        $location.path('/');
+                    }
                 }
             }
-        }
-    })
-    .when('/debug', {
-        templateUrl: partialsF+'/debug.html',
-        controller: 'DebugCtrl'
-    })
-    .when('/login', {
-        templateUrl: partialsF+'/login.html',
-        controller: 'UserCtrl'
-    })
+        })
+        .when('/debug', {
+            templateUrl: partialsF+'/debug.html',
+            controller: 'DebugCtrl'
+        })
+        .when('/login', {
+            templateUrl: partialsF+'/login.html',
+            controller: 'UserCtrl'
+        });
+    }
+    
+
 
     // .when('/', {
     //     templateUrl: partialsF+'/dashboard.html',
@@ -67,15 +87,3 @@ mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider', '$
     //     'http://myapp.example.com/clickThru**'
     // ]);
 }]);
-
-
-
-
-
-
-
-
-
-
-
-

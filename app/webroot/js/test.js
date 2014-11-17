@@ -1,4 +1,4 @@
-function vertold(beta){
+    function vertold(beta){
     
     // beta = Math.round(beta);
     var top=parseInt(bubble.style.top);

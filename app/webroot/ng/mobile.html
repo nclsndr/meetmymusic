@@ -2,14 +2,66 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta name="description" content="">
+        <meta name="description" content="Meet My Music application">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Untitled</title>
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="author" href="humans.txt">
+        <title>Meet My Music</title>
+        <link href="/favicon.ico" type="image/x-icon" rel="icon" /><link href="/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+        <link rel="stylesheet" type="text/css" href="http://mmm.nclsndr.fr/css/lib/foundation.min.css" />    
+        <link rel="stylesheet" type="text/css" href="http://mmm.nclsndr.fr/css/lib/animate.css" />     
+        <link rel="stylesheet" type="text/css" href="http://mmm.nclsndr.fr/css/reset.css" />    
+        <link rel="stylesheet" type="text/css" href="http://mmm.nclsndr.fr/css/mobile.css" />  
     </head>
-    <body>
-        
-        <script src="js/main.js"></script>
+    <body ng-app="mmmApp">
+        <div ng-controller="NotificationCtrl" class="notifications_container">
+            <ul notifications>
+            </ul>
+        </div> 
+
+        <div class="mobileContainer">
+            <!-- LANDSCAPE MODE -->
+            <div id="landscapeOverlay" class="feedBackOverlay animated fadeIn">
+                <img src="http://mmm.nclsndr.fr/img/app/turnPhone.png" alt="">
+                <p>Please use your phone on <strong>portrait mode.</strong></p>
+            </div>
+
+            <header>
+                <a href="#"><h1 class="animated fadeInDown">MEET MY MUSIC</h1></a>
+            </header>  
+
+            <div id="mobileWrapper">
+                <div ng-view></div> 
+            </div>
+        </div>
+
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCb8-NT-d0C1cIQhFAXuP-RlpW0bz_y2oQ&sensor=true"></script>
+
+    <script type="text/javascript" src="https://code.angularjs.org/1.3.2/angular.min.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.3.2/angular-route.min.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.3.2/angular-resource.min.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.3.2/angular-loader.min.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.3.2/angular-animate.min.js"></script>
+    <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/meetmymusic.js"></script>
+
+
+    <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/services/SocketFactory.js"></script>
+    <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/services/SoundcloudService.js"></script>
+    <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/services/UserFactory.js"></script>
+    <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/services/QrFactory.js"></script>
+    <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/services/NotificationFactory.js"></script>
+    <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/services/GmapService.js"></script>
+    <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/controllers/NotificationCtrl.js"></script>
+
+    <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/mb_controllers/MbStartCtrl.js"></script>
+    <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/mb_controllers/MbSongSelected.js"></script>
+    <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/mb_controllers/MbMusicRemote.js"></script>
+
+    <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/bower_components/angular-socket-io/socket.js"></script>
+
+    <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/directives/lazyJavascriptDirective.js"></script>
+
+
+    <script type="text/javascript" src="http://mmm.nclsndr.fr/js/hammer.min.js"></script>
+    
+    
     </body>
 </html>

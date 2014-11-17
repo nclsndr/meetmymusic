@@ -1,0 +1,56 @@
+<!-- OVERLAY PAN ON ALBUM COVER -->
+<div id="overlay">
+    <span class="passTheSong"><-- Pass the song</span>
+    <span class="addFriend">Add to friends --></span>
+</div>
+
+<!-- ADD FRIEND ANIMATION -->
+<div id="addFrienOverlay" class="feedBackOverlay animated fadeIn">
+    <div class="animated pulse">
+        <img class="animated zoomIn flash" src="http://mmm.nclsndr.fr/img/app/validateMobile.png" alt="Add To Friends">
+    </div>
+    <p>An invitation has been sent to <strong>JackSparrow</strong> !</p>
+</div>
+
+<!-- PASS THE SONG ANIMATION -->
+<div id="songPassedOverlay" class="feedBackOverlay animated fadeIn">
+    <div class="animated pulse">
+        <img class="animated zoomIn flash" src="http://mmm.nclsndr.fr/img/app/crossMobile.png" alt="Song Passed">
+    </div>
+    <p>You passed the song.<br> 
+    <strong>Waiting for another player...</strong></p>
+    <img class="loading" src="http://mmm.nclsndr.fr/img/app/loader.gif" alt="Loading">
+</div>
+
+<div class="step animated fadeIn" id="step3">
+    <div class="otherPlayer">
+        You are playing with : <span>JackSparrow</span> <br>
+        From : <span>Paris, France</span>
+    </div>
+    <div id="albumCoverP2" class="albumCover animated fadeInDown">
+        <img src="http://mmm.nclsndr.fr/img/app/albumSample2.jpg"  alt="">
+        <div id="borderContainer" data-pct="100">
+            <svg id="svgBorder" width="200" height="200" viewPort="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <circle id="bar" r="90" cx="100" cy="100" fill="rgba(0,0,0,0.2)" ></circle>
+            </svg>
+            <svg id="svgBg" width="200" height="200" viewPort="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <circle id="barBg" r="90" cx="100" cy="100" fill="transparent" ></circle>
+            </svg>
+        </div>
+        <div class="lineProgress"></div>
+        <div class="lineProgress" id="currentLine"></div>
+    </div>
+    
+    <div class="timeCodeContainer"><span id="tcProgress">00:00</span> / <span id="tcTotal">00:00</span> </div>
+    <h2 id="band">Black Keys</h2>
+    <h3 id="title">Lonely Boy</h2>
+
+    <div class="controlPlayer">
+        <div class="playPauseBtn">
+            <img src="http://mmm.nclsndr.fr/img/app/playBtn.png" width="36" class="animated zoomIn" height="36" alt="play">
+            <img src="http://mmm.nclsndr.fr/img/app/pauseBtn.png" width="36" class="animated zoomIn" height="36" alt="pause">
+        </div>
+    </div>
+    <div class="clear"></div>
+    <script type="text/javascript-lazy" src="http://mmm.nclsndr.fr/js/mobile.js"></script>
+</div>
