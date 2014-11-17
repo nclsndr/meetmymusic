@@ -42,6 +42,8 @@ function setBorderSvgAttributs(circle) {
     svgContainerSize = svgCircle.offsetHeight;
     radiusB = svgContainerSize/2;
     perimeterB = Math.PI*(radiusB*2);
+    // circle.setAttribute('cx',radiusB);
+    // circle.setAttribute('cY',radiusB);
     circle.setAttribute('stroke-dasharray',perimeterB);
     circle.setAttribute('stroke-offset',perimeterB);
 }

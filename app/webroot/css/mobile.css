@@ -87,8 +87,8 @@ strong {
   margin: 35px auto;
 }
 .albumCover img, #albumCoverP2 img {
-  width: 96%;
-  margin: 2%;
+  width: 100%;
+  display: block;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
@@ -159,6 +159,9 @@ strong {
   margin-top: 30px;
 }
 .feedBackOverlay div img:first-of-type {
+  width: 1;
+}
+.feedBackOverlay div img {
   width: 70%;
   display: block;
   margin: auto;
