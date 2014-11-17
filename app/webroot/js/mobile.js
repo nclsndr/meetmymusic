@@ -7,18 +7,21 @@ var stepPostition = 1;
 var albumCover = document.getElementById('albumCoverP2');
 var START_X = Math.round((window.innerWidth - albumCover.offsetWidth) / 2);
 
-var svg = document.getElementById('svgBorder');
+var svgCircle = document.getElementById('svgCircle');
 var svgBg = document.getElementById('svgBg');
-var borderContainer = document.getElementById('borderContainer');
 var progressBar = document.getElementById('bar');
 var progressBarBg = document.getElementById('barBg');
+var fillBg = document.getElementById('fillBg');
 var tcProgress = document.getElementById('tcProgress');
 var tcTotal = document.getElementById('tcTotal');
-var svgContainerSize = borderContainer.offsetHeight;
-var rayon = svgContainerSize/2;
-var currentLine = document.getElementById('currentLine');
+var svgContainerSize = svgCircle.offsetHeight;
 
-var musicLength = 30;
+var radiusB = 0;var radiusF = 0;
+var perimeterB = 0;var perimeterF = 0;
+var circlePercentB = 0;var circlePercentF = 0;
+
+var currentLine = document.getElementById('currentLine');
+var musicLength = 53;
 var musicProgress = 0;
 var progressPercent = 0;
 
@@ -30,33 +33,40 @@ setInterval(function(){
     }  
 }, 1000);
 
-setSvgAttributs(progressBar);
-setSvgAttributs(barBg);
+setBorderSvgAttributs(progressBar);
+setBorderSvgAttributs(barBg);
+setFillSvgAttributs(fillBg);
 
 /* --------------- MUSIC PROGRESS BAR --------------- */
-function setSvgAttributs(circle) {
-    svgContainerSize = borderContainer.offsetHeight;
-    rayon = svgContainerSize/2;
-    perimetre = Math.PI*(rayon*2);
-    circle.setAttribute('r',rayon);
-    circle.setAttribute('cx',svgContainerSize/2);
-    circle.setAttribute('cy',svgContainerSize/2);
-    circle.setAttribute('stroke-dasharray',perimetre);
-    circle.setAttribute('stroke-offset',perimetre);
+function setBorderSvgAttributs(circle) {
+    svgContainerSize = svgCircle.offsetHeight;
+    radiusB = svgContainerSize/2;
+    perimeterB = Math.PI*(radiusB*2);
+    circle.setAttribute('stroke-dasharray',perimeterB);
+    circle.setAttribute('stroke-offset',perimeterB);
+}
+function setFillSvgAttributs(circle) {
+    svgContainerSize = svgCircle.offsetHeight;
+    console.log(svgContainerSize);
+    radiusF = svgContainerSize/2;
+    perimeterF = Math.PI*(radiusF*2);
+    circle.setAttribute('stroke-dasharray',perimeterF);
+    circle.setAttribute('stroke-offset',perimeterF);
 }
 
-function getRotationDegrees(obj) {
-    
-    var st = window.getComputedStyle(obj, null);
-    var tr = st.getPropertyValue("-webkit-transform") ||
-             st.getPropertyValue("-moz-transform") ||
-             st.getPropertyValue("-ms-transform") ||
-             st.getPropertyValue("-o-transform") ||
-             st.getPropertyValue("transform");
+function getRotationDegrees(el) {
+    var st = window.getComputedStyle(el, null);
+    var tr = 
+         st.getPropertyValue("-webkit-transform") ||
+         st.getPropertyValue("-moz-transform") ||
+         st.getPropertyValue("-ms-transform") ||
+         st.getPropertyValue("-o-transform") ||
+         st.getPropertyValue("transform");
 
     var values = tr.split('(')[1];
         values = values.split(')')[0];
         values = values.split(',');
+
     var a = values[0];
     var b = values[1];
     var c = values[2];
@@ -69,14 +79,14 @@ function getRotationDegrees(obj) {
     if(angle<0) {
         angle = 360 + angle;
     }
-    console.log('Rotate de base : ' + angle );
+    // console.log('Rotate de base : ' + angle );
     return angle;
 }
 
 function setRotation(obj) {
     var actualDeg = getRotationDegrees(currentLine);
     var degRotation = (360*musicProgress)/musicLength;
-    console.log('deg rotation = ' + degRotation);
+    // console.log('deg rotation = ' + degRotation);
     obj.style.webkitTransform = "rotate(" + degRotation + ('deg)');
     obj.style.MozTransform = "rotate(" + degRotation + ('deg)');
     obj.style.transform = "rotate(" + degRotation + ('deg)');
@@ -103,13 +113,12 @@ function updateProgressBar()
     }
     else{
         progressPercent = (musicProgress*100)/musicLength;
-        circlePercent = ((100-progressPercent)/100)*perimetre;
-        bar.style.strokeDashoffset = circlePercent;
-
+        circlePercentB = ((100-progressPercent)/100)*perimeterB;
+        circlePercentF = ((100-progressPercent)/100)*perimeterF;
+        bar.style.strokeDashoffset = circlePercentB;
+        fillBg.style.strokeDashoffset = circlePercentF;
     }
     setRotation(currentLine);
-
-    // console.log('Progression : ' + progressPercent + '%');
 }
 
 

@@ -87,7 +87,8 @@ strong {
   margin: 35px auto;
 }
 .albumCover img, #albumCoverP2 img {
-  width: 100%;
+  width: 96%;
+  margin: 2%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
@@ -310,74 +311,60 @@ strong {
 #step3 .playPauseBtn img:last-of-type {
   float: right;
 }
-#step3 #borderContainer {
+#step3 #svgCircle {
   width: 100%;
   height: 100%;
-  position: absolute;
-  border-radius: 100%;
-  top: 0;
-  left: 0;
+  overflow: hidden;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
   -webkit-transform: rotate(270deg);
   /* Chrome, Safari, Opera */
   -moz-transform: rotate(270deg);
   /* Chrome, Safari, Opera */
   transform: rotate(270deg);
+  position: absolute;
+  top: 0;
+  z-index: 10;
 }
-#step3 #borderContainer svg {
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-#step3 #borderContainer svg circle {
+#step3 #svgCircle circle {
   width: 100%;
   height: 100%;
   transition: stroke-dashoffset 1s linear;
-  stroke: rgba(255, 255, 255, 0.1);
-  stroke-width: 6px;
-  -ms-transform: rotate(270deg);
-  /* IE 9 */
+  stroke-width: 12px;
 }
-#step3 #borderContainer #svgBorder {
-  position: absolute;
-  z-index: 10000;
-}
-#step3 #borderContainer #svgBorder #bar {
+#step3 #svgCircle #bar {
   stroke: #0edfb5;
 }
-#step3 .lineProgress {
-  height: 50%;
+#step3 #svgCircle #barBg {
+  stroke: rgba(255, 255, 255, 0.15);
+}
+#step3 #svgCircle #fillBg {
+  stroke: rgba(0, 0, 0, 0.5);
+  stroke-width: 100%;
+}
+#step3 .lineSVG {
   position: absolute;
-  margin: auto;
-  width: 1px;
+  height: 100%;
+  width: 100%;
+  overflow: visible;
   top: 0;
-  left: 50%;
-  background: rgba(255, 255, 255, 0.6);
+  z-index: 100;
+}
+#step3 .lineSVG line {
+  stroke: white;
+  stroke-width: 1;
 }
 #step3 #currentLine {
-  height: 50%;
-  border-top: 10px solid white;
   -webkit-transform: rotate(360deg);
-  /* Chrome, Safari, Opera */
   -moz-transform: rotate(360deg);
-  /* Chrome, Safari, Opera */
   transform: rotate(360deg);
-  -webkit-transform-origin: 50% 100%;
-  -moz-transform-origin: 50% 100%;
-  transform-origin: 50% 100%;
+  -webkit-transform-origin: 50%;
+  -moz-transform-origin: 50%;
+  transform-origin: 50%;
   -webkit-transition: all 1s linear;
   -moz-transition: all 1s linear;
   -ms-transition: all 1s linear;
   -o-transition: all 1s linear;
   transition: all 1s linear;
-}
-#step3 #currentLine::after {
-  content: '';
-  height: 7px;
-  bottom: 26px;
-  right: 3px;
-  position: relative;
-  width: 7px;
-  display: block;
-  border-radius: 100%;
-  background: rgba(255, 255, 255, 0.7);
 }
