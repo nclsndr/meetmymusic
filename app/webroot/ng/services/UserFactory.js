@@ -3,6 +3,7 @@ function ($http, $location, $q) {
 	var Factory = {
 
 		User: {},
+		location : {},
 
 		login:function(params){
 			var deferred = $q.defer();
@@ -23,7 +24,7 @@ function ($http, $location, $q) {
 			var url = 'http://mmm.nclsndr.fr/users';
 			$http({method:'POST', data:params, url:url})
 				.success(function(data, status){
-					console.log('success : ',data);
+					Factory.User = data;
 					deferred.resolve(data);
 				})
 				.error(function(data, status){
@@ -62,23 +63,62 @@ function ($http, $location, $q) {
 		},
 
 		usernameExists:function(username){
-			var cleanUsername = username.trim();
 			var deferred = $q.defer();
+			var req = {username:username};
+
 			var url = 'http://mmm.nclsndr.fr/users/usernameexist';
 
-			$http({method:'POST', data:username, url:url})
+			$http({method:'POST', data:req, url:url})
 				.success(function(data, status){
-					if (!data.hasNoAccount) {
+					if (data.usernameExist) {
 						Factory.User = data;
+						var res = {user:true};
+						deferred.resolve(res);
+					}else{
+						var res = {user:false};
+						deferred.reject(res);
 					}
-					deferred.resolve(data);
 				})
 				.error(function(data, status){
 					var error = {'error':true}
 					deferred.reject(error);
 				});
 			return deferred.promise;
+		},
+
+		geolocation:function(){
+
+			var deferred = $q.defer();
+
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(
+					function(position){
+						Factory.location.lat = position.coords.latitude;
+						Factory.location.lng = position.coords.longitude;
+						console.log(position);
+						deferred.resolve(position);
+					},
+					function(){
+						var error = {error:'You must fill your location manually'};
+						deferred.reject(error);
+					},
+					{enableHighAccuracy:true}
+				);
+			}else{
+				var error = {error:'Your browser doesn\'t support geolocation'};
+				deferred.reject(error);
+			}
+			return deferred.promise;
+		},
+
+		updateGeoloc:function(){
+			Factory.User.lat = Factory.location.lat;
+			Factory.User.lng = Factory.location.lng;
 		}
+
+
+
+
 	}
 	return Factory;
 }]);

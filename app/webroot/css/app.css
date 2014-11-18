@@ -72,6 +72,119 @@ a:hover {
   }
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+/* ———————————————————————————— END GENERAL ———————————————————————————— */
+/* ———————————————————————————————————————————————————————————— NOTIFICATIONS ———————————————————————————————————————————————————————————— */
+.notifications_container {
+=======
+
+/* ———————————————————————————— END GENERAL ———————————————————————————— */
+
+/* ———————————————————————————————————————————————————————————— NOTIFICATIONS ———————————————————————————————————————————————————————————— */
+.notifications_container{
+>>>>>>> Desktop-Form-validations
+  position: fixed;
+  right: .6rem;
+  top: 0;
+  z-index: 101;
+  width: 200px;
+}
+<<<<<<< HEAD
+
+.notifications_container ul {
+  list-style: none;
+}
+
+.notifications_container ul li {
+  position: relative;
+  display: block;
+  padding: .6rem;
+  background: rgba(255, 255, 255, 0.8);
+=======
+.notifications_container ul{
+  list-style: none;
+}
+.notifications_container ul li{
+  position: relative;
+  display: block;
+  padding: .6rem;
+  background: rgba(255,255,255, .8);
+>>>>>>> Desktop-Form-validations
+  border: 1px solid #0edfb5;
+  border-radius: 4px;
+  width: 100%;
+  color: #333;
+  margin-top: .6rem;
+  text-align: center;
+}
+<<<<<<< HEAD
+
+.notifications_container ul li.error {
+=======
+.notifications_container ul li.error{
+>>>>>>> Desktop-Form-validations
+  color: #e40151;
+  border: 1px solid #e40151;
+}
+
+/* ———————————————————————————— END NOTIFICATIONS ———————————————————————————— */
+<<<<<<< HEAD
+/* ———————————————————————————————————————————————————————————— MAP ———————————————————————————————————————————————————————————— */
+gmap.hidden {
+=======
+
+/* ———————————————————————————————————————————————————————————— MAP ———————————————————————————————————————————————————————————— */
+gmap.hidden{
+>>>>>>> Desktop-Form-validations
+  z-index: -1000;
+  opacity: 0;
+}
+
+<<<<<<< HEAD
+gmap {
+=======
+gmap{
+>>>>>>> Desktop-Form-validations
+  width: 100%;
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  margin: 0;
+  min-height: 300px;
+}
+
+<<<<<<< HEAD
+/* ———————————————————————————— END MAP ———————————————————————————— */
+/* ———————————————————————————————————————————————————————————— FORM ———————————————————————————————————————————————————————————— */
+form span.form_error {
+  display: block;
+  background: rgba(228, 1, 81, 0.7);
+=======
+
+/* ———————————————————————————— END MAP ———————————————————————————— */
+
+
+
+/* ———————————————————————————————————————————————————————————— FORM ———————————————————————————————————————————————————————————— */
+
+form span.form_error{
+  display: block;
+  background: rgba(228, 1, 81, .7);
+>>>>>>> Desktop-Form-validations
+  color: #FFF;
+  padding: .5rem;
+  font-size: .8rem;
+  margin: 0;
+}
+<<<<<<< HEAD
+
+=======
+>>>>>>> Desktop-Form-validations
+>>>>>>> 552a3704162bc30f4bab3a715a8410b2f35fb12d
 .ghostButton {
   display: block;
   margin: auto;
@@ -118,6 +231,7 @@ a:hover {
   color: black;
 }
 
+<<<<<<< HEAD
 .backBtn {
   position: absolute;
   cursor: pointer;
@@ -161,6 +275,11 @@ a:hover {
 .notifications_container ul li.error {
   color: #e40151;
   border: 1px solid #e40151;
+=======
+<<<<<<< HEAD
+.ghostButton.disabled {
+  opacity: .4;
+>>>>>>> 552a3704162bc30f4bab3a715a8410b2f35fb12d
 }
 
 /* ———————————————————————————— END NOTIFICATIONS ———————————————————————————— */
@@ -180,6 +299,20 @@ gmap {
   margin: 0;
   min-height: 300px;
 }
+=======
+.ghostButton.disabled{
+  opacity: .4;
+}
+.ghostButton.disabled:hover .invert {
+  width: 0%;
+}
+.ghostButton.disabled:hover .text {
+  color: inherit;
+}
+
+/* ———————————————————————————— END FORM ———————————————————————————— */
+
+>>>>>>> Desktop-Form-validations
 
 /* ———————————————————————————————————————————————————————————— LOGIN ———————————————————————————————————————————————————————————— */
 .user.login_register {

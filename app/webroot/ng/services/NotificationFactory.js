@@ -12,6 +12,7 @@ function ($http, $q, $interval, $rootScope) {
 			}
 			Factory.List.push(notif);
 			Factory.autoDelete();
+			// $rootScope.$apply();
 			return Factory.List;
 		},
 		autoDelete:function(){

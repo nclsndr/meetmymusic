@@ -102,24 +102,25 @@ class UsersController extends AppController
 
 	public function add(){
 		if($this->request->data){
-			
+
 			$this->User->set($this->request->data);
-				
 			if($this->User->validates()){
 				$data = $this->request->data;
-				
 
 				$this->User->create();
 				$dataToStore = array(
 					'api_id' => $data['api_id'],
 					'username' =>  $data['username'],
-					'password'     => $this->Auth->password($data['password']),
 					'role'    => 'user',
 					'mail'    => $data['mail'],
-					'avatar_url' => $data['avatar_url']
+					'avatar_url' => $data['avatar_url'],
+					'lat' => $data['lat'],
+					'lng' => $data['lng'],
+					'is_geoloc'=>$data['is_geoloc'],
+					'city' => $data['city']
 				);
 
-				if ($this->User->save($dataToStore, false, array('api_id', 'username', 'password', 'role', 'mail', 'avatar_url'))) {
+				if ($this->User->save($dataToStore, false, array('api_id', 'username', 'role', 'mail', 'avatar_url', 'lat', 'lng', 'is_geoloc', 'city'))) {
 					$UID = [];
 					$UID['user_id'] = $this->User->id;
 					$user = $this->generateToken($UID);

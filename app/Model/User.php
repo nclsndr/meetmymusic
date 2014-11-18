@@ -35,19 +35,14 @@ class User extends AppModel
 		),
 		'api_id' => array(
 			'length'=> array(
-				'rule' => array('minLength', '6'),
+				'rule' => array('minLength', '4'),
 				'required' => true,
-				'message' => 'Une erreur est survenue avec votre compte SoundCloud'
+				'message' => 'Cet identifiant SoundCloud est trop court'
 			),
 			'uniq' => array(     
 				'rule'    => 'isUnique',
-				'message' => 'Une erreur est survenue avec votre compte SoundCloud'
+				'message' => 'Cet identifiant SoundCloud existe deja'
 			)
-		),
-		'password' => array(
-			'rule' => array('minLength', '4'),
-			'required' => true,
-			'message' => 'Veuillez entrer un mot de passe de 4 signes au minimum'
 		),
 		'mail' => array(         
 			'mail' => array(
