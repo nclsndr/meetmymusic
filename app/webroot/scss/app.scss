@@ -1,6 +1,11 @@
 @import"mixin.scss";
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
-@font-face {font-family:"SteelfishRg-Regular";src:url("../font/steelfish_rg.eot?") format("eot"),url("../font/steelfish_rg.woff") format("woff"),url("../font/steelfish_rg.ttf") format("truetype"),url("../font/steelfish_rg.svg#SteelfishRg-Regular") format("svg");font-weight:normal;font-style:normal;}
+@font-face {
+    font-family: "SteelfishRg-Regular";
+    src: url("../font/steelfish_rg.eot?") format("eot"), url("../font/steelfish_rg.woff") format("woff"), url("../font/steelfish_rg.ttf") format("truetype"), url("../font/steelfish_rg.svg#SteelfishRg-Regular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
 $titleFont:'SteelfishRg-Regular', helvetica, arial, sans-serif;
 $montserrat:'Montserrat', helvetica, arial, sans-serif;
 $green: #0edfb5;
@@ -14,7 +19,7 @@ html, body {
     height: 100%;
 }
 .container {
-	z-index: 1;
+    z-index: 1;
 }
 .clear {
     clear: both;
@@ -172,8 +177,8 @@ gmap {
     }
     header {
         padding-top: 40px;
-        position : relative;
-        z-index : 2;
+        position: relative;
+        z-index: 2;
     }
     header a:hover {
         -moz-transform: scale(1.05);
@@ -388,7 +393,6 @@ gmap {
     }
 }
 /* ———————————————————————————— END LOGIN ———————————————————————————— */
-
 /* ————————————————————————————————————————————————————————————  DESKTOP INIT ———————————————————————————————————————————————————————————— */
 
 .desktopPage {
@@ -450,247 +454,240 @@ gmap {
 }
 /* ————————————————————————————————————————————————————————————  DASHBOARD INIT ———————————————————————————————————————————————————————————— */
 
-.dashboardContainer,.desktopContainer {
-	height : 100%;
-	header {
-		position : relative;
-		z-index : 100;
-		background : black;
-		width : 100%;
-		height : 50px;
-		overflow : hidden;
-		h1 {
-			text-transform  : uppercase;
-			color : white;
-			font-family : $titleFont;
-			font-weight : normal;
-			font-size : 1.8rem;
-			line-height : 50px;
-			margin-left : 30px;
-			padding-left : 55px;
-			cursor : pointer;
-			background : url(http://mmm.nclsndr.fr/img/app/logo.png) left  no-repeat;
-			background-size : 38px 38px;
-			float : left
-		}
-		#userOption {
-			float : right;
-			color : white;
-			cursor : pointer;
-			.rotate {
-				@include rotate (180);
-				@include transition(all, 0.2s, ease-in-out);
-			}
-			&:hover {
-				div:nth-child(3) {
-					color : $green;
-					@include transition(all, 0.1s, ease-in-out);
-				}
-			}
-			div:nth-child(1) {
-				float : left;
-				width : 150px;
-				margin-right : 20px;
-				font-size : 0.9rem;
-				margin-top : 17px;
-				text-align : right;
-			}
-
-			div:nth-child(2) {
-				width : 35px;
-				height : 35px;
-				-webkit-border-radius:50%;
-			    -moz-border-radius:50%;
-			    border-radius:50%;
-			    overflow : hidden;
-			    border : 1px solid rgba(255,255,255,0.4);
-			    margin-top : 7px;
-			    margin-right : 10px;
-			    float : left;
-			    img {
-			    	width : 100%;
-			    }
-			}
-			div:nth-child(3) {
-				cursor : pointer;
-				float : left;
-				line-height : 60px;
-				font-size : 0.75rem;
-				margin-right : 20px;
-				@include transition(all, 0.1s, ease-in-out);
-			}
-		}
-	}
-	.dropdownUser {
-		background : rgba(255,255,255,0.3);
-		width : 220px;
-		height : auto;
-		position : absolute;
-		top : 50px;
-		right : 0;
-		display : none;
-		opacity : 0;
-		z-index : 10;
-		
-		li{
-			height : 40px;
-			line-height : 40px;
-			padding-left : 50px;
-			color : white;
-			font-size : 0.8rem;
-			cursor : pointer;
-			background-position :  25px center;
-			background-repeat : no-repeat;
-			@include transition(all, 0.1s, ease-in-out);
-			&:nth-child(1) {
-				background-image : url('http://mmm.nclsndr.fr/img/app/pictoUser.png');
-				border-bottom : 1px solid rgba(255,255,255,0.1);
-			}
-			&:nth-child(2) {
-				background-image : url('http://mmm.nclsndr.fr/img/app/pictoPen.png');
-				border-bottom : 1px solid rgba(255,255,255,0.1);
-			}
-			&:nth-child(3) {
-				background-image : url('http://mmm.nclsndr.fr/img/app/pictoSettings.png');
-			}
-			&:hover {
-				color : $green;
-				background-position : 20px center;
-				@include transition(all, 0.1s, ease-in-out);
-			}
-		}
-	}
-	aside {
-		z-index : 3;
-		width : 250px;
-		background : rgba(0,0,0,0.7);
-		position : absolute;
-		top : 50px;
-		bottom : 0px;
-		overflow-y : auto;
-		&::-webkit-scrollbar-track
-		{
-			-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-			background-color: #000;
-		}
-		&::-webkit-scrollbar
-		{
-			width: 6px;
-			background-color: #000;
-		}
-		&::-webkit-scrollbar-thumb
-		{
-			background-color: #5f5f5f;
-		}
-		scrollbar-base-color: #5f5f5f;
-		scrollbar-3dlight-color: #5f5f5f;
-		scrollbar-highlight-color: #5f5f5f;
-		scrollbar-track-color: #5f5f5f;
-		scrollbar-arrow-color: white;
-		scrollbar-shadow-color: #5f5f5f;
-		scrollbar-dark-shadow-color: #5f5f5f;
-
-		.topAside {
-			border-bottom : 1px solid rgba(255,255,255,0.4);
-			padding-top : 20px;
-			padding-bottom : 20px;
-			overflow-y : auto;
-			img {
-				margin :auto;
-				display : block;
-				width : 24px;
-				cursor : pointer;
-			}
-		}
-
-		.asideElem {
-			padding: 15px 7%;
-			width: 100%;
-			color : white;
-			cursor : pointer;
-			border-bottom : 1px solid rgba(255,255,255,0.4);
-			h3 {
-				font-size : 0.75rem;
-				margin-bottom : 10px;
-                color : white;
-                font-weight : bold;
-			}
-			img {
-				float : left;
-				border : 1px solid rgba(255,255,255,0.2);
-			}
-			.asideElemTxt {
-				float : left;
-				font-size: 0.72rem;
-				width : 100px;
-				div:nth-child(2) {
-					margin : 9px 0;
-				}
-				margin-left: 17px;
-			}
-		}
-	}
-	.ghostButton {
-		width : 270px;
-		border : 2px solid white;
-		font-size : 1.5rem;
-		cursor : pointer;
-		margin-left: 47%;
-		margin-top : 20%;
-		.text {
-			line-height: 45px;
-		}
-	}
+.dashboardContainer, .desktopContainer {
+    height: 100%;
+    header {
+        position: relative;
+        z-index: 100;
+        background: black;
+        width: 100%;
+        height: 50px;
+        overflow: hidden;
+        h1 {
+            text-transform: uppercase;
+            color: white;
+            font-family: $titleFont;
+            font-weight: normal;
+            font-size: 1.8rem;
+            line-height: 50px;
+            margin-left: 30px;
+            padding-left: 55px;
+            cursor: pointer;
+            background: url(http://mmm.nclsndr.fr/img/app/logo.png) left no-repeat;
+            background-size: 38px 38px;
+            float: left
+        }
+        #userOption {
+            float: right;
+            color: white;
+            cursor: pointer;
+            .rotate {
+                @include rotate (180);
+                @include transition(all, 0.2s, ease-in-out);
+            }
+            &:hover {
+                div: nth-child(3) {
+                    color: $green;
+                    @include transition(all, 0.1s, ease-in-out);
+                }
+            }
+            div:nth-child(1) {
+                float: left;
+                width: 150px;
+                margin-right: 20px;
+                font-size: 0.9rem;
+                margin-top: 17px;
+                text-align: right;
+            }
+            div:nth-child(2) {
+                width: 35px;
+                height: 35px;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
+                overflow: hidden;
+                border: 1px solid rgba(255, 255, 255, 0.4);
+                margin-top: 7px;
+                margin-right: 10px;
+                float: left;
+                img {
+                    width: 100%;
+                }
+            }
+            div:nth-child(3) {
+                cursor: pointer;
+                float: left;
+                line-height: 60px;
+                font-size: 0.75rem;
+                margin-right: 20px;
+                @include transition(all, 0.1s, ease-in-out);
+            }
+        }
+    }
+    .dropdownUser {
+        background: rgba(255, 255, 255, 0.3);
+        width: 220px;
+        height: auto;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        display: none;
+        opacity: 0;
+        z-index: 10;
+        li {
+            height: 40px;
+            line-height: 40px;
+            padding-left: 50px;
+            color: white;
+            font-size: 0.8rem;
+            cursor: pointer;
+            background-position: 25px center;
+            background-repeat: no-repeat;
+            @include transition(all, 0.1s, ease-in-out);
+            &:nth-child(1) {
+                background-image: url('http://mmm.nclsndr.fr/img/app/pictoUser.png');
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            &:nth-child(2) {
+                background-image: url('http://mmm.nclsndr.fr/img/app/pictoPen.png');
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            &:nth-child(3) {
+                background-image: url('http://mmm.nclsndr.fr/img/app/pictoSettings.png');
+            }
+            &:hover {
+                color: $green;
+                background-position: 20px center;
+                @include transition(all, 0.1s, ease-in-out);
+            }
+        }
+    }
+    aside {
+        z-index: 3;
+        width: 250px;
+        background: rgba(0, 0, 0, 0.7);
+        position: absolute;
+        top: 50px;
+        bottom: 0px;
+        overflow-y: auto;
+        &::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            background-color: #000;
+        }
+        &::-webkit-scrollbar {
+            width: 6px;
+            background-color: #000;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: #5f5f5f;
+        }
+        scrollbar-base-color: #5f5f5f;
+        scrollbar-3dlight-color: #5f5f5f;
+        scrollbar-highlight-color: #5f5f5f;
+        scrollbar-track-color: #5f5f5f;
+        scrollbar-arrow-color: white;
+        scrollbar-shadow-color: #5f5f5f;
+        scrollbar-dark-shadow-color: #5f5f5f;
+        .topAside {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            padding-top: 20px;
+            padding-bottom: 20px;
+            overflow-y: auto;
+            img {
+                margin: auto;
+                display: block;
+                width: 24px;
+                cursor: pointer;
+            }
+        }
+        .asideElem {
+            padding: 15px 7%;
+            width: 100%;
+            color: white;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            h3 {
+                font-size: 0.75rem;
+                margin-bottom: 10px;
+                color: white;
+                font-weight: bold;
+            }
+            img {
+                float: left;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+            .asideElemTxt {
+                float: left;
+                font-size: 0.72rem;
+                width: 100px;
+                div: nth-child(2) {
+                    margin: 9px 0;
+                }
+                margin-left: 17px;
+            }
+        }
+    }
+    .ghostButton {
+        width: 270px;
+        border: 2px solid white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        margin-left: 47%;
+        margin-top: 20%;
+        .text {
+            line-height: 45px;
+        }
+    }
 }
-
 /* ———————————————————————————— END DASHBOARD ———————————————————————————— */
+/* --------------- PREGAME PAGE --------------- */
 
-.midHeader {
-    padding-top : 40px;
-    z-index : 100;
-    a {
-        &:hover {
-            @include scale(1.05);
-        }
+#preGame {
+    background: url(http://mmm.nclsndr.fr/img/app/loginbg.jpg) no-repeat center fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    h2 {
+        color: white;
+        text-align: center;
+        font-size: 1.1rem;
+        font-weight: normal;
+        font-family: $montserrat;
+        margin-top: 65px;
+        text-transform: uppercase;
     }
-    img {
-        display : block;
-        margin : auto;
-        width : 50%;
-        max-width : 130px;
-    }
-    h1 {
-        text-transform  : uppercase;
-        color : white;
-        text-align : center;
-        margin-top : 20px;
-        margin-bottom : 20px;
-        font-family : $titleFont;
-        font-weight : normal;
-        font-size : 2.2rem;
-        &:hover {
-             
-        }
-    }
-    p {
-        text-align : center;
-        color : white;
+    .preGameContainer {
         width: 80%;
-        margin : auto;
-        line-height : 1.2em;
-
-        span {
-            display : block;
-        } 
+        height: 200px;
+        max-width: 700px;
+        min-width: 590px;
+        display: block;
+        margin: 50px auto 0 auto;
+        position: relative;
+        div {
+            span {
+                width: 100%;
+                display : block;
+                color : white;
+                text-align : center;
+                margin-top : 15px;
+            }
+        }
+        #qrCode {
+            img {
+                width: 219px;
+                height: 219px;
+                border : 10px solid rgba(255, 255, 255, 0.4);;
+            }
+            background: red;
+            float: left;
+        }
+        #motion {
+            width: 391px;
+            float: right;
+        }
     }
-    div:last-child {
-        border-bottom : 1px solid white;
-        width : 200px;
-        margin : 30px auto 30px auto;
-        height : 1px;
-    }
-} 
-
+}
 /* --------------- PLAYING PAGE --------------- */
 
 .playingPage {
@@ -962,4 +959,18 @@ gmap {
             }
         }
     }
+}
+// Video JS SKIN
+.vjs-default-skin {
+    color: #ebebeb;
+}
+.vjs-default-skin .vjs-play-progress, .vjs-default-skin .vjs-volume-level {
+    background-color: #3bab7d;
+}
+.vjs-default-skin .vjs-control-bar {
+    font-size: 71%
+}
+.vjs-default-skin.vjs-paused .vjs-big-play-button ,.vjs-big-play-button
+{
+    display: none !important;
 }

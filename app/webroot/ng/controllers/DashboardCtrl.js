@@ -18,7 +18,6 @@ mmmApp.controller('DashboardCtrl', ['NotificationFactory', 'UserFactory', 'Sound
                 dropdownUser.classList.add("visible");
                 dropdownUser.classList.remove("fadeOutUp");
                 dropDownIcon.classList.add("rotate");
-                
             }
             else {
                 dropdownUser.classList.add("fadeOutUp");

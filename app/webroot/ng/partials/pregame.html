@@ -1,5 +1,5 @@
 <div ng-controller="PregameCtrl" class="view">
-	<div class="dashboardContainer">
+	<div class="dashboardContainer" id="preGame" fullHeight>
 		<header>
             <a href="http://mmm.nclsndr.fr:3000/#/dashboard"><h1 class="animated fadeInDown">MEET MY MUSIC</h1></a>
             <div id="userOption">
@@ -16,12 +16,33 @@
             <li>Edit my profil</li>
             <li>Parameters</li>
         </ul>
-        
+
         <div class="midHeader">
-            <a href="#"><img src="http://mmm.nclsndr.fr/img/app/logo.png" alt="Logo Meet My Music" class="animated flipInY"></a>
-            <h1 class="animated fadeInUp">MEET MY MUSIC</h1>
-            <p class="animated fadeIn"><span>For maximum experience with the application,</span><span>flash this code with your smarphone</span></p>
+            <h2 class="animated fadeIn">For maximum experience with the application,<br>flash this code with your smarphone.</h2>
         </div>
 
+        <div class="preGameContainer">
+
+            <div id='qrCode'>
+                <img src="" alt="">
+                <span>Scan the qr code above to control <br>
+                the application with your smartphone.</span>
+            </div>
+
+            <div id="motion" >
+                <video id="MY_VIDEO_1" class="video-js vjs-default-skin" controls
+                 preload="auto" width="391" height="219" poster="http://mmm.nclsndr.fr/img/app/motionPoster.jpg"
+                 data-setup="{}">
+                 <source src="http://www.w3schools.com/html/mov_bbb.mp4" type='video/mp4'>
+                 <source src="http://www.w3schools.com/html/mov_bbb.webm" type='video/webm'>
+                 <source src="http://www.w3schools.com/html/mov_bbb.ogg" type='video/ogg'>
+                 <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+                </video>
+                <span>Learn how to use our application <br>
+                by watching the above video.</span>
+            </div>
+        </div>
 	</div>
+
+    <script type="text/javascript-lazy" src="http://vjs.zencdn.net/4.10/video.js"></script>
 </div>

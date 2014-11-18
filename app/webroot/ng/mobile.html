@@ -1,51 +1,48 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="description" content="Meet My Music application">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Meet My Music</title>
-        <link href="/favicon.ico" type="image/x-icon" rel="icon" /><link href="/favicon.ico" type="image/x-icon" rel="shortcut icon" />
-        <link rel="stylesheet" type="text/css" href="http://mmm.nclsndr.fr/css/lib/foundation.min.css" />    
-        <link rel="stylesheet" type="text/css" href="http://mmm.nclsndr.fr/css/lib/animate.css" />     
-        <link rel="stylesheet" type="text/css" href="http://mmm.nclsndr.fr/css/reset.css" />    
-        <link rel="stylesheet" type="text/css" href="http://mmm.nclsndr.fr/css/mobile.css" />  
-    </head>
-    <body ng-app="mmmApp">
-        <div ng-controller="NotificationCtrl" class="notifications_container">
-            <ul notifications>
-            </ul>
-        </div> 
 
-        <div class="mobileContainer">
-            <!-- LANDSCAPE MODE -->
-            <div id="landscapeOverlay" class="feedBackOverlay animated fadeIn">
-<<<<<<< HEAD
-                <img src="http://mmm.nclsndr.fr/img/app/turnPhone.png" alt="">
-=======
-                <img src="images/turnPhone.png" alt="">
->>>>>>> Desktop-Form-validations
-                <p>Please use your phone on <strong>portrait mode.</strong></p>
-            </div>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Meet My Music application">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Meet My Music</title>
+    <link href="/favicon.ico" type="image/x-icon" rel="icon" />
+    <link href="/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+    <link rel="stylesheet" type="text/css" href="http://mmm.nclsndr.fr/css/lib/foundation.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://mmm.nclsndr.fr/css/lib/animate.css" />
+    <link rel="stylesheet" type="text/css" href="http://mmm.nclsndr.fr/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="http://mmm.nclsndr.fr/css/mobile.css" />
+</head>
 
-            <header>
-                <a href="#"><h1 class="animated fadeInDown">MEET MY MUSIC</h1></a>
-            </header>  
+<body ng-app="mmmApp">
+    <div ng-controller="NotificationCtrl" class="notifications_container">
+        <ul notifications>
+        </ul>
+    </div>
 
-            <div id="mobileWrapper">
-<<<<<<< HEAD
-                <div ng-view></div> 
-            </div>
+    <div class="mobileContainer">
+        <!-- LANDSCAPE MODE -->
+        <div id="landscapeOverlay" class="feedBackOverlay animated fadeIn">
+            <img src="http://mmm.nclsndr.fr/img/app/turnPhone.png" alt="">
+
+            <p>Please use your phone on
+                <strong>portrait mode.</strong>
+            </p>
         </div>
 
-=======
-                <div ng-view>test</div> 
-            </div>
-            <button id="nextStep">NEXT STEP</button>
+        <header>
+            <a href="#">
+                <h1 class="animated fadeInDown">MEET MY MUSIC</h1>
+            </a>
+        </header>
+
+        <div id="mobileWrapper">
+
+            <div ng-view></div>
         </div>
+    </div>
 
 
->>>>>>> Desktop-Form-validations
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCb8-NT-d0C1cIQhFAXuP-RlpW0bz_y2oQ&sensor=true"></script>
 
     <script type="text/javascript" src="https://code.angularjs.org/1.3.2/angular.min.js"></script>
@@ -65,7 +62,6 @@
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/controllers/NotificationCtrl.js"></script>
 
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/mb_controllers/MbStartCtrl.js"></script>
-<<<<<<< HEAD
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/mb_controllers/MbSongSelected.js"></script>
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/mb_controllers/MbMusicRemote.js"></script>
 
@@ -75,13 +71,7 @@
 
 
     <script type="text/javascript" src="http://mmm.nclsndr.fr/js/hammer.min.js"></script>
-    
-=======
 
-    <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/bower_components/angular-socket-io/socket.js"></script>
-    
-    <script type="text/javascript" src="js/hammer.min.js"></script>
->>>>>>> Desktop-Form-validations
-    
-    </body>
+</body>
+
 </html>
