@@ -10,7 +10,7 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		this.clientID = '268d90804476ee4483fd7dea94d198d4'
 		
 
-		this.init=function(){
+		this.init=function(callback){
 			// initialize client with app credentials
 			if (window.SC) {
 				self.SC = window.SC;
@@ -21,16 +21,23 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 			}else{
 				alert('SoundCloud SDK is not loaded');
 			}
-		}
-
-		this.isDefine=function(){
-			if (self.SC.length<1) {
-				self.init();
-				console.log('init by isDefine');
+			if (typeof callback!= 'undefined') {
+				return callback.call(this);
 			}
 		}
 
-		this.connect=function(){
+		this.isDefine=function(callback){
+			if (self.SC.length<1) {
+				self.init(function(){
+					return callback.call(this);
+				});
+				console.log('init by isDefine');
+			}else{
+				return callback.call(this);
+			}
+		}
+
+		this.connect=function(callback){
 			var deferred = $q.defer();
 			// initiate auth popup
 			self.SC.connect(function() {
@@ -40,6 +47,7 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 			  	$rootScope.$apply();
 			  	deferred.resolve(me);
 			  });
+			  callback.call();
 			});
 			// deferred.reject('impossible de finaliser');
 			return deferred.promise;
@@ -47,8 +55,10 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 
 		this.getSelfTracks=function(){
 			var deferred = $q.defer();
-			self.SC.get('/me/tracks', { limit: 10 }, function(tracks) {
-				deferred.resolve(tracks);
+			self.connect(function() {
+				self.SC.get('/me/tracks', { limit: 10 }, function(tracks) {
+					deferred.resolve(tracks);
+				});
 			});
 			// deferred.reject('impossible de finaliser');
 			return deferred.promise;
@@ -56,8 +66,10 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 
 		this.getFavoritesTracks=function(){
 			var deferred = $q.defer();
-			self.SC.get('/me/favorites', { limit: 10 }, function(tracks) {
-				deferred.resolve(tracks);
+			self.connect(function() {
+				self.SC.get('/me/favorites', { limit: 10 }, function(tracks) {
+					deferred.resolve(tracks);
+				});
 			});
 			// deferred.reject('impossible de finaliser');
 			return deferred.promise;
@@ -68,17 +80,20 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 			var deferred = $q.defer();
 			var store = {};
 			store.id = soundId;
-			self.SC.get("/tracks/"+soundId, function(track){
-				store.sc = track;
-				self.SC.stream("/tracks/"+soundId, function(soundObj){
-					self.idList.push(store.id);
-					store.obj = soundObj;
-					console.log('store : ', store);
-					self.trackList[self.listIndex] = store;
-					self.listIndex++;
-					deferred.resolve(self.trackList);
-				});
-			});
+			self.isDefine(function(){
+				self.SC.get("/tracks/"+soundId, function(track){
+					store.sc = track;
+					self.SC.stream("/tracks/"+soundId, function(soundObj){
+						self.idList.push(store.id);
+						store.obj = soundObj;
+						console.log('store : ', store);
+						self.trackList[self.listIndex] = store;
+						self.listIndex++;
+						deferred.resolve(self.trackList);
+					});
+				});	
+			})
+			
 			// deferred.reject('impossible de finaliser');
 			return deferred.promise;
 		}

@@ -91,3 +91,10 @@ mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider', '$
     //     'http://myapp.example.com/clickThru**'
     // ]);
 }]);
+
+mmmApp.run(['LSFactory', 'UserFactory',
+    function (LSFactory, UserFactory){
+        var user = LSFactory.get('User');
+        UserFactory.User = user;
+    }
+]);

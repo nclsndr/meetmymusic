@@ -7,8 +7,10 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 			loginState : 'fadeIn',
 			registerState : 'fadeOut',
 			msgRegisterState : 'hide',
-			bgHeight : window.innerHeight
+			bgHeight : window.innerHeight,
+			displayRegister : false
 		};
+
 
 
 		var isGeoloc = false, location = null;
@@ -52,6 +54,8 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 								$scope.ui.registerState = 'fadeIn';
 								$scope.ui.msgRegisterState = 'fadeOut';
 								$scope.ui.SCBtState = 'fadeOut';
+								$scope.ui.displayRegister = true;
+
 								$scope.api_id = SCUser.id;
 								$scope.avatar_url = SCUser.avatar_url;
 								$scope.ui.avatar_url = SCUser.avatar_url;
