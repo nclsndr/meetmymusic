@@ -86,7 +86,7 @@ function ($http, $location, $q) {
 			return deferred.promise;
 		},
 
-		geolocation:function(response){
+		geolocation:function(){
 
 			var deferred = $q.defer();
 
@@ -95,6 +95,7 @@ function ($http, $location, $q) {
 					function(position){
 						Factory.location.lat = position.coords.latitude;
 						Factory.location.lng = position.coords.longitude;
+						console.log(position);
 						deferred.resolve(position);
 					},
 					function(){
@@ -117,7 +118,7 @@ function ($http, $location, $q) {
 
 
 
-		
+
 	}
 	return Factory;
 }]);

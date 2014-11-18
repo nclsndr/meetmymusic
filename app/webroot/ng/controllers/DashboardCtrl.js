@@ -1,5 +1,5 @@
-mmmApp.controller('DashboardCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q', '$location', '$scope', 
-	function (NotificationFactory, UserFactory, SoundcloudService, $q, $location, $scope) {
+mmmApp.controller('DashboardCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q', '$location', '$scope', 'GmapService',
+	function (NotificationFactory, UserFactory, SoundcloudService, $q, $location, $scope, GmapService) {
 
 		// if (UserFactory.isNotLogged()) {
 		// 	NotificationFactory.add('You are not logged', 'error');
@@ -12,4 +12,5 @@ mmmApp.controller('DashboardCtrl', ['NotificationFactory', 'UserFactory', 'Sound
 
 		// console.log(google);
 		console.log(UserFactory.User);
+		GmapService.hideMap(false);
 }]);

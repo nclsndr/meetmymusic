@@ -15,7 +15,8 @@
         <div ng-controller="NotificationCtrl" class="notifications_container">
             <ul notifications>
             </ul>
-        </div> 
+        </div>
+        <gmap fullheight ng-class="{hidden : hiddenMap}"></gmap>
         <div class="container">
             <div ng-view></div> 
         </div>
