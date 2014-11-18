@@ -15,14 +15,15 @@
         <div ng-controller="NotificationCtrl" class="notifications_container">
             <ul notifications>
             </ul>
-        </div> 
+        </div>
+        <gmap fullheight ng-class="{hidden : hiddenMap}"></gmap>
         <div class="container">
             <div ng-view></div> 
         </div>
     <!-- <script src="/socket.io/socket.io.js"></script> -->
     
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCb8-NT-d0C1cIQhFAXuP-RlpW0bz_y2oQ&sensor=true"></script>
-    <script type="text/javascript" src="http://mmm.nclsndr.fr/js/soundcloud.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCb8-NT-d0C1cIQhFAXuP-RlpW0bz_y2oQ&sensor=true&libraries=places"></script>
+    <script type="text/javascript" src="//connect.soundcloud.com/sdk.js"></script>
     <script src="/socket.io/socket.io.js"></script>
 
     <script type="text/javascript" src="https://code.angularjs.org/1.3.2/angular.min.js"></script>
@@ -38,6 +39,7 @@
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/services/NotificationFactory.js"></script>
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/services/GmapService.js"></script>
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/controllers/DebugCtrl.js"></script>
+    <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/controllers/PregameCtrl.js"></script>
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/controllers/NotificationCtrl.js"></script>
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/controllers/StartCtrl.js"></script>
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/controllers/DashboardCtrl.js"></script>

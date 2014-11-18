@@ -47,6 +47,10 @@ mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider', '$
                 }
             }
         })
+        .when('/pregame', {
+            templateUrl: partialsF+'/pregame.html',
+            controller: 'pregameCtrl'
+        })
         .when('/debug', {
             templateUrl: partialsF+'/debug.html',
             controller: 'DebugCtrl'

@@ -1,3 +1,12 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+/* ———————————————————————————————————————————————————————————— FONTS ———————————————————————————————————————————————————————————— */
+@font-face {
+  font-family: "SteelfishRg-Regular";
+  src: url("../font/steelfish_rg.eot?") format("eot"), url("../font/steelfish_rg.woff") format("woff"), url("../font/steelfish_rg.ttf") format("truetype"), url("../font/steelfish_rg.svg#SteelfishRg-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* --------------- GENERAL --------------- */
 html, body {
   font-family: "Montserrat", helvetica, arial, sans-serif;
@@ -15,7 +24,8 @@ html, body {
 
 .mobileContainer {
   position: relative;
-  background: #787882;
+  background: url(../img/app/bgMobile.jpg) fixed no-repeat #787882;
+  background-size: cover;
   min-height: 100%;
   width: 100%;
   padding-bottom: 15px;
@@ -32,7 +42,7 @@ html, body {
   color: white;
   font-family: "SteelfishRg-Regular", helvetica, arial, sans-serif;
   font-weight: normal;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   line-height: 50px;
   margin-left: 15px;
   padding-left: 55px;
@@ -150,22 +160,28 @@ strong {
   transition: all 0.5s ease;
 }
 .feedBackOverlay div {
-  width: 70%;
-  max-width: 240px;
+  width: 240px;
   height: 240px;
-  background: url("../img/app/profilMobile.png") no-repeat center;
-  background-size: contain;
   margin: auto;
   margin-top: 30px;
 }
 .feedBackOverlay div img:first-of-type {
-  width: 1;
+  width: 200px;
+  height: 200px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 3px solid white;
 }
 .feedBackOverlay div img {
-  width: 70%;
-  display: block;
   margin: auto;
-  padding-top: 40px;
+  display: block;
+}
+.feedBackOverlay div .pictoFeedBack {
+  position: absolute;
+  top: 7%;
+  left: 15%;
+  width: 70%;
 }
 .feedBackOverlay p {
   margin-top: 20px;
@@ -173,12 +189,6 @@ strong {
   line-height: 1.4em;
 }
 
-#songPassedOverlay div img:first-of-type {
-  width: 60%;
-  display: block;
-  margin: auto;
-  padding-top: 60px;
-}
 #songPassedOverlay .loading {
   width: 25px;
   margin: 5px auto;

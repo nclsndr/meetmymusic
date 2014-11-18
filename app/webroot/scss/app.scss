@@ -1,0 +1,833 @@
+/* ———————————————————————————————————————————————————————————— FONTS ———————————————————————————————————————————————————————————— */
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@font-face {
+    font-family: "SteelfishRg-Regular";
+    src: url("../font/steelfish_rg.eot?") format("eot"), url("../font/steelfish_rg.woff") format("woff"), url("../font/steelfish_rg.ttf") format("truetype"), url("../font/steelfish_rg.svg#SteelfishRg-Regular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+@import"mixin.scss";
+$titleFont:'SteelfishRg-Regular', helvetica, arial, sans-serif;
+$montserrat:'Montserrat', helvetica, arial, sans-serif;
+$green: #0edfb5;
+/* ———————————————————————————————————————————————————————————— GENERAL ———————————————————————————————————————————————————————————— */
+
+* {
+    outline: none;
+}
+html, body {
+    font-family: "Montserrat", helvetica, arial, sans-serif;
+    height: 100%;
+}
+.clear {
+    clear: both;
+}
+.fadeOut {
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    display: none;
+}
+.fadeIn {
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    opacity: 1;
+    display: block;
+}
+a {
+    text-align: none;
+    color: white;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+a:hover {
+    color: #bbbbbb;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+.rotating {
+    -webkit-animation: rotating 2s linear infinite;
+}
+@-webkit-keyframes rotating {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+/* ———————————————————————————— END GENERAL ———————————————————————————— */
+/* ———————————————————————————————————————————————————————————— NOTIFICATIONS ———————————————————————————————————————————————————————————— */
+
+.notifications_container {
+    position: fixed;
+    right: .6rem;
+    top: 0;
+    z-index: 101;
+    width: 200px;
+}
+.notifications_container ul {
+    list-style: none;
+}
+.notifications_container ul li {
+    position: relative;
+    display: block;
+    padding: .6rem;
+    background: rgba(255, 255, 255, .8);
+    border: 1px solid #0edfb5;
+    border-radius: 4px;
+    width: 100%;
+    color: #333;
+    margin-top: .6rem;
+    text-align: center;
+}
+.notifications_container ul li.error {
+    color: #e40151;
+    border: 1px solid #e40151;
+}
+/* ———————————————————————————— END NOTIFICATIONS ———————————————————————————— */
+/* ———————————————————————————————————————————————————————————— MAP ———————————————————————————————————————————————————————————— */
+
+gmap.hidden {
+    z-index: -1000;
+    opacity: 0;
+}
+gmap {
+    width: 100%;
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    margin: 0;
+    min-height: 300px;
+}
+/* ———————————————————————————— END MAP ———————————————————————————— */
+/* ———————————————————————————————————————————————————————————— FORM ———————————————————————————————————————————————————————————— */
+
+form span.form_error {
+    display: block;
+    background: rgba(228, 1, 81, .7);
+    color: #FFF;
+    padding: .5rem;
+    font-size: .8rem;
+    margin: 0;
+}
+.ghostButton {
+    display: block;
+    margin: auto;
+    clear: both;
+    border: 2px solid white;
+    width: 160px;
+    text-transform: uppercase;
+    position: relative;
+    color: white;
+    text-align: center;
+}
+.ghostButton .invert {
+    top: 0;
+    left: 0;
+    background: #fff;
+    color: black;
+    width: 0px;
+    height: 100%;
+    opacity: 1;
+    position: absolute;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.ghostButton .text {
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    z-index: 1;
+}
+.ghostButton:hover .invert {
+    width: 100%;
+}
+.ghostButton:hover .text {
+    color: black;
+}
+.ghostButton.disabled {
+    opacity: .4;
+}
+.ghostButton.disabled:hover .invert {
+    width: 0%;
+}
+.ghostButton.disabled:hover .text {
+    color: inherit;
+}
+/* ———————————————————————————— END FORM ———————————————————————————— */
+/* ———————————————————————————————————————————————————————————— LOGIN ———————————————————————————————————————————————————————————— */
+
+.user.login_register {
+    background: url(../img/app/loginbg.jpg) no-repeat center fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 50px;
+}
+.user.login_register a {
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+.user.login_register a:hover {
+    color: #bbbbbb;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+.user.login_register header {
+    padding-top: 40px;
+}
+.user.login_register header a:hover {
+    -moz-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}
+.user.login_register header img {
+    display: block;
+    margin: auto;
+    width: 50%;
+    max-width: 130px;
+}
+.user.login_register header h1 {
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-family: "SteelfishRg-Regular", helvetica, arial, sans-serif;
+    font-weight: normal;
+    font-size: 2.2rem;
+}
+.user.login_register header p {
+    text-align: center;
+    color: white;
+    width: 80%;
+    margin: auto;
+    line-height: 1.2em;
+}
+.user.login_register header p span {
+    display: block;
+}
+.user.login_register header div:last-child {
+    border-bottom: 1px solid white;
+    width: 200px;
+    margin: 30px auto 30px auto;
+    height: 1px;
+}
+.user.login_register .registerElem {
+    display: none;
+}
+.user.login_register p.registerElem {
+    text-align: center;
+    color: white;
+    width: 80%;
+    margin: auto;
+    line-height: 0.8em;
+    margin-top: 50px;
+}
+.user.login_register #registerSubmitBtn {
+    display: none;
+}
+.user.login_register #soundCloudConnect {
+    width: 90%;
+    max-width: 278px;
+    height: 35px;
+    background: white;
+    margin: 40px auto 15px auto;
+    cursor: pointer;
+    -webkit-transition: all 0.6s ease-in-out;
+    -moz-transition: all 0.6s ease-in-out;
+    -ms-transition: all 0.6s ease-in-out;
+    -o-transition: all 0.6s ease-in-out;
+    transition: all 0.6s ease-in-out;
+}
+.user.login_register #soundCloudConnect div:first-child {
+    height: 40px;
+    width: 25%;
+    background: url(../img/app/soundCloudIcon.png) center 7px no-repeat;
+    background-size: 50%;
+    border-right: 1px solid rgba(0, 0, 0, 0.8);
+    float: left;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.user.login_register #soundCloudConnect div:last-child {
+    float: left;
+    height: 40px;
+    text-align: center;
+    width: 75%;
+    line-height: 37px;
+    font-size: 0.9rem;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.user.login_register #soundCloudConnect:hover div:first-child {
+    background: url(../img/app/soundCloudIconHover.png) center 7px no-repeat;
+    background-size: 50%;
+}
+.user.login_register form {
+    width: 90%;
+    max-width: 250px;
+    margin: auto;
+}
+.user.login_register form input {
+    width: 100%;
+    height: 35px;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+.user.login_register form input[type='submit'] {
+    display: block;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+.user.login_register a {
+    text-decoration: none;
+    text-align: center;
+    font-family: "Montserrat", helvetica, arial, sans-serif;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.75);
+    display: block;
+    margin: auto;
+}
+.user.login_register #accountBtn {
+    margin-top: 20px;
+}
+.user.login_register .ghostButton {
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    font-family: "Montserrat", helvetica, arial, sans-serif;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.75);
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    border: 2px solid white;
+    width: 160px;
+    text-transform: uppercase;
+    position: relative;
+}
+.user.login_register .ghostButton .invert {
+    top: 0;
+    left: 0;
+    background: #fff;
+    color: black;
+    width: 0px;
+    height: 100%;
+    opacity: 1;
+    position: absolute;
+    -webkit-transition: all 0.6s ease-in-out;
+    -moz-transition: all 0.6s ease-in-out;
+    -ms-transition: all 0.6s ease-in-out;
+    -o-transition: all 0.6s ease-in-out;
+    transition: all 0.6s ease-in-out;
+}
+.user.login_register .ghostButton .text {
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    z-index: 1;
+}
+.user.login_register .ghostButton:hover .invert {
+    width: 100%;
+}
+.user.login_register .ghostButton:hover .text {
+    color: black;
+}
+.user.login_register .connectElem {
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+.user.login_register .create_account {
+    margin-top: 3rem;
+    width: 200px;
+}
+.user.login_register .register_msg {
+    width: 100%;
+    margin: 3rem auto;
+}
+.user.login_register .register_msg p {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    color: #FFF;
+    font-weight: 300;
+}
+.user.login_register .avatar {
+    display: block;
+    margin: 1rem auto;
+    margin-top: 1.5rem;
+    border-radius: 200px;
+    width: 150px;
+    height: auto;
+}
+/* ———————————————————————————— END LOGIN ———————————————————————————— */
+/* ————————————————————————————————————————————————————————————  DESKTOP INIT ———————————————————————————————————————————————————————————— */
+
+.desktopPage {
+    background: black;
+    height: 100%;
+    width: 100%;
+}
+.desktopContainer {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    height: 100%;
+}
+.desktopContainer header {
+    background: black;
+    width: 100%;
+    height: 50px;
+}
+.desktopContainer header h1 {
+    text-transform: uppercase;
+    color: white;
+    font-family: "SteelfishRg-Regular", helvetica, arial, sans-serif;
+    font-weight: normal;
+    font-size: 1.8rem;
+    line-height: 50px;
+    margin-left: 30px;
+    padding-left: 55px;
+    cursor: pointer;
+    background: url(../img/app/logo.png) left no-repeat;
+    background-size: 38px 38px;
+    float: left;
+}
+.desktopContainer header #userOption {
+    float: right;
+    width: 240px;
+    color: white;
+}
+.desktopContainer header #userOption div:nth-child(1) {
+    float: left;
+    width: 150px;
+    margin-right: 20px;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    text-align: right;
+}
+.desktopContainer header #userOption div:nth-child(2) {
+    width: 35px;
+    height: 35px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    margin-top: 7px;
+    margin-right: 30px;
+}
+.desktopContainer header #userOption div:nth-child(2) img {
+    width: 100%;
+}
+/* ————————————————————————————————————————————————————————————  DASHBOARD INIT ———————————————————————————————————————————————————————————— */
+
+.desktopContainer aside {
+    width: 250px;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 50px;
+    bottom: 0px;
+    overflow-y: auto;
+    scrollbar-base-color: #5f5f5f;
+    scrollbar-3dlight-color: #5f5f5f;
+    scrollbar-highlight-color: #5f5f5f;
+    scrollbar-track-color: #5f5f5f;
+    scrollbar-arrow-color: white;
+    scrollbar-shadow-color: #5f5f5f;
+    scrollbar-dark-shadow-color: #5f5f5f;
+}
+.desktopContainer aside .topAside {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    overflow-y: auto;
+}
+.desktopContainer aside .topAside img {
+    margin: auto;
+    display: block;
+    width: 24px;
+    cursor: pointer;
+}
+.desktopContainer aside .asideElem {
+    padding: 15px 7%;
+    width: 100%;
+    color: white;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+.desktopContainer aside .asideElem h3 {
+    font-size: 0.75rem;
+    margin-bottom: 10px;
+    color: #FFF;
+}
+.desktopContainer aside .asideElem img {
+    float: left;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.desktopContainer aside .asideElem .asideElemTxt {
+    float: left;
+    font-size: 0.72rem;
+    width: 100px;
+    margin-left: 17px;
+}
+.desktopContainer aside .asideElem .asideElemTxt div:nth-child(2) {
+    margin: 9px 0;
+}
+.desktopContainer aside::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #000;
+}
+.desktopContainer aside::-webkit-scrollbar {
+    width: 6px;
+    background-color: #000;
+}
+.desktopContainer aside::-webkit-scrollbar-thumb {
+    background-color: #5f5f5f;
+}
+.desktopContainer .ghostButton {
+    width: 270px;
+    border: 2px solid white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: 47%;
+    margin-top: 20%;
+}
+.desktopContainer .ghostButton .text {
+    line-height: 45px;
+}
+/* ———————————————————————————— END DASHBOARD ———————————————————————————— */
+/* --------------- PLAYING PAGE --------------- */
+
+.playingPage {
+    background: black;
+    width: 100%;
+    min-width: 800px;
+}
+.playerContainer {
+    width: 80%;
+    max-width: 850px;
+    height: 370px;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+    .player {
+        color: white;
+        padding: 25px 2%;
+        background: rgba(0, 0, 0, 0.7);
+        width: 25%;
+        min-width: 250px;
+        height: 100%;
+        .avatar {
+            width: 80%;
+            margin: auto;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid white;
+            img {
+                width: 100%;
+            }
+        }
+        .pseudo {
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+        .location {
+            font-size: 0.9rem;
+            margin-top: 7px;
+            margin-bottom: 25px;
+        }
+        .description {
+            text-align: left;
+            font-size: 0.8rem;
+        }
+    }
+    #player1 {
+        float: left;
+    }
+    #player2 {
+        float: right;
+    }
+}
+.musicInfo {
+    text-align: center;
+    color: white;
+    font-size: 0.9rem;
+    .listeningCover {
+        width: 120px;
+        height: 120px;
+        margin: auto;
+        display: block;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2px solid white;
+        img {
+            width: 100%;
+        }
+    }
+    .titleSongListening {
+        margin-top: 15px;
+    }
+    #musicBar {
+        max-width: 600px;
+        margin: 20px auto;
+        height: 3px;
+        background: white;
+        #musicBarCursor {
+            background: #0edfb5;
+            height: 100%;
+            width: 30%;
+            position: relative;
+            img {
+                position: absolute;
+                right: -10px;
+                top: -7px;
+            }
+        }
+    }
+    .isNowPlaying {
+        clear: both;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+    .musicController {
+        width: 100px;
+        margin: auto;
+        img: first-of-type {
+            float: left;
+        }
+        img:last-of-type {
+            float: right;
+        }
+    }
+}
+/* --------------- SEARCH PAGE --------------- */
+
+.searchContainer {
+    color: white;
+    width: 100%;
+    text-align: center;
+    background: url('../images/bgBlack.jpg') center black;
+    background-size: cover;
+    overflow: hidden;
+    .topSeach {
+        height: 260px;
+        padding-top: 30px;
+        padding-bottom: 20px;
+        h1 {
+            font-size: 1.8rem;
+            line-height: 1.3;
+            font-weight: bold;
+        }
+        img {
+            margin: 40px auto;
+        }
+    }
+    .searchBar {
+        width: 100%;
+        height: 60px;
+        background: white;
+        color: #aaaaaa;
+        overflow: hidden;
+        input {
+            width: 80%;
+            margin: auto;
+            height: 100%;
+            padding: 0;
+            border: 0;
+            font-size: 1.4em;
+            background: url('../images/pictoLoupe.jpg') center left no-repeat;
+            background-size: 35px 30px;
+            padding-left: 45px;
+        }
+    }
+    .songRecap {
+        width: 100%;
+        background: black;
+        .songRecapHalf {
+            width: 50%;
+            height: 100%;
+            float: left;
+            overflow: hidden;
+            h2 {
+                height: 50px;
+                line-height: 50px;
+                font-weight: normal;
+                font-size: 1.25rem;
+                text-align: left;
+                margin-left: 10%;
+            }
+            .greySep {
+                width: 100%;
+                height: 1px;
+                background: #303030;
+            }
+        }
+        .songYouLike {
+            h2 {
+                background: url('../images/pictoCoeur.png') left 15px no-repeat;
+                padding-left: 30px;
+                background-size: 20px 18px;
+            }
+            background: url('../images/greypixel.jpg') black right repeat-y !important;
+        }
+        .songYouReposted {
+            h2 {
+                background: url('../images/pictoRepost.png') left center no-repeat;
+                padding-left: 45px;
+                background-size: 33px 18px;
+            }
+            background: black;
+        }
+        ul {
+            width: 99.8%;
+            margin: auto;
+            list-style: none;
+            overflow-y: auto;
+            overflow-x: hidden;
+            &::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+                background-color: #000;
+            }
+            &::-webkit-scrollbar {
+                width: 6px;
+                background-color: #000;
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: #5f5f5f;
+            }
+            scrollbar-base-color: #5f5f5f;
+            scrollbar-3dlight-color: #5f5f5f;
+            scrollbar-highlight-color: #5f5f5f;
+            scrollbar-track-color: #5f5f5f;
+            scrollbar-arrow-color: white;
+            scrollbar-shadow-color: #5f5f5f;
+            scrollbar-dark-shadow-color: #5f5f5f;
+            li {
+                width: 100%;
+                display: block;
+                text-align: left;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #303030;
+                cursor: pointer;
+                img {
+                    float: left;
+                    display: block;
+                    width: 55px;
+                    height: 55px;
+                    margin-left: 5%;
+                    margin-right: 20px;
+                    @include transition(all, 0.5s, ease-in-out);
+                }
+                .description {
+                    float: left;
+                }
+                .title {
+                    font-size: 0.95rem;
+                    margin-top: 10px;
+                    margin-bottom: 5px;
+                    @include transition(all, 0.5s, ease-in-out);
+                }
+                .timeLength {
+                    font-size: 0.8rem;
+                }
+                .validate {
+                    width: 40px;
+                    height: 40px;
+                    margin-right: 5%;
+                    margin-top: 7px;
+                    float: right;
+                    svg {
+                        stroke: white;
+                        @include transition(all, 0.2s, linear);
+                    }
+                }
+                &:hover {
+                    img {
+                        @include transition(all, 0.1s, linear);
+                    }
+                    .title {
+                        font-size: 0.95rem;
+                        margin-top: 10px;
+                        margin-bottom: 5px;
+                        color: $green;
+                        @include transition(all, 0.2s, linear);
+                    }
+                    .validate {
+                        svg {
+                            stroke: $green;
+                            @include transition(all, 0.2s, linear);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

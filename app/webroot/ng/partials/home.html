@@ -26,19 +26,27 @@
     
     <!-- Register Form -->
     <div class="register animated {{ui.registerState}}">
-        <form ng-submit="registerForm()" novalidate name="register">
-            <img src="{{register.avatar_url}}" alt="" class="avatar">
-            <input type="hidden" name="api_id" ng-model="register.api_id"> 
-            <input type="hidden" name="lat" ng-model="register.lat">
-            <input type="hidden" name="lng" ng-model="register.lng">
-            <input type="hidden" name="avatar_url" ng-model="register.avatar_url"> 
-            <input type="text" name="username" placeholder="Username" ng-model="register.username" username-valid>
-            <input type="email" overwrite-email placeholder="Mail" ng-model="register.mail">
-            <span ng-show="register.overwrittenEmail.$error.mail">This email format is invalid!</span>
-            <input type="text" name="city" placeholder="City, Country" ng-model="register.city_country" > 
-            <span class="ghostButton connectElem">
+        <form ng-submit="register.$valid && registerForm()" novalidate name="register">
+            <img src="{{ui.avatar_url}}" alt="" class="avatar">
+            <input type="hidden" name="api_id" ng-model="api_id"> 
+            <input type="hidden" name="lat" ng-model="lat">
+            <input type="hidden" name="lng" ng-model="lng">
+            <input type="hidden" name="avatar_url" ng-model="avatar_url"> 
+
+            <input type="text" username ng-model="username" ng-model-options="{ debounce: 500 }" name="username" placeholder="Username">
+            <span ng-show="register.username.$error.usernameexists" class="form_error">This user already exists</span>
+
+            <input type="email" overwrite-email placeholder="Mail" ng-model="email" name="email">
+            <span ng-show="register.email.$error.emailFormat" class="form_error">This email format is not valid</span>
+            <span ng-show="register.email.$error.emailEmpty" class="form_error">Email can't be left blank</span>
+
+            <input type="text" maps-auto-complete name="city_country" placeholder="City, Country" ng-model="city_country">
+            <span ng-show="register.city_country.$error.isEmpty" class="form_error">You must fill your location</span>
+            <span ng-show="register.city_country.$error.isComplete" class="form_error">You must use the autocomplete</span>
+
+            <span ng-class="{disabled : register.$invalid}" class="ghostButton connectElem">
                 <span class="invert"></span>
-                <input type="submit" class="text"  value="REGISTER">
+                <input  type="submit" class="text"  value="REGISTER">
             </span>
         </form>   
     </div>

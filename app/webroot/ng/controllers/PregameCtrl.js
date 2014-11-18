@@ -1,5 +1,5 @@
-mmmApp.controller('DashboardCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q', '$location', '$scope', 'GmapService',
-	function (NotificationFactory, UserFactory, SoundcloudService, $q, $location, $scope, GmapService) {
+mmmApp.controller('PregameCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q', '$location', '$scope', 'GmapService', 'QrFactory',
+	function (NotificationFactory, UserFactory, SoundcloudService, $q, $location, $scope, GmapService,QrFactory) {
 
 		// if (UserFactory.isNotLogged()) {
 		// 	NotificationFactory.add('You are not logged', 'error');

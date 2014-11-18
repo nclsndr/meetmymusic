@@ -1,14 +1,12 @@
-
-/* ———————————————————————————————————————————————————————————— FONTS ———————————————————————————————————————————————————————————— */
-
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+/* ———————————————————————————————————————————————————————————— FONTS ———————————————————————————————————————————————————————————— */
 @font-face {
   font-family: "SteelfishRg-Regular";
   src: url("../font/steelfish_rg.eot?") format("eot"), url("../font/steelfish_rg.woff") format("woff"), url("../font/steelfish_rg.ttf") format("truetype"), url("../font/steelfish_rg.svg#SteelfishRg-Regular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
-/* ———————————————————————————— END FONTS ———————————————————————————— */
+
 /* ———————————————————————————————————————————————————————————— GENERAL ———————————————————————————————————————————————————————————— */
 * {
   outline: none;
@@ -52,6 +50,7 @@ a {
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
+
 a:hover {
   color: #bbbbbb;
   -webkit-transition: all 0.2s linear;
@@ -75,6 +74,67 @@ a:hover {
   }
 }
 
+/* ———————————————————————————— END GENERAL ———————————————————————————— */
+/* ———————————————————————————————————————————————————————————— NOTIFICATIONS ———————————————————————————————————————————————————————————— */
+.notifications_container {
+  position: fixed;
+  right: .6rem;
+  top: 0;
+  z-index: 101;
+  width: 200px;
+}
+
+.notifications_container ul {
+  list-style: none;
+}
+
+.notifications_container ul li {
+  position: relative;
+  display: block;
+  padding: .6rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #0edfb5;
+  border-radius: 4px;
+  width: 100%;
+  color: #333;
+  margin-top: .6rem;
+  text-align: center;
+}
+
+.notifications_container ul li.error {
+  color: #e40151;
+  border: 1px solid #e40151;
+}
+
+/* ———————————————————————————— END NOTIFICATIONS ———————————————————————————— */
+/* ———————————————————————————————————————————————————————————— MAP ———————————————————————————————————————————————————————————— */
+gmap.hidden {
+  z-index: -1000;
+  opacity: 0;
+}
+
+gmap {
+  width: 100%;
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  margin: 0;
+  min-height: 300px;
+}
+
+/* ———————————————————————————— END MAP ———————————————————————————— */
+/* ———————————————————————————————————————————————————————————— FORM ———————————————————————————————————————————————————————————— */
+form span.form_error {
+  display: block;
+  background: rgba(228, 1, 81, 0.7);
+  color: #FFF;
+  padding: .5rem;
+  font-size: .8rem;
+  margin: 0;
+}
+
 .ghostButton {
   display: block;
   margin: auto;
@@ -86,6 +146,7 @@ a:hover {
   color: white;
   text-align: center;
 }
+
 .ghostButton .invert {
   top: 0;
   left: 0;
@@ -101,6 +162,7 @@ a:hover {
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
+
 .ghostButton .text {
   text-align: center;
   width: 100%;
@@ -114,45 +176,28 @@ a:hover {
   position: relative;
   z-index: 1;
 }
+
 .ghostButton:hover .invert {
   width: 100%;
 }
+
 .ghostButton:hover .text {
   color: black;
 }
 
-/* ———————————————————————————— END GENERAL ———————————————————————————— */
-
-/* ———————————————————————————————————————————————————————————— NOTIFICATIONS ———————————————————————————————————————————————————————————— */
-.notifications_container{
-  position: fixed;
-  right: .6rem;
-  top: 0;
-  z-index: 101;
-  width: 200px;
-}
-.notifications_container ul{
-  list-style: none;
-}
-.notifications_container ul li{
-  position: relative;
-  display: block;
-  padding: .6rem;
-  background: rgba(255,255,255, .8);
-  border: 1px solid #0edfb5;
-  border-radius: 4px;
-  width: 100%;
-  color: #333;
-  margin-top: .6rem;
-  text-align: center;
-}
-.notifications_container ul li.error{
-  color: #e40151;
-  border: 1px solid #e40151;
+.ghostButton.disabled {
+  opacity: .4;
 }
 
-/* ———————————————————————————— END NOTIFICATIONS ———————————————————————————— */
+.ghostButton.disabled:hover .invert {
+  width: 0%;
+}
 
+.ghostButton.disabled:hover .text {
+  color: inherit;
+}
+
+/* ———————————————————————————— END FORM ———————————————————————————— */
 /* ———————————————————————————————————————————————————————————— LOGIN ———————————————————————————————————————————————————————————— */
 .user.login_register {
   background: url(../img/app/loginbg.jpg) no-repeat center fixed;
@@ -164,6 +209,7 @@ a:hover {
   overflow-x: hidden;
   padding-bottom: 50px;
 }
+
 .user.login_register a {
   -webkit-transition: all 0.2s linear;
   -moz-transition: all 0.2s linear;
@@ -171,6 +217,7 @@ a:hover {
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
+
 .user.login_register a:hover {
   color: #bbbbbb;
   -webkit-transition: all 0.2s linear;
@@ -179,9 +226,11 @@ a:hover {
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
+
 .user.login_register header {
   padding-top: 40px;
 }
+
 .user.login_register header a:hover {
   -moz-transform: scale(1.05);
   -o-transform: scale(1.05);
@@ -189,12 +238,14 @@ a:hover {
   -webkit-transform: scale(1.05);
   transform: scale(1.05);
 }
+
 .user.login_register header img {
   display: block;
   margin: auto;
   width: 50%;
   max-width: 130px;
 }
+
 .user.login_register header h1 {
   text-transform: uppercase;
   color: white;
@@ -205,6 +256,7 @@ a:hover {
   font-weight: normal;
   font-size: 2.2rem;
 }
+
 .user.login_register header p {
   text-align: center;
   color: white;
@@ -212,18 +264,22 @@ a:hover {
   margin: auto;
   line-height: 1.2em;
 }
+
 .user.login_register header p span {
   display: block;
 }
+
 .user.login_register header div:last-child {
   border-bottom: 1px solid white;
   width: 200px;
   margin: 30px auto 30px auto;
   height: 1px;
 }
+
 .user.login_register .registerElem {
   display: none;
 }
+
 .user.login_register p.registerElem {
   text-align: center;
   color: white;
@@ -232,9 +288,11 @@ a:hover {
   line-height: 0.8em;
   margin-top: 50px;
 }
+
 .user.login_register #registerSubmitBtn {
   display: none;
 }
+
 .user.login_register #soundCloudConnect {
   width: 90%;
   max-width: 278px;
@@ -248,6 +306,7 @@ a:hover {
   -o-transition: all 0.6s ease-in-out;
   transition: all 0.6s ease-in-out;
 }
+
 .user.login_register #soundCloudConnect div:first-child {
   height: 40px;
   width: 25%;
@@ -261,6 +320,7 @@ a:hover {
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
+
 .user.login_register #soundCloudConnect div:last-child {
   float: left;
   height: 40px;
@@ -274,15 +334,18 @@ a:hover {
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
+
 .user.login_register #soundCloudConnect:hover div:first-child {
   background: url(../img/app/soundCloudIconHover.png) center 7px no-repeat;
   background-size: 50%;
 }
+
 .user.login_register form {
   width: 90%;
   max-width: 250px;
   margin: auto;
 }
+
 .user.login_register form input {
   width: 100%;
   height: 35px;
@@ -293,12 +356,14 @@ a:hover {
   padding-left: 15px;
   padding-right: 15px;
   margin-top: 20px;
+  margin-bottom: 0;
 }
+
 .user.login_register form input[type='submit'] {
   display: block;
   background: transparent;
   margin: 0;
-  padding:0;
+  padding: 0;
   cursor: pointer;
 }
 
@@ -311,9 +376,11 @@ a:hover {
   display: block;
   margin: auto;
 }
+
 .user.login_register #accountBtn {
   margin-top: 20px;
 }
+
 .user.login_register .ghostButton {
   cursor: pointer;
   text-decoration: none;
@@ -329,6 +396,7 @@ a:hover {
   text-transform: uppercase;
   position: relative;
 }
+
 .user.login_register .ghostButton .invert {
   top: 0;
   left: 0;
@@ -344,6 +412,7 @@ a:hover {
   -o-transition: all 0.6s ease-in-out;
   transition: all 0.6s ease-in-out;
 }
+
 .user.login_register .ghostButton .text {
   text-align: center;
   width: 100%;
@@ -357,12 +426,15 @@ a:hover {
   position: relative;
   z-index: 1;
 }
+
 .user.login_register .ghostButton:hover .invert {
   width: 100%;
 }
+
 .user.login_register .ghostButton:hover .text {
   color: black;
 }
+
 .user.login_register .connectElem {
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
@@ -371,23 +443,25 @@ a:hover {
   transition: all 0.5s ease-in-out;
 }
 
-.user.login_register .create_account{
+.user.login_register .create_account {
   margin-top: 3rem;
   width: 200px;
 }
 
-.user.login_register .register_msg{
+.user.login_register .register_msg {
   width: 100%;
-  margin : 3rem auto;
+  margin: 3rem auto;
 }
-.user.login_register .register_msg p{
+
+.user.login_register .register_msg p {
   width: 50%;
   margin: auto;
   text-align: center;
   color: #FFF;
   font-weight: 300;
 }
-.user.login_register .avatar{
+
+.user.login_register .avatar {
   display: block;
   margin: 1rem auto;
   margin-top: 1.5rem;
@@ -397,29 +471,27 @@ a:hover {
 }
 
 /* ———————————————————————————— END LOGIN ———————————————————————————— */
-
-
-
-
-/* ———————————————————————————————————————————————————————————— DASHBOARD ———————————————————————————————————————————————————————————— */
-.dashboardPage {
+/* ————————————————————————————————————————————————————————————  DESKTOP INIT ———————————————————————————————————————————————————————————— */
+.desktopPage {
   background: black;
   height: 100%;
   width: 100%;
 }
 
-.dashboardContainer {
+.desktopContainer {
   position: relative;
   overflow: hidden;
   z-index: 1;
   height: 100%;
 }
-.dashboardContainer header {
+
+.desktopContainer header {
   background: black;
   width: 100%;
   height: 50px;
 }
-.dashboardContainer header h1 {
+
+.desktopContainer header h1 {
   text-transform: uppercase;
   color: white;
   font-family: "SteelfishRg-Regular", helvetica, arial, sans-serif;
@@ -433,12 +505,14 @@ a:hover {
   background-size: 38px 38px;
   float: left;
 }
-.dashboardContainer header #userOption {
+
+.desktopContainer header #userOption {
   float: right;
   width: 240px;
   color: white;
 }
-.dashboardContainer header #userOption div:nth-child(1) {
+
+.desktopContainer header #userOption div:nth-child(1) {
   float: left;
   width: 150px;
   margin-right: 20px;
@@ -446,7 +520,8 @@ a:hover {
   margin-top: 10px;
   text-align: right;
 }
-.dashboardContainer header #userOption div:nth-child(2) {
+
+.desktopContainer header #userOption div:nth-child(2) {
   width: 35px;
   height: 35px;
   -webkit-border-radius: 50%;
@@ -457,10 +532,13 @@ a:hover {
   margin-top: 7px;
   margin-right: 30px;
 }
-.dashboardContainer header #userOption div:nth-child(2) img {
+
+.desktopContainer header #userOption div:nth-child(2) img {
   width: 100%;
 }
-.dashboardContainer aside {
+
+/* ————————————————————————————————————————————————————————————  DASHBOARD INIT ———————————————————————————————————————————————————————————— */
+.desktopContainer aside {
   width: 250px;
   background: rgba(0, 0, 0, 0.7);
   position: absolute;
@@ -475,55 +553,66 @@ a:hover {
   scrollbar-shadow-color: #5f5f5f;
   scrollbar-dark-shadow-color: #5f5f5f;
 }
-.dashboardContainer aside .topAside {
+
+.desktopContainer aside .topAside {
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   padding-top: 20px;
   padding-bottom: 20px;
   overflow-y: auto;
 }
-.dashboardContainer aside .topAside img {
+
+.desktopContainer aside .topAside img {
   margin: auto;
   display: block;
   width: 24px;
   cursor: pointer;
 }
-.dashboardContainer aside .asideElem {
+
+.desktopContainer aside .asideElem {
   padding: 15px 7%;
   width: 100%;
   color: white;
   cursor: pointer;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
-.dashboardContainer aside .asideElem h3 {
+
+.desktopContainer aside .asideElem h3 {
   font-size: 0.75rem;
   margin-bottom: 10px;
   color: #FFF;
 }
-.dashboardContainer aside .asideElem img {
+
+.desktopContainer aside .asideElem img {
   float: left;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
-.dashboardContainer aside .asideElem .asideElemTxt {
+
+.desktopContainer aside .asideElem .asideElemTxt {
   float: left;
   font-size: 0.72rem;
   width: 100px;
   margin-left: 17px;
 }
-.dashboardContainer aside .asideElem .asideElemTxt div:nth-child(2) {
+
+.desktopContainer aside .asideElem .asideElemTxt div:nth-child(2) {
   margin: 9px 0;
 }
-.dashboardContainer aside::-webkit-scrollbar-track {
+
+.desktopContainer aside::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #000;
 }
-.dashboardContainer aside::-webkit-scrollbar {
+
+.desktopContainer aside::-webkit-scrollbar {
   width: 6px;
   background-color: #000;
 }
-.dashboardContainer aside::-webkit-scrollbar-thumb {
+
+.desktopContainer aside::-webkit-scrollbar-thumb {
   background-color: #5f5f5f;
 }
-.dashboardContainer .ghostButton {
+
+.desktopContainer .ghostButton {
   width: 270px;
   border: 2px solid white;
   font-size: 1.5rem;
@@ -531,23 +620,301 @@ a:hover {
   margin-left: 47%;
   margin-top: 20%;
 }
-.dashboardContainer .ghostButton .text {
+
+.desktopContainer .ghostButton .text {
   line-height: 45px;
 }
 
-
 /* ———————————————————————————— END DASHBOARD ———————————————————————————— */
+/* --------------- PLAYING PAGE --------------- */
+.playingPage {
+  background: black;
+  width: 100%;
+  min-width: 800px;
+}
 
+.playerContainer {
+  width: 80%;
+  max-width: 850px;
+  height: 370px;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+}
+.playerContainer .player {
+  color: white;
+  padding: 25px 2%;
+  background: rgba(0, 0, 0, 0.7);
+  width: 25%;
+  min-width: 250px;
+  height: 100%;
+}
+.playerContainer .player .avatar {
+  width: 80%;
+  margin: auto;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid white;
+}
+.playerContainer .player .avatar img {
+  width: 100%;
+}
+.playerContainer .player .pseudo {
+  margin-top: 20px;
+  font-size: 1.1rem;
+}
+.playerContainer .player .location {
+  font-size: 0.9rem;
+  margin-top: 7px;
+  margin-bottom: 25px;
+}
+.playerContainer .player .description {
+  text-align: left;
+  font-size: 0.8rem;
+}
+.playerContainer #player1 {
+  float: left;
+}
+.playerContainer #player2 {
+  float: right;
+}
 
+.musicInfo {
+  text-align: center;
+  color: white;
+  font-size: 0.9rem;
+}
+.musicInfo .listeningCover {
+  width: 120px;
+  height: 120px;
+  margin: auto;
+  display: block;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid white;
+}
+.musicInfo .listeningCover img {
+  width: 100%;
+}
+.musicInfo .titleSongListening {
+  margin-top: 15px;
+}
+.musicInfo #musicBar {
+  max-width: 600px;
+  margin: 20px auto;
+  height: 3px;
+  background: white;
+}
+.musicInfo #musicBar #musicBarCursor {
+  background: #0edfb5;
+  height: 100%;
+  width: 30%;
+  position: relative;
+}
+.musicInfo #musicBar #musicBarCursor img {
+  position: absolute;
+  right: -10px;
+  top: -7px;
+}
+.musicInfo .isNowPlaying {
+  clear: both;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.musicInfo .musicController {
+  width: 100px;
+  margin: auto;
+  img: first-of-type;
+  img-float: left;
+}
+.musicInfo .musicController img:last-of-type {
+  float: right;
+}
 
-
-
-
-
-
-
-
-
-
-
-
+/* --------------- SEARCH PAGE --------------- */
+.searchContainer {
+  color: white;
+  width: 100%;
+  text-align: center;
+  background: url("../images/bgBlack.jpg") center black;
+  background-size: cover;
+  overflow: hidden;
+}
+.searchContainer .topSeach {
+  height: 260px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+.searchContainer .topSeach h1 {
+  font-size: 1.8rem;
+  line-height: 1.3;
+  font-weight: bold;
+}
+.searchContainer .topSeach img {
+  margin: 40px auto;
+}
+.searchContainer .searchBar {
+  width: 100%;
+  height: 60px;
+  background: white;
+  color: #aaaaaa;
+  overflow: hidden;
+}
+.searchContainer .searchBar input {
+  width: 80%;
+  margin: auto;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  font-size: 1.4em;
+  background: url("../images/pictoLoupe.jpg") center left no-repeat;
+  background-size: 35px 30px;
+  padding-left: 45px;
+}
+.searchContainer .songRecap {
+  width: 100%;
+  background: black;
+}
+.searchContainer .songRecap .songRecapHalf {
+  width: 50%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+}
+.searchContainer .songRecap .songRecapHalf h2 {
+  height: 50px;
+  line-height: 50px;
+  font-weight: normal;
+  font-size: 1.25rem;
+  text-align: left;
+  margin-left: 10%;
+}
+.searchContainer .songRecap .songRecapHalf .greySep {
+  width: 100%;
+  height: 1px;
+  background: #303030;
+}
+.searchContainer .songRecap .songYouLike {
+  background: url("../images/greypixel.jpg") black right repeat-y !important;
+}
+.searchContainer .songRecap .songYouLike h2 {
+  background: url("../images/pictoCoeur.png") left 15px no-repeat;
+  padding-left: 30px;
+  background-size: 20px 18px;
+}
+.searchContainer .songRecap .songYouReposted {
+  background: black;
+}
+.searchContainer .songRecap .songYouReposted h2 {
+  background: url("../images/pictoRepost.png") left center no-repeat;
+  padding-left: 45px;
+  background-size: 33px 18px;
+}
+.searchContainer .songRecap ul {
+  width: 99.8%;
+  margin: auto;
+  list-style: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-base-color: #5f5f5f;
+  scrollbar-3dlight-color: #5f5f5f;
+  scrollbar-highlight-color: #5f5f5f;
+  scrollbar-track-color: #5f5f5f;
+  scrollbar-arrow-color: white;
+  scrollbar-shadow-color: #5f5f5f;
+  scrollbar-dark-shadow-color: #5f5f5f;
+}
+.searchContainer .songRecap ul::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #000;
+}
+.searchContainer .songRecap ul::-webkit-scrollbar {
+  width: 6px;
+  background-color: #000;
+}
+.searchContainer .songRecap ul::-webkit-scrollbar-thumb {
+  background-color: #5f5f5f;
+}
+.searchContainer .songRecap ul li {
+  width: 100%;
+  display: block;
+  text-align: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #303030;
+  cursor: pointer;
+}
+.searchContainer .songRecap ul li img {
+  float: left;
+  display: block;
+  width: 55px;
+  height: 55px;
+  margin-left: 5%;
+  margin-right: 20px;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.searchContainer .songRecap ul li .description {
+  float: left;
+}
+.searchContainer .songRecap ul li .title {
+  font-size: 0.95rem;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.searchContainer .songRecap ul li .timeLength {
+  font-size: 0.8rem;
+}
+.searchContainer .songRecap ul li .validate {
+  width: 40px;
+  height: 40px;
+  margin-right: 5%;
+  margin-top: 7px;
+  float: right;
+}
+.searchContainer .songRecap ul li .validate svg {
+  stroke: white;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.searchContainer .songRecap ul li:hover img {
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+.searchContainer .songRecap ul li:hover .title {
+  font-size: 0.95rem;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: #0edfb5;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.searchContainer .songRecap ul li:hover .validate svg {
+  stroke: #0edfb5;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
