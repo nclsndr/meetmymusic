@@ -1,5 +1,5 @@
 <div ng-controller="PregameCtrl" class="view">
-	<div class="dashboardContainer" id="preGame" fullHeight>
+	<div class="desktopContainer" id="preGame" fullHeight>
 		<header>
             <a href="http://mmm.nclsndr.fr:3000/#/dashboard"><h1 class="animated fadeInDown">MEET MY MUSIC</h1></a>
             <div id="userOption">
@@ -24,8 +24,8 @@
         <div class="preGameContainer">
 
             <div id='qrCode'>
-                <img src="" alt="">
-                <span>Scan the qr code above to control <br>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=http://mmm.nclsndr.fr:3000/mobile" alt="qrCode">
+                <span>Scan the QR code above<br>to control
                 the application with your smartphone.</span>
             </div>
 
@@ -41,7 +41,12 @@
                 <span>Learn how to use our application <br>
                 by watching the above video.</span>
             </div>
+            <div class="clear"></div>
         </div>
+        <span class="ghostButton">
+            <span class="invert"></span>
+            <span class="text">Continue without a phone</span>
+        </span>
 	</div>
 
     <script type="text/javascript-lazy" src="http://vjs.zencdn.net/4.10/video.js"></script>
