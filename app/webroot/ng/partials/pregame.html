@@ -24,7 +24,7 @@
         <div class="preGameContainer">
 
             <div id='qrCode'>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=http://mmm.nclsndr.fr:3000/mobile" alt="qrCode">
+                <img ng-src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data={{me.token}}" alt="qrCode">
                 <span>Scan the QR code above<br>to control
                 the application with your smartphone.</span>
             </div>
@@ -48,6 +48,6 @@
             <span class="text">Continue without a phone</span>
         </span>
 	</div>
-
-    <script type="text/javascript-lazy" src="http://vjs.zencdn.net/4.10/video.js"></script>
 </div>
+
+<script type="text/javascript-lazy" src="http://vjs.zencdn.net/4.10/video.js"></script>
