@@ -132,51 +132,7 @@ a {
 			@include transition(all, 0.2s, linear);
 		}
 	}
-	header {
-		padding-top : 40px;
-		z-index : 100;
-		a {
-			&:hover {
-				@include scale(1.05);
-			}
-		}
-		img {
-			display : block;
-			margin : auto;
-			width : 50%;
-			max-width : 130px;
-		}
-		h1 {
-			text-transform  : uppercase;
-			color : white;
-			text-align : center;
-			margin-top : 20px;
-			margin-bottom : 40px;
-			font-family : $titleFont;
-			font-weight : normal;
-			font-size : 2.2rem;
-			&:hover {
-				 
-			}
-		}
-		p {
-			text-align : center;
-			color : white;
-			width: 80%;
-			margin : auto;
-			line-height : 1.2em;
-
-			span {
-				display : block;
-			} 
-		}
-		div:last-child {
-			border-bottom : 1px solid white;
-			width : 200px;
-			margin : 30px auto 30px auto;
-			height : 1px;
-		}
-	} 
+	
 	.registerElem {
 		display : none;
 	}
@@ -268,6 +224,52 @@ a {
 		@include transition(all, 0.5s, ease-in-out);
 	}
 }
+
+.midHeader {
+	padding-top : 40px;
+	z-index : 100;
+	a {
+		&:hover {
+			@include scale(1.05);
+		}
+	}
+	img {
+		display : block;
+		margin : auto;
+		width : 50%;
+		max-width : 130px;
+	}
+	h1 {
+		text-transform  : uppercase;
+		color : white;
+		text-align : center;
+		margin-top : 20px;
+		margin-bottom : 40px;
+		font-family : $titleFont;
+		font-weight : normal;
+		font-size : 2.2rem;
+		&:hover {
+			 
+		}
+	}
+	p {
+		text-align : center;
+		color : white;
+		width: 80%;
+		margin : auto;
+		line-height : 1.2em;
+
+		span {
+			display : block;
+		} 
+	}
+	div:last-child {
+		border-bottom : 1px solid white;
+		width : 200px;
+		margin : 30px auto 30px auto;
+		height : 1px;
+	}
+} 
 
 /* --------------- DASHBOARD PAGE --------------- */
 .dashboardPage,.desktopPage {

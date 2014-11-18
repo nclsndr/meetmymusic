@@ -669,6 +669,8 @@ gmap {
 .dashboardContainer aside .asideElem h3, .desktopContainer aside .asideElem h3 {
   font-size: 0.75rem;
   margin-bottom: 10px;
+  color: white;
+  font-weight: bold;
 }
 .dashboardContainer aside .asideElem img, .desktopContainer aside .asideElem img {
   float: left;
@@ -696,6 +698,50 @@ gmap {
 }
 
 /* ———————————————————————————— END DASHBOARD ———————————————————————————— */
+.midHeader {
+  padding-top: 40px;
+  z-index: 100;
+}
+.midHeader a:hover {
+  -moz-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+.midHeader img {
+  display: block;
+  margin: auto;
+  width: 50%;
+  max-width: 130px;
+}
+.midHeader h1 {
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: "SteelfishRg-Regular", helvetica, arial, sans-serif;
+  font-weight: normal;
+  font-size: 2.2rem;
+}
+.midHeader p {
+  text-align: center;
+  color: white;
+  width: 80%;
+  margin: auto;
+  line-height: 1.2em;
+}
+.midHeader p span {
+  display: block;
+}
+.midHeader div:last-child {
+  border-bottom: 1px solid white;
+  width: 200px;
+  margin: 30px auto 30px auto;
+  height: 1px;
+}
+
 /* --------------- PLAYING PAGE --------------- */
 .playingPage {
   background: black;

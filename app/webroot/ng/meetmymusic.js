@@ -39,12 +39,12 @@ mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider', '$
             templateUrl: partialsF+'/dashboard.html',
             controller: 'DashboardCtrl',
             resolve: {
-                auth : function(UserFactory, $location, NotificationFactory){
-                    if (UserFactory.isNotLogged()) {
-                        NotificationFactory.add('You are not logged', 'error');
-                        $location.path('/');
-                    }
-                }
+                // auth : function(UserFactory, $location, NotificationFactory){
+                //     if (UserFactory.isNotLogged()) {
+                //         NotificationFactory.add('You are not logged', 'error');
+                //         $location.path('/');
+                //     }
+                // }
             }
         })
         .when('/pregame', {
