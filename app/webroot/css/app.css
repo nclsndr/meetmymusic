@@ -1,13 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
-/* ———————————————————————————————————————————————————————————— FONTS ———————————————————————————————————————————————————————————— */
-@font-face {
-  font-family: "SteelfishRg-Regular";
-  src: url("../font/steelfish_rg.eot?") format("eot"), url("../font/steelfish_rg.woff") format("woff"), url("../font/steelfish_rg.ttf") format("truetype"), url("../font/steelfish_rg.svg#SteelfishRg-Regular") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* ———————————————————————————————————————————————————————————— GENERAL ———————————————————————————————————————————————————————————— */
+/* --------------- GENERAL --------------- */
 * {
   outline: none;
 }
@@ -21,6 +12,16 @@ html, body {
   clear: both;
 }
 
+.visible {
+  display: block!important;
+  opacity: 1!important;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
 .fadeOut {
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
@@ -28,7 +29,6 @@ html, body {
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
   opacity: 0;
-  display: none;
 }
 
 .fadeIn {
@@ -38,7 +38,6 @@ html, body {
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
   opacity: 1;
-  display: block;
 }
 
 a {
@@ -50,7 +49,6 @@ a {
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
-
 a:hover {
   color: #bbbbbb;
   -webkit-transition: all 0.2s linear;
@@ -74,7 +72,66 @@ a:hover {
   }
 }
 
-/* ———————————————————————————— END GENERAL ———————————————————————————— */
+.ghostButton {
+  display: block;
+  margin: auto;
+  clear: both;
+  border: 2px solid white;
+  width: 160px;
+  text-transform: uppercase;
+  position: relative;
+  color: white;
+  text-align: center;
+}
+.ghostButton .invert {
+  top: 0;
+  left: 0;
+  background: #fff;
+  color: black;
+  width: 0px;
+  height: 100%;
+  opacity: 1;
+  position: absolute;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.ghostButton .text {
+  text-align: center;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  z-index: 1;
+}
+.ghostButton:hover .invert {
+  width: 100%;
+}
+.ghostButton:hover .text {
+  color: black;
+}
+
+.backBtn {
+  position: absolute;
+  cursor: pointer;
+  top: 70px;
+  left: 50px;
+  height: 46px;
+  padding-left: 60px;
+  font-weight: bold;
+  color: white;
+  border: 0;
+  font-size: 1.1rem;
+  background: url("../images/back.png") left center no-repeat;
+}
+
 /* ———————————————————————————————————————————————————————————— NOTIFICATIONS ———————————————————————————————————————————————————————————— */
 .notifications_container {
   position: fixed;
@@ -124,80 +181,6 @@ gmap {
   min-height: 300px;
 }
 
-/* ———————————————————————————— END MAP ———————————————————————————— */
-/* ———————————————————————————————————————————————————————————— FORM ———————————————————————————————————————————————————————————— */
-form span.form_error {
-  display: block;
-  background: rgba(228, 1, 81, 0.7);
-  color: #FFF;
-  padding: .5rem;
-  font-size: .8rem;
-  margin: 0;
-}
-
-.ghostButton {
-  display: block;
-  margin: auto;
-  clear: both;
-  border: 2px solid white;
-  width: 160px;
-  text-transform: uppercase;
-  position: relative;
-  color: white;
-  text-align: center;
-}
-
-.ghostButton .invert {
-  top: 0;
-  left: 0;
-  background: #fff;
-  color: black;
-  width: 0px;
-  height: 100%;
-  opacity: 1;
-  position: absolute;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-
-.ghostButton .text {
-  text-align: center;
-  width: 100%;
-  height: 40px;
-  line-height: 40px;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -ms-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  position: relative;
-  z-index: 1;
-}
-
-.ghostButton:hover .invert {
-  width: 100%;
-}
-
-.ghostButton:hover .text {
-  color: black;
-}
-
-.ghostButton.disabled {
-  opacity: .4;
-}
-
-.ghostButton.disabled:hover .invert {
-  width: 0%;
-}
-
-.ghostButton.disabled:hover .text {
-  color: inherit;
-}
-
-/* ———————————————————————————— END FORM ———————————————————————————— */
 /* ———————————————————————————————————————————————————————————— LOGIN ———————————————————————————————————————————————————————————— */
 .user.login_register {
   background: url(../img/app/loginbg.jpg) no-repeat center fixed;
@@ -728,8 +711,9 @@ form span.form_error {
 .musicInfo .musicController {
   width: 100px;
   margin: auto;
-  img: first-of-type;
-  img-float: left;
+}
+.musicInfo .musicController img:first-of-type {
+  float: left;
 }
 .musicInfo .musicController img:last-of-type {
   float: right;
