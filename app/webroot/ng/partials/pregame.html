@@ -1,16 +1,20 @@
-<div ng-controller="preGameCtrl" class="view">
+<div ng-controller="PregameCtrl" class="view">
 	<div class="dashboardContainer">
 		<header>
-	        <a href="#"><h1 class="animated fadeInDown">MEET MY MUSIC</h1></a>
-	        <div id="userOption">
-	            <div>
-	                <span id="username">{{me.username}}</span><br>
-	                <a href="#">Edit my profile</a>        
-	            </div>
-	            <div>
-	                <img ng-src="{{me.avatar_url}}" alt="">
-	            </div>
-	        </div>
-	    </header>
+            <a href="http://mmm.nclsndr.fr:3000/#/dashboard"><h1 class="animated fadeInDown">MEET MY MUSIC</h1></a>
+            <div id="userOption">
+                <div id="username">{{me.username}}</div>
+                <div>
+                    <img src="{{me.avatar_url}}" alt="">
+                </div>
+                <div id="dropDownIcon">▼</div>
+            </div>
+        </header>
+        
+        <ul class="dropdownUser animated fadeInDown">
+            <li>My profile</li>
+            <li>Edit my profil</li>
+            <li>Parameters</li>
+        </ul>
 	</div>
 </div> 

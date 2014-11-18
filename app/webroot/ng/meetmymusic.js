@@ -21,21 +21,12 @@ mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider', '$
             controller: 'MbStartCtrl'
         })
         .when('/songSelected', {
-<<<<<<< HEAD
             templateUrl: mbPartialsF+'/songSelected.html',
             controller: 'MbSongSelected'
         })
         .when('/remote', {
             templateUrl: mbPartialsF+'/musicRemote.html',
             controller: 'MbMusicRemote'
-=======
-            templateUrl: mbPartialsF+'/youHaveSelected.html',
-            controller: 'MbStartCtrl'
-        })
-        .when('/remote', {
-            templateUrl: mbPartialsF+'/musicRemote.html',
-            controller: 'MbStartCtrl'
->>>>>>> Desktop-Form-validations
         }); 
 
     }else{
@@ -56,13 +47,10 @@ mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider', '$
                 }
             }
         })
-<<<<<<< HEAD
         .when('/pregame', {
             templateUrl: partialsF+'/pregame.html',
-            controller: 'pregameCtrl'
+            controller: 'PregameCtrl'
         })
-=======
->>>>>>> Desktop-Form-validations
         .when('/debug', {
             templateUrl: partialsF+'/debug.html',
             controller: 'DebugCtrl'

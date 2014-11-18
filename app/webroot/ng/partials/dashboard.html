@@ -1,22 +1,22 @@
-<<<<<<< HEAD
-<div class="desktop desktopPage" fullheight>
-    <div class="desktopContainer">
-=======
 <div class="dashboard dashboardPage" fullheight>
     <div class="dashboardContainer">
->>>>>>> Desktop-Form-validations
         <header>
-            <a href="#"><h1 class="animated fadeInDown">MEET MY MUSIC</h1></a>
-            <div id="userOption">
+            <a href="http://mmm.nclsndr.fr:3000/#/dashboard"><h1 class="animated fadeInDown">MEET MY MUSIC</h1></a>
+            <div id="userOption" ng-click="dropdown()">
+                <div id="username">{{me.username}}</div>
                 <div>
-                    <span id="username">{{me.username}}</span><br>
-                    <a href="#">Edit my profile</a>        
+                    <img src="{{me.avatar_url}}" alt="">
                 </div>
-                <div>
-                    <img ng-src="{{me.avatar_url}}" alt="">
-                </div>
+                <div id="dropDownIcon">▼</div>
             </div>
         </header>
+
+        <ul class="dropdownUser animated fadeInDown">
+            <li>My profile</li>
+            <li>Edit my profil</li>
+            <li>Parameters</li>
+        </ul>
+
         <aside>
             <div class="topAside">
                 <img class="" src="http://mmm.nclsndr.fr/img/app/refreshPicto.png" width="24" height="24" alt="refresh">
