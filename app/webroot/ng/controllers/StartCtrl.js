@@ -11,6 +11,11 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 			displayRegister : false
 		};
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> f4ee9627c700912efae9cb7d9ae10e4c2695083c
 		var isGeoloc = false, location = null;
 
 		UserFactory.geolocation()

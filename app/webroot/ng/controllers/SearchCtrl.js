@@ -1,4 +1,4 @@
-mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q', '$location', '$scope','$http' 'GmapService',
+mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q', '$location', '$scope','$http', 'GmapService',
 	function (NotificationFactory, UserFactory, SoundcloudService, $q, $location, $scope,$http, GmapService,QrFactory) {
 
 		if (UserFactory.isNotLogged()) {
