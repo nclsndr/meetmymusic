@@ -1,21 +1,6 @@
 <div ng-controller="PregameCtrl" class="view">
 	<div class="desktopContainer" id="preGame" fullHeight>
-		<header>
-            <a href="http://mmm.nclsndr.fr:3000/#/dashboard"><h1 class="animated fadeInDown">MEET MY MUSIC</h1></a>
-            <div id="userOption">
-                <div id="username">{{me.username}}</div>
-                <div>
-                    <img src="{{me.avatar_url}}" alt="">
-                </div>
-                <div id="dropDownIcon">▼</div>
-            </div>
-        </header>
-        
-        <ul class="dropdownUser animated fadeInDown">
-            <li>My profile</li>
-            <li>Edit my profil</li>
-            <li>Parameters</li>
-        </ul>
+		<dropdown></dropdown>
         
         <a href="http://mmm.nclsndr.fr:3000/#/dashboard"><button class="backBtn animated fadeIn">Back</button></a>
         <div class="midHeader">
@@ -31,7 +16,7 @@
             </div>
 
             <div id="motion" >
-                <video id="MY_VIDEO_1" class="video-js vjs-default-skin" controls
+                <video class="video-js vjs-default-skin" controls
                  preload="auto" width="391" height="219" poster="http://mmm.nclsndr.fr/img/app/motionPoster.jpg"
                  data-setup="{}">
                  <source src="http://www.w3schools.com/html/mov_bbb.mp4" type='video/mp4'>
@@ -48,6 +33,7 @@
             <span class="invert"></span>
             <span class="text">Continue without a phone</span>
         </a>
+        <div class="clear"></div>
 	</div>
 </div>
 

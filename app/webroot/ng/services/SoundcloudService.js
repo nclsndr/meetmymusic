@@ -57,6 +57,17 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 			return deferred.promise;
 		}
 
+		this.search=function(){
+			var deferred = $q.defer();
+			self.connect(function() {
+				SC.get('/tracks', { q: 'black keys', streamable: 'true', order : 'hotness' }, function(tracks) {
+				 	console.log(tracks);
+				 	deferred.resolve(tracks);
+				});
+			});
+			return deferred.promise;
+		}
+
 		this.getFavoritesTracks=function(){
 			var deferred = $q.defer();
 			self.connect(function() {
@@ -82,9 +93,11 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 					self.trackList[self.listIndex] = store;
 					self.listIndex++;
 					deferred.resolve(self.trackList);
+					console.log("strore.sc = " +store.sc);
 				});
 			});
 			// deferred.reject('impossible de finaliser');
+
 			return deferred.promise;
 		}
 
@@ -94,7 +107,7 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		this.pauseThis=function(listIndex){
 			self.trackList[listIndex].obj.pause();
 		}
-		
+	
 		self = this;
 	}
 ]);

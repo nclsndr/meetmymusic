@@ -37,6 +37,7 @@ setBorderSvgAttributs(progressBar);
 setBorderSvgAttributs(barBg);
 setFillSvgAttributs(fillBg);
 
+
 /* --------------- MUSIC PROGRESS BAR --------------- */
 function setBorderSvgAttributs(circle) {
     svgContainerSize = svgCircle.offsetHeight;

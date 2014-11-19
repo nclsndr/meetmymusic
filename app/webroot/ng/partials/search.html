@@ -1,21 +1,8 @@
 <div ng-controller="PregameCtrl" class="view">
+    
     <div class="desktopContainer" id="searchPage" fullHeight>
-        <header>
-            <a href="http://mmm.nclsndr.fr:3000/#/dashboard"><h1 class="animated fadeInDown">MEET MY MUSIC</h1></a>
-            <div id="userOption" ng-click="dropdown()">
-                <div id="username">{{me.username}}</div>
-                <div>
-                    <img src="{{me.avatar_url}}" alt="">
-                </div>
-                <div id="dropDownIcon">▼</div>
-            </div>
-        </header>
-
-        <ul class="dropdownUser animated fadeInDown">
-            <li>My profile</li>
-            <li>Edit my profil</li>
-            <li>Parameters</li>
-        </ul>
+        <dropdown></dropdown>
+        
         <a href="http://mmm.nclsndr.fr:3000/#/pregame"><button class="backBtn animated fadeIn">Back</button></a>
         <div class="searchContainer">
             <div class="topSeach">
@@ -26,12 +13,7 @@
             <div class="searchBar">
                 <input type="text" ng-keyup="searchSong" placeholder="Seach for a song, an artist, an album..">
                 <ul>
-                    <li><span>test</span></li>
-                    <li><span>test2</span></li>
-                    <li><span>test3</span></li>
-                    <li><span>test5</span></li>
-                    <li><span>test6</span></li>
-                    <li><span>test7</span></li>
+                    <li ng-repeat="song in songslist"><span>song.title</span></li>
                 </ul>
             </div>
             <div class="songRecap">
