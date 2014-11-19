@@ -28,6 +28,18 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
                 }, 700) 
             }
 		}
+
+		$scope.searchSong = function() {
+			 var responsePromise = $http.get("");
+
+                responsePromise.success(function(data, status, headers, config) {
+                    $scope.songslist = data.title;
+                });
+                responsePromise.error(function(data, status, headers, config) {
+                    console.log("AJAX failed, searchSong");
+                });
+            }
+		}
 		
 		// console.log(google);
 		console.log(UserFactory.User);
