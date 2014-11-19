@@ -491,7 +491,7 @@ gmap {
                     @include transition(all, 0.1s, ease-in-out);
                 }
             }
-            div:nth-child(1) {
+            #username {
                 float: left;
                 width: 150px;
                 margin-right: 20px;
@@ -514,12 +514,11 @@ gmap {
                     width: 100%;
                 }
             }
-            div:nth-child(3) {
+            #dropDownIcon {
                 cursor: pointer;
                 float: left;
                 line-height: 60px;
                 font-size: 0.75rem;
-                margin-right: 20px;
                 @include transition(all, 0.1s, ease-in-out);
             }
         }
@@ -629,17 +628,23 @@ gmap {
     }
     
 }
-.dashboardContainer .ghostButton {
-    width: 270px;
-    border: 2px solid white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    margin-left: 47%;
-    margin-top: 20%;
-    .text {
-        line-height: 45px;
+.dashboardContainer {
+    .ghostButton {
+        width: 270px;
+        border: 2px solid white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        margin-left: 47%;
+        margin-top: 20%;
+        .text {
+            line-height: 45px;
+        }
+    }
+    #dropDownIcon {
+        margin-right : 22px;
     }
 }
+
 /* ———————————————————————————— END DASHBOARD ———————————————————————————— */
 /* --------------- PREGAME PAGE --------------- */
 
@@ -660,7 +665,7 @@ gmap {
     .preGameContainer {
         width: 80%;
         max-width: 700px;
-        min-width: 590px;
+        min-width: 620px;
         display: block;
         margin: 70px auto 0 auto;
         position: relative;
@@ -670,7 +675,7 @@ gmap {
                 display : block;
                 color : white;
                 text-align : center;
-                margin-top : 15px;
+                margin-top : 18px;
                 font-size : 0.9rem;
             }
         }
@@ -690,7 +695,7 @@ gmap {
         }
     }
     .ghostButton {
-        width : 210px;
+        width : 225px;
         margin-top : 70px;
         cursor : pointer;
         font-size : 0.8rem;
@@ -813,6 +818,8 @@ gmap {
     background: url('http://mmm.nclsndr.fr/img/app/bgBlack.jpg') center black;
     background-size: cover;
     overflow: hidden;
+    
+
     .topSeach {
         height: 260px;
         padding-top: 30px;
@@ -821,6 +828,7 @@ gmap {
             font-size: 1.8rem;
             line-height: 1.3;
             font-weight: bold;
+            color : white;
         }
         img {
             margin: 40px auto;
@@ -833,6 +841,7 @@ gmap {
         color: #aaaaaa;
         overflow: hidden;
         input {
+            box-shadow : none;
             width: 80%;
             margin: auto;
             height: 100%;
@@ -859,6 +868,7 @@ gmap {
                 font-size: 1.25rem;
                 text-align: left;
                 margin-left: 10%;
+                color : white;
             }
             .greySep {
                 width: 100%;

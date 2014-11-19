@@ -1,0 +1,224 @@
+<div ng-controller="PregameCtrl" class="view">
+    <div class="desktopContainer" id="searchPage" fullHeight>
+        <header>
+            <a href="http://mmm.nclsndr.fr:3000/#/dashboard"><h1 class="animated fadeInDown">MEET MY MUSIC</h1></a>
+            <div id="userOption" ng-click="dropdown()">
+                <div id="username">{{me.username}}</div>
+                <div>
+                    <img src="{{me.avatar_url}}" alt="">
+                </div>
+                <div id="dropDownIcon">▼</div>
+            </div>
+        </header>
+
+        <ul class="dropdownUser animated fadeInDown">
+            <li>My profile</li>
+            <li>Edit my profil</li>
+            <li>Parameters</li>
+        </ul>
+        <div class="searchContainer">
+            <div class="topSeach">
+                <h1>Before you get started,
+                    <br>pick a song with</h1>
+                <img src="http://mmm.nclsndr.fr/img/app/soundCloudBig.png" class="animated fadeInUp" width="130" height="74" alt="">
+            </div>
+            <div class="searchBar">
+                <input type="text" placeholder="Seach for a song, an artist, an album..">
+            </div>
+            <div class="songRecap">
+                <div class="songRecapHalf songYouLike">
+                    <h2>Songs you liked :</h2>
+                    <div class="greySep"></div>
+                    <ul>
+                        <li>
+                            <img src="http://mmm.nclsndr.fr/img/app/albumSample.jpg" class="albumCover">
+                            <div class="description">
+                                <div class="title">
+                                    <span id="artist">Coldplay</span>-
+                                    <span id="songName">Charlie Brown</span>
+                                </div>
+                                <div class="timeLength">4:34</div>
+                            </div>
+                            <div class="validate">
+                                <svg>
+                                    <circle fill="none" stroke-miterlimit="10" cx="19.5" cy="19.5" r="18.8" />
+                                    <path fill="none" stroke-miterlimit="10" d="M8,19.6" />
+                                    <polyline fill="none" stroke-miterlimit="10" points="13.2,19.5 19.4,25.7 26.9,12.9 " />
+                                </svg>
+                            </div>
+                            <div class="clear"></div>
+                        </li>
+                        <li>
+                            <img src="http://mmm.nclsndr.fr/img/app/albumSample.jpg" class="albumCover">
+                            <div class="description">
+                                <div class="title">
+                                    <span id="artist">Coldplay</span>-
+                                    <span id="songName">Charlie Brown</span>
+                                </div>
+                                <div class="timeLength">4:34</div>
+                            </div>
+                            <div class="validate">
+                                <svg>
+                                    <circle fill="none" stroke-miterlimit="10" cx="19.5" cy="19.5" r="18.8" />
+                                    <path fill="none" stroke-miterlimit="10" d="M8,19.6" />
+                                    <polyline fill="none" stroke-miterlimit="10" points="13.2,19.5 19.4,25.7 26.9,12.9 " />
+                                </svg>
+                            </div>
+                            <div class="clear"></div>
+                        </li>
+                        <li>
+                            <img src="http://mmm.nclsndr.fr/img/app/albumSample.jpg" class="albumCover">
+                            <div class="description">
+                                <div class="title">
+                                    <span id="artist">Coldplay</span>-
+                                    <span id="songName">Charlie Brown</span>
+                                </div>
+                                <div class="timeLength">4:34</div>
+                            </div>
+                            <div class="validate">
+                                <svg>
+                                    <circle fill="none" stroke-miterlimit="10" cx="19.5" cy="19.5" r="18.8" />
+                                    <path fill="none" stroke-miterlimit="10" d="M8,19.6" />
+                                    <polyline fill="none" stroke-miterlimit="10" points="13.2,19.5 19.4,25.7 26.9,12.9 " />
+                                </svg>
+                            </div>
+                            <div class="clear"></div>
+                        </li>
+                        <li>
+                            <img src="http://mmm.nclsndr.fr/img/app/albumSample.jpg" class="albumCover">
+                            <div class="description">
+                                <div class="title">
+                                    <span id="artist">Coldplay</span>-
+                                    <span id="songName">Charlie Brown</span>
+                                </div>
+                                <div class="timeLength">4:34</div>
+                            </div>
+                            <div class="validate">
+                                <svg>
+                                    <circle fill="none" stroke-miterlimit="10" cx="19.5" cy="19.5" r="18.8" />
+                                    <path fill="none" stroke-miterlimit="10" d="M8,19.6" />
+                                    <polyline fill="none" stroke-miterlimit="10" points="13.2,19.5 19.4,25.7 26.9,12.9 " />
+                                </svg>
+                            </div>
+                            <div class="clear"></div>
+                        </li>
+                        <li>
+                            <img src="http://mmm.nclsndr.fr/img/app/albumSample.jpg" class="albumCover">
+                            <div class="description">
+                                <div class="title">
+                                    <span id="artist">Coldplay</span>-
+                                    <span id="songName">Charlie Brown</span>
+                                </div>
+                                <div class="timeLength">4:34</div>
+                            </div>
+                            <div class="validate">
+                                <svg>
+                                    <circle fill="none" stroke-miterlimit="10" cx="19.5" cy="19.5" r="18.8" />
+                                    <path fill="none" stroke-miterlimit="10" d="M8,19.6" />
+                                    <polyline fill="none" stroke-miterlimit="10" points="13.2,19.5 19.4,25.7 26.9,12.9 " />
+                                </svg>
+                            </div>
+                            <div class="clear"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="songRecapHalf songYouReposted">
+                    <h2>Songs you reposted :</h2>
+                    <div class="greySep"></div>
+                    <ul>
+                        <li>
+                            <img src="http://mmm.nclsndr.fr/img/app/albumSample.jpg" class="albumCover">
+                            <div class="description">
+                                <div class="title">
+                                    <span id="artist">Coldplay</span>-
+                                    <span id="songName">Charlie Brown</span>
+                                </div>
+                                <div class="timeLength">4:34</div>
+                            </div>
+                            <div class="validate">
+                                <svg>
+                                    <circle fill="none" stroke-miterlimit="10" cx="19.5" cy="19.5" r="18.8" />
+                                    <path fill="none" stroke-miterlimit="10" d="M8,19.6" />
+                                    <polyline fill="none" stroke-miterlimit="10" points="13.2,19.5 19.4,25.7 26.9,12.9 " />
+                                </svg>
+                            </div>
+                            <div class="clear"></div>
+                        </li>
+                        <li>
+                            <img src="http://mmm.nclsndr.fr/img/app/albumSample.jpg" class="albumCover">
+                            <div class="description">
+                                <div class="title">
+                                    <span id="artist">Coldplay</span>-
+                                    <span id="songName">Charlie Brown</span>
+                                </div>
+                                <div class="timeLength">4:34</div>
+                            </div>
+                            <div class="validate">
+                                <svg>
+                                    <circle fill="none" stroke-miterlimit="10" cx="19.5" cy="19.5" r="18.8" />
+                                    <path fill="none" stroke-miterlimit="10" d="M8,19.6" />
+                                    <polyline fill="none" stroke-miterlimit="10" points="13.2,19.5 19.4,25.7 26.9,12.9 " />
+                                </svg>
+                            </div>
+                            <div class="clear"></div>
+                        </li>
+                        <li>
+                            <img src="http://mmm.nclsndr.fr/img/app/albumSample.jpg" class="albumCover">
+                            <div class="description">
+                                <div class="title">
+                                    <span id="artist">Coldplay</span>-
+                                    <span id="songName">Charlie Brown</span>
+                                </div>
+                                <div class="timeLength">4:34</div>
+                            </div>
+                            <div class="validate">
+                                <svg>
+                                    <circle fill="none" stroke-miterlimit="10" cx="19.5" cy="19.5" r="18.8" />
+                                    <path fill="none" stroke-miterlimit="10" d="M8,19.6" />
+                                    <polyline fill="none" stroke-miterlimit="10" points="13.2,19.5 19.4,25.7 26.9,12.9 " />
+                                </svg>
+                            </div>
+                            <div class="clear"></div>
+                        </li>
+                        <li>
+                            <img src="http://mmm.nclsndr.fr/img/app/albumSample.jpg" class="albumCover">
+                            <div class="description">
+                                <div class="title">
+                                    <span id="artist">Coldplay</span>-
+                                    <span id="songName">Charlie Brown</span>
+                                </div>
+                                <div class="timeLength">4:34</div>
+                            </div>
+                            <div class="validate">
+                                <svg>
+                                    <circle fill="none" stroke-miterlimit="10" cx="19.5" cy="19.5" r="18.8" />
+                                    <path fill="none" stroke-miterlimit="10" d="M8,19.6" />
+                                    <polyline fill="none" stroke-miterlimit="10" points="13.2,19.5 19.4,25.7 26.9,12.9 " />
+                                </svg>
+                            </div>
+                            <div class="clear"></div>
+                        </li>
+                        <li>
+                            <img src="http://mmm.nclsndr.fr/img/app/albumSample.jpg" class="albumCover">
+                            <div class="description">
+                                <div class="title">
+                                    <span id="artist">Coldplay</span>-
+                                    <span id="songName">Charlie Brown</span>
+                                </div>
+                                <div class="timeLength">4:34</div>
+                            </div>
+                            <div class="validate">
+                                <svg>
+                                    <circle fill="none" stroke-miterlimit="10" cx="19.5" cy="19.5" r="18.8" />
+                                    <path fill="none" stroke-miterlimit="10" d="M8,19.6" />
+                                    <polyline fill="none" stroke-miterlimit="10" points="13.2,19.5 19.4,25.7 26.9,12.9 " />
+                                </svg>
+                            </div>
+                            <div class="clear"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

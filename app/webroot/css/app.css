@@ -540,7 +540,7 @@ gmap {
   div--o-transition: all 0.1s ease-in-out;
   div-transition: all 0.1s ease-in-out;
 }
-.dashboardContainer header #userOption div:nth-child(1), .desktopContainer header #userOption div:nth-child(1) {
+.dashboardContainer header #userOption #username, .desktopContainer header #userOption #username {
   float: left;
   width: 150px;
   margin-right: 20px;
@@ -563,12 +563,11 @@ gmap {
 .dashboardContainer header #userOption div:nth-child(2) img, .desktopContainer header #userOption div:nth-child(2) img {
   width: 100%;
 }
-.dashboardContainer header #userOption div:nth-child(3), .desktopContainer header #userOption div:nth-child(3) {
+.dashboardContainer header #userOption #dropDownIcon, .desktopContainer header #userOption #dropDownIcon {
   cursor: pointer;
   float: left;
   line-height: 60px;
   font-size: 0.75rem;
-  margin-right: 20px;
   -webkit-transition: all 0.1s ease-in-out;
   -moz-transition: all 0.1s ease-in-out;
   -ms-transition: all 0.1s ease-in-out;
@@ -697,6 +696,9 @@ gmap {
 .dashboardContainer .ghostButton .text {
   line-height: 45px;
 }
+.dashboardContainer #dropDownIcon {
+  margin-right: 22px;
+}
 
 /* ———————————————————————————— END DASHBOARD ———————————————————————————— */
 /* --------------- PREGAME PAGE --------------- */
@@ -718,7 +720,7 @@ gmap {
 #preGame .preGameContainer {
   width: 80%;
   max-width: 700px;
-  min-width: 590px;
+  min-width: 620px;
   display: block;
   margin: 70px auto 0 auto;
   position: relative;
@@ -728,7 +730,7 @@ gmap {
   display: block;
   color: white;
   text-align: center;
-  margin-top: 15px;
+  margin-top: 18px;
   font-size: 0.9rem;
 }
 #preGame .preGameContainer #qrCode {
@@ -746,10 +748,10 @@ gmap {
   float: right;
 }
 #preGame .ghostButton {
-  width: 250px;
+  width: 225px;
   margin-top: 70px;
   cursor: pointer;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 
 /* --------------- PLAYING PAGE --------------- */
@@ -879,6 +881,7 @@ gmap {
   font-size: 1.8rem;
   line-height: 1.3;
   font-weight: bold;
+  color: white;
 }
 .searchContainer .topSeach img {
   margin: 40px auto;
@@ -891,6 +894,7 @@ gmap {
   overflow: hidden;
 }
 .searchContainer .searchBar input {
+  box-shadow: none;
   width: 80%;
   margin: auto;
   height: 100%;
@@ -918,6 +922,7 @@ gmap {
   font-size: 1.25rem;
   text-align: left;
   margin-left: 10%;
+  color: white;
 }
 .searchContainer .songRecap .songRecapHalf .greySep {
   width: 100%;

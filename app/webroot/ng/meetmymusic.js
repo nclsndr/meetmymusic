@@ -22,12 +22,15 @@ mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider', '$
         })
         .when('/songSelected', {
             templateUrl: mbPartialsF+'/songSelected.html',
-            controller: 'MbSongSelected'
+            controller: 'MbSongSelectedCtrl'
         })
         .when('/remote', {
             templateUrl: mbPartialsF+'/musicRemote.html',
-            controller: 'MbMusicRemote'
+            controller: 'MbMusicRemoteCtrl'
+        }).otherwise({
+            redirectTo: '/'
         }); 
+        
 
     }else{
         $routeProvider
@@ -58,7 +61,14 @@ mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider', '$
         .when('/login', {
             templateUrl: partialsF+'/login.html',
             controller: 'UserCtrl'
-        });
+        })
+        .when('/search', {
+            templateUrl: partialsF+'/search.html',
+            controller: 'SearchCtrl'
+        })
+        .otherwise({
+            redirectTo: '/'
+        }); 
     }
     
 
@@ -91,3 +101,10 @@ mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider', '$
     //     'http://myapp.example.com/clickThru**'
     // ]);
 }]);
+
+mmmApp.run(['LSFactory', 'UserFactory',
+    function (LSFactory, UserFactory){
+        var user = LSFactory.get('User');
+        UserFactory.User = user;
+    }
+]);
