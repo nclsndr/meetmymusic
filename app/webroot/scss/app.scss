@@ -14,6 +14,10 @@ $green: #0edfb5;
 * {
     outline: none;
 }
+a {
+  text-decoration : none;
+}
+
 html, body {
     font-family: $montserrat;
     height: 100%;
@@ -23,6 +27,9 @@ html, body {
 }
 .clear {
     clear: both;
+}
+.button {
+    background : none;
 }
 .visible {
     display: block!important;
@@ -58,6 +65,7 @@ a {
     }
 }
 .ghostButton {
+    cursor : pointer;
     display: block;
     margin: auto;
     clear: both;
@@ -66,6 +74,7 @@ a {
     text-transform: uppercase;
     position: relative;
     color: white;
+    background: transparent;
     text-align: center;
     .invert {
         top: 0;
@@ -86,6 +95,7 @@ a {
         @include transition(all, 0.2s, ease-in-out);
         position: relative;
         z-index: 1;
+        text-decoration : none;
     }
     &:hover {
         .invert {
@@ -94,6 +104,10 @@ a {
         .text {
             color: black;
         }
+    }
+    i {
+        font-size: 0.75rem;
+        margin-right: 3px;
     }
 }
 .backBtn {
@@ -708,10 +722,9 @@ gmap {
 }
 /* --------------- PLAYING PAGE --------------- */
 
-.playingPage {
-    background: black;
+#gamePage {
     width: 100%;
-    min-width: 800px;
+    min-width: 720px;
 }
 .playerContainer {
     width: 80%;
@@ -720,6 +733,8 @@ gmap {
     margin: auto;
     margin-top: 50px;
     text-align: center;
+    min-width: 720px;
+
     .player {
         color: white;
         padding: 25px 2%;
@@ -763,17 +778,22 @@ gmap {
 .btnActionContainer {
     float : right;
     width : 250px;
-    .ghostButton:first-of-type {
-        float: left;
+    .ghostButton {
         width: 45%;
+        height : 25px;
         text-transform: uppercase;
         font-size: 0.6rem;
+        clear : none;
+        margin-top : 15px;
+        .text {
+            line-height: 19px;
+        }
     }
-    .ghostButton:last-of-type {
+    .ghostButton:first-child {
+        float: left;
+    }
+    .ghostButton:nth-child(2){
         float: right;
-        width: 45%;
-        text-transform: uppercase;
-        font-size: 0.6rem;
     }
 }
 .musicInfo {
@@ -799,7 +819,7 @@ gmap {
     }
     #musicBar {
         max-width: 600px;
-        margin: 20px auto;
+        margin: 10px auto;
         height: 3px;
         background: white;
         #musicBarCursor {
@@ -814,6 +834,15 @@ gmap {
             }
         }
     }
+    .timeCodeContainer {
+        font-size: 0.75rem;
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: right;
+        #tcProgress {
+            color : $green;
+        }
+    }
     .isNowPlaying {
         clear: both;
         margin-bottom: 20px;
@@ -821,12 +850,22 @@ gmap {
     }
     .musicController {
         width: 100px;
-        margin: auto;
-        img: first-of-type {
-            float: left;
+        margin: 11px auto 17px auto;
+        
+        button {
+            cursor : pointer;
+            width: 40px; height:40px;
+            border : none;
         }
-        img:last-of-type {
+        #playBtn {
+            float: left;
+            background : url('http://mmm.nclsndr.fr/img/app/playBtn.png') center no-repeat;
+            background-size : cover;
+        }
+        #pauseBtn {
             float: right;
+            background : url('http://mmm.nclsndr.fr/img/app/pauseBtn.png') center no-repeat;
+            background-size : cover;
         }
     }
 }
@@ -893,17 +932,18 @@ gmap {
                 border-top : 1px solid rgba(0,0,0,0.2);
                 @include transition(all, 0.2s, ease-in-out);
                 span {
+                    position : relative;
                     @include transition(all, 0.2s, ease-in-out);
                 }
                 &:hover {
                     color : black;
                     background : #d9d9d9;
+
                     span {
-                       position : relative;
-                       transform : translateX(10px);
-                       -webkit-transform : translateX(10px);
-                       -moz-transform : translateX(10px);
-                       @include transition(all, 0.2s, ease-in-out);
+                       // transform : translateX(10px);
+                       // -webkit-transform : translateX(10px);
+                       // -moz-transform : translateX(10px);
+                       // @include transition(all, 0.2s, ease-in-out);
                     }
                 }
             }

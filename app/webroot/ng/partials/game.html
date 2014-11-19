@@ -37,32 +37,32 @@
             </div>
             <div class="clear"></div>
             <div class="btnActionContainer">
-                <div class="ghostButton">
+                <button class="ghostButton">
                     <span class="invert"></span>
-                    <span class="text">Add to favorite</span>
-                </div>
-                <div class="ghostButton">
+                    <span class="text"><i>&hearts;</i> Add to favorite</span>
+                </button>
+                <button class="ghostButton">
                     <span class="invert"></span>
-                    <span class="text">Skip the song</span>
-                </div>
+                    <span class="text"><i>&rarr;</i> Skip the song</span>
+                </button>
                 <div class="clear"></div>
             </div>
-            <div class="clear"></div>
         </div>
+        <div class="clear"></div>
         <div class="musicInfo">
             <div class="listeningCover animated fadeIn">
                 <img src="http://mmm.nclsndr.fr/img/app/albumSample.jpg" alt="">
             </div>
             <div class="titleSongListening animated fadeIn">Vida la Vida - Coldplay</div>
+            <div class="timeCodeContainer"><span id="tcProgress">00:00</span> / <span id="tcTotal">00:00</span> </div>
             <div id="musicBar" class="animated zoomIn">
                 <div id="musicBarCursor">
                     <img src="http://mmm.nclsndr.fr/img/app/elipse.png" width="18" height="18">
                 </div>
             </div>
             <div class="musicController">
-                <img src="http://mmm.nclsndr.fr/img/app/pauseBtn.png" width="40" height="40" alt="">
-                </a>
-                <img src="http://mmm.nclsndr.fr/img/app/playBtn.png" width="40" height="40" alt="">
+                <button id="playBtn"></button>
+                <button id="pauseBtn"></button>
             </div>
             <div class="clear"></div>
             <div class="isNowPlaying">
