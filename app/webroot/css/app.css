@@ -879,7 +879,7 @@ gmap {
 }
 .musicInfo #musicBar {
   max-width: 600px;
-  margin: 10px auto;
+  margin: 10px auto 20px auto;
   height: 3px;
   background: white;
 }
@@ -888,11 +888,24 @@ gmap {
   height: 100%;
   width: 30%;
   position: relative;
+  -webkit-transition: all 1s linear;
+  -moz-transition: all 1s linear;
+  -ms-transition: all 1s linear;
+  -o-transition: all 1s linear;
+  transition: all 1s linear;
 }
-.musicInfo #musicBar #musicBarCursor img {
+.musicInfo #musicBar #musicBarCursor::after {
+  content: '';
+  display: block;
+  right: -3px;
+  top: -3px;
   position: absolute;
-  right: -10px;
-  top: -7px;
+  width: 10px;
+  height: 10px;
+  background: #0edfb5;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
 }
 .musicInfo .timeCodeContainer {
   font-size: 0.75rem;
@@ -910,24 +923,48 @@ gmap {
 }
 .musicInfo .musicController {
   width: 100px;
-  margin: auto;
+  margin: 11px auto 17px auto;
 }
-.musicInfo .musicController 11px    auto    17px    auto
-button  {
+.musicInfo .musicController svg {
   cursor: pointer;
   width: 40px;
   height: 40px;
   border: none;
 }
+.musicInfo .musicController svg circle, .musicInfo .musicController svg polygon {
+  -webkit-transition: all 0.8s ease-in-out;
+  -moz-transition: all 0.8s ease-in-out;
+  -ms-transition: all 0.8s ease-in-out;
+  -o-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
 .musicInfo .musicController #playBtn {
   float: left;
-  background: url("http://mmm.nclsndr.fr/img/app/playBtn.png") center no-repeat;
-  background-size: cover;
+  -webkit-transition: all 0.8s ease-in-out;
+  -moz-transition: all 0.8s ease-in-out;
+  -ms-transition: all 0.8s ease-in-out;
+  -o-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+.musicInfo .musicController #playBtn:hover circle {
+  stroke: #0edfb5;
+}
+.musicInfo .musicController #playBtn:hover polygon {
+  fill: #0edfb5;
 }
 .musicInfo .musicController #pauseBtn {
   float: right;
-  background: url("http://mmm.nclsndr.fr/img/app/pauseBtn.png") center no-repeat;
-  background-size: cover;
+  -webkit-transition: all 0.8s ease-in-out;
+  -moz-transition: all 0.8s ease-in-out;
+  -ms-transition: all 0.8s ease-in-out;
+  -o-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+.musicInfo .musicController #pauseBtn:hover circle {
+  stroke: #0edfb5;
+}
+.musicInfo .musicController #pauseBtn:hover rect {
+  fill: #0edfb5;
 }
 
 /* --------------- SEARCH PAGE --------------- */

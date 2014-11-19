@@ -9,6 +9,8 @@ mmmApp.controller('GameCtrl', ['NotificationFactory', 'UserFactory', 'Soundcloud
 			bgHeight : window.innerHeight
 		};
 		$scope.me = UserFactory.User;
+		$scope.tcProgress = 0;
+		$scope.tcTotal = 100;
 
 		$scope.dropdown = function() {
 			var dropdownUser = document.getElementsByClassName('dropdownUser')[0];

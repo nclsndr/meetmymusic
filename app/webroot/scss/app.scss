@@ -819,7 +819,7 @@ gmap {
     }
     #musicBar {
         max-width: 600px;
-        margin: 10px auto;
+        margin: 10px auto 20px auto;
         height: 3px;
         background: white;
         #musicBarCursor {
@@ -827,10 +827,19 @@ gmap {
             height: 100%;
             width: 30%;
             position: relative;
-            img {
+            @include transition(all, 1s, linear);
+            &::after {
+                content:'';
+                display: block;
+                right: -3px;
+                top: -3px;
                 position: absolute;
-                right: -10px;
-                top: -7px;
+                width : 10px;
+                height : 10px;
+                background : $green;
+                 -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
             }
         }
     }
@@ -852,20 +861,37 @@ gmap {
         width: 100px;
         margin: 11px auto 17px auto;
         
-        button {
+        svg {
             cursor : pointer;
             width: 40px; height:40px;
             border : none;
+            circle,polygon {
+                @include transition(all, 0.8s, ease-in-out);
+            }
         }
         #playBtn {
             float: left;
-            background : url('http://mmm.nclsndr.fr/img/app/playBtn.png') center no-repeat;
-            background-size : cover;
+            @include transition(all, 0.8s, ease-in-out);
+            &:hover {
+                circle {
+                    stroke : $green;
+                }
+                polygon {
+                    fill : $green;
+                }
+            }
         }
         #pauseBtn {
             float: right;
-            background : url('http://mmm.nclsndr.fr/img/app/pauseBtn.png') center no-repeat;
-            background-size : cover;
+            @include transition(all, 0.8s, ease-in-out);
+            &:hover {
+                circle {
+                    stroke : $green;
+                }
+                rect {
+                    fill : $green;
+                }
+            }
         }
     }
 }

@@ -264,6 +264,9 @@ strong {
   font-size: 0.75rem;
   margin-bottom: 10px;
 }
+#step3 .timeCodeContainer #tcProgress {
+  color: #0edfb5;
+}
 #step3 h2 {
   font-size: 1.1rem;
 }
@@ -312,18 +315,25 @@ strong {
 #step3 .playPauseBtn {
   width: 45%;
   max-width: 150px;
-  margin: 30px auto;
+  margin: 20px auto;
   display: block;
 }
-#step3 .playPauseBtn img {
+#step3 .playPauseBtn button {
   width: 36px;
+  height: 36px;
   cursor: pointer;
+  margin-top: 0;
+  margin-bottom: 0;
 }
-#step3 .playPauseBtn img:first-of-type {
+#step3 .playPauseBtn #pauseBtn {
   float: left;
+  background: url("http://mmm.nclsndr.fr/img/app/playBtn.png") no-repeat;
+  background-size: cover;
 }
-#step3 .playPauseBtn img:last-of-type {
+#step3 .playPauseBtn #playBtn {
   float: right;
+  background: url("http://mmm.nclsndr.fr/img/app/pauseBtn.png") no-repeat;
+  background-size: cover;
 }
 #step3 #svgCircle {
   width: 100%;
