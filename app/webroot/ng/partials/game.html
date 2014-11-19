@@ -1,0 +1,75 @@
+<div ng-controller="GameCtrl" class="view">
+    <div class="desktopContainer" id="gamePage">
+        <header>
+            <a href="http://mmm.nclsndr.fr:3000/#/dashboard">
+                <h1 class="animated fadeInDown">MEET MY MUSIC</h1>
+            </a>
+            <div id="userOption" ng-click="dropdown()">
+                <div id="username">{{me.username}}</div>
+                <div>
+                    <img src="{{me.avatar_url}}" alt="">
+                </div>
+                <div id="dropDownIcon">▼</div>
+            </div>
+        </header>
+
+        <ul class="dropdownUser animated fadeInDown">
+            <li>My profile</li>
+            <li>Edit my profil</li>
+            <li>Parameters</li>
+        </ul>
+        <div class="playerContainer">
+            <div id="player1" class="player animated flipInY">
+                <div class="avatar">
+                    <img src="http://mmm.nclsndr.fr/img/app/avatarSample.png" alt="">
+                </div>
+                <div class="pseudo">Héloise HTV</div>
+                <div class="location">Paris, France</div>
+                <div class="description">Quam quidem partem accusationis admiratus sum et moleste tuli potissimum esse Atratino datam. Neque enim decebat neque aetas illa</div>
+            </div>
+            <div id="player2" class="player animated flipInY">
+                <div class="avatar">
+                    <img src="http://mmm.nclsndr.fr/img/app/avatarSample.png" alt="">
+                </div>
+                <div class="pseudo">Zirdia</div>
+                <div class="location">Paris, France</div>
+                <div class="description">Quam quidem partem accusationis admiratus sum et moleste tuli potissimum esse Atratino datam. Neque enim decebat neque aetas illa</div>
+            </div>
+            <div class="clear"></div>
+            <div class="btnActionContainer">
+                <div class="ghostButton">
+                    <span class="invert"></span>
+                    <span class="text">Add to favorite</span>
+                </div>
+                <div class="ghostButton">
+                    <span class="invert"></span>
+                    <span class="text">Skip the song</span>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="musicInfo">
+            <div class="listeningCover animated fadeIn">
+                <img src="http://mmm.nclsndr.fr/img/app/albumSample.jpg" alt="">
+            </div>
+            <div class="titleSongListening animated fadeIn">Vida la Vida - Coldplay</div>
+            <div id="musicBar" class="animated zoomIn">
+                <div id="musicBarCursor">
+                    <img src="http://mmm.nclsndr.fr/img/app/elipse.png" width="18" height="18">
+                </div>
+            </div>
+            <div class="musicController">
+                <img src="http://mmm.nclsndr.fr/img/app/pauseBtn.png" width="40" height="40" alt="">
+                </a>
+                <img src="http://mmm.nclsndr.fr/img/app/playBtn.png" width="40" height="40" alt="">
+            </div>
+            <div class="clear"></div>
+            <div class="isNowPlaying">
+                <span id="pseudoPlayer2">Zirdya</span>is now listening
+                <span id="songNamePlayer2">Love Trilogy</span>by
+                <span id="artistPlayer2">Red Hot Chilli Peppers</span>
+            </div>
+        </div>
+    </div>
+</div>

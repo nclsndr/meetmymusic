@@ -1,4 +1,4 @@
-mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q', '$location', '$scope', 'GmapService',
+mmmApp.controller('GameCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q', '$location', '$scope', 'GmapService',
 	function (NotificationFactory, UserFactory, SoundcloudService, $q, $location, $scope, GmapService,QrFactory) {
 
 		if (UserFactory.isNotLogged()) {
@@ -29,19 +29,6 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
             }
 		}
 
-		// $scope.searchSong = function() {
-		// 	 var responsePromise = $http.get("");
-
-  //               responsePromise.success(function(data, status, headers, config) {
-  //                   $scope.songslist = data.title;
-  //               });
-  //               responsePromise.error(function(data, status, headers, config) {
-  //                   console.log("AJAX failed, searchSon");
-  //               });
-  //           }
-		// }
-		
-		// console.log(google);
 		console.log(UserFactory.User);
-		GmapService.hideMap(true);
+		GmapService.hideMap(false);
 }]);

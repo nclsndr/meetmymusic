@@ -65,6 +65,9 @@ mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider', '$
         .when('/search', {
             templateUrl: partialsF+'/search.html',
             controller: 'SearchCtrl'
+        }).when('/game', {
+            templateUrl: partialsF+'/game.html',
+            controller: 'GameCtrl'
         })
         .otherwise({
             redirectTo: '/'

@@ -133,15 +133,26 @@ a:hover {
 .backBtn {
   position: absolute;
   cursor: pointer;
-  top: 70px;
+  top: 65px;
   left: 50px;
-  height: 46px;
-  padding-left: 60px;
+  padding-left: 49px;
   font-weight: bold;
   color: white;
   border: 0;
   font-size: 1.1rem;
   background: url("http://mmm.nclsndr.fr/img/app/back.png") left center no-repeat;
+  background-size: 36px 36px;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.backBtn:hover {
+  background-color: none!important;
+  transform: translateX(-5px);
+  -webkit-transform: translateX(-5px);
+  -moz-transform: translateX(-5px);
 }
 
 /* ———————————————————————————————————————————————————————————— NOTIFICATIONS ———————————————————————————————————————————————————————————— */
@@ -809,6 +820,23 @@ gmap {
   float: right;
 }
 
+.btnActionContainer {
+  float: right;
+  width: 250px;
+}
+.btnActionContainer .ghostButton:first-of-type {
+  float: left;
+  width: 45%;
+  text-transform: uppercase;
+  font-size: 0.6rem;
+}
+.btnActionContainer .ghostButton:last-of-type {
+  float: right;
+  width: 45%;
+  text-transform: uppercase;
+  font-size: 0.6rem;
+}
+
 .musicInfo {
   text-align: center;
   color: white;
@@ -931,18 +959,18 @@ gmap {
   text-transform: capitalize;
   font-size: 1.2em;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .searchContainer .searchBar ul li span {
-  -webkit-transition: all 1.5s ease-in-out;
-  -moz-transition: all 1.5s ease-in-out;
-  -ms-transition: all 1.5s ease-in-out;
-  -o-transition: all 1.5s ease-in-out;
-  transition: all 1.5s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .searchContainer .searchBar ul li:hover {
   color: black;
@@ -950,9 +978,14 @@ gmap {
 }
 .searchContainer .searchBar ul li:hover span {
   position: relative;
-  transform: translateX(15px);
-  -webkit-transform: translateX(15px);
-  -moz-transform: translateX(15px);
+  transform: translateX(10px);
+  -webkit-transform: translateX(10px);
+  -moz-transform: translateX(10px);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .searchContainer .searchBar ul::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
