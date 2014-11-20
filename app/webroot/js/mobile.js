@@ -21,14 +21,14 @@ var perimeterB = 0;var perimeterF = 0;
 var circlePercentB = 0;var circlePercentF = 0;
 
 var currentLine = document.getElementById('currentLine');
-var musicLength = 53;
+var musicLength = 700000;
 var musicProgress = 0;
 var progressPercent = 0;
 
 
 setInterval(function(){
     if(musicProgress<musicLength) {
-        musicProgress++;
+        musicProgress=musicProgress+1200;
         updateProgressBar();
     }  
 }, 1000);
@@ -95,21 +95,30 @@ function setRotation(obj) {
     obj.style.transform = "rotate(" + degRotation + ('deg)');
 }
 
-function getTimeCodeFromSec(length) {
-    var sec_num = parseInt(length, 10); 
-    var minutes = Math.floor((sec_num / 60));
-    var seconds = sec_num - (minutes * 60);
+
+function getTimeCodeFromMillisec(length) {
+    var milliseconds = parseInt(length, 10);
+    var seconds = parseInt(milliseconds / 1000) % 60 ;
+    var minutes = parseInt((milliseconds / (1000*60)) % 60);
+    var hours   = parseInt((milliseconds / (1000*60*60)) % 24);
+    // // var minutes=(ms/(1000*60))%60;
+    // var minutes = Math.floor((sec_num / 60));
+    // var hours=(ms/(1000*60*60))%24;
+   
+
+    if (hours<=60) {hours = '0'+hours;};
     if (minutes<=9) {minutes = '0'+minutes;};
     if (seconds<=9) {seconds = '0'+seconds;};
-    return minutes + ':' + seconds;
+    return  hours + ':' + minutes + ':' + seconds;
 }
+
 // set the global timecode
-tcTotal.innerHTML= getTimeCodeFromSec(musicLength);
+tcTotal.innerHTML= getTimeCodeFromMillisec(musicLength);
 
 function updateProgressBar()
 {
     // update progress time code
-    tcProgress.innerHTML= getTimeCodeFromSec(musicProgress);
+    tcProgress.innerHTML= getTimeCodeFromMillisec(musicProgress);
 
     if (isNaN(musicProgress)) {
         musicProgress = 0; 

@@ -926,7 +926,7 @@ gmap {
 .musicInfo #musicBar #musicBarCursor {
   background: #0edfb5;
   height: 100%;
-  width: 30%;
+  width: 20%;
   position: relative;
   -webkit-transition: all 1s linear;
   -moz-transition: all 1s linear;
@@ -1010,6 +1010,85 @@ gmap {
   background-size: cover;
   overflow: hidden;
 }
+.searchContainer #popInValidateBg {
+  position: fixed;
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  height: 100%;
+  display: none;
+  z-index: 1000 !important;
+}
+.searchContainer #popInValidateContent {
+  display: none;
+  width: 440px;
+  padding: 40px 0;
+  border-radius: 4px;
+  margin-left: -220px;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  z-index: 1000;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.searchContainer #popInValidateContent #title {
+  width: 70%;
+  margin: 20px auto 40px auto;
+}
+.searchContainer #popInValidateContent #timecode {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #0edfb5;
+}
+.searchContainer #popInValidateContent .btnContainer {
+  width: 80%;
+  margin: auto;
+  position: relative;
+}
+.searchContainer #popInValidateContent .btnContainer .ghostButton {
+  display: inline-block;
+  clear: none;
+}
+.searchContainer #popInValidateContent .btnContainer #confirm {
+  color: #0edfb5;
+  border-color: #0edfb5;
+  float: left;
+}
+.searchContainer #popInValidateContent .btnContainer #confirm .invert {
+  background: #0edfb5;
+}
+.searchContainer #popInValidateContent .btnContainer #cancel {
+  float: right;
+  color: #aaa;
+  border-color: #aaa;
+}
+.searchContainer #popInValidateContent .btnContainer #cancel:hover {
+  border-color: #ddd;
+}
+.searchContainer #popInValidateContent .btnContainer #cancel:hover .invert {
+  background: #ddd;
+}
+.searchContainer #popInValidateContent img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  margin: 16px auto 0px auto;
+}
+.searchContainer #popInValidateContent h3 {
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
 .searchContainer .topSeach {
   height: 260px;
   padding-top: 30px;
@@ -1062,7 +1141,7 @@ gmap {
 .searchContainer .searchBar ul li {
   cursor: pointer;
   overflow: hidden;
-  padding: 10px 12.5%;
+  padding: 9px 12.5% 6px 12.5%;
   width: 100%;
   color: #202020;
   text-align: left;
@@ -1077,11 +1156,23 @@ gmap {
 }
 .searchContainer .searchBar ul li span {
   position: relative;
+  vertical-align: 13px;
+  font-size: 1.1rem;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -ms-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+}
+.searchContainer .searchBar ul li img {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background: url("http://mmm.nclsndr.fr/img/app/noPicture.jpg") center no-repeat;
+  background-size: cover;
 }
 .searchContainer .searchBar ul li:hover {
   color: black;
