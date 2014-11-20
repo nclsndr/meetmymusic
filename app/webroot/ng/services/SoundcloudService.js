@@ -77,7 +77,7 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 
 		this.getFavoritesTracks=function(){
 			var deferred = $q.defer();
-			self.connect(function() {
+			self.isDefine(function(){
 				self.SC.get('/me/favorites', { limit: 10 }, function(tracks) {
 					deferred.resolve(tracks);
 				});
@@ -91,20 +91,6 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 			var deferred = $q.defer();
 			var store = {};
 			store.id = soundId;
-<<<<<<< HEAD
-			self.SC.get("/tracks/"+soundId, function(track){
-				store.sc = track;
-				self.SC.stream("/tracks/"+soundId, function(soundObj){
-					self.idList.push(store.id);
-					store.obj = soundObj;
-					console.log('store : ', store);
-					self.trackList[self.listIndex] = store;
-					self.listIndex++;
-					deferred.resolve(self.trackList);
-					console.log("strore.sc = " +store.sc);
-				});
-			});
-=======
 			self.isDefine(function(){
 				self.SC.get("/tracks/"+soundId, function(track){
 					store.sc = track;
@@ -117,11 +103,8 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 						deferred.resolve(self.trackList);
 					});
 				});	
-			})
-			
->>>>>>> f4ee9627c700912efae9cb7d9ae10e4c2695083c
+			});
 			// deferred.reject('impossible de finaliser');
-
 			return deferred.promise;
 		}
 
