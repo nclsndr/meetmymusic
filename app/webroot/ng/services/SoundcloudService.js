@@ -37,7 +37,7 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 			}
 		}
 
-		this.connect=function(callback){
+		this.connect=function(){
 			var deferred = $q.defer();
 			// initiate auth popup
 			self.SC.connect(function() {
@@ -47,7 +47,7 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 			  	$rootScope.$apply();
 			  	deferred.resolve(me);
 			  });
-			  callback.call();
+			  // callback.call();
 			});
 			// deferred.reject('impossible de finaliser');
 			return deferred.promise;
@@ -55,7 +55,7 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 
 		this.getSelfTracks=function(){
 			var deferred = $q.defer();
-			self.connect(function() {
+			self.isDefine(function() {
 				self.SC.get('/me/tracks', { limit: 10 }, function(tracks) {
 					deferred.resolve(tracks);
 				});
@@ -64,25 +64,51 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 			return deferred.promise;
 		}
 
-		this.search=function(){
+		// this.search=function(query){
+		// 	var deferred = $q.defer();
+		// 	self.isDefine(function() {
+		// 		SC.get('/tracks', { q: query, streamable: 'true', order : 'hotness'}, function(tracks) {
+		// 	 		deferred.resolve(tracks);
+		// 		});
+		// 	});
+		// 	return deferred.promise;
+		// }
+
+		this.search=function(query){
 			var deferred = $q.defer();
-			self.connect(function() {
-				SC.get('/tracks', { q: 'black keys', streamable: 'true', order : 'hotness' }, function(tracks) {
-				 	console.log(tracks);
-				 	deferred.resolve(tracks);
-				});
+			SC.initialize({
+				client_id: "268d90804476ee4483fd7dea94d198d4",
+				redirect_uri: "http://mmm.nclsndr.fr:3000/scauth",
 			});
+			SC.get('/tracks', { q: query, streamable: 'true', order : 'hotness'}, function(tracks) {
+			 	deferred.resolve(tracks);
+			});
+			
 			return deferred.promise;
 		}
 
 		this.getFavoritesTracks=function(){
 			var deferred = $q.defer();
-			self.isDefine(function(){
-				self.SC.get('/me/favorites', { limit: 10 }, function(tracks) {
+				SC.initialize({
+					client_id: "268d90804476ee4483fd7dea94d198d4",
+					redirect_uri: "http://mmm.nclsndr.fr:3000/scauth",
+				});
+				SC.get('/me/favorites', { limit: 10 }, function(tracks) {
 					deferred.resolve(tracks);
 				});
-			});
-			// deferred.reject('impossible de finaliser');
+			// });
+			return deferred.promise;
+		}
+		this.getReposted=function(){
+			var deferred = $q.defer();
+				SC.initialize({
+					client_id: "268d90804476ee4483fd7dea94d198d4",
+					redirect_uri: "http://mmm.nclsndr.fr:3000/scauth",
+				});
+				SC.get('/me/favorites', { limit: 10 }, function(tracks) {
+					deferred.resolve(tracks);
+				});
+			// });
 			return deferred.promise;
 		}
 
@@ -106,6 +132,17 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 			});
 			// deferred.reject('impossible de finaliser');
 			return deferred.promise;
+		}
+
+		this.setTimeCode = function(length) {
+		    var milliseconds = parseInt(length, 10);
+		    var seconds = parseInt(milliseconds / 1000) % 60 ;
+		    var minutes = parseInt((milliseconds / (1000*60)) % 60);
+		    var hours   = parseInt((milliseconds / (1000*60*60)) % 24);
+		    if (hours<=60) {hours = '0'+hours;};
+		    if (minutes<=9) {minutes = '0'+minutes;};
+		    if (seconds<=9) {seconds = '0'+seconds;};
+		    return  hours + ':' + minutes + ':' + seconds;
 		}
 
 		this.playThis=function(listIndex){

@@ -101,11 +101,6 @@ function getTimeCodeFromMillisec(length) {
     var seconds = parseInt(milliseconds / 1000) % 60 ;
     var minutes = parseInt((milliseconds / (1000*60)) % 60);
     var hours   = parseInt((milliseconds / (1000*60*60)) % 24);
-    // // var minutes=(ms/(1000*60))%60;
-    // var minutes = Math.floor((sec_num / 60));
-    // var hours=(ms/(1000*60*60))%24;
-   
-
     if (hours<=60) {hours = '0'+hours;};
     if (minutes<=9) {minutes = '0'+minutes;};
     if (seconds<=9) {seconds = '0'+seconds;};

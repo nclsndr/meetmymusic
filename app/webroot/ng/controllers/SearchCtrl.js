@@ -24,15 +24,14 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 				});
 			}
 		};
-		$scope.setTimeCode = function(length) {
-            var sec_num = parseInt(length, 10);
-            var minutes = Math.floor((sec_num / 60));
-            var seconds = sec_num - (minutes * 60);
-            if (minutes <= 9) {minutes = '0' + minutes;};
-            if (seconds <= 9) {seconds = '0' + seconds;};
-            return  minutes + ':' + seconds;
-        }
 
+		$scope.getFavoritesTracks = function(){
+			SoundcloudService.getFavoritesTracks().then(function(data){
+				$scope.SC.favList = data;
+				console.log(data);
+			});
+		};$scope.getFavoritesTracks();
+		
 		$scope.cancelSelection = function(){
 			var bg = document.getElementById('popInValidateBg');
 			var content = document.getElementById('popInValidateContent');
@@ -52,6 +51,7 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 		$scope.openPopIn = function(id,title,cover,duration){
 			var bg = document.getElementById('popInValidateBg');
 			var content = document.getElementById('popInValidateContent');
+			$scope.timecode = SoundcloudService.setTimeCode(duration);
 			if(cover){
 				$scope.coverSelected = cover;
 			}
@@ -59,7 +59,6 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 				$scope.coverSelected = 'http://mmm.nclsndr.fr/img/app/noPicture.jpg';
 			}
 			$scope.titleSelected = title;
-			alert($scope.setTimeCode(duration));
 
 			bg.style.display = 'block';
 			content.style.display = 'block';

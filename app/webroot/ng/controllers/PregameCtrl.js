@@ -1,33 +1,19 @@
-mmmApp.controller('PregameCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q', '$location', '$scope', 'GmapService', 'QrFactory',
-	function (NotificationFactory, UserFactory, SoundcloudService, $q, $location, $scope, GmapService,QrFactory) {
-
+mmmApp.controller('PregameCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q', '$location', '$scope', 'GmapService', 'QrFactory', 'SocketFactory',
+	function (NotificationFactory, UserFactory, SoundcloudService, $q, $location, $scope, GmapService, QrFactory, SocketFactory) {
 		if (UserFactory.isNotLogged()) {
 			NotificationFactory.add('You are not logged', 'error');
 			$location.path('/');
 		}
+
 		$scope.ui = {
-			bgHeight : window.innerHeight
+			bgHeight : window.innerHeight,
+			socketOK: false
 		};
 		$scope.me = UserFactory.User;
+		SocketFactory.emit('initTwins', UserFactory.User.token);
 
-		$scope.dropdown = function() {
-			var dropdownUser = document.getElementsByClassName('dropdownUser')[0];
-            var userOption = document.getElementById('userOption');
-            var dropDownIcon = document.getElementById('dropDownIcon');
-	    	if(!dropdownUser.classList.contains('visible')){
-                dropdownUser.classList.add("visible");
-                dropdownUser.classList.remove("fadeOutUp");
-                dropDownIcon.classList.add("rotate");
-                
-            }
-            else {
-                dropdownUser.classList.add("fadeOutUp");
-                setTimeout(function() {
-                    dropdownUser.classList.remove("visible");
-                    dropdownUser.classList.add("fadeOutUp");
-                    dropDownIcon.classList.remove("rotate");
-                }, 700) 
-            }
+		$scope.solo = function(){
+			SocketFactory.emit('setSolo', UserFactory.User.token);
 		}
 		
 		// console.log(google);
