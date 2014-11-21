@@ -1,4 +1,4 @@
-mmmApp.controller('MbSongSelected', ['$q','$scope', '$location',
+mmmApp.controller('MbSongSelectedCtrl', ['$q','$scope', '$location',
 	function ($q, $scope, $location) {
 
 }]);

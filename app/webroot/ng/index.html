@@ -7,15 +7,14 @@
         <title>Meet My Music</title>
         <link href="/favicon.ico" type="image/x-icon" rel="icon" /><link href="/favicon.ico" type="image/x-icon" rel="shortcut icon" />
         <link href="http://vjs.zencdn.net/4.10/video-js.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="http://mmm.nclsndr.fr/css/lib/foundation.min.css" />    
+     <!--    <link rel="stylesheet" type="text/css" href="http://mmm.nclsndr.fr/css/lib/foundation.min.css" /> -->    
         <link rel="stylesheet" type="text/css" href="http://mmm.nclsndr.fr/css/lib/animate.css" />     
         <link rel="stylesheet" type="text/css" href="http://mmm.nclsndr.fr/css/reset.css" />    
         <link rel="stylesheet" type="text/css" href="http://mmm.nclsndr.fr/css/app.css" />  
+        <link rel="stylesheet" type="text/css" href="http://mmm.nclsndr.fr/css/no_scss.css" />  
     </head>
     <body ng-app="mmmApp">
         <div ng-controller="NotificationCtrl" class="notifications_container">
-            <ul notifications>
-            </ul>
         </div>
         <gmap fullheight ng-class="{hidden : hiddenMap}"></gmap>
         <div class="container">
@@ -36,10 +35,13 @@
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/services/SocketFactory.js"></script>
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/services/SoundcloudService.js"></script>
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/services/UserFactory.js"></script>
+    <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/services/LocalStorageFactory.js"></script>
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/services/QrFactory.js"></script>
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/services/NotificationFactory.js"></script>
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/services/GmapService.js"></script>
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/controllers/DebugCtrl.js"></script>
+    <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/controllers/SearchCtrl.js"></script>
+    <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/controllers/GameCtrl.js"></script>
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/controllers/NotificationCtrl.js"></script>
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/controllers/StartCtrl.js"></script>
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/controllers/DashboardCtrl.js"></script>  <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/controllers/PregameCtrl.js"></script>
@@ -48,6 +50,8 @@
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/directives/FullheightDirective.js"></script>
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/directives/RegisterDirective.js"></script>
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/directives/lazyJavascriptDirective.js"></script>
+    <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/directives/DropdownDirective.js"></script>
+    <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/directives/MusicBarDirective.js"></script>
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/bower_components/angular-socket-io/socket.js"></script>
     
     </body>

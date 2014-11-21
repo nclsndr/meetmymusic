@@ -1,23 +1,23 @@
-mmmApp.factory('UserFactory', ['$http', '$location', '$q',
-function ($http, $location, $q) {
+mmmApp.factory('UserFactory', ['$http', '$location', '$q', 'LSFactory',
+function ($http, $location, $q, LSFactory) {
 	var Factory = {
 
 		User: {},
 		location : {},
 
-		login:function(params){
-			var deferred = $q.defer();
-			var url = 'http://mmm.nclsndr.fr/users/login';
+		// login:function(params){
+		// 	var deferred = $q.defer();
+		// 	var url = 'http://mmm.nclsndr.fr/users/login';
 
-			$http({method:'POST', data:params, url:url})
-				.success(function(data, status){
-					deferred.resolve(data);
-				})
-				.error(function(data, status){
-					deferred.reject(data);
-				});
-			return deferred.promise;
-		},
+		// 	$http({method:'POST', data:params, url:url})
+		// 		.success(function(data, status){
+		// 			deferred.resolve(data);
+		// 		})
+		// 		.error(function(data, status){
+		// 			deferred.reject(data);
+		// 		});
+		// 	return deferred.promise;
+		// },
 
 		register:function(params){
 			var deferred = $q.defer();
@@ -53,6 +53,7 @@ function ($http, $location, $q) {
 				.success(function(data, status){
 					if (!data.hasNoAccount) {
 						Factory.User = data;
+						LSFactory.set('User', data);
 					}
 					deferred.resolve(data);
 				})
@@ -95,7 +96,6 @@ function ($http, $location, $q) {
 					function(position){
 						Factory.location.lat = position.coords.latitude;
 						Factory.location.lng = position.coords.longitude;
-						console.log(position);
 						deferred.resolve(position);
 					},
 					function(){
@@ -115,9 +115,6 @@ function ($http, $location, $q) {
 			Factory.User.lat = Factory.location.lat;
 			Factory.User.lng = Factory.location.lng;
 		}
-
-
-
 
 	}
 	return Factory;

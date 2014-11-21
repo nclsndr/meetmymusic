@@ -1,4 +1,4 @@
-mmmApp.controller('MbMusicRemote', ['$q','$scope', '$location',
+mmmApp.controller('MbMusicRemoteCtrl', ['$q','$scope', '$location',
 	function ($q, $scope, $location) {
 
 	

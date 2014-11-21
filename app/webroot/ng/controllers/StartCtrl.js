@@ -7,10 +7,15 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 			loginState : 'fadeIn',
 			registerState : 'fadeOut',
 			msgRegisterState : 'hide',
-			bgHeight : window.innerHeight
+			bgHeight : window.innerHeight,
+			displayRegister : false
 		};
 
+<<<<<<< HEAD
+=======
 
+
+>>>>>>> f4ee9627c700912efae9cb7d9ae10e4c2695083c
 		var isGeoloc = false, location = null;
 
 		UserFactory.geolocation()
@@ -52,6 +57,8 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 								$scope.ui.registerState = 'fadeIn';
 								$scope.ui.msgRegisterState = 'fadeOut';
 								$scope.ui.SCBtState = 'fadeOut';
+								$scope.ui.displayRegister = true;
+
 								$scope.api_id = SCUser.id;
 								$scope.avatar_url = SCUser.avatar_url;
 								$scope.ui.avatar_url = SCUser.avatar_url;

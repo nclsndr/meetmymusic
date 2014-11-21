@@ -1,73 +1,72 @@
-
-<!-- OVERLAY PAN ON ALBUM COVER -->
-<div id="overlay">
-    <span class="passTheSong">
-        <-- Pass the song</span>
-            <span class="addFriend">Add to friends --></span>
-</div>
-
-<!-- ADD FRIEND ANIMATION -->
-<div id="addFrienOverlay" class="feedBackOverlay animated fadeIn">
-    <div class="animated pulse">
-        <img src="http://mmm.nclsndr.fr/img/app/albumSample.jpg" alt="">
-        <img class="animated zoomIn flash pictoFeedBack" src="http://mmm.nclsndr.fr/img/app/validateMobile.png" alt="Add To Friends">
-    </div>
-    <p>An invitation has been sent to
-        <strong>JackSparrow</strong>!</p>
-</div>
-
-<!-- PASS THE SONG ANIMATION -->
-<div id="songPassedOverlay" class="feedBackOverlay animated fadeIn">
-    <div class="animated pulse">
-        <img src="http://mmm.nclsndr.fr/img/app/albumSample2.jpg" alt="">
-        <img class="animated zoomIn flash pictoFeedBack" src="http://mmm.nclsndr.fr/img/app/crossMobile.png" alt="Song Passed">
-    </div>
-    <p>You passed the song.
-        <br>
-        <strong>Waiting for another player...</strong>
-    </p>
-    <img class="loading" src="http://mmm.nclsndr.fr/img/app/loader.gif" alt="Loading">
-</div>
-
-<div class="step animated fadeIn" id="step3">
-    <div class="otherPlayer">
-        You are playing with :
-        <span>JackSparrow</span>
-        <br>From :
-        <span>Paris, France</span>
-    </div>
-    <div id="albumCoverP2" class="albumCover animated fadeInDown">
-        <img src="http://mmm.nclsndr.fr/img/app/albumSample2.jpg" alt="">
-
-        <svg id="svgCircle" width="100%" height="100%" viewPort="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
-            <circle id="fillBg" r="50%" cx="50%" cy="50%" fill="transparent"></circle>
-            <circle id="bar" r="50%" cx="50%" cy="50%" fill="transparent"></circle>
-            <circle id="barBg" r="50%" cx="50%" cy="50%" fill="transparent"></circle>
-        </svg>
-
-
-        <svg class="lineSVG">
-            <line x1="50%" y1="0" x2="50%" y2="50%"></line>
-        </svg>
-        <svg class="lineSVG" id="currentLine">
-            <line x1="50%" y1="0" x2="50%" y2="50%"></line>
-            <circle r="4" cx="50%" cy="-4%" fill="white"></circle>
-        </svg>
+<div ng-controller="MbMusicRemoteCtrl" class="view">
+    <!-- OVERLAY PAN ON ALBUM COVER -->
+    <div id="overlay">
+        <span class="passTheSong">
+            <-- Pass the song</span>
+                <span class="addFriend">Add to friends --></span>
     </div>
 
-    <div class="timeCodeContainer">
-        <span id="tcProgress">00:00</span>/
-        <span id="tcTotal">00:00</span>
-    </div>
-    <h2 id="band">Black Keys</h2>
-    <h3 id="title">Lonely Boy</h2>
-
-        <div class="controlPlayer">
-            <div class="playPauseBtn">
-                <img src="http://mmm.nclsndr.fr/img/app/playBtn.png" width="36" class="animated zoomIn" height="36" alt="play">
-                <img src="http://mmm.nclsndr.fr/img/app/pauseBtn.png" width="36" class="animated zoomIn" height="36" alt="pause">
-            </div>
+    <!-- ADD FRIEND ANIMATION -->
+    <div id="addFrienOverlay" class="feedBackOverlay animated fadeIn">
+        <div class="animated pulse">
+            <img src="http://mmm.nclsndr.fr/img/app/albumSample.jpg" alt="">
+            <img class="animated zoomIn flash pictoFeedBack" src="http://mmm.nclsndr.fr/img/app/validateMobile.png" alt="Add To Friends">
         </div>
-        <div class="clear"></div>
-        <script type="text/javascript-lazy" src="http://mmm.nclsndr.fr/js/mobile.js"></script>
+        <p>An invitation has been sent to
+            <strong>JackSparrow</strong>!</p>
+    </div>
+
+    <!-- PASS THE SONG ANIMATION -->
+    <div id="songPassedOverlay" class="feedBackOverlay animated fadeIn">
+        <div class="animated pulse">
+            <img src="http://mmm.nclsndr.fr/img/app/albumSample2.jpg" alt="">
+            <img class="animated zoomIn flash pictoFeedBack" src="http://mmm.nclsndr.fr/img/app/crossMobile.png" alt="Song Passed">
+        </div>
+        <p>You passed the song.
+            <br>
+            <strong>Waiting for another player...</strong>
+        </p>
+        <img class="loading" src="http://mmm.nclsndr.fr/img/app/loader.gif" alt="Loading">
+    </div>
+
+    <div class="step animated fadeIn" id="step3">
+        <div class="otherPlayer">
+            You are playing with :
+            <span>JackSparrow</span>
+            <br>From :
+            <span>Paris, France</span>
+        </div>
+        <div id="albumCoverP2" class="albumCover animated fadeInDown">
+            <img src="http://mmm.nclsndr.fr/img/app/albumSample2.jpg" alt="">
+
+            <svg id="svgCircle" width="100%" height="100%" viewPort="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <circle id="fillBg" r="50%" cx="50%" cy="50%" fill="transparent"></circle>
+                <circle id="bar" r="50%" cx="50%" cy="50%" fill="transparent"></circle>
+                <circle id="barBg" r="50%" cx="50%" cy="50%" fill="transparent"></circle>
+            </svg>
+
+
+            <svg class="lineSVG">
+                <line x1="50%" y1="0" x2="50%" y2="50%"></line>
+            </svg>
+            <svg class="lineSVG" id="currentLine">
+                <line x1="50%" y1="0" x2="50%" y2="50%"></line>
+                <circle r="4" cx="50%" cy="-4%" fill="white"></circle>
+            </svg>
+        </div>
+
+        <div class="timeCodeContainer">
+            <span id="tcProgress">00:00</span>&nbsp;/&nbsp;<span id="tcTotal">00:00</span>
+        </div>
+        <h2 id="band">Black Keys</h2>
+        <h3 id="title">Lonely Boy</h2>
+            <div class="controlPlayer">
+                <div class="playPauseBtn">
+                    <button id="playBtn"></button>
+                    <button class="animated zoomIn" id="pauseBtn"></button>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <script type="text/javascript-lazy" src="http://mmm.nclsndr.fr/js/mobile.js"></script>
+    </div>
 </div>

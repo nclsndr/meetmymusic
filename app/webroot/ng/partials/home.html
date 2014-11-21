@@ -25,9 +25,9 @@
     </div>
     
     <!-- Register Form -->
-    <div class="register animated {{ui.registerState}}">
+    <div ng-show="ui.displayRegister" class="register animated {{ui.registerState}}">
         <form ng-submit="register.$valid && registerForm()" novalidate name="register">
-            <img src="{{ui.avatar_url}}" alt="" class="avatar">
+            <img ng-src="{{ui.avatar_url}}" alt="" class="avatar">
             <input type="hidden" name="api_id" ng-model="api_id"> 
             <input type="hidden" name="lat" ng-model="lat">
             <input type="hidden" name="lng" ng-model="lng">

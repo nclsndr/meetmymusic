@@ -20,7 +20,10 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 			else {
 				SoundcloudService.search(searchQ).then(function(data){
 					$scope.SC.songList = data;
+<<<<<<< HEAD
 					console.log('search');
+=======
+>>>>>>> be49a9b8f4bcd57c44723fac5f55201c923333ce
 					console.log(data);
 				});
 			}
