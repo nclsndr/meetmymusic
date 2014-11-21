@@ -1,4 +1,4 @@
-<div ng-controller="PregameCtrl" class="view">
+<div class="view">
 	<div class="desktopContainer" id="preGame" fullHeight>
 		<dropdown></dropdown>
         
@@ -31,7 +31,7 @@
         </div>
         <a href="http://mmm.nclsndr.fr:3000/#/search" class="ghostButton">
             <span class="invert"></span>
-            <span class="text">Continue without a phone</span>
+            <span ng-click="solo()" class="text">Continue without a phone</span>
         </a>
         <div class="clear"></div>
 	</div>

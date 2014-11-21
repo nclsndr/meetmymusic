@@ -1,4 +1,4 @@
-mmmApp.factory('socket', ['socketFactory', 
+mmmApp.factory('SocketFactory', ['socketFactory', 
 function (socketFactory) {
 	var myIoSocket = io.connect('http://mmm.nclsndr.fr:3000');
 	mySocket = socketFactory({

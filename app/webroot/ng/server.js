@@ -44,7 +44,6 @@ app.get('/mobile/', function(req, res){
 app.get('/scauth', function(req, res){
 	res.sendfile(__dirname+'/node_tpl/auth_sc.html');
 });
-
 app.get('/', function(req, res){
 	res.sendfile(__dirname+'/index.html');
 });
