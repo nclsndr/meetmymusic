@@ -13,7 +13,7 @@
                 <div id="timecode">{{timecode}}</div>
                 <div id="title">{{titleSelected}}</div>
                 <div class="btnContainer">
-                    <button class="ghostButton" id="confirm">
+                    <button class="ghostButton" id="confirm" ng-click="validateSelection()">
                         <span class="invert"></span>
                         <span class="text"><i>&#x2713;</i> &nbsp CONFIRM</span>
                     </button>
@@ -47,7 +47,7 @@
                                 <div class="title">
                                     {{fav.title}}
                                 </div>
-                                <timeLength></timeLength>
+                                <tc duration="{{fav.duration}}">
                             </div>
                             <div class="validate">
                                 <svg>
@@ -61,16 +61,16 @@
                     </ul>
                 </div>
                 <div class="songRecapHalf songYouReposted">
-                    <h2>Songs you reposted :</h2>
+                    <h2>Hot Tracks :</h2>
                     <div class="greySep"></div>
                     <ul>
-                        <li ng-repeat="repost in SC.favList" ng-click="openPopIn(fav.id,fav.title,fav.artwork_url,fav.duration)">
-                            <img ng-src="{{repost.artwork_url}}" class="albumCover">
+                        <li ng-repeat="hotTrack in SC.hotTracks" ng-click="openPopIn(hotTrack.id,hotTrack.title,hotTrack.artwork_url,hotTrack.duration)">
+                            <img ng-src="{{hotTrack.artwork_url}}" class="albumCover">
                             <div class="description">
                                 <div class="title">
-                                    {{repost.title}}
+                                    {{hotTrack.title}}
                                 </div>
-                                <div class="timeLength"><timeLength></timeLength></div>
+                                <tc duration="{{hotTrack.duration}}">
                             </div>
                             <div class="validate">
                                 <svg>

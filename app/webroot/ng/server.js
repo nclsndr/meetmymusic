@@ -13,20 +13,26 @@ io.on('connection', function(socket){
 		mmm.init(socket,token);
 		io.to(token).emit('msg', 'return success');
 	});
+	socket.on('setTwins', function(token){
+		mmm.twins.set(socket,token);
+		io.to(token).emit('mobileTwin', 'twinsOk');
+	});
 	socket.on('setSolo', function(token){
 		mmm.solo.add(socket, token);
-		io.to(token).emit('msg', 'return success');
+		io.to(token).emit('msg', 'soloOk');
 	});
+
 	// Routine de passage TWIN ONLY
-	socket.on('msg', function(data){
-		io.to(data.token).emit('msg', data.msg);
+	socket.on('twin', function(data){
+		io.to(data.token).emit('twin', data.msg);
 	});
 	// Routine de passage PEER
-	socket.on('dual', function(data){
-		io.to(data.finalToken).emit('dual', data.msg);
+	socket.on('peer', function(data){
+		io.to(data.finalToken).emit('peer', data.msg);
 	});
 	socket.on('disconnect', function(token) {
-      console.log('a user disconnect');
+      console.log('a user disconnect : ', token);
+      // console.log('users Object : ',mmm.usersObj);
       mmm.leave(token);
    });
 
@@ -59,24 +65,30 @@ var mmm = {
 	usersObj : {},
 	desktops: new Array(),
 
-	init:function(socket, token){
+	init:function(socket, token, isMobile){
+		var mobile = false;
+		if (typeof mobile!= 'undefined') {
+			mobile = isMobile;
+		}
 		token = ''+token;
-		console.log('init token res : ', token);
+		console.log('isMobile : ', (mmm.desktops.indexOf(token)>-1 && mobile));
 		mmm.localSocket = socket;
 		mmm.localSocket.join(token);
-		if (mmm.desktops.indexOf(token)>-1) {
+		if (mmm.desktops.indexOf(token)>-1 && mobile) {
+			console.log('init Mobile : ', token);
 			mmm.pendings.push(token);
 			mmm.usersObj[token+'_M'] = socket;
 			mmm.twins.add(token);
 			// SEARCH FOR PEER
 			mmm.peers.create();
-		}else{
+		}else if(mmm.desktops.indexOf(token)==-1){
+			console.log('init Desktop : ', token);
 			mmm.desktops.push(token);
 			mmm.usersObj[token+'_D'] = socket;
 		}
 	},
 	leave:function(token){
-		if (token !== undefined) {
+		if (token !== 'undefined') {
 			if (mmm.usersObj.token+'_D') {
 				delete mmm.usersObj.token+'_D';
 			}else if (mmm.usersObj.token+'_M') {
@@ -89,6 +101,9 @@ var mmm = {
 		add:function(token){
 			mmm.twins.values.push(token);
 			console.log('set Twins : ', token);
+		},
+		set:function(socket,token){
+			mmm.init(socket, token, true);
 		}
 	},
 	solo : {

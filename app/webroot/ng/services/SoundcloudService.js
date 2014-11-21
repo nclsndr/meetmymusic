@@ -87,6 +87,16 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 			return deferred.promise;
 		}
 
+		this.getHotTracks=function(){
+			var deferred = $q.defer();
+			self.isDefine(function() {
+				SC.get('/tracks', { streamable: 'true', order : 'hotness'}, function(tracks) {
+			 		deferred.resolve(tracks);
+				});
+			});
+			return deferred.promise;
+		}
+		
 		this.getFavoritesTracks=function(){
 			var deferred = $q.defer();
 				SC.initialize({
@@ -96,7 +106,6 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 				SC.get('/me/favorites', { limit: 10 }, function(tracks) {
 					deferred.resolve(tracks);
 				});
-			// });
 			return deferred.promise;
 		}
 		this.getReposted=function(){
@@ -145,6 +154,9 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		    return  hours + ':' + minutes + ':' + seconds;
 		}
 
+		this.chooseTrack = function(id) {
+			self.choosenTrack = id;
+		}
 		this.playThis=function(listIndex){
 			self.trackList[listIndex].obj.play();
 		}

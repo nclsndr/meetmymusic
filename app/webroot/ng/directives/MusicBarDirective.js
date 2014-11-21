@@ -1,4 +1,4 @@
-mmmApp.directive('musicbar', 'SoundCloudService', [function(SoundCloudService) {
+mmmApp.directive('musicbar' ['SoundCloudService',function(SoundCloudService) {
     return {
         restrict: 'E',
         template: '<div class="timeCodeContainer"><span id="tcProgress">{{tcProgressConvert}}</span> / <span id="tcTotal">{{tcTotalConvert}}</span></div><div id="musicBar" class="animated zoomIn"><div id="musicBarCursor"></div></div>',
@@ -10,7 +10,6 @@ mmmApp.directive('musicbar', 'SoundCloudService', [function(SoundCloudService) {
                 var format = SoundcloudService.formatTimeCode(length);
                 return format;
             }
-
 
             scope.setWidth = function(w) {
                 document.getElementById('musicBarCursor').style.width = w;

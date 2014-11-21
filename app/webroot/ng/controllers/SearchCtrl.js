@@ -1,5 +1,5 @@
-mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q', '$location', '$scope','$http', 'GmapService',
-	function (NotificationFactory, UserFactory, SoundcloudService, $q, $location, $scope,$http, GmapService,QrFactory) {
+mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q', '$location','$window', '$scope','$http', 'GmapService',
+	function (NotificationFactory, UserFactory, SoundcloudService, $q, $location, $window, $scope,$http, GmapService,QrFactory) {
 
 		if (UserFactory.isNotLogged()) {
 			NotificationFactory.add('You are not logged', 'error');
@@ -20,11 +20,8 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 			else {
 				SoundcloudService.search(searchQ).then(function(data){
 					$scope.SC.songList = data;
-<<<<<<< HEAD
-					console.log('search');
-=======
->>>>>>> be49a9b8f4bcd57c44723fac5f55201c923333ce
-					console.log(data);
+					// console.log('search');
+					// console.log(data);
 				});
 			}
 		};
@@ -32,16 +29,29 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 		$scope.getFavoritesTracks = function(){
 			SoundcloudService.getFavoritesTracks().then(function(data){
 				$scope.SC.favList = data;
+				// console.log(data);
+			});
+		};
+		
+		$scope.getHotTracks = function(){
+			SoundcloudService.getHotTracks().then(function(data){
+				$scope.SC.hotTracks = data;
 				console.log(data);
 			});
-		};$scope.getFavoritesTracks();
-		
+		};
+
+		$scope.validateSelection = function(){
+			console.log($scope.idTemp);
+			SoundcloudService.chooseTrack($scope.idTemp);
+			$window.location.href= 'http://mmm.nclsndr.fr:3000/#/pregame';
+		};
+
 		$scope.cancelSelection = function(){
 			var bg = document.getElementById('popInValidateBg');
 			var content = document.getElementById('popInValidateContent');
 			bg.classList.add('fadeOut');
 			content.classList.add('zoomOut');
-			
+				
 			setTimeout(function() {
 				$scope.popin = false;
 				bg.style.display = 'none';
@@ -49,10 +59,10 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 				bg.classList.remove('fadeOut');
 				content.classList.remove('zoomOut');
 			}, 500)
-			
 		};
 
 		$scope.openPopIn = function(id,title,cover,duration){
+			$scope.idTemp = id;
 			var bg = document.getElementById('popInValidateBg');
 			var content = document.getElementById('popInValidateContent');
 			$scope.timecode = SoundcloudService.setTimeCode(duration);
@@ -67,10 +77,12 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 			bg.style.display = 'block';
 			content.style.display = 'block';
 			$scope.popin = true;
-			console.log('id = ' + id + ' title = ' + title +' cover = ' +  cover + ' duration = ' + duration );
+			// console.log('id = ' + id + ' title = ' + title +' cover = ' +  cover + ' duration = ' + duration );
 		};
+
+
 		
-		// console.log(google);
-		// console.log(UserFactory.User);
 		GmapService.hideMap(true);
+		$scope.getFavoritesTracks();
+		$scope.getHotTracks();
 }]);
