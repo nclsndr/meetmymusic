@@ -29,17 +29,11 @@
                     <br>pick a song with</h1>
                 <img src="http://mmm.nclsndr.fr/img/app/soundCloudBig.png" class="animated fadeInUp" width="130" height="74" alt="">
             </div>
-<<<<<<< HEAD
-            <div class="searchBar"> 
-                <input type="text" placeholder="Seach for a song, an artist, an album.."  ng-model="searchQ" ng-keyup="searchSC(searchQ)" > 
-                <ul class="animated fadeInDown">
-                    <li ng-repeat="song in SC.songList" ng-click="openPopIn(song.id,song.title,song.artwork_url,song.duration)"><img ng-src="{{song.artwork_url}}" alt=""><span>{{song.title}}</span></li> 
-=======
+
             <div class="searchBar">
-                <input type="text" placeholder="Seach for a song, an artist, an album.."  ng-model="searchQ" ng-keydown="searchSC(searchQ)" > 
+                <input type="text" placeholder="Seach for a song, an artist, an album.."  ng-model="searchQ" ng-keyup="searchSC(searchQ)" > 
                 <ul>
                     <li ng-repeat="song in SC.songList" ng-click="openPopIn(song.id,song.title,song.artwork_url,song.duration)"><img ng-src="{{song.artwork_url}}" alt=""><span>{{song.title}}</span></li>
->>>>>>> be49a9b8f4bcd57c44723fac5f55201c923333ce
                 </ul>
             </div>
             <div class="songRecap">
@@ -71,12 +65,7 @@
                     <div class="greySep"></div>
                     <ul>
                         <li ng-repeat="repost in SC.favList" ng-click="openPopIn(fav.id,fav.title,fav.artwork_url,fav.duration)">
-<<<<<<< HEAD
-                            <img ng-src="{{repost
-                            .artwork_url}}" class="albumCover">
-=======
                             <img ng-src="{{repost.artwork_url}}" class="albumCover">
->>>>>>> be49a9b8f4bcd57c44723fac5f55201c923333ce
                             <div class="description">
                                 <div class="title">
                                     {{repost.title}}

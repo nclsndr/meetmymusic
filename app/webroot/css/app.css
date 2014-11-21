@@ -761,7 +761,7 @@ gmap {
   margin-right: 22px;
 }
 
-/* ‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî END DASHBOARD ‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî‚Äî */
+/* ———————————————————————————— END DASHBOARD ———————————————————————————— */
 /* --------------- PREGAME PAGE --------------- */
 #preGame {
   background: url(http://mmm.nclsndr.fr/img/app/loginbg.jpg) no-repeat center fixed;
@@ -1150,15 +1150,13 @@ gmap {
   background: rgba(255, 255, 255, 0.9);
   width: 100%;
   max-height: 206px;
-<<<<<<< HEAD
   position: absolute;
-=======
-  position: relative;
->>>>>>> be49a9b8f4bcd57c44723fac5f55201c923333ce
   z-index: 3;
   list-style: none;
   overflow-y: auto;
   overflow-x: hidden;
+  position: absolute;
+  z-index: 10000;
   scrollbar-base-color: #5f5f5f;
   scrollbar-3dlight-color: #5f5f5f;
   scrollbar-highlight-color: #5f5f5f;
