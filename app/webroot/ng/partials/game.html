@@ -1,0 +1,71 @@
+<div class="dashboardContainer" id="gamePage">
+    <dropdown></dropdown>
+
+    <a href="http://mmm.nclsndr.fr:3000/#/dashboard">
+        <button class="backBtn animated fadeIn">Back</button>
+    </a>
+
+    <div class="playerContainer">
+        <div id="player1" class="player animated flipInY">
+            <div class="avatar">
+                <img ng-src="{{me.avatar_url}}" alt="">
+            </div>
+            <div class="pseudo">{{me.username}}</div>
+            <div class="location">{{me.city}}</div>
+        </div>
+        <div id="player2" class="player animated flipInY">
+            <div class="avatar">
+                <img ng-src="{{me.avatar_url}}" alt="">
+            </div>
+            <div class="pseudo">{{me.username}}</div>
+            <div class="location">{{me.city}}</div>
+        </div>
+        <div class="clear"></div>
+        <div class="btnActionContainer">
+            <button class="ghostButton">
+                <span class="invert"></span>
+                <span class="text"><i>☺</i> Add to friends</span>
+            </button>
+            <button class="ghostButton">
+                <span class="invert"></span>
+                <span class="text"><i>&#8594;</i> Skip the song</span>
+            </button>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="musicInfo">
+        <div class="listeningCover animated fadeIn">
+            <img src="http://mmm.nclsndr.fr/img/app/albumSample.jpg" alt="">
+        </div>
+        <div class="titleSongListening animated fadeIn">Vida la Vida - Coldplay</div>
+
+        <musicBar></musicBar>
+
+        <div class="musicController">
+            <svg width="40px" height='40px' version="1.1" id="playBtn">
+                <circle fill="transparent" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="20" cy="20" r="18" />
+                <polygon fill="#FFFFFF" points="15.8,12.8 28.2,19.9 15.8,27.1 " />
+            </svg>
+            <svg width="40px" height='40px' version="1.1" id="pauseBtn">
+                <circle fill="transparent" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="19.8" cy="20" r="18" />
+                <rect x="13.1" y="12.8" fill="#FFFFFF" width="5.5" height="14.3" />
+                <rect x="21.1" y="12.8" fill="#FFFFFF" width="5.5" height="14.3" />
+            </svg>
+            <div id="favBtn">
+                <svg width="40px" height='40px' version="1.1">
+                    <circle fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="19.8" cy="20" r="18"/>
+                    <path fill="#FFFFFF" d="M19.8,28.8c0.7-0.7,4.5-4.5,6.9-6.9c2.1-2.1,2.1-5.3,0.1-7.2c-2-1.9-5.1-1.9-7.1,0c-1.9-2-5.1-2-7.1,0
+        c-2,1.9-2,5.1,0.1,7.2C15.3,24.3,19.1,28.1,19.8,28.8z"/>
+                </svg>
+                <span class="favDescription">Add to favorite</span>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="isNowPlaying">
+            <span id="pseudoPlayer2">Zirdya</span>is now listening
+            <span id="songNamePlayer2">Love Trilogy</span>by
+            <span id="artistPlayer2">Red Hot Chilli Peppers</span>
+        </div>
+    </div>
+</div>
