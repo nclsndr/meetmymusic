@@ -9,20 +9,66 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 			bgHeight : window.innerHeight
 		};
 		$scope.me = UserFactory.User;
+		$scope.SC = {};
+		$scope.popin = false;
+		$scope.timecode = '00:00';
 
-		// $scope.searchSong = function() {
-		//  	var responsePromise = $http.get("http://api.soundcloud.com/tracks.json?client_id=268d90804476ee4483fd7dea94d198d4&q=the%20fray&limit=5&streamable=true&order=hotness");
+		$scope.searchSC = function(searchQ){
+			if(searchQ==='') {
+				$scope.SC.songList = null;
+			}
+			else {
+				SoundcloudService.search(searchQ).then(function(data){
+					$scope.SC.songList = data;
+<<<<<<< HEAD
+					console.log('search');
+=======
+>>>>>>> be49a9b8f4bcd57c44723fac5f55201c923333ce
+					console.log(data);
+				});
+			}
+		};
 
-  //           responsePromise.success(function(data, status, headers, config) {
-  //               $scope.songslist = data.title;
-  //               console.log(data.title);
-  //               console.log(data);
-  //           });
-  //           responsePromise.error(function(data, status, headers, config) {
-  //               console.log("AJAX failed, searchSon");
-  //           });
-  //       }
+		$scope.getFavoritesTracks = function(){
+			SoundcloudService.getFavoritesTracks().then(function(data){
+				$scope.SC.favList = data;
+				console.log(data);
+			});
+		};$scope.getFavoritesTracks();
 		
+		$scope.cancelSelection = function(){
+			var bg = document.getElementById('popInValidateBg');
+			var content = document.getElementById('popInValidateContent');
+			bg.classList.add('fadeOut');
+			content.classList.add('zoomOut');
+			
+			setTimeout(function() {
+				$scope.popin = false;
+				bg.style.display = 'none';
+				content.style.display = 'none';
+				bg.classList.remove('fadeOut');
+				content.classList.remove('zoomOut');
+			}, 500)
+			
+		};
+
+		$scope.openPopIn = function(id,title,cover,duration){
+			var bg = document.getElementById('popInValidateBg');
+			var content = document.getElementById('popInValidateContent');
+			$scope.timecode = SoundcloudService.setTimeCode(duration);
+			if(cover){
+				$scope.coverSelected = cover;
+			}
+			else {
+				$scope.coverSelected = 'http://mmm.nclsndr.fr/img/app/noPicture.jpg';
+			}
+			$scope.titleSelected = title;
+
+			bg.style.display = 'block';
+			content.style.display = 'block';
+			$scope.popin = true;
+			console.log('id = ' + id + ' title = ' + title +' cover = ' +  cover + ' duration = ' + duration );
+		};
 		
 		// console.log(google);
 		// console.log(UserFactory.User);

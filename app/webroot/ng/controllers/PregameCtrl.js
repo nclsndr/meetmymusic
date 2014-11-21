@@ -10,10 +10,9 @@ mmmApp.controller('PregameCtrl', ['NotificationFactory', 'UserFactory', 'Soundcl
 			socketOK: false
 		};
 		$scope.me = UserFactory.User;
-		socket.emit('initTwins', UserFactory.User.token);
-
+		SocketFactory.emit('initTwins', UserFactory.User.token);
 		$scope.solo = function(){
-			socket.emit('setSolo', UserFactory.User.token);
+			SocketFactory.emit('setSolo', UserFactory.User.token);
 		}
 
 		
