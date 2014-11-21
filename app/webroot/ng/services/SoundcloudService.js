@@ -108,19 +108,7 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 				});
 			return deferred.promise;
 		}
-		this.getReposted=function(){
-			var deferred = $q.defer();
-				SC.initialize({
-					client_id: "268d90804476ee4483fd7dea94d198d4",
-					redirect_uri: "http://mmm.nclsndr.fr:3000/scauth",
-				});
-				SC.get('/me/favorites', { limit: 10 }, function(tracks) {
-					deferred.resolve(tracks);
-				});
-			// });
-			return deferred.promise;
-		}
-
+		
 		this.addSound=function(soundId){
 			if (!soundId) return false;
 			var deferred = $q.defer();
@@ -143,6 +131,19 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 			return deferred.promise;
 		}
 
+		this.getTrackInfo=function(soundId){
+			if (!soundId) return false;
+			var deferred = $q.defer();
+			self.isDefine(function(){
+			self.SC.get("/tracks/"+soundId, function(track){
+					deferred.resolve(self.track);
+				});
+			});	
+			
+			// deferred.reject('impossible de finaliser');
+			return deferred.promise;
+		}
+
 		this.setTimeCode = function(length) {
 		    var milliseconds = parseInt(length, 10);
 		    var seconds = parseInt(milliseconds / 1000) % 60 ;
@@ -155,7 +156,7 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		}
 
 		this.chooseTrack = function(id) {
-			self.choosenTrack = id;
+			self.choosenTrackId = id;
 		}
 		this.playThis=function(listIndex){
 			self.trackList[listIndex].obj.play();
