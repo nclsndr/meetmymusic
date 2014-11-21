@@ -20,14 +20,12 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 			else {
 				SoundcloudService.search(searchQ).then(function(data){
 					$scope.SC.songList = data;
-<<<<<<< HEAD
 					console.log('search');
-=======
->>>>>>> be49a9b8f4bcd57c44723fac5f55201c923333ce
 					console.log(data);
 				});
 			}
 		};
+
 
 		$scope.getFavoritesTracks = function(){
 			SoundcloudService.getFavoritesTracks().then(function(data){
@@ -36,12 +34,13 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 			});
 		};$scope.getFavoritesTracks();
 		
+
 		$scope.cancelSelection = function(){
 			var bg = document.getElementById('popInValidateBg');
 			var content = document.getElementById('popInValidateContent');
 			bg.classList.add('fadeOut');
 			content.classList.add('zoomOut');
-			
+				
 			setTimeout(function() {
 				$scope.popin = false;
 				bg.style.display = 'none';
@@ -49,8 +48,8 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 				bg.classList.remove('fadeOut');
 				content.classList.remove('zoomOut');
 			}, 500)
-			
 		};
+
 
 		$scope.openPopIn = function(id,title,cover,duration){
 			var bg = document.getElementById('popInValidateBg');
@@ -70,7 +69,5 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 			console.log('id = ' + id + ' title = ' + title +' cover = ' +  cover + ' duration = ' + duration );
 		};
 		
-		// console.log(google);
-		// console.log(UserFactory.User);
 		GmapService.hideMap(true);
 }]);

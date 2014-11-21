@@ -1,5 +1,5 @@
-mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q','$scope', '$location', 'GmapService',
-	function (NotificationFactory, UserFactory, SoundcloudService, $q, $scope, $location, GmapService) {
+mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q','$scope', '$location', 'GmapService', 'SocketFactory',
+	function (NotificationFactory, UserFactory, SoundcloudService, $q, $scope, $location, GmapService, SocketFactory) {
 
 		SoundcloudService.init();
 		$scope.SC = {};
@@ -11,11 +11,6 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 			displayRegister : false
 		};
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> f4ee9627c700912efae9cb7d9ae10e4c2695083c
 		var isGeoloc = false, location = null;
 
 		UserFactory.geolocation()
@@ -67,13 +62,15 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 								if (isGeoloc) {
 									UserFactory.updateGeoloc();
 								}
+								SocketFactory.emit('initTwins', dataSuccess.token);
+								console.log();
 								NotificationFactory.add('You are logged', 'success');
 								$location.path('/dashboard');
 								// REDIRECT TO DASHBOARD
 							}
 						},
 						function(data, status){
-							NotificationFactory.add('There is a problem to log in', 'success');
+							NotificationFactory.add('There is a problem to log in', 'error');
 						});
 				});
 		};
@@ -97,6 +94,7 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 					.then(
 					function (data){
 						NotificationFactory.add('You are logged', 'success');
+						SocketFactory.emit('initTwins', data.token);
 						$location.path('/dashboard');
 					}, function (msg){
 						console.log('error : ',msg);

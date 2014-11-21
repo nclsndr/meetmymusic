@@ -96,7 +96,6 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 				SC.get('/me/favorites', { limit: 10 }, function(tracks) {
 					deferred.resolve(tracks);
 				});
-			// });
 			return deferred.promise;
 		}
 		this.getReposted=function(){

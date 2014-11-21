@@ -84,6 +84,20 @@ class UsersController extends AppController
 		return true;
 	}
 
+	public function getpeerbytoken(){
+		$return = ['error'=>true];
+		if (!empty($this->request->data)) {
+			$values = $this->request->data;
+			$res = $this->User->find('first', ['conditions'=>['User.token'=>$values['token']]]);
+			if($res){
+				return new CakeResponse(array('body' => json_encode($res)));
+			}else{
+				return new CakeResponse(array('body' => json_encode($return)));
+			}
+		}else{
+			return new CakeResponse(array('body' => json_encode('no POST')));
+		}
+	}
 
 	public function edit($id=null){
 
