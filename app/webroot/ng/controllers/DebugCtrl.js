@@ -1,7 +1,7 @@
-mmmApp.controller('DebugCtrl', ['socket', '$scope', 'QrFactory', 'SoundcloudService',
-	function (socket, $scope, QrFactory, SoundcloudService) {
+mmmApp.controller('DebugCtrl', ['socketFactory', '$scope', 'QrFactory', 'SoundcloudService',
+	function (socketFactory, $scope, QrFactory, SoundcloudService) {
 
-		socket.removeAllListeners();
+		// socketFactory.removeAllListeners();
 
 		SoundcloudService.init();
 		$scope.SC = {};
@@ -30,9 +30,9 @@ mmmApp.controller('DebugCtrl', ['socket', '$scope', 'QrFactory', 'SoundcloudServ
 			});
 		};
 
-		$scope.selectTrack = function(id){
-			socket.emit('sound', id);
-		};
+		// $scope.selectTrack = function(id){
+		// 	socketFactory.emit('sound', id);
+		// };
 
 		$scope.playCurrent=function(){
 			SoundcloudService.playThis(0);
@@ -43,37 +43,37 @@ mmmApp.controller('DebugCtrl', ['socket', '$scope', 'QrFactory', 'SoundcloudServ
 
 
 		$scope.textSubmit = function(){
-			socket.emit('message', $scope.chat.text);
+			socketFactory.emit('message', $scope.chat.text);
 			$scope.chat.text = '';
 		}
-		// socket.emit('message', 'test');
+		// socketFactory.emit('message', 'test');
 
 		$scope.messages = [];
 
-		socket.on('message', function(msg){
-				console.log('received : ', msg);
-			$scope.messages.unshift({msg : msg});
-		});
+		// socketFactory.on('message', function(msg){
+		// 		console.log('received : ', msg);
+		// 	$scope.messages.unshift({msg : msg});
+		// });
 
 
-		socket.on('soundR', function(soundId){
-			console.log('soundR received : ', soundId);
-			if (SoundcloudService.idList.indexOf(soundId)!=-1) {
-				console.log('duplicate sound : ',soundId);
-				return false;
-			};
-			SoundcloudService.addSound(soundId).then(function(trackList){
-				console.log('trackList :', trackList);
-				$scope.sound = trackList[0];
-			});
-		});
+		// socketFactory.on('soundR', function(soundId){
+		// 	console.log('soundR received : ', soundId);
+		// 	if (SoundcloudService.idList.indexOf(soundId)!=-1) {
+		// 		console.log('duplicate sound : ',soundId);
+		// 		return false;
+		// 	};
+		// 	SoundcloudService.addSound(soundId).then(function(trackList){
+		// 		console.log('trackList :', trackList);
+		// 		$scope.sound = trackList[0];
+		// 	});
+		// });
 		
-		socket.on('authToken', function(debug){
-			if (debug) {
-				$scope.nodeDatas = debug;
-			}
-		});
-		// socket.emit('meetmymusic', 'request a user');
+		// socketFactory.on('authToken', function(debug){
+		// 	if (debug) {
+		// 		$scope.nodeDatas = debug;
+		// 	}
+		// });
+		// socketFactory.emit('meetmymusic', 'request a user');
 
 	}]
 );

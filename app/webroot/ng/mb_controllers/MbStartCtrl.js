@@ -27,8 +27,4 @@ mmmApp.controller('MbStartCtrl', ['$q','$scope', '$location', 'SocketFactory', '
 			alert('There is a problem with your url');
 		}
 
-		
-		// console.log($location);
-		// console.log(SocketFactory);
-
 }]);
