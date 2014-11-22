@@ -17,6 +17,6 @@ mmmApp.controller('PregameCtrl', ['NotificationFactory', 'UserFactory', 'Soundcl
 
 		
 		// console.log(google);
-		console.log(UserFactory.User);
+		// console.log(UserFactory.User);
 		GmapService.hideMap(true);
 }]);

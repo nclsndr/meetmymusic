@@ -3,7 +3,6 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 		
 		$scope.me = UserFactory.User;
 		$scope.tcProgress = 0;
-		$scope.tcTotal = 6000;
 		$scope.trackId = SoundcloudService.choosenTrackId;
 
 
@@ -16,17 +15,15 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 			bgHeight : window.innerHeight
 		};
 
-
-
 		SoundcloudService.getTrackInfo()
 		.then(
 			function(data){
-				console.log('-------data-------');
-				console.log(data);
 				$scope.trackChoosen = data;
-				// $scope.$apply(function(){
-					
-				// });
+				if(data) $scope.tcTotal = data.duration;
+				
+				console.log('-------$scope data-------');
+				console.log($scope.trackChoosen);
+				console.log('$scope.tcTotal = ' + $scope.tcTotal)
 			}
 		);
 
