@@ -12,6 +12,31 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 			$location.path('/');
 		}
 
+		$scope.addToFriends = function() {
+			NotificationFactory.add('Friend request send');
+			alert('addToFriendsDebug');
+		}
+
+		$scope.passTheSong = function() {
+			NotificationFactory.add('Song passed');
+			alert('passTheSongDebug');
+		}
+
+		$scope.addToFavorites = function() {
+			NotificationFactory.add('Add to your favorites on SoundCloud');
+			alert('addToFavoritesDebug');
+		}
+
+		$scope.play = function() {
+			NotificationFactory.add('Add to your favorites on SoundCloud');
+			alert('play debug');
+		}
+		$scope.pause = function() {
+			NotificationFactory.add('Add to your favorites on SoundCloud');
+			alert('pause debug');
+		}
+
+
 		$scope.ui = {
 			bgHeight : window.innerHeight
 		};

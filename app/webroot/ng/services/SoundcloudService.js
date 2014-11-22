@@ -2,14 +2,13 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 	function ($http, $q, $rootScope){
 
 		this.SC = {};
-		this.defineDigest = false;
-		this.defineApply = [];
 		this.SCUser = {};
 		this.trackList = {};
 		this.listIndex = 0;
 		this.idList = new Array();
 		this.redirectUrl = 'http://mmm.nclsndr.fr:3000/scauth';
 		this.clientID = '268d90804476ee4483fd7dea94d198d4';
+		
 		this.choosenTrackId = false;
 
 		
@@ -86,16 +85,6 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 			return deferred.promise;
 		}
 
-		// this.search=function(query){
-		// 	var deferred = $q.defer();
-		// 	self.isDefine(function() {
-		// 		self.SC.get('/tracks', { q: query, streamable: 'true', order : 'hotness'}, function(tracks) {
-		// 	 		deferred.resolve(tracks);
-		// 		});
-		// 	});
-		// 	return deferred.promise;
-		// }
-
 		this.search=function(query){
 			var deferred = $q.defer();
 			self.isDefine(function(){
@@ -150,7 +139,6 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		// }
 
 		this.getTrackInfo=function(){
-
 			var deferred = $q.defer();
 			self.isDefine(function(){
 				self.SC.get('/tracks/',{ids: self.choosenTrackId}, function(tracks) {
