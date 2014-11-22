@@ -752,6 +752,18 @@ a {
     text-align: center;
     min-width: 720px;
 
+    #messageAddToFriends {
+        color: white;
+        padding: 10px;
+        width: 400px;
+        margin-left: -200px;
+        background: rgba(0,0,0,0.5);
+        font-size: 1.3em;
+        position: absolute;
+        top: 150px;
+        left: 50%;
+    }
+    
     .player {
         color: white;
         padding: 51px 2%;
@@ -790,7 +802,50 @@ a {
     }
     #player2 {
         float: right;
+        overflow : hidden;
+        .friendRequestBg {
+            display : none;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: absolute;
+            background: rgba(14,223,181,0.6);
+            z-index: -1;
+            @include transition(all, 0.5s, linear);
+        }
+        .friendDemand {
+            display : none;
+        }
     }
+    .friendRequest {
+        #player2 {
+            .friendRequestBg {
+                display : block !important;
+            } 
+            .location {
+                margin-bottom: 15px;
+            }
+            .friendDemand {
+                display : block;
+            }
+        }
+        #addToFriendsBtn {
+            border-color : $green;
+            .invert {
+                background : $green;
+            }
+            .text {
+                color : $green !important;
+            }
+            &:hover {
+                .text {
+                    color : white !important;
+                }
+            }
+        }       
+    }
+    
 }
 .btnActionContainer {
     float : right;
@@ -1263,6 +1318,7 @@ a {
         }
     }
 }
+
 // Video JS SKIN
 .vjs-default-skin {
     color: #ebebeb;

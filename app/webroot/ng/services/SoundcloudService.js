@@ -2,6 +2,8 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 	function ($http, $q, $rootScope){
 
 		this.SC = {};
+		this.defineDigest = false;
+		this.defineApply = [];
 		this.SCUser = {};
 		this.trackList = {};
 		this.listIndex = 0;
@@ -9,6 +11,7 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		this.redirectUrl = 'http://mmm.nclsndr.fr:3000/scauth';
 		this.clientID = '268d90804476ee4483fd7dea94d198d4';
 		this.choosenTrackId = false;
+
 		
 
 		this.init=function(callback){
@@ -28,14 +31,32 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		}
 
 		this.isDefine=function(callback){
-			if (self.SC.length<1) {
-				self.init(function(){
+			if (!self.isEmpty(self.SC)) {
+				console.log('SC User connected : ',self.SC.isConnected());
+				if (self.SC.isConnected()) {
 					return callback.call(this);
-				});
-				console.log('init by isDefine');
+				}else{
+					self.connect().then(
+						function(){
+							return callback(this);
+						}
+					);
+				}
 			}else{
-				return callback.call(this);
-			}
+				self.init(function(){
+					self.isDefine(callback);
+				})
+			}	
+		}
+
+		this.isEmpty=function(obj){
+			if (obj == null) return true;
+		    if (obj.length > 0)    return false;
+		    if (obj.length === 0)  return true;
+		    for (var key in obj) {
+		        if (hasOwnProperty.call(obj, key)) return false;
+		    }
+		    return true;
 		}
 
 		this.connect=function(){
@@ -68,7 +89,7 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		// this.search=function(query){
 		// 	var deferred = $q.defer();
 		// 	self.isDefine(function() {
-		// 		SC.get('/tracks', { q: query, streamable: 'true', order : 'hotness'}, function(tracks) {
+		// 		self.SC.get('/tracks', { q: query, streamable: 'true', order : 'hotness'}, function(tracks) {
 		// 	 		deferred.resolve(tracks);
 		// 		});
 		// 	});
@@ -77,12 +98,10 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 
 		this.search=function(query){
 			var deferred = $q.defer();
-			SC.initialize({
-				client_id: "268d90804476ee4483fd7dea94d198d4",
-				redirect_uri: "http://mmm.nclsndr.fr:3000/scauth",
-			});
-			SC.get('/tracks', { q: query, streamable: 'true', order : 'hotness'}, function(tracks) {
-			 	deferred.resolve(tracks);
+			self.isDefine(function(){
+				self.SC.get('/tracks', { q: query, streamable: 'true', order : 'hotness'}, function(tracks) {
+				 	deferred.resolve(tracks);
+				});
 			});
 			
 			return deferred.promise;
@@ -91,7 +110,7 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		this.getHotTracks=function(){
 			var deferred = $q.defer();
 			self.isDefine(function() {
-				SC.get('/tracks', { streamable: 'true', order : 'hotness'}, function(tracks) {
+				self.SC.get('/tracks', { streamable: 'true', order : 'hotness', limit: 100}, function(tracks) {
 			 		deferred.resolve(tracks);
 				});
 			});
@@ -100,13 +119,11 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		
 		this.getFavoritesTracks=function(){
 			var deferred = $q.defer();
-				SC.initialize({
-					client_id: "268d90804476ee4483fd7dea94d198d4",
-					redirect_uri: "http://mmm.nclsndr.fr:3000/scauth",
-				});
-				SC.get('/me/favorites', { limit: 10 }, function(tracks) {
+			self.isDefine(function(){
+				self.SC.get('/me/favorites', { limit: 50 }, function(tracks) {
 					deferred.resolve(tracks);
 				});
+			})
 			return deferred.promise;
 		}
 		
@@ -133,17 +150,13 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		// }
 
 		this.getTrackInfo=function(){
-
 			var deferred = $q.defer();
-			SC.initialize({
-				client_id: "268d90804476ee4483fd7dea94d198d4",
-				redirect_uri: "http://mmm.nclsndr.fr:3000/scauth",
+			self.isDefine(function(){
+				self.SC.get('/tracks/',{ids: self.choosenTrackId}, function(tracks) {
+					// self.tcTotal = tracks.trackChosen.$$state.value.duration;
+					deferred.resolve(tracks[0]);
+				});	
 			});
-			SC.get('/tracks/',{ids: self.choosenTrackId}, function(tracks) {
-				// self.tcTotal = tracks.trackChosen.$$state.value.duration;
-				deferred.resolve(tracks[0]);
-			});
-
 			return deferred.promise;
 		}
 

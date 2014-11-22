@@ -20,40 +20,29 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 			else {
 				SoundcloudService.search(searchQ).then(function(data){
 					$scope.SC.songList = data;
-<<<<<<< HEAD
-					// console.log('search');
-					// console.log(data);
-=======
-					console.log('search');
-					console.log(data);
->>>>>>> init-app-socket
 				});
 			}
 		};
 
-
-		$scope.getFavoritesTracks = function(){
+		// CALL SC CONNECT ONCE
+		SoundcloudService.isDefine(function(){
 			SoundcloudService.getFavoritesTracks().then(function(data){
 				$scope.SC.favList = data;
-				// console.log(data);
+				console.log(data);
 			});
-		};
-		
-<<<<<<< HEAD
-		$scope.getHotTracks = function(){
 			SoundcloudService.getHotTracks().then(function(data){
 				$scope.SC.hotTracks = data;
 				console.log(data);
 			});
-		};
-
+		});
+		
+		
 		$scope.validateSelection = function(){
 			console.log($scope.idTemp);
 			SoundcloudService.chooseTrack($scope.idTemp);
 			$window.location.href= 'http://mmm.nclsndr.fr:3000/#/pregame';
 		};
-=======
->>>>>>> init-app-socket
+
 
 		$scope.cancelSelection = function(){
 			var bg = document.getElementById('popInValidateBg');
@@ -89,10 +78,7 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 			$scope.popin = true;
 			// console.log('id = ' + id + ' title = ' + title +' cover = ' +  cover + ' duration = ' + duration );
 		};
-
-
 		
 		GmapService.hideMap(true);
-		$scope.getFavoritesTracks();
-		$scope.getHotTracks();
+
 }]);

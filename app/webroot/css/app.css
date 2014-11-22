@@ -807,6 +807,17 @@ a:hover {
   text-align: center;
   min-width: 720px;
 }
+.playerContainer #messageAddToFriends {
+  color: white;
+  padding: 10px;
+  width: 400px;
+  margin-left: -200px;
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 1.3em;
+  position: absolute;
+  top: 150px;
+  left: 50%;
+}
 .playerContainer .player {
   color: white;
   padding: 51px 2%;
@@ -845,6 +856,46 @@ a:hover {
 }
 .playerContainer #player2 {
   float: right;
+  overflow: hidden;
+}
+.playerContainer #player2 .friendRequestBg {
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background: rgba(14, 223, 181, 0.6);
+  z-index: -1;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -ms-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+.playerContainer #player2 .friendDemand {
+  display: none;
+}
+.playerContainer .friendRequest #player2 .friendRequestBg {
+  display: block !important;
+}
+.playerContainer .friendRequest #player2 .location {
+  margin-bottom: 15px;
+}
+.playerContainer .friendRequest #player2 .friendDemand {
+  display: block;
+}
+.playerContainer .friendRequest #addToFriendsBtn {
+  border-color: #0edfb5;
+}
+.playerContainer .friendRequest #addToFriendsBtn .invert {
+  background: #0edfb5;
+}
+.playerContainer .friendRequest #addToFriendsBtn .text {
+  color: #0edfb5 !important;
+}
+.playerContainer .friendRequest #addToFriendsBtn:hover .text {
+  color: white !important;
 }
 
 .btnActionContainer {
