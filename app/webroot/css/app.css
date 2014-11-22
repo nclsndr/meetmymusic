@@ -214,22 +214,6 @@ a:hover {
   background: #e40151;
 }
 
-gmap.hidden {
-  z-index: -1000;
-  opacity: 0;
-}
-
-gmap {
-  width: 100%;
-  display: block;
-  position: fixed;
-  z-index: 0;
-  left: 0;
-  top: 0;
-  margin: 0;
-  min-height: 300px;
-}
-
 .user.login_register {
   background: url(http://mmm.nclsndr.fr/img/app/loginbg.jpg) no-repeat center fixed;
   background-size: cover;
@@ -903,6 +887,8 @@ gmap {
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid white;
+  background: url("http://mmm.nclsndr.fr/img/app/noPicture.jpg") center no-repeat;
+  background-size: cover;
 }
 .musicInfo .listeningCover img {
   width: 100%;
@@ -943,7 +929,7 @@ gmap {
 .musicInfo .timeCodeContainer {
   font-size: 0.75rem;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 15px auto 10px;
   text-align: right;
 }
 .musicInfo .timeCodeContainer #tcProgress {

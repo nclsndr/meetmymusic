@@ -10,6 +10,9 @@ mmmApp.directive('tc', ['SoundcloudService', function(SoundcloudService) {
         link: function(scope, element, attrs) {
             if (attrs.duration) {
                 scope.timecode = SoundcloudService.setTimeCode(attrs.duration);
+                console.log('------------------------------------');
+                console.log(attrs.duration);
+                console.log('------------------------------------');
             }
         }
     }

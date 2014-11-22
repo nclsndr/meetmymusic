@@ -36,9 +36,10 @@
     <div class="clear"></div>
     <div class="musicInfo">
         <div class="listeningCover animated fadeIn">
-            <img src="http://mmm.nclsndr.fr/img/app/albumSample.jpg" alt="">
+            <img ng-src="{{trackChoosen.artwork_url}}" alt="">
         </div>
-        <div class="titleSongListening animated fadeIn">Vida la Vida - Coldplay {{trackId}}</div>
+        <div class="titleSongListening animated fadeIn">{{trackChoosen.title}}</div>
+
 
         <musicbar></musicbar>
 

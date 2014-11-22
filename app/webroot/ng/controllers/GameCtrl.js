@@ -3,7 +3,8 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 		
 		$scope.me = UserFactory.User;
 		$scope.tcProgress = 0;
-		$scope.tcTotal = 100000;
+		$scope.tcTotal = 6000;
+		$scope.trackId = SoundcloudService.choosenTrackId;
 
 
 		if (UserFactory.isNotLogged()) {
@@ -15,9 +16,18 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 			bgHeight : window.innerHeight
 		};
 
-		$scope.getTrackInfo = function(id){
-			return $scope.SoundcloudService.getTrackInfo(id);
-		}
+
+
+		SoundcloudService.getTrackInfo()
+		.then(
+			function(data){
+				console.log(data);
+				$scope.trackChoosen = data;
+				// $scope.$apply(function(){
+					
+				// });
+			}
+		);
 
 		SocketFactory.removeAllListeners();
 
@@ -31,8 +41,5 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 		});
 		
 		GmapService.hideMap(false);
-		if(SoundcloudService.choosenTrack) {
-			$scope.trackChosen = $scope.getTrackInfo(SoundcloudService.choosenTrackId);
-			console.log($scope.trackChosen);
-		}
+		
 }]);

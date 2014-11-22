@@ -7,7 +7,8 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		this.listIndex = 0;
 		this.idList = new Array();
 		this.redirectUrl = 'http://mmm.nclsndr.fr:3000/scauth';
-		this.clientID = '268d90804476ee4483fd7dea94d198d4'
+		this.clientID = '268d90804476ee4483fd7dea94d198d4';
+		this.choosenTrackId = false;
 		
 
 		this.init=function(callback){
@@ -109,40 +110,43 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 			return deferred.promise;
 		}
 		
-		this.addSound=function(soundId){
-			if (!soundId) return false;
+		// this.addSound=function(soundId){
+		// 	if (!soundId) return false;
+		// 	var deferred = $q.defer();
+		// 	var store = {};
+		// 	store.id = soundId;
+		// 	self.isDefine(function(){
+		// 		self.SC.get("/tracks/"+soundId, function(track){
+		// 			store.sc = track;
+		// 			self.SC.stream("/tracks/"+soundId, function(soundObj){
+		// 				self.idList.push(store.id);
+		// 				store.obj = soundObj;
+		// 				console.log('store : ', store);
+		// 				self.trackList[self.listIndex] = store;
+		// 				self.listIndex++;
+		// 				deferred.resolve(self.trackList);
+		// 			});
+		// 		});	
+		// 	});
+		// 	// deferred.reject('impossible de finaliser');
+		// 	return deferred.promise;
+		// }
+
+		this.getTrackInfo=function(){
+
 			var deferred = $q.defer();
-			var store = {};
-			store.id = soundId;
-			self.isDefine(function(){
-				self.SC.get("/tracks/"+soundId, function(track){
-					store.sc = track;
-					self.SC.stream("/tracks/"+soundId, function(soundObj){
-						self.idList.push(store.id);
-						store.obj = soundObj;
-						console.log('store : ', store);
-						self.trackList[self.listIndex] = store;
-						self.listIndex++;
-						deferred.resolve(self.trackList);
-					});
-				});	
+			SC.initialize({
+				client_id: "268d90804476ee4483fd7dea94d198d4",
+				redirect_uri: "http://mmm.nclsndr.fr:3000/scauth",
 			});
-			// deferred.reject('impossible de finaliser');
+			SC.get('/tracks/',{ids: self.choosenTrackId}, function(tracks) {
+				// self.tcTotal = tracks.trackChosen.$$state.value.duration;
+				deferred.resolve(tracks[0]);
+			});
+
 			return deferred.promise;
 		}
 
-		this.getTrackInfo=function(soundId){
-			if (!soundId) return false;
-			var deferred = $q.defer();
-			self.isDefine(function(){
-			self.SC.get("/tracks/"+soundId, function(track){
-					deferred.resolve(self.track);
-				});
-			});	
-			
-			// deferred.reject('impossible de finaliser');
-			return deferred.promise;
-		}
 
 		this.setTimeCode = function(length) {
 		    var milliseconds = parseInt(length, 10);

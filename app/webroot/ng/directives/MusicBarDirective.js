@@ -1,7 +1,9 @@
 mmmApp.directive('musicbar', ['SoundcloudService', function (SoundcloudService){
     return {
         restrict: 'E',
+
         template : '<div class="timeCodeContainer"><span id="tcProgress">{{tcProgressConvert}}</span> / <span id="tcTotal">{{tcTotalConvert}}</span></div><div id="musicBar" class="animated zoomIn"><div id="musicBarCursor"></div></div>',
+        
         link: function(scope, element, attrs) {
             scope.setWidth = function(w) {
                 document.getElementById('musicBarCursor').style.width = w;
@@ -14,11 +16,10 @@ mmmApp.directive('musicbar', ['SoundcloudService', function (SoundcloudService){
             scope.tcTotalConvert = scope.setTC(scope.tcTotal); 
 
             scope.updateBar = function(){
-             if (scope.tcProgress < scope.tcTotal) {
+             if (scope.tcProgress <= scope.tcTotal) {
                  scope.tcProgressConvert = scope.setTC(scope.tcProgress);
                  scope.cursorPercent = (scope.tcProgress * 100) / scope.tcTotal;
                  scope.setWidth(scope.cursorPercent+'%');
-                 $scope.$apply()
              }
             }
             scope.updateBar();
