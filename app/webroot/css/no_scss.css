@@ -26,3 +26,29 @@ form .form_error{
 	padding: .4rem .6rem;
 	margin-top: 2px;;
 }
+
+
+.notifications_container {
+  position: fixed;
+  right: .6rem;
+  top: 0;
+  z-index: 101;
+  width: 200px;
+}
+.notifications_container ul {
+  list-style: none;
+}
+.notifications_container ul li {
+  color: white !important;
+  position: relative;
+  display: block;
+  padding: .6rem;
+  background: #0edfb5;
+  width: 100%;
+  color: #333;
+  margin-top: .6rem;
+  text-align: center;
+}
+.notifications_container ul li.error {
+  background: #e40151;
+}
