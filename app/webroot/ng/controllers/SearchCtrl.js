@@ -20,6 +20,11 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 			else {
 				SoundcloudService.search(searchQ).then(function(data){
 					$scope.SC.songList = data;
+<<<<<<< HEAD
+=======
+					// console.log('search');
+					// console.log(data);
+>>>>>>> 21a99e777942b55dc1a90c14eb91743c16598e39
 				});
 			}
 		};
@@ -36,7 +41,12 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 			});
 		});
 		
+<<<<<<< HEAD
 		
+=======
+
+
+>>>>>>> 21a99e777942b55dc1a90c14eb91743c16598e39
 		$scope.validateSelection = function(){
 			console.log($scope.idTemp);
 			SoundcloudService.chooseTrack($scope.idTemp);
@@ -81,4 +91,9 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 		
 		GmapService.hideMap(true);
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 21a99e777942b55dc1a90c14eb91743c16598e39
 }]);
