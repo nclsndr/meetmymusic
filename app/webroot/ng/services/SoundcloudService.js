@@ -87,19 +87,6 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 			return deferred.promise;
 		}
 
-<<<<<<< HEAD
-		// this.search=function(query){
-		// 	var deferred = $q.defer();
-		// 	self.isDefine(function() {
-		// 		self.SC.get('/tracks', { q: query, streamable: 'true', order : 'hotness'}, function(tracks) {
-		// 	 		deferred.resolve(tracks);
-		// 		});
-		// 	});
-		// 	return deferred.promise;
-		// }
-
-=======
->>>>>>> 21a99e777942b55dc1a90c14eb91743c16598e39
 		this.search=function(query){
 			var deferred = $q.defer();
 			self.isDefine(function(){
