@@ -8,19 +8,19 @@
     
     <p class="clearfix registerElem animated fadeIn">Connectez-vous tout d'abord à votre compte SoundCloud</p>
 
-    <div id="soundCloudConnect" ng-click="connectSC()" class="animated {{ui.SCBtState}}">
+    <div ng-show="!ui.displayRegister" id="soundCloudConnect" ng-click="connectSC()" class="animated {{ui.SCBtState}}">
         <div></div>
         <div>Log in with <b>SoundCloud</b></div>
     </div>
 
-    <div class="login animated {{ui.loginState}}">  
+    <div ng-show="!ui.displayRegister" class="login animated {{ui.loginState}}">  
         <span ng-click="showRegister()" class="ghostButton connectElem create_account">
             <span class="invert"></span>
             <span class="text">create an account</span>
         </span>
     </div>
 
-    <div class="register_msg animated {{ui.msgRegisterState}}">
+    <div ng-show="!ui.displayRegister" class="register_msg animated {{ui.msgRegisterState}}">
         <p>WE MUST VALIDATE YOUR SOUNDCLOUD ACCOUNT BEFORE REGISTER</p>
     </div>
     
@@ -28,10 +28,8 @@
     <div ng-show="ui.displayRegister" class="register animated {{ui.registerState}}">
         <form ng-submit="register.$valid && registerForm()" novalidate name="register">
             <img ng-src="{{ui.avatar_url}}" alt="" class="avatar">
-            <input type="hidden" name="api_id" ng-model="api_id"> 
             <input type="hidden" name="lat" ng-model="lat">
             <input type="hidden" name="lng" ng-model="lng">
-            <input type="hidden" name="avatar_url" ng-model="avatar_url"> 
 
             <input type="text" username ng-model="username" ng-model-options="{ debounce: 500 }" name="username" placeholder="Username">
             <span ng-show="register.username.$error.usernameexists" class="form_error">This user already exists</span>

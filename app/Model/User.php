@@ -4,6 +4,7 @@
 */
 class User extends AppModel
 {
+	public $actsAs = array('Containable');
 	
 	public $useTable = 'users';
 
@@ -20,6 +21,12 @@ class User extends AppModel
 		// 	return true;
 		// }
 	
+	public $hasMany = [
+		'Track'=>[
+			'foreignKey'=>'user_id'
+		]
+	];
+
 
 	public $validate = array(
 		'username' => array(

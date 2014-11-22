@@ -82,7 +82,7 @@ function ($http, $location, $q, LSFactory, SocketFactory) {
 			$http({method:'POST', data:req, url:url})
 				.success(function(data, status){
 					if (data.usernameExist) {
-						Factory.set(data);
+						// Factory.set(data);
 						var res = {user:true};
 						deferred.resolve(res);
 					}else{
@@ -159,8 +159,27 @@ function ($http, $location, $q, LSFactory, SocketFactory) {
 		},
 
 		updateGeoloc:function(){
-			Factory.User.lat = Factory.location.lat;
-			Factory.User.lng = Factory.location.lng;
+			var deferred = $q.defer();
+			if (Factory.location.lat && Factory.location.lng) {
+				Factory.User.lat = Factory.location.lat;
+				Factory.User.lng = Factory.location.lng;
+			}
+			var req = {
+				id:Factory.User.id,
+				token:Factory.User.token,
+				lat : Factory.User.lat,
+				lng : Factory.User.lng,
+			};
+			var url = 'http://mmm.nclsndr.fr/users/updategeoloc';
+			$http({method:'POST', data:req, url:url})
+				.success(function(data, status){
+					deferred.resolve(data);
+				})
+				.error(function(data, status){
+					var error = {'error':true}
+					deferred.reject(error);
+				});
+			return deferred.promise;
 		}
 
 	}

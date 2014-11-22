@@ -28,7 +28,6 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 			SoundcloudService.connect()
 				.then(function(data){
 					var SCUser = data;
-
 					UserFactory.hasAccount(data.id)
 						.then(function(dataSuccess){
 							if (dataSuccess.hasNoAccount) {
@@ -41,7 +40,6 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 												console.log(results[4].formatted_address);
 												$scope.city_country = results[4].formatted_address;
 												// $scope.register.city.$setViewValue(results[4].formatted_address);
-												console.log($scope.register);
 											},
 											function(msg){
 												NotificationFactory.add(msg, 'error');
@@ -54,13 +52,15 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 								$scope.ui.SCBtState = 'fadeOut';
 								$scope.ui.displayRegister = true;
 
-								$scope.api_id = SCUser.id;
-								$scope.avatar_url = SCUser.avatar_url;
 								$scope.ui.avatar_url = SCUser.avatar_url;
 								$scope.username = SCUser.username;
 							}else{
 								if (isGeoloc) {
-									UserFactory.updateGeoloc();
+									UserFactory.updateGeoloc().then(
+										function(dataSuccess){
+											NotificationFactory.add('your geolocation is updated');
+										}
+									);
 								}
 								SocketFactory.emit('initTwins', dataSuccess.token);
 								console.log();
@@ -79,8 +79,9 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 			if ($scope.register.$valid) {
 				var form = $scope.register;
 				var toStore = {
-					api_id : form.api_id.$modelValue,
-					avatar_url : form.avatar_url.$modelValue,
+					api_id : SoundcloudService.SCUser.id,
+					avatar_url : SoundcloudService.SCUser.avatar_url,
+					sc_url : SoundcloudService.SCUser.permalink_url,
 					city : form.city_country.$modelValue,
 					lat : form.lat.$modelValue,
 					lng : form.lng.$modelValue,

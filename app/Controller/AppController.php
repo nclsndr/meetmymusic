@@ -103,6 +103,21 @@ class AppController extends Controller {
         }
         return false;
     }
-    
-	
+
+    protected function checkToken($token){
+        $this->loadModel('User');
+        if ($token) {
+            $count = $this->User->find('count', ['conditions'=>['User.token'=>$token]]);
+            if ($count>0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
+
+
+
 }

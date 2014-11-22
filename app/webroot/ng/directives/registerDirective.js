@@ -16,7 +16,7 @@ mmmApp.directive('overwriteEmail', function($q) {
   };
 });
 
-mmmApp.directive('username', function($q, $timeout, UserFactory) {
+mmmApp.directive('username',['$q', '$timeout', 'UserFactory', function($q, $timeout, UserFactory) {
   return {
     require: 'ngModel',
     restrict: 'A',
@@ -40,8 +40,8 @@ mmmApp.directive('username', function($q, $timeout, UserFactory) {
         }
     }
   };
-});
-mmmApp.directive('mapsAutoComplete', function($q, $timeout, GmapService) {
+}]);
+mmmApp.directive('mapsAutoComplete',['$q', '$timeout', 'GmapService', function($q, $timeout, GmapService) {
   return {
     require: 'ngModel',
     restrict: 'A',
@@ -68,5 +68,5 @@ mmmApp.directive('mapsAutoComplete', function($q, $timeout, GmapService) {
 
     }
   };
-});
+}]);
 
