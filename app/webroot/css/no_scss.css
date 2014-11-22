@@ -1,3 +1,28 @@
 gmap{
-	
+	width: 100%;
+	display: block;
+	position: fixed;
+	z-index: 0;
+	left: 0;
+	top: 0;
+	margin: 0;
+}
+gmap.hidden {
+	opacity: 0;
+	z-index: -1000;
+}
+
+.user.login_register form input{
+	width: 90%;
+	padding: 0 5%;;
+}
+
+form .form_error{
+	color: #FFF;
+	background: #BA000F;
+	font-size: .8rem;
+	display: block;
+	width: 100%;
+	padding: .4rem .6rem;
+	margin-top: 2px;;
 }

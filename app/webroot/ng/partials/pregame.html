@@ -10,7 +10,7 @@
         <div class="preGameContainer">
 
             <div id='qrCode'>
-                <img ng-src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data={{me.token}}" alt="qrCode">
+                <img ng-src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data={{ui.mobileUrl}}{{me.token}}" alt="qrCode">
                 <span>Scan the QR code above<br>to control
                 the application with your smartphone.</span>
             </div>

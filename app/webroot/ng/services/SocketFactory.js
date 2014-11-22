@@ -6,3 +6,10 @@ function (socketFactory) {
 	});
 	return mySocket;
 }]);
+
+// mmmApp.factory('SiO', ['socketFactory', function(socketFactory){
+// 	var Factory = {
+// 		init:function()
+// 	};
+// 	return Factory;
+// }]);

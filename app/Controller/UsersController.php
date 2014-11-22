@@ -84,6 +84,47 @@ class UsersController extends AppController
 		return true;
 	}
 
+	public function getpeerbytoken(){
+		$return = ['error'=>true];
+		if (!empty($this->request->data)) {
+			$values = $this->request->data;
+			$res = $this->User->find('first', ['conditions'=>['User.token'=>$values['token']]]);
+			if($res){
+				return new CakeResponse(array('body' => json_encode($res)));
+			}else{
+				return new CakeResponse(array('body' => json_encode($return)));
+			}
+		}else{
+			return new CakeResponse(array('body' => json_encode('no POST')));
+		}
+	}
+
+	public function updategeoloc(){
+		$return = ['error'=>true];
+		if (!empty($this->request->data)) {
+			$values = $this->request->data;
+			
+			if ($this->checkToken($values['token'])) {
+				$this->User->id = $values['id'];
+				$toStore = ['User'=>
+					[
+						'lat'=> $values['lat'],
+						'lng'=>$values['lng']
+					]
+				];
+				$res = $this->User->save($toStore, false, ['lat', 'lng']);
+				if($res){
+					$return = ['error'=>false];
+					return new CakeResponse(array('body' => json_encode($return)));
+				}else{
+					return new CakeResponse(array('body' => json_encode($return)));
+				}
+			}
+			
+		}else{
+			return new CakeResponse(array('body' => json_encode('no POST')));
+		}
+	}
 
 	public function edit($id=null){
 
@@ -114,13 +155,14 @@ class UsersController extends AppController
 					'role'    => 'user',
 					'mail'    => $data['mail'],
 					'avatar_url' => $data['avatar_url'],
+					'sc_url' => $data['sc_url'],
 					'lat' => $data['lat'],
 					'lng' => $data['lng'],
 					'is_geoloc'=>$data['is_geoloc'],
 					'city' => $data['city']
 				);
 
-				if ($this->User->save($dataToStore, false, array('api_id', 'username', 'role', 'mail', 'avatar_url', 'lat', 'lng', 'is_geoloc', 'city'))) {
+				if ($this->User->save($dataToStore, false, array('api_id', 'username', 'role', 'mail', 'avatar_url', 'sc_url', 'lat', 'lng', 'is_geoloc', 'city'))) {
 					$UID = [];
 					$UID['user_id'] = $this->User->id;
 					$user = $this->generateToken($UID);

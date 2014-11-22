@@ -24,11 +24,19 @@ io.on('connection', function(socket){
 
 	// Routine de passage TWIN ONLY
 	socket.on('twin', function(data){
+<<<<<<< HEAD
 		io.to(data.token).emit('twin', data.msg);
 	});
 	// Routine de passage PEER
 	socket.on('peer', function(data){
 		io.to(data.finalToken).emit('peer', data.msg);
+=======
+		io.to(data.token).emit('twin', data.obj);
+	});
+	// Routine de passage PEER
+	socket.on('peer', function(data){
+		io.to(data.finalToken).emit('peer', data.obj);
+>>>>>>> init-app-socket
 	});
 	socket.on('disconnect', function(token) {
       console.log('a user disconnect : ', token);

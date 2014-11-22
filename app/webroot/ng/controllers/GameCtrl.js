@@ -3,6 +3,7 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 		
 		$scope.me = UserFactory.User;
 		$scope.tcProgress = 0;
+		
 		$scope.trackId = SoundcloudService.choosenTrackId;
 
 

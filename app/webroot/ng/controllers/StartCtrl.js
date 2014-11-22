@@ -1,5 +1,5 @@
-mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q','$scope', '$location', 'GmapService',
-	function (NotificationFactory, UserFactory, SoundcloudService, $q, $scope, $location, GmapService) {
+mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q','$scope', '$location', 'GmapService', 'SocketFactory',
+	function (NotificationFactory, UserFactory, SoundcloudService, $q, $scope, $location, GmapService, SocketFactory) {
 
 		SoundcloudService.init();
 		$scope.SC = {};
@@ -11,11 +11,6 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 			displayRegister : false
 		};
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> f4ee9627c700912efae9cb7d9ae10e4c2695083c
 		var isGeoloc = false, location = null;
 
 		UserFactory.geolocation()
@@ -33,7 +28,6 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 			SoundcloudService.connect()
 				.then(function(data){
 					var SCUser = data;
-
 					UserFactory.hasAccount(data.id)
 						.then(function(dataSuccess){
 							if (dataSuccess.hasNoAccount) {
@@ -46,7 +40,6 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 												console.log(results[4].formatted_address);
 												$scope.city_country = results[4].formatted_address;
 												// $scope.register.city.$setViewValue(results[4].formatted_address);
-												console.log($scope.register);
 											},
 											function(msg){
 												NotificationFactory.add(msg, 'error');
@@ -59,21 +52,25 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 								$scope.ui.SCBtState = 'fadeOut';
 								$scope.ui.displayRegister = true;
 
-								$scope.api_id = SCUser.id;
-								$scope.avatar_url = SCUser.avatar_url;
 								$scope.ui.avatar_url = SCUser.avatar_url;
 								$scope.username = SCUser.username;
 							}else{
 								if (isGeoloc) {
-									UserFactory.updateGeoloc();
+									UserFactory.updateGeoloc().then(
+										function(dataSuccess){
+											NotificationFactory.add('your geolocation is updated');
+										}
+									);
 								}
+								SocketFactory.emit('initTwins', dataSuccess.token);
+								console.log();
 								NotificationFactory.add('You are logged', 'success');
 								$location.path('/dashboard');
 								// REDIRECT TO DASHBOARD
 							}
 						},
 						function(data, status){
-							NotificationFactory.add('There is a problem to log in', 'success');
+							NotificationFactory.add('There is a problem to log in', 'error');
 						});
 				});
 		};
@@ -82,8 +79,9 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 			if ($scope.register.$valid) {
 				var form = $scope.register;
 				var toStore = {
-					api_id : form.api_id.$modelValue,
-					avatar_url : form.avatar_url.$modelValue,
+					api_id : SoundcloudService.SCUser.id,
+					avatar_url : SoundcloudService.SCUser.avatar_url,
+					sc_url : SoundcloudService.SCUser.permalink_url,
 					city : form.city_country.$modelValue,
 					lat : form.lat.$modelValue,
 					lng : form.lng.$modelValue,
@@ -97,6 +95,7 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 					.then(
 					function (data){
 						NotificationFactory.add('You are logged', 'success');
+						SocketFactory.emit('initTwins', data.token);
 						$location.path('/dashboard');
 					}, function (msg){
 						console.log('error : ',msg);

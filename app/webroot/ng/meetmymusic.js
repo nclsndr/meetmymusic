@@ -14,7 +14,7 @@ mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider', '$
     var partialsF = 'http://mmm.nclsndr.fr/ng/partials';
     var mbPartialsF = 'http://mmm.nclsndr.fr/ng/mb_partials';
 
-    if (window.location.pathname == '/mobile/' || window.location.pathname == '/mobile') {
+    if (window.location.pathname.search('/mobile/')>-1) {
         $routeProvider
         .when('/', {
             templateUrl: mbPartialsF+'/start.html',

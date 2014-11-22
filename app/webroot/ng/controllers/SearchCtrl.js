@@ -20,11 +20,17 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 			else {
 				SoundcloudService.search(searchQ).then(function(data){
 					$scope.SC.songList = data;
+<<<<<<< HEAD
 					// console.log('search');
 					// console.log(data);
+=======
+					console.log('search');
+					console.log(data);
+>>>>>>> init-app-socket
 				});
 			}
 		};
+
 
 		$scope.getFavoritesTracks = function(){
 			SoundcloudService.getFavoritesTracks().then(function(data){
@@ -33,6 +39,7 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 			});
 		};
 		
+<<<<<<< HEAD
 		$scope.getHotTracks = function(){
 			SoundcloudService.getHotTracks().then(function(data){
 				$scope.SC.hotTracks = data;
@@ -45,6 +52,8 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 			SoundcloudService.chooseTrack($scope.idTemp);
 			$window.location.href= 'http://mmm.nclsndr.fr:3000/#/pregame';
 		};
+=======
+>>>>>>> init-app-socket
 
 		$scope.cancelSelection = function(){
 			var bg = document.getElementById('popInValidateBg');
@@ -60,6 +69,7 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 				content.classList.remove('zoomOut');
 			}, 500)
 		};
+
 
 		$scope.openPopIn = function(id,title,cover,duration){
 			$scope.idTemp = id;

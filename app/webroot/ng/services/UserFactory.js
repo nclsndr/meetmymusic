@@ -1,9 +1,15 @@
-mmmApp.factory('UserFactory', ['$http', '$location', '$q', 'LSFactory',
-function ($http, $location, $q, LSFactory) {
+mmmApp.factory('UserFactory', ['$http', '$location', '$q', 'LSFactory', 'SocketFactory',
+function ($http, $location, $q, LSFactory, SocketFactory) {
 	var Factory = {
 
 		User: {},
+		Peer:{},
 		location : {},
+		token : {
+			both : false,
+			me : false,
+			peer:false
+		},
 
 		// login:function(params){
 		// 	var deferred = $q.defer();
@@ -19,12 +25,16 @@ function ($http, $location, $q, LSFactory) {
 		// 	return deferred.promise;
 		// },
 
+		set:function(user){
+			Factory.User = user;
+			Factory.token.me = user.token;
+		},
 		register:function(params){
 			var deferred = $q.defer();
 			var url = 'http://mmm.nclsndr.fr/users';
 			$http({method:'POST', data:params, url:url})
 				.success(function(data, status){
-					Factory.User = data;
+					Factory.set(data);
 					deferred.resolve(data);
 				})
 				.error(function(data, status){
@@ -52,7 +62,7 @@ function ($http, $location, $q, LSFactory) {
 			$http({method:'POST', data:api_id, url:url})
 				.success(function(data, status){
 					if (!data.hasNoAccount) {
-						Factory.User = data;
+						Factory.set(data);
 						LSFactory.set('User', data);
 					}
 					deferred.resolve(data);
@@ -72,7 +82,7 @@ function ($http, $location, $q, LSFactory) {
 			$http({method:'POST', data:req, url:url})
 				.success(function(data, status){
 					if (data.usernameExist) {
-						Factory.User = data;
+						// Factory.set(data);
 						var res = {user:true};
 						deferred.resolve(res);
 					}else{
@@ -87,8 +97,45 @@ function ($http, $location, $q, LSFactory) {
 			return deferred.promise;
 		},
 
-		geolocation:function(){
+		getPeer:function(finalToken){
+			var peerToken = Factory.getPeerToken(finalToken);
 
+			// Use for debug
+			// var peerToken = finalToken;
+
+			var deferred = $q.defer();
+			var req = {token:peerToken};
+			var url = 'http://mmm.nclsndr.fr/users/getpeerbytoken';
+
+			$http({method:'POST', data:req, url:url})
+				.success(function(dataSuccess, status){
+					Factory.setPeer(dataSuccess.User);
+					deferred.resolve(dataSuccess.User);
+				})
+				.error(function(data, status){
+					var error = {'error':true, 'obj': data};
+					deferred.reject(error);
+				});
+			return deferred.promise;
+		},
+		setPeer:function(peer){
+			if (peer) {
+				Factory.Peer = peer;
+			}
+		},
+		getPeerToken:function(finalToken){
+			var splited = finalToken.split('_');
+			if (splited.length == 2) {
+				if (splited[0]==Factory.token.me) {
+					Factory.token.peer = splited[1];
+					return splited[1];
+				}else{
+					Factory.token.peer = splited[0];
+					return splited[0];
+				}	
+			}
+		},
+		geolocation:function(){
 			var deferred = $q.defer();
 
 			if (navigator.geolocation) {
@@ -112,8 +159,27 @@ function ($http, $location, $q, LSFactory) {
 		},
 
 		updateGeoloc:function(){
-			Factory.User.lat = Factory.location.lat;
-			Factory.User.lng = Factory.location.lng;
+			var deferred = $q.defer();
+			if (Factory.location.lat && Factory.location.lng) {
+				Factory.User.lat = Factory.location.lat;
+				Factory.User.lng = Factory.location.lng;
+			}
+			var req = {
+				id:Factory.User.id,
+				token:Factory.User.token,
+				lat : Factory.User.lat,
+				lng : Factory.User.lng,
+			};
+			var url = 'http://mmm.nclsndr.fr/users/updategeoloc';
+			$http({method:'POST', data:req, url:url})
+				.success(function(data, status){
+					deferred.resolve(data);
+				})
+				.error(function(data, status){
+					var error = {'error':true}
+					deferred.reject(error);
+				});
+			return deferred.promise;
 		}
 
 	}
