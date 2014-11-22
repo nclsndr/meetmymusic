@@ -5,6 +5,9 @@ mmmApp.directive('musicbar', ['SoundcloudService', function (SoundcloudService){
         template : '<div class="timeCodeContainer"><span id="tcProgress">{{tcProgressConvert}}</span> / <span id="tcTotal">{{tcTotalConvert}}</span></div><div id="musicBar" class="animated zoomIn"><div id="musicBarCursor"></div></div>',
         
         link: function(scope, element, attrs) {
+            console.log('--------element--------');
+            console.log(element);
+                
             scope.setWidth = function(w) {
                 document.getElementById('musicBarCursor').style.width = w;
             };

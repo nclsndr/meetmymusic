@@ -21,6 +21,7 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 		SoundcloudService.getTrackInfo()
 		.then(
 			function(data){
+				console.log('-------data-------');
 				console.log(data);
 				$scope.trackChoosen = data;
 				// $scope.$apply(function(){
