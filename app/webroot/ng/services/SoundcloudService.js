@@ -174,6 +174,19 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 			return deferred.promise;
 		}
 
+		this.getTrackList = function(tracksIds){
+			if (!tracksIds) return false;
+
+			var deferred = $q.defer();
+			self.isDefine(function(){
+				self.SC.get("/tracks/",{ids:tracksIds}, function(tracks){
+					deferred.resolve(tracks);
+				});	
+			});
+			// deferred.reject('impossible de finaliser');
+			return deferred.promise;
+		}
+
 		// ———————————————————————————————————————
 		this.getTrackInfo=function(){
 			var deferred = $q.defer();
@@ -202,8 +215,10 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		}
 
 		this.getLargeArtwork = function(artwork_url){
-			var large = artwork_url.replace('-large.jpg', '-t500x500.jpg');
-			return large;
+			if (artwork_url != '' && artwork_url) {
+				var large = artwork_url.replace('-large.jpg', '-t500x500.jpg');
+				return large;
+			}
 		}
 
 		

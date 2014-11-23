@@ -8,7 +8,9 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 			registerState : 'fadeOut',
 			msgRegisterState : 'hide',
 			bgHeight : window.innerHeight,
-			displayRegister : false
+			displayRegister : false,
+			validateMessage : false,
+			showCreateAccount : true,
 		};
 
 		var isGeoloc = false, location = null;
@@ -51,7 +53,8 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 								$scope.ui.msgRegisterState = 'fadeOut';
 								$scope.ui.SCBtState = 'fadeOut';
 								$scope.ui.displayRegister = true;
-
+								$scope.ui.showCreateAccount = false;
+								$scope.ui.validateMessage = false;
 								$scope.ui.avatar_url = SCUser.avatar_url;
 								$scope.username = SCUser.username;
 							}else{
@@ -108,6 +111,9 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 		$scope.showRegister = function(){
 			$scope.ui.loginState = 'fadeOut';
 			$scope.ui.msgRegisterState = 'fadeIn';
+			$scope.ui.validateMessage = 'fadeIn';
+			$scope.ui.showCreateAccount = false;
+			alert($scope.ui.showCreateAccount);
 		}
 
 

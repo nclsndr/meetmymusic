@@ -1,5 +1,5 @@
 mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q', '$location','$window', '$scope','$http', 'GmapService',
-	function (NotificationFactory, UserFactory, SoundcloudService, $q, $location, $window, $scope,$http, GmapService,QrFactory) {
+	function (NotificationFactory, UserFactory, SoundcloudService, $q, $location, $window, $scope,$http, GmapService) {
 
 		if (UserFactory.isNotLogged()) {
 			NotificationFactory.add('You are not logged', 'error');
@@ -30,7 +30,7 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 
 		// CALL SC CONNECT ONCE
 		SoundcloudService.isDefine(function(){
-			SoundcloudService.getFavoritesTracks().then(function(data){
+			SoundcloudService.getFavoritesTracks(40).then(function(data){
 				$scope.SC.favList = data;
 				// console.log(data);
 			});
