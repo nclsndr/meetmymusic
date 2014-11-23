@@ -8,10 +8,14 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 		$scope.ui = {
 			bgHeight : window.innerHeight
 		};
+
 		$scope.me = UserFactory.User;
 		$scope.SC = {};
 		$scope.popin = false;
 		$scope.timecode = '00:00';
+		$scope.selectedTrack = {};
+		$scope.hidePopInValidate = true;
+		$scope.popInValidateClose = false;
 
 		$scope.searchSC = function(searchQ){
 			if(searchQ==='') {
@@ -20,7 +24,6 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 			else {
 				SoundcloudService.search(searchQ).then(function(data){
 					$scope.SC.songList = data;
-
 				});
 			}
 		};
@@ -29,53 +32,51 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 		SoundcloudService.isDefine(function(){
 			SoundcloudService.getFavoritesTracks().then(function(data){
 				$scope.SC.favList = data;
-				console.log(data);
+				// console.log(data);
 			});
 			SoundcloudService.getHotTracks().then(function(data){
 				$scope.SC.hotTracks = data;
-				console.log(data);
+				// console.log(data);
 			});
 		});
 
 		$scope.validateSelection = function(){
-			console.log($scope.idTemp);
-			SoundcloudService.chooseTrack($scope.idTemp);
-			$window.location.href= 'http://mmm.nclsndr.fr:3000/#/pregame';
+			if ($scope.selectedTrack.id) {
+				SoundcloudService.setMeTrackId($scope.selectedTrack.id, 
+				function(){
+					$location.path('/pregame');
+				});
+			}
 		};
-
 
 		$scope.cancelSelection = function(){
-			var bg = document.getElementById('popInValidateBg');
-			var content = document.getElementById('popInValidateContent');
-			bg.classList.add('fadeOut');
-			content.classList.add('zoomOut');
-				
+			$scope.selectedTrack = {};
+
+			$scope.popinValidateClose = true;
+
 			setTimeout(function() {
-				$scope.popin = false;
-				bg.style.display = 'none';
-				content.style.display = 'none';
-				bg.classList.remove('fadeOut');
-				content.classList.remove('zoomOut');
-			}, 500)
+				$scope.hidePopInValidate = true;
+				$scope.popinValidateClose = false;
+			}, 400);
 		};
 
-
 		$scope.openPopIn = function(id,title,cover,duration){
-			$scope.idTemp = id;
-			var bg = document.getElementById('popInValidateBg');
-			var content = document.getElementById('popInValidateContent');
-			$scope.timecode = SoundcloudService.setTimeCode(duration);
+			$scope.selectedTrack.id = id;
+			
+			$scope.hidePopInValidate = false;
+			$scope.popInValidateClose = false;
+
+			$scope.selectedTrack.timecode = SoundcloudService.setTimeCode(duration);
+			
 			if(cover){
-				$scope.coverSelected = cover;
+				$scope.selectedTrack.artwork = cover;
 			}
 			else {
-				$scope.coverSelected = 'http://mmm.nclsndr.fr/img/app/noPicture.jpg';
+				$scope.selectedTrack.artwork = 'http://mmm.nclsndr.fr/img/app/noPicture.jpg';
 			}
-			$scope.titleSelected = title;
+			$scope.selectedTrack.title = title;
 
-			bg.style.display = 'block';
-			content.style.display = 'block';
-			$scope.popin = true;
+			$scope.popinValidate = true;
 			// console.log('id = ' + id + ' title = ' + title +' cover = ' +  cover + ' duration = ' + duration );
 		};
 		

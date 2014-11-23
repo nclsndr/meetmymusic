@@ -11,33 +11,44 @@ io.on('connection', function(socket){
 
 	socket.on('initTwins', function(token){
 		mmm.init(socket,token);
-		io.to(token).emit('msg', 'return success');
+		io.to(token).emit('confirmInitTwins', 'initOk');
 	});
 	socket.on('setTwins', function(token){
 		mmm.twins.set(socket,token);
-		io.to(token).emit('mobileTwin', 'twinsOk');
+		io.to(token).emit('confirmSetTwins', 'twinsOk');
 	});
 	socket.on('setSolo', function(token){
 		mmm.solo.add(socket, token);
-		io.to(token).emit('msg', 'soloOk');
+		io.to(token).emit('confirmSetSolo', 'soloOk');
 	});
+
+	
+
+	// Routine de passage multi-duplex
+	socket.on('mmmRouter', function(stored){
+		console.log('mmmRouter : ', stored.ev);
+		io.to(stored.to).emit(stored.ev, stored.data);
+	});
+	// EX :
+	// var store = {
+	// 	to : UserFactory.token.peer,
+	// 	ev : 'setForeignTrack',
+	// 	data : {
+	// 		trackId : SoundcloudService.foreignTrackId
+	// 	}
+	// };
+	// SocketFactory.emit('mmmRouter', store);
+	
 
 	// Routine de passage TWIN ONLY
 	socket.on('twin', function(data){
-<<<<<<< HEAD
 		io.to(data.token).emit('twin', data.msg);
 	});
 	// Routine de passage PEER
 	socket.on('peer', function(data){
 		io.to(data.finalToken).emit('peer', data.msg);
-=======
-		io.to(data.token).emit('twin', data.obj);
 	});
-	// Routine de passage PEER
-	socket.on('peer', function(data){
-		io.to(data.finalToken).emit('peer', data.obj);
->>>>>>> init-app-socket
-	});
+
 	socket.on('disconnect', function(token) {
       console.log('a user disconnect : ', token);
       // console.log('users Object : ',mmm.usersObj);
@@ -136,6 +147,10 @@ var mmm = {
 			if (mmm.pendings.length>1) {
 
 				var finalToken = mmm.pendings[0]+'_'+mmm.pendings[1];
+
+				console.log('completed : ', finalToken);
+				console.log('pendings before peer : ', mmm.pendings);
+
 				var user1_D = mmm.usersObj[mmm.pendings[0]+'_D'];
 				user1_D.join(finalToken);
 
@@ -153,8 +168,9 @@ var mmm = {
 				mmm.pendings.shift();
 				mmm.pendings.shift();
 				mmm.peers.add(finalToken);
-				console.log('completed');
-				io.to(finalToken).emit('finalToken', finalToken);
+				
+				// io.to(finalToken).emit('finalToken', finalToken);
+				io.sockets.in(finalToken).emit('finalToken', finalToken);
 			}
 		}
 	}

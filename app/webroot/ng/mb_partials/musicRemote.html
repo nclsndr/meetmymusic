@@ -13,7 +13,7 @@
             <img class="animated zoomIn flash pictoFeedBack" src="http://mmm.nclsndr.fr/img/app/validateMobile.png" alt="Add To Friends">
         </div>
         <p>An invitation has been sent to
-            <strong>JackSparrow</strong>!</p>
+            <strong>{{peer.username}}</strong>!</p>
     </div>
 
     <!-- PASS THE SONG ANIMATION -->
@@ -32,9 +32,9 @@
     <div class="step animated fadeIn" id="step3">
         <div class="otherPlayer">
             You are playing with :
-            <span>JackSparrow</span>
+            <span>{{peer.username}}</span>
             <br>From :
-            <span>Paris, France</span>
+            <span>{{peer.city}}</span>
         </div>
         <div id="albumCoverP2" class="albumCover animated fadeInDown">
             <img src="http://mmm.nclsndr.fr/img/app/albumSample2.jpg" alt="">
@@ -58,8 +58,8 @@
         <div class="timeCodeContainer">
             <span id="tcProgress">00:00</span>&nbsp;/&nbsp;<span id="tcTotal">00:00</span>
         </div>
-        <h2 id="band">Black Keys</h2>
-        <h3 id="title">Lonely Boy</h2>
+        <h2 id="band">{{track.title}}</h2>
+        <h3 id="title">{{track.user.username}}</h2>
             <div class="controlPlayer">
                 <div class="playPauseBtn">
                     <button id="playBtn"></button>

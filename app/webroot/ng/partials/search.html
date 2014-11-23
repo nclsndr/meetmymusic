@@ -1,4 +1,4 @@
-<div ng-controller="PregameCtrl" class="view">
+<div class="view">
 
     <div class="desktopContainer" id="searchPage" fullHeight>
         <dropdown></dropdown>
@@ -9,9 +9,9 @@
             </div>
             <div id="popInValidateContent" class="animated zoomIn">
                 <h3 class="animated zoomIn">You have choosen :</h3>
-                <img class="animated fadeInUp" id="coverSelected" ng-src="{{coverSelected}}" alt="">
-                <div id="timecode">{{timecode}}</div>
-                <div id="title">{{titleSelected}}</div>
+                <img class="animated fadeInUp" id="coverSelected" ng-src="{{selectedTrack.artwork}}" alt="">
+                <div id="timecode">{{selectedTrack.timecode}}</div>
+                <div id="title">{{selectedTrack.title}}</div>
                 <div class="btnContainer">
                     <button class="ghostButton" id="confirm" ng-click="validateSelection()">
                         <span class="invert"></span>
@@ -40,7 +40,7 @@
                 <div class="songRecapHalf songYouLike">
                     <h2>Songs you liked :</h2>
                     <div class="greySep"></div>
-                    <ul>
+                    <ul class="songList">
                         <li ng-repeat="fav in SC.favList" ng-click="openPopIn(fav.id,fav.title,fav.artwork_url,fav.duration)">
                             <img ng-src="{{fav.artwork_url}}" class="albumCover">
                             <div class="description">
@@ -49,13 +49,6 @@
                                 </div>
                                 <tc duration="{{fav.duration}}">
                             </div>
-                            <div class="validate">
-                                <svg>
-                                    <circle fill="none" stroke-miterlimit="10" cx="19.5" cy="19.5" r="18.8" />
-                                    <path fill="none" stroke-miterlimit="10" d="M8,19.6" />
-                                    <polyline fill="none" stroke-miterlimit="10" points="13.2,19.5 19.4,25.7 26.9,12.9 " />
-                                </svg>
-                            </div>
                             <div class="clear"></div>
                         </li>
                     </ul>
@@ -63,7 +56,7 @@
                 <div class="songRecapHalf songYouReposted">
                     <h2>Hot Tracks :</h2>
                     <div class="greySep"></div>
-                    <ul>
+                    <ul class="songList">
                         <li ng-repeat="hotTrack in SC.hotTracks" ng-click="openPopIn(hotTrack.id,hotTrack.title,hotTrack.artwork_url,hotTrack.duration)">
                             <img ng-src="{{hotTrack.artwork_url}}" class="albumCover">
                             <div class="description">
@@ -71,13 +64,6 @@
                                     {{hotTrack.title}}
                                 </div>
                                 <tc duration="{{hotTrack.duration}}">
-                            </div>
-                            <div class="validate">
-                                <svg>
-                                    <circle fill="none" stroke-miterlimit="10" cx="19.5" cy="19.5" r="18.8" />
-                                    <path fill="none" stroke-miterlimit="10" d="M8,19.6" />
-                                    <polyline fill="none" stroke-miterlimit="10" points="13.2,19.5 19.4,25.7 26.9,12.9 " />
-                                </svg>
                             </div>
                             <div class="clear"></div>
                         </li>

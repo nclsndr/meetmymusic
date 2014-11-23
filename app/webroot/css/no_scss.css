@@ -1,3 +1,7 @@
+.hidden{
+	display: none;
+}
+
 gmap{
 	width: 100%;
 	display: block;
@@ -52,3 +56,18 @@ form .form_error{
 .notifications_container ul li.error {
   background: #e40151;
 }
+
+.loadPeer{
+	position: relative;
+	width: 100%;
+	margin-top: 20rem;
+	text-align: center;
+}
+.loadPeer h3{
+	color: #FFF;
+}
+
+
+
+
+

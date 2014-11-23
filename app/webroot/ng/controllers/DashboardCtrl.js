@@ -9,25 +9,31 @@ mmmApp.controller('DashboardCtrl', ['NotificationFactory', 'UserFactory', 'Sound
 			bgHeight : window.innerHeight
 		};
 		$scope.me = UserFactory.User;
+		$scope.SC = {};
 
-		$scope.dropdown = function() {
-			var dropdownUser = document.getElementsByClassName('dropdownUser')[0];
-            var userOption = document.getElementById('userOption');
-            var dropDownIcon = document.getElementById('dropDownIcon');
-	    	if(!dropdownUser.classList.contains('visible')){
-                dropdownUser.classList.add("visible");
-                dropdownUser.classList.remove("fadeOutUp");
-                dropDownIcon.classList.add("rotate");
-            }
-            else {
-                dropdownUser.classList.add("fadeOutUp");
-                setTimeout(function() {
-                    dropdownUser.classList.remove("visible");
-                    dropdownUser.classList.add("fadeOutUp");
-                    dropDownIcon.classList.remove("rotate");
-                }, 700) 
-            }
-		}
+		$scope.hideFriendList = true;
+		$scope.frienListClose = true;
+
+		$scope.toggleFriendList = function() {
+			if($scope.frienListClose == true) {
+				$scope.hideFriendList = false;
+				$scope.frienListClose = false;
+			}
+			else {
+				$scope.frienListClose = true;
+
+				setTimeout(function() {
+					$scope.hideFriendList = true;
+				}, 400);
+			}
+		};
+
+		SoundcloudService.isDefine(function(){
+			SoundcloudService.getFavoritesTracks().then(function(data){
+				$scope.SC.favList = data;
+				console.log(data);
+			});
+		});
 
 		// console.log(google);
 		console.log(UserFactory.User);

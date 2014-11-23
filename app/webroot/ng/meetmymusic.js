@@ -16,11 +16,11 @@ mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider', '$
 
     if (window.location.pathname.search('/mobile/')>-1) {
         $routeProvider
+        // .when('/', {
+        //     templateUrl: mbPartialsF+'/start.html',
+        //     controller: 'MbStartCtrl'
+        // })
         .when('/', {
-            templateUrl: mbPartialsF+'/start.html',
-            controller: 'MbStartCtrl'
-        })
-        .when('/songSelected', {
             templateUrl: mbPartialsF+'/songSelected.html',
             controller: 'MbSongSelectedCtrl'
         })
