@@ -27,8 +27,6 @@ mmmApp.directive('gmap', ['GmapService', 'UserFactory', function(GmapService, Us
 				var res = GmapService.initDraw(elmt[0].children[0], lat, lng, zoom);
 				// console.log(res);
 				GmapService.setMarker('me',lat, lng, false);
-				GmapService.setMarker('djsdh',45.766, 22.89);
-				GmapService.autoCenter();
 			}
 	    }]
 	}

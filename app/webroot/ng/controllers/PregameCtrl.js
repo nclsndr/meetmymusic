@@ -56,6 +56,7 @@ mmmApp.controller('PregameCtrl', ['NotificationFactory', 'UserFactory', 'Soundcl
 
 					GmapService.setMarker('peer',UserFactory.Peer.lat, UserFactory.Peer.lng);
 
+					GmapService.autoCenter();
 
 					var store = {
 						to : UserFactory.token.peer,

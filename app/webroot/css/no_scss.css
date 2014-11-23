@@ -69,5 +69,89 @@ form .form_error{
 
 
 
+.refreshBt{
+	animation: infinite_rotation linear 2s;
+	animation-fill-mode:forwards; /*when the spec is finished*/
+	-webkit-animation-fill-mode:forwards; /*Chrome 16+, Safari 4+*/ 
+	-moz-animation-fill-mode:forwards; /*FF 5+*/
+	-o-animation-fill-mode:forwards; /*Not implemented yet*/
+	-ms-animation-fill-mode:forwards; /*IE 10+*/
+	transform-origin: 50% 50%;
+	-webkit-animation: infinite_rotation linear 2s;
+	-webkit-transform-origin: 50% 50%;
+	-moz-animation: infinite_rotation linear 2s;
+	-moz-transform-origin: 50% 50%;
+	-o-animation: infinite_rotation linear 2s;
+	-o-transform-origin: 50% 50%;
+	-ms-animation: infinite_rotation linear 2s;
+	-ms-transform-origin: 50% 50%;
+	-moz-animation-iteration-count: infinite;
+	-o-animation-iteration-count: infinite;
+	-ms-animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-play-state: paused; 
+	-moz-animation-play-state: paused; 
+	-o-animation-play-state: paused; 
+	-ms-animation-play-state: paused; 
+    animation-play-state: paused;
+}
+
+.infinite_rotate{
+
+	-webkit-animation-play-state: running; 
+	-moz-animation-play-state: running; 
+	-o-animation-play-state: running; 
+	-ms-animation-play-state: running; 
+    animation-play-state: running;
+  
+}
+
+@keyframes infinite_rotation{
+  0% {
+    transform:  rotate(0deg) ;
+  }
+  100% {
+    transform:  rotate(360deg) ;
+  }
+}
+
+@-moz-keyframes infinite_rotation{
+  0% {
+    -moz-transform:  rotate(0deg) ;
+  }
+  100% {
+    -moz-transform:  rotate(360deg) ;
+  }
+}
+
+@-webkit-keyframes infinite_rotation {
+  0% {
+    -webkit-transform:  rotate(0deg) ;
+  }
+  100% {
+    -webkit-transform:  rotate(360deg) ;
+  }
+}
+
+@-o-keyframes infinite_rotation {
+  0% {
+    -o-transform:  rotate(0deg) ;
+  }
+  100% {
+    -o-transform:  rotate(360deg) ;
+  }
+}
+
+@-ms-keyframes infinite_rotation {
+  0% {
+    -ms-transform:  rotate(0deg) ;
+  }
+  100% {
+    -ms-transform:  rotate(360deg) ;
+  }
+}
+
+
+
 
 

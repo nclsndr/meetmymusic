@@ -21,7 +21,7 @@
  */
 
 // LOAD REST LOGIC ROUTING
-	Router::mapResources('users');
+	Router::mapResources(['users', 'tracks']);
 	Router::parseExtensions();
 
 /**

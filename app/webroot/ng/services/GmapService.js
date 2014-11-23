@@ -5,7 +5,7 @@ mmmApp.service('GmapService',['$http', '$q', '$rootScope',
 		this.isInit = false;
 		this.DomElm = null;
 		this.DrawObj = null;
-		this.markers = [];
+		this.markers = {};
 
 		this.mapLayer = [
 			{
@@ -69,13 +69,21 @@ mmmApp.service('GmapService',['$http', '$q', '$rootScope',
 				zoom: zoom,
 				center: new self.Map.LatLng(lat,lng),
 				backgroundColor : '#222',
-				disableDefaultUI : true,
+				// disableDefaultUI : true,
 				disableDoubleClickZoom : true,
 				minZoom : 3,
+				styles : self.mapLayer,
 				panControl : false,
 				rotateControl : false,
 				streetViewControl : false,
-				styles : self.mapLayer
+
+				mapTypeControl : false,
+				zoomControl : true,
+				zoomControlOptions : {
+					position : self.Map.ControlPosition.RIGHT_CENTER,
+					style : self.Map.ZoomControlStyle.SMALL
+				},
+				scrollwheel : false
 			};
 
 			self.DrawObj = new self.Map.Map(DomElm,
@@ -87,20 +95,46 @@ mmmApp.service('GmapService',['$http', '$q', '$rootScope',
 			$rootScope.hiddenMap = bool;
 		}
 
-		this.setMarker = function(lat, lng, cursor){
-			if (cursor===false) {
+		this.setMarker = function(name, lat, lng, cursor){
+			if (cursor===false || typeof cursor === 'undefined') {
 				cursor = 'http://mmm.nclsndr.fr/img/app/cursor.png';
 			}
+			var latN = parseFloat(lat);
+			var lngN = parseFloat(lng);
 			var marker = new self.Map.Marker({
-			    position: new self.Map.LatLng(lat,lng),
+			    position: new self.Map.LatLng(latN,lngN),
 			    map: self.DrawObj,
 			    opacity : 0.8,
 			    icon : cursor
 			});
-			self.markers.push(marker);
+			self.markers[name]=marker;
 			return marker;
 		}
 
+		this.setCenter = function(lat, lng){
+			var latN = parseFloat(lat);
+			var lngN = parseFloat(lng);
+			self.DrawObj.setCenter(new self.Map.LatLng(latN,lngN));
+			return true;
+		}
+
+		this.autoCenter = function(){
+			var bounds = new self.Map.LatLngBounds();
+			console.log(self.markers);
+
+			angular.forEach(self.markers, function(value, key) {
+				bounds.extend(value.getPosition());
+			});
+
+			// for (marker in self.markers) {
+			// 	if (self.markers.hasOwnProperty(marker)) {
+			// 		console.log(marker);
+			// 		// marker.getPosition()
+			// 		// 
+			// 	}
+			// }
+			self.DrawObj.fitBounds(bounds);
+		}
 		// ——————————————————————————————————  MAPS SERVICES 
 
 		this.autoComplete = function(elm){
