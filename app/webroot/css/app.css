@@ -347,6 +347,16 @@ a:hover {
   overflow: visible;
 }
 
+#background {
+  position: fixed;
+  background: url(http://mmm.nclsndr.fr/img/app/loginbg.jpg) no-repeat center fixed;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
 .user.login_register {
   background: url(http://mmm.nclsndr.fr/img/app/loginbg.jpg) no-repeat center fixed;
   background-size: cover;
@@ -972,7 +982,6 @@ a:hover {
 /* ———————————————————————————— END DASHBOARD ———————————————————————————— */
 /* --------------- PREGAME PAGE --------------- */
 #preGame {
-  background: url(http://mmm.nclsndr.fr/img/app/loginbg.jpg) no-repeat center fixed;
   background-size: cover;
   width: 100%;
   height: 100%;
@@ -991,7 +1000,7 @@ a:hover {
   max-width: 700px;
   min-width: 620px;
   display: block;
-  margin: 70px auto 0 auto;
+  margin: 55px auto 0 auto;
   position: relative;
 }
 #preGame .preGameContainer div span {
@@ -1018,7 +1027,7 @@ a:hover {
 }
 #preGame .ghostButton {
   width: 225px;
-  margin-top: 70px;
+  margin-top: 55px;
   cursor: pointer;
   font-size: 0.8rem;
 }
@@ -1314,10 +1323,10 @@ a:hover {
   margin-left: -220px;
   background: rgba(0, 0, 0, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  position: absolute;
-  top: 20%;
+  position: fixed;
+  top: 23%;
   left: 50%;
-  z-index: 1000;
+  z-index: 1001;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -ms-transition: all 0.2s ease-in-out;

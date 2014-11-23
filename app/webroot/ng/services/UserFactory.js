@@ -146,13 +146,13 @@ function ($http, $location, $q, LSFactory, SocketFactory) {
 						deferred.resolve(position);
 					},
 					function(){
-						var error = {error:'You must fill your location manually'};
+						var error = 'You must fill your location manually';
 						deferred.reject(error);
 					},
 					{enableHighAccuracy:true}
 				);
 			}else{
-				var error = {error:'Your browser doesn\'t support geolocation'};
+				var error = 'Your browser doesn\'t support geolocation';
 				deferred.reject(error);
 			}
 			return deferred.promise;

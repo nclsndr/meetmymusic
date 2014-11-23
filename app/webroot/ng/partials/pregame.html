@@ -1,7 +1,8 @@
 <div class="view">
-	<div class="desktopContainer" id="preGame" fullHeight>
+	<div class="desktopContainer" id="preGame">
 		<dropdown></dropdown>
-        
+        <div ng-class="ui.choseStack" class="animated" id="background"></div>
+
         <div ng-class="ui.choseStack" class="animated">
             <a href="http://mmm.nclsndr.fr:3000/#/search"><button class="backBtn animated fadeIn">Back</button></a>
             <div class="midHeader">
@@ -16,7 +17,7 @@
                     the application with your smartphone.</span>
                 </div>
 
-                <div id="motion" >
+                <div id="motion">
                     <video class="video-js vjs-default-skin" controls
                      preload="auto" width="391" height="219" poster="http://mmm.nclsndr.fr/img/app/motionPoster.jpg"
                      data-setup="{}">
