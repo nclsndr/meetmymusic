@@ -12,12 +12,12 @@ mmmApp.directive('musicbar', ['SoundcloudService', function(SoundcloudService) {
             };
 
             scope.updateBar = function() {
-                if (scope.tcProgress <= scope.tcTotal) {
-                    scope.tcProgressConvert = scope.setTC(scope.tcProgress);
-                    scope.tcTotalConvert = scope.setTC(scope.tcTotal);
-                    scope.cursorPercent = (scope.tcProgress * 100) / scope.tcTotal;
-                    // scope.setWidth(scope.cursorPercent+'%');
-                }
+                // if (scope.tcProgress <= scope.tcTotal) {
+                //     scope.tcProgressConvert = scope.setTC(scope.tcProgress);
+                //     scope.tcTotalConvert = scope.setTC(scope.tcTotal);
+                //     scope.cursorPercent = (scope.tcProgress * 100) / scope.tcTotal;
+                //     // scope.setWidth(scope.cursorPercent+'%');
+                // }
             }
             
             scope.updateBar();

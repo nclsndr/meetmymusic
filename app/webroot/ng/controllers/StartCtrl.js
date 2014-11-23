@@ -58,7 +58,7 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 								if (isGeoloc) {
 									UserFactory.updateGeoloc().then(
 										function(dataSuccess){
-											NotificationFactory.add('your geolocation is updated');
+											NotificationFactory.add('Your geolocation is updated');
 										}
 									);
 								}

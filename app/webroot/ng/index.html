@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <title>Meet My Music</title>
-        <link href="/favicon.ico" type="image/x-icon" rel="icon" /><link href="/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+        
         <link rel="icon" type="image/png" href="http://hengpatrick.fr/favIcon.png" />
      <!--    <link rel="stylesheet" type="text/css" href="http://mmm.nclsndr.fr/css/lib/foundation.min.css" /> -->    
         <link href="http://vjs.zencdn.net/4.10/video-js.css" rel="stylesheet">
@@ -16,10 +16,11 @@
         <link rel="stylesheet" type="text/css" href="http://mmm.nclsndr.fr/css/no_scss.css" />  
     </head>
     <body ng-app="mmmApp">
-        <div ng-controller="NotificationCtrl" class="notifications_container">
+        <div ng-controller="NotificationCtrl" notifications class="notifications_container">
         </div>
         <gmap fullheight ng-class="{hidden : hiddenMap}"></gmap>
         <div class="container">
+            <profilpopin></profilpopin>
             <div ng-view></div> 
         </div>
     <!-- <script src="/socket.io/socket.io.js"></script> -->
@@ -58,6 +59,7 @@
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/directives/DropdownDirective.js"></script>
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/directives/TimeCodeTrackDirective.js"></script>
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/directives/MusicBarDirective.js"></script>
+    <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/directives/profileDirective.js"></script>
     
     <script type="text/javascript" src="http://mmm.nclsndr.fr/ng/bower_components/angular-socket-io/socket.js"></script>
     

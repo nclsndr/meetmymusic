@@ -2,38 +2,45 @@
 	<div class="desktopContainer" id="preGame" fullHeight>
 		<dropdown></dropdown>
         
-        <a href="http://mmm.nclsndr.fr:3000/#/search"><button class="backBtn animated fadeIn">Back</button></a>
-        <div class="midHeader">
-            <h2 class="animated fadeIn">For maximum experience with the application,<br>flash this code with your smarphone.</h2>
-        </div>
-
-        <div class="preGameContainer">
-
-            <div id='qrCode'>
-                <img ng-src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data={{ui.mobileUrl}}{{me.token}}" alt="qrCode">
-                <span>Scan the QR code above<br>to control
-                the application with your smartphone.</span>
+        <div ng-class="ui.choseStack" class="animated">
+            <a href="http://mmm.nclsndr.fr:3000/#/search"><button class="backBtn animated fadeIn">Back</button></a>
+            <div class="midHeader">
+                <h2 class="animated fadeIn">For maximum experience with the application,<br>flash this code with your smarphone.</h2>
             </div>
 
-            <div id="motion" >
-                <video class="video-js vjs-default-skin" controls
-                 preload="auto" width="391" height="219" poster="http://mmm.nclsndr.fr/img/app/motionPoster.jpg"
-                 data-setup="{}">
-                 <source src="http://www.w3schools.com/html/mov_bbb.mp4" type='video/mp4'>
-                 <source src="http://www.w3schools.com/html/mov_bbb.webm" type='video/webm'>
-                 <source src="http://www.w3schools.com/html/mov_bbb.ogg" type='video/ogg'>
-                 <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
-                </video>
-                <span>Learn how to use our application <br>
-                by watching the above video.</span>
+            <div class="preGameContainer animated">
+
+                <div id='qrCode'>
+                    <img ng-src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data={{ui.mobileUrl}}{{me.token}}" alt="qrCode">
+                    <span>Scan the QR code above<br>to control
+                    the application with your smartphone.</span>
+                </div>
+
+                <div id="motion" >
+                    <video class="video-js vjs-default-skin" controls
+                     preload="auto" width="391" height="219" poster="http://mmm.nclsndr.fr/img/app/motionPoster.jpg"
+                     data-setup="{}">
+                     <source src="http://www.w3schools.com/html/mov_bbb.mp4" type='video/mp4'>
+                     <source src="http://www.w3schools.com/html/mov_bbb.webm" type='video/webm'>
+                     <source src="http://www.w3schools.com/html/mov_bbb.ogg" type='video/ogg'>
+                     <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+                    </video>
+                    <span>Learn how to use our application <br>
+                    by watching the above video.</span>
+                </div>
+                <div class="clear"></div>
             </div>
-            <div class="clear"></div>
+            <a href="http://mmm.nclsndr.fr:3000/#/game" class="ghostButton">
+                <span class="invert"></span>
+                <span ng-click="solo()" class="text">Continue without a phone</span>
+            </a>
+            <div class="clear"></div>   
         </div>
-        <a href="http://mmm.nclsndr.fr:3000/#/game" class="ghostButton">
-            <span class="invert"></span>
-            <span ng-click="solo()" class="text">Continue without a phone</span>
-        </a>
-        <div class="clear"></div>
+
+        <div ng-class="ui.loadPeer" class="animated loadPeer">
+            <h3>We are looking for a user to play with you</h3>
+        </div>
+        
 	</div>
 </div>
 

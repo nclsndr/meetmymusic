@@ -1,7 +1,9 @@
+<profilpopin></profilpopin>
+
 <div class="dashboard dashboardPage" fullheight>
     <div class="dashboardContainer">
         <dropdown></dropdown>
-
+        
         <aside>
             <div class="topAside">
                 <img class="" src="http://mmm.nclsndr.fr/img/app/refreshPicto.png" width="24" height="24" alt="refresh">
@@ -11,8 +13,7 @@
                 <h3>Last song listened</h3>
                 <img src="http://placekitten.com/g/200/200" width="55" height="55" alt="album cover">
                 <div class="asideElemTxt">
-                    <div class="songTitle">Born to die</div>
-                    <div class="artist">Lana Del Ray</div>
+                    <div class="songTitle"><span>Born to die</span></div>
                     <div class="time"><span>6 minutes</span> ago</div>
                 </div>
                 <div class="clear"></div>
@@ -21,64 +22,17 @@
                 <h3>Last friend added</h3>
                 <img src="http://mmm.nclsndr.fr/img/app/avatarSample.png" width="55" height="55" alt="album cover">
                 <div class="asideElemTxt">
-                    <div class="friendName">Jack Sparrow</div>
+                    <div class="songTitle"><span>Lana Del ray</span></div>
                     <div class="time"><span>11 minutes</span> ago</div>
                 </div>
                 <div class="clear"></div>
             </div>
-            <div class="asideElem">
+            <div class="asideElem" id="musicYouLiked">
                 <h3>Musics that you liked</h3>
-                <div class="asideElem" id="lastSongPlayed">
-                    <img src="http://placekitten.com/g/200/200" width="55" height="55" alt="album cover">
+                <div class="asideElem" ng-repeat='fav in SC.favList'>
+                    <a href="{{fav.permalink_url}}" target="_blank"><img ng-src="{{fav.artwork_url}}" width="55" height="55" alt="album cover"></a>
                     <div class="asideElemTxt">
-                        <div class="songTitle">Born to die</div>
-                        <div class="artist">Lana Del Ray</div>
-                        <div class="time"><span>6 minutes</span> ago</div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                <div class="asideElem" id="lastSongPlayed">
-                    <img src="http://placekitten.com/g/200/200" width="55" height="55" alt="album cover">
-                    <div class="asideElemTxt">
-                        <div class="songTitle">Little black submarines</div>
-                        <div class="artist">Black Keys</div>
-                        <div class="time"><span>30 minutes</span> ago</div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                 <div class="asideElem" id="lastSongPlayed">
-                    <img src="http://placekitten.com/g/200/200" width="55" height="55" alt="album cover">
-                    <div class="asideElemTxt">
-                        <div class="songTitle">Born to die</div>
-                        <div class="artist">Lana Del Ray</div>
-                        <div class="time"><span>50 minutes</span> ago</div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                <div class="asideElem" id="lastSongPlayed">
-                    <img src="http://placekitten.com/g/200/200" width="55" height="55" alt="album cover">
-                    <div class="asideElemTxt">
-                        <div class="songTitle">Little black submarines</div>
-                        <div class="artist">Black Keys</div>
-                        <div class="time"><span>2 hours</span> ago</div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                 <div class="asideElem" id="lastSongPlayed">
-                    <img src="http://placekitten.com/g/200/200" width="55" height="55" alt="album cover">
-                    <div class="asideElemTxt">
-                        <div class="songTitle">Born to die</div>
-                        <div class="artist">Lana Del Ray</div>
-                        <div class="time"><span>1 day</span> ago</div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                <div class="asideElem" id="lastSongPlayed">
-                    <img src="http://placekitten.com/g/200/200" width="55" height="55" alt="album cover">
-                    <div class="asideElemTxt">
-                        <div class="songTitle">Little black submarines</div>
-                        <div class="artist">Black Keys</div>
-                        <div class="time"><span>4 days</span> ago</div>
+                        <div class="songTitle"><a href="{{fav.permalink_url}}" target="_blank"><span>{{fav.title}}</span></a></div>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -90,7 +44,16 @@
                 <span class="text">GET STARTED</span>
             </span>
         </a>
-
-        
+        <ul id="friendsConnectedList" class="animated fadeInUp" ng-class="{'hideElem' : hideFriendList, 'fadeOutDown' : frienListClose}">
+            <li class="online"><img src="http://placekitten.com/g/200/200" alt=""><span>Hauteville Héloise</span></li>
+            <li class="online"><img src="http://placekitten.com/g/200/200" alt=""><span>DARCO Clara</span></li>
+            <li class="online"><img src="http://placekitten.com/g/200/200" alt=""><span>BARBE Cynthia</span></li>
+            <li><img src="http://placekitten.com/g/200/200" alt=""><span>ANDRE Nicolas</span></li>
+            <li><img src="http://placekitten.com/g/200/200" alt=""><span>HENG Patrick</span></li>
+        </ul>
+        <div id="friendsConnectedTrigger" class="" ng-click='toggleFriendList()'>
+            My Friends
+            <i id="indicatorFL" ng-class="{rotate180 : frienListClose}">▼</i>
+        </div>
     </div>  
 </div>

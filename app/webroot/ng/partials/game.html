@@ -16,14 +16,14 @@
             <div class="pseudo">{{me.username}}</div>
             <div class="location">{{me.city}}</div>
         </div>
-        <div id="player2wrapper" class=""> <!-- .friendrequest for interraction -->
+        <div id="player2wrapper" class="ng-class: ui.friendRequestTg;"> <!-- .friendrequest for interraction -->
             <div id="player2" class="player animated flipInY">
                 <div class="friendRequestBg animated fadeInUp"></div>
                 <div class="avatar">
-                    <img ng-src="{{me.avatar_url}}" alt="">
+                    <img ng-src="{{peer.avatar_url}}" alt="">
                 </div>
-                <div class="pseudo">{{me.username}}</div>
-                <div class="location">{{me.city}}</div>
+                <div class="pseudo">{{peer.username}}</div>
+                <div class="location">{{peer.city}}</div>
                 <div class="friendDemand animated zoomIn">- Send you a friend request -</div>
                 <div class="clear"></div>
             </div>
@@ -45,9 +45,9 @@
     <div class="clear"></div>
     <div class="musicInfo">
         <div class="listeningCover animated fadeIn">
-            <img ng-src="{{trackChoosen.artwork_url}}" alt="">
+            <img ng-src="{{track.artwork_url}}" alt="">
         </div>
-        <div class="titleSongListening animated fadeIn">{{trackChoosen.title}}</div>
+        <div class="titleSongListening animated fadeIn">{{track.title}}</div>
 
 
         <musicbar></musicbar>
@@ -73,9 +73,7 @@
         </div>
         <div class="clear"></div>
         <div class="isNowPlaying">
-            <span id="pseudoPlayer2">Zirdya</span>is now listening
-            <span id="songNamePlayer2">Love Trilogy</span>by
-            <span id="artistPlayer2">Red Hot Chilli Peppers</span>
+            <span id="pseudoPlayer2">Zirdya</span> is now listening {{trackChoosen.title}}
         </div>
     </div>
 </div>

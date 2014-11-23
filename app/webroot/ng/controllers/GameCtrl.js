@@ -3,6 +3,11 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 		
 		$scope.me = UserFactory.User;
 		$scope.tcProgress = 0;
+
+		$scope.ui = {
+			bgHeight : window.innerHeight,
+			friendRequestTg : true
+		};
 		
 		$scope.trackId = SoundcloudService.choosenTrackId;
 
@@ -14,6 +19,7 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 
 		$scope.addToFriends = function() {
 			NotificationFactory.add('Friend request send');
+			$scope.ui.friendRequestTg = 'friendRequest';
 			alert('addToFriendsDebug');
 		}
 
@@ -24,22 +30,18 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 
 		$scope.addToFavorites = function() {
 			NotificationFactory.add('Add to your favorites on SoundCloud');
-			alert('addToFavoritesDebug');
+			SoundcloudService.addToFavorites();
 		}
 
 		$scope.play = function() {
-			NotificationFactory.add('Add to your favorites on SoundCloud');
+			NotificationFactory.add('The song is playing');
 			alert('play debug');
 		}
 		$scope.pause = function() {
-			NotificationFactory.add('Add to your favorites on SoundCloud');
+			NotificationFactory.add('The song is on pause');
 			alert('pause debug');
 		}
 
-
-		$scope.ui = {
-			bgHeight : window.innerHeight
-		};
 
 		SoundcloudService.getTrackInfo()
 		.then(

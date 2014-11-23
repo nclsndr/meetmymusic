@@ -1,15 +1,19 @@
+.hidden{
+	display: none;
+}
+
 gmap{
-	width: 100%;
-	display: block;
-	position: fixed;
-	z-index: 0;
-	left: 0;
-	top: 0;
-	margin: 0;
+	width: 100%!important;
+	display: block!important;
+	position: fixed!important;
+	z-index: 0!important;
+	left: 0!important;
+	top: 0!important;
+	margin: 0!important;
 }
 gmap.hidden {
-	opacity: 0;
-	z-index: -1000;
+	opacity: 0!important;
+	z-index: -1000!important;
 }
 
 .user.login_register form input{
@@ -26,3 +30,44 @@ form .form_error{
 	padding: .4rem .6rem;
 	margin-top: 2px;;
 }
+
+
+.notifications_container {
+  position: fixed;
+  right: .6rem;
+  top: 0;
+  z-index: 101;
+  width: 200px;
+}
+.notifications_container ul {
+  list-style: none;
+}
+.notifications_container ul li {
+  color: white !important;
+  position: relative;
+  display: block;
+  padding: .6rem;
+  background: #0edfb5;
+  width: 100%;
+  color: #333;
+  margin-top: .6rem;
+  text-align: center;
+}
+.notifications_container ul li.error {
+  background: #e40151;
+}
+
+.loadPeer{
+	position: relative;
+	width: 100%;
+	margin-top: 20rem;
+	text-align: center;
+}
+.loadPeer h3{
+	color: #FFF;
+}
+
+
+
+
+

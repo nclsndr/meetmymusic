@@ -5,6 +5,9 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		this.defineDigest = false;
 		this.defineApply = [];
 		this.SCUser = {};
+		this.currentTrack= {};
+		this.currentTrackMobile= {};
+		this.meTrackId = false;
 		this.trackList = {};
 		this.listIndex = 0;
 		this.idList = new Array();
@@ -117,7 +120,101 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 			})
 			return deferred.promise;
 		}
+
+		this.addToFavorites=function(){
+			var deferred = $q.defer();
+			self.isDefine(function(){
+				self.SC.put('/me/favorites/' + self.currentTrack.id, function(tracks) {
+					deferred.resolve(tracks);
+				});
+			})
+			return deferred.promise;
+		}
 		
+		
+		this.setMeTrackId = function(trackId, callback){
+			self.meTrackId = trackId;
+			return callback.call(this);
+		}
+		this.getTrack=function(soundId){
+			if (!soundId) return false;
+			var soundId = soundId;
+			var deferred = $q.defer();
+			var store = {};
+			store.id = soundId;
+			self.isDefine(function(){
+				self.SC.get("/tracks/",{ids:soundId}, function(track){
+					store.sc = track[0];
+					self.SC.stream("/tracks/"+soundId, function(soundObj){
+						store.obj = soundObj;
+						// MANAGE PLAYLISTS 
+						// self.idList.push(store.id);
+						// console.log('store : ', store);
+						// self.trackList[self.listIndex] = store;
+						// self.listIndex++;
+						self.currentTrack = store
+						deferred.resolve(self.currentTrack);
+					});
+				});	
+			});
+			// deferred.reject('impossible de finaliser');
+			return deferred.promise;
+		}
+		this.getTrackInfos = function(soundId){
+			if (!soundId) return false;
+			var soundId = soundId;
+			var deferred = $q.defer();
+			self.isDefine(function(){
+				self.SC.get("/tracks/",{ids:soundId}, function(track){
+					self.currentTrackMobile = track[0];
+					deferred.resolve(self.currentTrackMobile);
+				});	
+			});
+			// deferred.reject('impossible de finaliser');
+			return deferred.promise;
+		}
+
+		// ———————————————————————————————————————
+		this.getTrackInfo=function(){
+			var deferred = $q.defer();
+			self.isDefine(function(){
+				self.SC.get('/tracks/',{ids: self.choosenTrackId}, function(tracks) {
+					// self.tcTotal = tracks.trackChosen.$$state.value.duration;
+					deferred.resolve(tracks[0]);
+				});	
+			});
+			return deferred.promise;
+		}
+		this.chooseTrack = function(id) {
+			self.choosenTrackId = id;
+		}
+		// ———————————————————————————————————————
+
+		this.setTimeCode = function(length) {
+		    var milliseconds = parseInt(length, 10);
+		    var seconds = parseInt(milliseconds / 1000) % 60 ;
+		    var minutes = parseInt((milliseconds / (1000*60)) % 60);
+		    var hours   = parseInt((milliseconds / (1000*60*60)) % 24);
+		    if (hours<=60) {hours = '0'+hours;};
+		    if (minutes<=9) {minutes = '0'+minutes;};
+		    if (seconds<=9) {seconds = '0'+seconds;};
+		    return  hours + ':' + minutes + ':' + seconds;
+		}
+
+		this.getlargeArtwork = function(artwork_url){
+			var large = artwork_url.replace('-large.jpg', '-t500x500.jpg');
+			return large;
+		}
+
+		
+		this.playThis=function(listIndex){
+			self.trackList[listIndex].obj.play();
+		}
+		this.pauseThis=function(listIndex){
+			self.trackList[listIndex].obj.pause();
+		}
+		self = this;
+
 		// this.addSound=function(soundId){
 		// 	if (!soundId) return false;
 		// 	var deferred = $q.defer();
@@ -140,39 +237,6 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		// 	return deferred.promise;
 		// }
 
-		this.getTrackInfo=function(){
-			var deferred = $q.defer();
-			self.isDefine(function(){
-				self.SC.get('/tracks/',{ids: self.choosenTrackId}, function(tracks) {
-					// self.tcTotal = tracks.trackChosen.$$state.value.duration;
-					deferred.resolve(tracks[0]);
-				});	
-			});
-			return deferred.promise;
-		}
-
-
-		this.setTimeCode = function(length) {
-		    var milliseconds = parseInt(length, 10);
-		    var seconds = parseInt(milliseconds / 1000) % 60 ;
-		    var minutes = parseInt((milliseconds / (1000*60)) % 60);
-		    var hours   = parseInt((milliseconds / (1000*60*60)) % 24);
-		    if (hours<=60) {hours = '0'+hours;};
-		    if (minutes<=9) {minutes = '0'+minutes;};
-		    if (seconds<=9) {seconds = '0'+seconds;};
-		    return  hours + ':' + minutes + ':' + seconds;
-		}
-
-		this.chooseTrack = function(id) {
-			self.choosenTrackId = id;
-		}
-		this.playThis=function(listIndex){
-			self.trackList[listIndex].obj.play();
-		}
-		this.pauseThis=function(listIndex){
-			self.trackList[listIndex].obj.pause();
-		}
-	
-		self = this;
+		
 	}
 ]);

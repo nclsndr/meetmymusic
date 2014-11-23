@@ -47,6 +47,10 @@ html::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
   clear: both;
 }
 
+.overflowHidden {
+  overflow: hidden !important;
+}
+
 .button {
   background: none;
 }
@@ -79,6 +83,16 @@ html::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
   opacity: 1;
 }
 
+.hideElem {
+  display: none;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
 a {
   text-align: none;
   color: white;
@@ -95,6 +109,14 @@ a:hover {
   -ms-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
+}
+
+.rotate180 {
+  -moz-transform: rotate(-180deg);
+  -o-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  -webkit-transform: rotate(-180deg);
+  transform: rotate(-180deg);
 }
 
 .rotating {
@@ -191,8 +213,8 @@ a:hover {
 
 .notifications_container {
   position: fixed;
-  right: .6rem;
-  top: 0;
+  right: .9rem;
+  top: 50px;
   z-index: 101;
   width: 200px;
 }
@@ -204,14 +226,125 @@ a:hover {
   position: relative;
   display: block;
   padding: .6rem;
-  background: #0edfb5;
+  background: rgba(14, 223, 181, 0.8);
   width: 100%;
   color: #333;
   margin-top: .6rem;
   text-align: center;
+  border-radius: 2px;
+  cursor: pointer;
 }
 .notifications_container ul li.error {
   background: #e40151;
+}
+
+#profilPopIn {
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  overflow: hidden;
+}
+#profilPopIn #profilPopInBg {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 10000;
+  cursor: pointer;
+}
+#profilPopIn #profilPopInContent {
+  color: white;
+  text-align: center;
+  width: 700px;
+  position: absolute;
+  overflow: auto;
+  z-index: 10001;
+  top: 10%;
+  left: 50%;
+  margin-left: -350px;
+  height: 80%;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 15px;
+  scrollbar-base-color: #5f5f5f;
+  scrollbar-3dlight-color: #5f5f5f;
+  scrollbar-highlight-color: #5f5f5f;
+  scrollbar-track-color: #5f5f5f;
+  scrollbar-arrow-color: white;
+  scrollbar-shadow-color: #5f5f5f;
+  scrollbar-dark-shadow-color: #5f5f5f;
+}
+#profilPopIn #profilPopInContent::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #000;
+}
+#profilPopIn #profilPopInContent::-webkit-scrollbar {
+  width: 6px;
+  background-color: #000;
+}
+#profilPopIn #profilPopInContent::-webkit-scrollbar-thumb {
+  background-color: #5f5f5f;
+}
+#profilPopIn #profilPopInContent #close {
+  cursor: pointer;
+  float: right;
+  font-size: 1.5em;
+}
+#profilPopIn #profilPopInContent .avatar {
+  display: block;
+  margin: auto;
+  width: 120px;
+  height: 120px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid white;
+}
+#profilPopIn #profilPopInContent .username {
+  margin-top: 10px;
+  margin-bottom: 9px;
+}
+#profilPopIn #profilPopInContent .location {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+#profilPopIn #profilPopInContent .ghostButton {
+  border-color: #0edfb5;
+}
+#profilPopIn #profilPopInContent .ghostButton .invert {
+  background: #0edfb5;
+}
+#profilPopIn #profilPopInContent .ghostButton .text {
+  color: #0edfb5;
+}
+#profilPopIn #profilPopInContent .ghostButton:hover .text {
+  color: white;
+}
+#profilPopIn #profilPopInContent .songBloc {
+  bacground: black;
+  width: 100%;
+  height: 300px;
+}
+#profilPopIn #profilPopInContent .songBloc h2 {
+  height: 50px;
+  line-height: 50px;
+  font-weight: normal;
+  font-size: 1.25rem;
+  text-align: left;
+  color: white;
+  margin-top: 35px;
+  padding-left: 5%;
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+}
+#profilPopIn #profilPopInContent .songBloc h2 i {
+  margin-right: 10px;
+}
+#profilPopIn #profilPopInContent .songBloc .songList {
+  overflow: visible;
 }
 
 .user.login_register {
@@ -341,16 +474,15 @@ a:hover {
   margin: auto;
 }
 .user.login_register form input {
-  width: 100%;
   height: 35px;
   border: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.8);
   background: rgba(0, 0, 0, 0.75);
   color: white;
-  padding-left: 15px;
-  padding-right: 15px;
   margin-top: 20px;
   margin-bottom: 0;
+  width: 90%;
+  padding: 0 5%;
 }
 .user.login_register form input[type='submit'] {
   display: block;
@@ -358,6 +490,15 @@ a:hover {
   margin: 0;
   padding: 0;
   cursor: pointer;
+}
+.user.login_register form .form_error {
+  color: #FFF;
+  background: #BA000F;
+  font-size: .8rem;
+  display: block;
+  width: 100%;
+  padding: .4rem .6rem;
+  margin-top: 2px;
 }
 .user.login_register a {
   text-decoration: none;
@@ -619,8 +760,6 @@ a:hover {
   position: absolute;
   top: 50px;
   right: 0;
-  display: none;
-  opacity: 0;
   z-index: 10;
 }
 .dashboardContainer .dropdownUser li, .desktopContainer .dropdownUser li {
@@ -722,6 +861,15 @@ a:hover {
   div-margin: 9px 0;
   margin-left: 17px;
 }
+.dashboardContainer aside #musicYouLiked .asideElemTxt .songTitle, .desktopContainer aside #musicYouLiked .asideElemTxt .songTitle {
+  line-height: 50px;
+  height: 50px;
+}
+.dashboardContainer aside #musicYouLiked .asideElemTxt .songTitle span, .desktopContainer aside #musicYouLiked .asideElemTxt .songTitle span {
+  line-height: normal;
+  vertical-align: middle;
+  display: inline-block;
+}
 
 .dashboardContainer .ghostButton {
   width: 270px;
@@ -736,6 +884,89 @@ a:hover {
 }
 .dashboardContainer #dropDownIcon {
   margin-right: 22px;
+}
+.dashboardContainer #friendsConnectedTrigger {
+  cursor: pointer;
+  width: 220px;
+  height: 37px;
+  background: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  right: 10px;
+  color: white;
+  line-height: 37px;
+  padding: 0px 30px;
+  font-size: 0.9em;
+}
+.dashboardContainer #friendsConnectedTrigger #indicatorFL {
+  float: right;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -ms-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+.dashboardContainer #friendsConnectedTrigger:hover #indicatorFL {
+  color: #0edfb5;
+}
+.dashboardContainer #friendsConnectedList {
+  height: auto;
+  max-height: 60%;
+  overflow: auto;
+  width: 220px;
+  position: fixed;
+  bottom: 43px;
+  right: 10px;
+  z-index: 1;
+  color: white;
+  background: rgba(0, 0, 0, 0.8);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.8em;
+  scrollbar-base-color: #5f5f5f;
+  scrollbar-3dlight-color: #5f5f5f;
+  scrollbar-highlight-color: #5f5f5f;
+  scrollbar-track-color: #5f5f5f;
+  scrollbar-arrow-color: white;
+  scrollbar-shadow-color: #5f5f5f;
+  scrollbar-dark-shadow-color: #5f5f5f;
+}
+.dashboardContainer #friendsConnectedList::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #2e2e38;
+}
+.dashboardContainer #friendsConnectedList::-webkit-scrollbar {
+  width: 6px;
+  background-color: #2e2e38;
+}
+.dashboardContainer #friendsConnectedList::-webkit-scrollbar-thumb {
+  background-color: #5f5f5f;
+}
+.dashboardContainer #friendsConnectedList li {
+  height: 46px;
+  padding: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.6);
+}
+.dashboardContainer #friendsConnectedList li img {
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  border: 1px solid grey;
+  margin-left: 17px;
+}
+.dashboardContainer #friendsConnectedList li span {
+  line-height: 26px;
+  margin-left: 20px;
+  vertical-align: middle;
+  position: absolute;
+}
+.dashboardContainer #friendsConnectedList .online {
+  color: white;
+}
+.dashboardContainer #friendsConnectedList .online img {
+  border: 1px solid #0edfb5;
 }
 
 /* ———————————————————————————— END DASHBOARD ———————————————————————————— */
@@ -1074,11 +1305,9 @@ a:hover {
   right: 0;
   background: rgba(0, 0, 0, 0.8);
   height: 100%;
-  display: none;
   z-index: 1000 !important;
 }
 .searchContainer #popInValidateContent {
-  display: none;
   width: 440px;
   padding: 40px 0;
   border-radius: 4px;
@@ -1287,7 +1516,8 @@ a:hover {
   padding-left: 45px;
   background-size: 33px 18px;
 }
-.searchContainer .songRecap ul {
+
+.songList {
   width: 99.8%;
   height: 80%;
   margin: auto;
@@ -1302,18 +1532,18 @@ a:hover {
   scrollbar-shadow-color: #5f5f5f;
   scrollbar-dark-shadow-color: #5f5f5f;
 }
-.searchContainer .songRecap ul::-webkit-scrollbar-track {
+.songList::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #000;
 }
-.searchContainer .songRecap ul::-webkit-scrollbar {
+.songList::-webkit-scrollbar {
   width: 6px;
   background-color: #000;
 }
-.searchContainer .songRecap ul::-webkit-scrollbar-thumb {
+.songList::-webkit-scrollbar-thumb {
   background-color: #5f5f5f;
 }
-.searchContainer .songRecap ul li {
+.songList li {
   width: 100%;
   display: block;
   text-align: left;
@@ -1322,7 +1552,7 @@ a:hover {
   border-bottom: 1px solid #303030;
   cursor: pointer;
 }
-.searchContainer .songRecap ul li img {
+.songList li img {
   float: left;
   display: block;
   width: 55px;
@@ -1337,11 +1567,11 @@ a:hover {
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
-.searchContainer .songRecap ul li .description {
+.songList li .description {
   float: left;
   width: 70%;
 }
-.searchContainer .songRecap ul li .title {
+.songList li .title {
   font-size: 0.95rem;
   margin-top: 10px;
   margin-bottom: 5px;
@@ -1351,17 +1581,17 @@ a:hover {
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
-.searchContainer .songRecap ul li .timecode {
+.songList li .timecode {
   font-size: 0.8rem;
 }
-.searchContainer .songRecap ul li .validate {
+.songList li .validate {
   width: 40px;
   height: 40px;
   margin-right: 5%;
   margin-top: 7px;
   float: right;
 }
-.searchContainer .songRecap ul li .validate svg {
+.songList li .validate svg {
   stroke: white;
   -webkit-transition: all 0.2s linear;
   -moz-transition: all 0.2s linear;
@@ -1369,15 +1599,14 @@ a:hover {
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
-.searchContainer .songRecap ul li:hover img {
+.songList li:hover img {
   -webkit-transition: all 0.1s linear;
   -moz-transition: all 0.1s linear;
   -ms-transition: all 0.1s linear;
   -o-transition: all 0.1s linear;
   transition: all 0.1s linear;
 }
-.searchContainer .songRecap ul li:hover .title {
-  font-size: 0.95rem;
+.songList li:hover .title {
   margin-top: 10px;
   margin-bottom: 5px;
   color: #0edfb5;
@@ -1387,7 +1616,7 @@ a:hover {
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
-.searchContainer .songRecap ul li:hover .validate svg {
+.songList li:hover .validate svg {
   stroke: #0edfb5;
   -webkit-transition: all 0.2s linear;
   -moz-transition: all 0.2s linear;

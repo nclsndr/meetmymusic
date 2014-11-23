@@ -5,9 +5,9 @@
         <a href="http://mmm.nclsndr.fr:3000/#/dashboard"><button class="backBtn animated fadeIn">Back</button></a>
         <div class="searchContainer">
             <!-- POPIN VALIDATE SONG -->
-            <div id="popInValidateBg" class="animated fadeIn" ng-class="{'hideElem' : hidePopInValidate, 'fadeOut' : popinValidateClose}" ng-click="cancelSelection()">
+            <div id="popInValidateBg" ng-class="{hideElem : hidePopInValidate}" class="animated fadeIn" ng-click="cancelSelection()">
             </div>
-            <div id="popInValidateContent" class="animated zoomIn" ng-class="{'hideElem' : hidePopInValidate, 'zoomOut' : popinValidateClose}">
+            <div id="popInValidateContent" ng-class="{hideElem : hidePopInValidate}" class="animated zoomIn">
                 <h3 class="animated zoomIn">You have choosen :</h3>
                 <img class="animated fadeInUp" id="coverSelected" ng-src="{{selectedTrack.artwork}}" alt="">
                 <div id="timecode">{{selectedTrack.timecode}}</div>

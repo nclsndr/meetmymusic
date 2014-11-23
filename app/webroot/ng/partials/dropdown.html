@@ -1,0 +1,18 @@
+<header>
+    <a href="http://mmm.nclsndr.fr:3000/#/dashboard">
+        <h1 class="animated fadeInDown">MEET MY MUSIC</h1>
+    </a>
+    <div id="userOption" ng-click="dropdown()">
+        <div id="username">{{me.username}}</div>
+        <div>
+            <img src="{{me.avatar_url}}" alt="">
+        </div>
+        <div id="dropDownIcon" ng-class="{'rotate180' : dropdownClose==false}">▼</div>
+    </div>
+</header>
+<ul class="dropdownUser animated fadeInDown" 
+ng-class="{'hideElem' : hideDropdown, 'fadeOutUp' : dropdownClose}">
+    <li ng-click="openProfil()">My profile</li>
+    <li>Edit my profil</li>
+    <li>Parameters</li>
+</ul>
