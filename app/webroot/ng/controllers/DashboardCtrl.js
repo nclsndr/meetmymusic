@@ -1,12 +1,14 @@
-mmmApp.controller('DashboardCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q', '$location', '$scope', 'GmapService',
-	function (NotificationFactory, UserFactory, SoundcloudService, $q, $location, $scope, GmapService) {
+mmmApp.controller('DashboardCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q', '$location', '$scope', 'GmapService','TrackFactory',
+	function (NotificationFactory, UserFactory, SoundcloudService, $q, $location, $scope, GmapService, TrackFactory) {
 
 		// if (UserFactory.isNotLogged()) {
 		// 	NotificationFactory.add('You are not logged', 'error');
 		// 	$location.path('/');
 		// }
 		$scope.ui = {
-			bgHeight : window.innerHeight
+			bgHeight : window.innerHeight,
+			asideStatus : 'fadeIn',
+			refreshStatus : 'none'
 		};
 		$scope.me = UserFactory.User;
 		$scope.SC = {};
@@ -21,19 +23,38 @@ mmmApp.controller('DashboardCtrl', ['NotificationFactory', 'UserFactory', 'Sound
 			}
 			else {
 				$scope.frienListClose = true;
-
 				setTimeout(function() {
 					$scope.hideFriendList = true;
 				}, 400);
 			}
 		};
 
-		SoundcloudService.isDefine(function(){
-			SoundcloudService.getFavoritesTracks().then(function(data){
-				$scope.SC.favList = data;
-				console.log(data);
+		$scope.refreshAside = function(){
+			$scope.ui.asideStatus = 'fadeOut';
+			$scope.ui.refreshStatus = 'infinite_rotate';
+			SoundcloudService.isDefine(function(){
+
+				TrackFactory.getHistory(UserFactory.User.id, 20)
+				.then(
+					function(trackList){
+						$scope.SC.userHistory = {};
+						$scope.SC.userHistory = trackList;
+						$scope.SC.lastTrack = trackList[0];
+						$scope.ui.asideStatus = 'fadeIn';
+						$scope.ui.refreshStatus = 'none';
+					},
+					function(error){
+						console.log(error);
+					}
+				);
 			});
-		});
+		}
+
+		$scope.refreshAside();
+
+		function refresh(){
+
+		}
 
 		// console.log(google);
 		console.log(UserFactory.User);

@@ -1,15 +1,14 @@
 <div class="view">
     <!-- OVERLAY PAN ON ALBUM COVER -->
     <div id="overlay">
-        <span class="passTheSong">
-            <-- Pass the song</span>
-                <span class="addFriend">Add to friends --></span>
+        <span class="passTheSong"></span>
+        <span class="addFriend"></span>
     </div>
 
     <!-- ADD FRIEND ANIMATION -->
     <div id="addFrienOverlay" class="feedBackOverlay animated fadeIn">
         <div class="animated pulse">
-            <img src="http://mmm.nclsndr.fr/img/app/albumSample.jpg" alt="">
+            <img ng-src="{{track.artwork_url}}" alt="">
             <img class="animated zoomIn flash pictoFeedBack" src="http://mmm.nclsndr.fr/img/app/validateMobile.png" alt="Add To Friends">
         </div>
         <p>An invitation has been sent to
@@ -19,7 +18,7 @@
     <!-- PASS THE SONG ANIMATION -->
     <div id="songPassedOverlay" class="feedBackOverlay animated fadeIn">
         <div class="animated pulse">
-            <img src="http://mmm.nclsndr.fr/img/app/albumSample2.jpg" alt="">
+            <img ng-src="{{track.artwork_url}}" alt="">
             <img class="animated zoomIn flash pictoFeedBack" src="http://mmm.nclsndr.fr/img/app/crossMobile.png" alt="Song Passed">
         </div>
         <p>You passed the song.
@@ -37,8 +36,8 @@
             <span>{{peer.city}}</span>
         </div>
         <div id="albumCoverP2" class="albumCover animated fadeInDown">
-            <img src="{{track.artwork_url}}" alt="">
-
+            <img ng-src="{{track.artwork_url}}" alt="">
+            <div id="noPicture"></div>
             <svg id="svgCircle" width="100%" height="100%" viewPort="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <circle id="fillBg" r="50%" cx="50%" cy="50%" fill="transparent"></circle>
                 <circle id="bar" r="50%" cx="50%" cy="50%" fill="transparent"></circle>
@@ -59,7 +58,7 @@
             <span id="tcProgress">00:00</span>&nbsp;/&nbsp;<span id="tcTotal">00:00</span>
         </div>
         <h2 id="band">{{track.title}}</h2>
-        <h3 id="title">{{track.user.username}}</h2>
+        <!-- <h3 id="title">{{track.user.username}}</h2> -->
             <div class="controlPlayer">
                 <div class="playPauseBtn">
                     <button id="playBtn"></button>

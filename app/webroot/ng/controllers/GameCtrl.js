@@ -1,5 +1,5 @@
-mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFactory', 'SoundcloudService', '$q', '$location', '$scope', 'GmapService',
-	function (SocketFactory,NotificationFactory, UserFactory, SoundcloudService, $q, $location, $scope, GmapService,QrFactory) {
+mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFactory', 'SoundcloudService', '$q', '$location', '$scope', 'GmapService','TrackFactory',
+	function (SocketFactory,NotificationFactory, UserFactory, SoundcloudService, $q, $location, $scope, GmapService, TrackFactory) {
 		if (UserFactory.isNotLogged()) {
 			NotificationFactory.add('You are not logged', 'error');
 			$location.path('/');
@@ -8,6 +8,7 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 		$scope.me = UserFactory.User;
 		$scope.peer = UserFactory.Peer;
 		$scope.tcProgress = 0;
+		$scope.meTrack = {};
 
 		$scope.ui = {
 			bgHeight : window.innerHeight,
@@ -15,11 +16,22 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 		};
 
 		if (!SoundcloudService.isEmpty(SoundcloudService.currentTrack)) {
+			// Set large IMG
+			SoundcloudService.currentTrack.sc.artwork_url = SoundcloudService.getLargeArtwork(SoundcloudService.currentTrack.sc.artwork_url);
+			
 			$scope.track = {
 				title : SoundcloudService.currentTrack.sc.title,
-				artwork : SoundcloudService.currentTrack.sc.artwork_url,
+				artwork_url : SoundcloudService.currentTrack.sc.artwork_url,
 				duration : SoundcloudService.currentTrack.sc.duration
 			};
+
+			TrackFactory.addHistory(SoundcloudService.currentTrack.id)
+			.then(
+				function(dataSuccess){
+					console.log('Song add to History : ', dataSuccess);
+				}
+			);	
+
 			var store = {
 				to : UserFactory.token.me,
 				ev : 'trackInfosMobile',
@@ -28,7 +40,7 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 				}
 			};
 			SocketFactory.emit('mmmRouter', store);
-		}		
+		}
 		
 
 		$scope.addToFriends = function() {
@@ -57,28 +69,13 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 			// alert('pause debug');
 		}
 
-		// SoundcloudService.getTrackInfo()
-		// .then(
-		// 	function(data){
-		// 		$scope.trackChoosen = data;
-		// 		if(data) $scope.tcTotal = data.duration;
-				
-		// 		console.log('-------$scope data-------');
-		// 		console.log($scope.trackChoosen);
-		// 		console.log('$scope.tcTotal = ' + $scope.tcTotal)
-		// 	}
-		// );
+		SoundcloudService.getTrackInfos(SoundcloudService.meTrackId)
+		.then(function(dataSuccess){
+				$scope.meTrack = dataSuccess;
+				console.log('SC OBJECT : ', $scope.meTrack);
+			}
+		);
 
-		// SocketFactory.removeAllListeners();
-
-		// SoundcloudService.init();
-		// $scope.SC = {};
-
-		// SocketFactory.on('authToken', function(debug){
-		// 	if (debug) {
-		// 		$scope.nodeDatas = debug;
-		// 	}
-		// });
 		
 		GmapService.hideMap(false);
 		

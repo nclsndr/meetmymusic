@@ -113,7 +113,6 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 			$scope.ui.msgRegisterState = 'fadeIn';
 			$scope.ui.validateMessage = 'fadeIn';
 			$scope.ui.showCreateAccount = false;
-			alert($scope.ui.showCreateAccount);
 		}
 
 

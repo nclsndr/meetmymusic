@@ -862,14 +862,20 @@ a:hover {
 .dashboardContainer aside .asideElem img, .desktopContainer aside .asideElem img {
   float: left;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  background: url("http://mmm.nclsndr.fr/img/app/noPicture.jpg") center no-repeat;
+  background-size: cover;
 }
 .dashboardContainer aside .asideElem .asideElemTxt, .desktopContainer aside .asideElem .asideElemTxt {
   float: left;
   font-size: 0.72rem;
   width: 100px;
+  margin-left: 17px;
   div: nth-child(2);
   div-margin: 9px 0;
-  margin-left: 17px;
+}
+.dashboardContainer aside .asideElem .asideElemTxt .time, .desktopContainer aside .asideElem .asideElemTxt .time {
+  margin-top: 8px;
+  color: #ddd;
 }
 .dashboardContainer aside #musicYouLiked .asideElemTxt .songTitle, .desktopContainer aside #musicYouLiked .asideElemTxt .songTitle {
   line-height: 50px;
@@ -1169,8 +1175,8 @@ a:hover {
   top: -65px;
 }
 .musicInfo .listeningCover {
-  width: 120px;
-  height: 120px;
+  width: 135px;
+  height: 135px;
   margin: auto;
   display: block;
   -webkit-border-radius: 50%;
@@ -1196,7 +1202,7 @@ a:hover {
 .musicInfo #musicBar #musicBarCursor {
   background: #0edfb5;
   height: 100%;
-  width: 20%;
+  width: 0;
   position: relative;
   -webkit-transition: all 1s linear;
   -moz-transition: all 1s linear;
@@ -1228,7 +1234,9 @@ a:hover {
 }
 .musicInfo .isNowPlaying {
   clear: both;
+  margin: auto;
   margin-top: 30px;
+  width: 50%;
 }
 .musicInfo .musicController {
   width: 100px;

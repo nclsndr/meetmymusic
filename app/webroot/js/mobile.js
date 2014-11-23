@@ -26,16 +26,19 @@ var musicProgress = 0;
 var progressPercent = 0;
 
 
-setInterval(function(){
-    if(musicProgress<musicLength) {
-        musicProgress=musicProgress+1200;
-        updateProgressBar();
-    }  
-}, 1000);
+setTimeout(function() {
+    setInterval(function(){
+        if(musicProgress<musicLength) {
+            musicProgress=musicProgress+1000;
+            updateProgressBar();
+        }  
+    }, 1000);
 
-setBorderSvgAttributs(progressBar);
-setBorderSvgAttributs(barBg);
-setFillSvgAttributs(fillBg);
+    setBorderSvgAttributs(progressBar);
+    setBorderSvgAttributs(barBg);
+    setFillSvgAttributs(fillBg);
+}, 3000)
+
 
 
 /* --------------- MUSIC PROGRESS BAR --------------- */

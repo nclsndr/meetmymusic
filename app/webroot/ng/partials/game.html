@@ -50,7 +50,7 @@
         <div class="titleSongListening animated fadeIn">{{track.title}}</div>
 
 
-        <musicbar></musicbar>
+        <musicbar duration="{{track.duration}}"></musicbar>
 
         <div class="musicController">
             <svg width="40px" height='40px' version="1.1" id="playBtn" ng-click='play()'>
@@ -73,7 +73,7 @@
         </div>
         <div class="clear"></div>
         <div class="isNowPlaying">
-            <span id="pseudoPlayer2">Zirdya</span> is now listening {{trackChoosen.title}}
+            {{peer.username}} is now listening {{meTrack.title}}
         </div>
     </div>
 </div>

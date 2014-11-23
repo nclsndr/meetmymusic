@@ -6,6 +6,7 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		this.defineApply = [];
 		this.SCUser = {};
 		this.currentTrack= {};
+		this.currentTrackTime= 0;
 		this.currentTrackMobile= {};
 		this.meTrackId = false;
 		this.trackList = {};
@@ -15,7 +16,6 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		this.clientID = '268d90804476ee4483fd7dea94d198d4';
 		
 		this.choosenTrackId = false;
-
 		
 
 		this.init=function(callback){
@@ -153,6 +153,8 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 						// self.trackList[self.listIndex] = store;
 						// self.listIndex++;
 						self.currentTrack = store
+						console.log('----- CURRENT TRACK ------ :');
+						console.log(self.currentTrack);
 						deferred.resolve(self.currentTrack);
 					});
 				});	
@@ -168,6 +170,19 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 				self.SC.get("/tracks/",{ids:soundId}, function(track){
 					self.currentTrackMobile = track[0];
 					deferred.resolve(self.currentTrackMobile);
+				});	
+			});
+			// deferred.reject('impossible de finaliser');
+			return deferred.promise;
+		}
+
+		this.getTrackList = function(tracksIds){
+			if (!tracksIds) return false;
+
+			var deferred = $q.defer();
+			self.isDefine(function(){
+				self.SC.get("/tracks/",{ids:tracksIds}, function(tracks){
+					deferred.resolve(tracks);
 				});	
 			});
 			// deferred.reject('impossible de finaliser');
@@ -202,8 +217,10 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		}
 
 		this.getLargeArtwork = function(artwork_url){
-			var large = artwork_url.replace('-large.jpg', '-t500x500.jpg');
-			return large;
+			if (artwork_url != '' && artwork_url) {
+				var large = artwork_url.replace('-large.jpg', '-t500x500.jpg');
+				return large;
+			}
 		}
 
 		

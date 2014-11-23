@@ -1,5 +1,5 @@
 mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q', '$location','$window', '$scope','$http', 'GmapService',
-	function (NotificationFactory, UserFactory, SoundcloudService, $q, $location, $window, $scope,$http, GmapService) {
+	function (NotificationFactory, UserFactory, SoundcloudService, $q, $location, $window, $scope,$http, GmapService,QrFactory) {
 
 		if (UserFactory.isNotLogged()) {
 			NotificationFactory.add('You are not logged', 'error');
@@ -11,11 +11,10 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 
 		$scope.me = UserFactory.User;
 		$scope.SC = {};
-		$scope.popin = false;
+		$scope.hidePopInValidate = true;
+		$scope.popinValidateClose= false;
 		$scope.timecode = '00:00';
 		$scope.selectedTrack = {};
-		$scope.hidePopInValidate = true;
-		$scope.popInValidateClose = false;
 
 		$scope.searchSC = function(searchQ){
 			if(searchQ==='') {
@@ -30,34 +29,39 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 
 		// CALL SC CONNECT ONCE
 		SoundcloudService.isDefine(function(){
-			SoundcloudService.getFavoritesTracks(40).then(function(data){
+			SoundcloudService.getFavoritesTracks().then(function(data){
 				$scope.SC.favList = data;
-				// console.log(data);
+				console.log(data);
 			});
 			SoundcloudService.getHotTracks().then(function(data){
 				$scope.SC.hotTracks = data;
-				// console.log(data);
+				console.log(data);
 			});
 		});
 
 		$scope.validateSelection = function(){
-			if ($scope.selectedTrack.id) {
-				SoundcloudService.setMeTrackId($scope.selectedTrack.id, 
-				function(){
+			console.log($scope.idTemp);
+			SoundcloudService.getTrack($scope.selectedTrack.id)
+			.then(
+				function(dataSuccess){
 					$location.path('/pregame');
-				});
-			}
+				}
+			);
 		};
 
 		$scope.cancelSelection = function(){
+			// var bg = document.getElementById('popInValidateBg');
+			// var content = document.getElementById('popInValidateContent');
+			// bg.classList.add('fadeOut');
+			// content.classList.add('zoomOut');
 			$scope.selectedTrack = {};
 
 			$scope.popinValidateClose = true;
 
-			setTimeout(function() {
-				$scope.hidePopInValidate = true;
-				$scope.popinValidateClose = false;
-			}, 400);
+				setTimeout(function() {
+					$scope.hidePopInValidate = true;
+				}, 400);
+			};
 		};
 
 		$scope.openPopIn = function(id,title,cover,duration){
