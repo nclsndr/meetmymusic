@@ -14,33 +14,46 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 			friendRequestTg : ''
 		};
 
-		if (!SoundcloudService.isEmpty(SoundcloudService.currentTrack)) {
-			// Set large IMG
-			SoundcloudService.currentTrack.sc.artwork_url = SoundcloudService.getLargeArtwork(SoundcloudService.currentTrack.sc.artwork_url);
-			
-			$scope.track = {
-				title : SoundcloudService.currentTrack.sc.title,
-				artwork_url : SoundcloudService.currentTrack.sc.artwork_url,
-				duration : SoundcloudService.currentTrack.sc.duration
-			};
-
-			TrackFactory.addHistory(SoundcloudService.currentTrack.id)
-			.then(
-				function(dataSuccess){
-					console.log('Song add to History : ', dataSuccess);
-				}
-			);	
-
-			var store = {
-				to : UserFactory.token.me,
-				ev : 'trackInfosMobile',
-				data : {
-					track : SoundcloudService.currentTrack.sc
-				}
-			};
-			SocketFactory.emit('mmmRouter', store);
-		}
+		$scope.track = {
+			title : 'love',
+			duration : 62737474
+		};
 		
+		SoundcloudService.isDefine(function(){
+			SoundcloudService.getTrack(121346458)
+			.then(
+				function(data){
+					console.log(data);
+				}
+			);
+		});
+
+		// if (!SoundcloudService.isEmpty(SoundcloudService.currentTrack)) {
+		// 	// Set large IMG
+		// 	SoundcloudService.currentTrack.sc.artwork_url = SoundcloudService.getLargeArtwork(SoundcloudService.currentTrack.sc.artwork_url);
+			
+		// 	$scope.track = {
+		// 		title : SoundcloudService.currentTrack.sc.title,
+		// 		artwork_url : SoundcloudService.currentTrack.sc.artwork_url,
+		// 		duration : SoundcloudService.currentTrack.sc.duration
+		// 	};
+
+		// 	TrackFactory.addHistory(SoundcloudService.currentTrack.id)
+		// 	.then(
+		// 		function(dataSuccess){
+		// 			console.log('Song add to History : ', dataSuccess);
+		// 		}
+		// 	);	
+
+		// 	var store = {
+		// 		to : UserFactory.token.me,
+		// 		ev : 'trackInfosMobile',
+		// 		data : {
+		// 			track : SoundcloudService.currentTrack.sc
+		// 		}
+		// 	};
+		// 	SocketFactory.emit('mmmRouter', store);
+		// }
 
 		$scope.addToFriends = function() {
 			NotificationFactory.add('Friend request send');

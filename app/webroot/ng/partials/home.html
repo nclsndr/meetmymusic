@@ -13,14 +13,14 @@
         <div>Log in with <b>SoundCloud</b></div>
     </div>
 
-    <div ng-show="!ui.displayRegister" class="login animated {{ui.loginState}}">  
+    <div ng-show="ui.showCreateAccount" class="login animated {{ui.loginState}}">  
         <span ng-click="showRegister()" class="ghostButton connectElem create_account">
             <span class="invert"></span>
             <span class="text">create an account</span>
         </span>
     </div>
 
-    <div ng-show="!ui.displayRegister" class="register_msg animated {{ui.msgRegisterState}}">
+    <div ng-show="ui.validateMessage" class="register_msg animated {{ui.msgRegisterState}}">
         <p>WE MUST VALIDATE YOUR SOUNDCLOUD ACCOUNT BEFORE REGISTER</p>
     </div>
     
