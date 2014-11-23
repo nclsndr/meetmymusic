@@ -1,15 +1,18 @@
-<div class="profilPopIn animated" ng-class="{hideElem : hideProfil}">
-    <div class="profilPopInBg animated fadeIn" ng-class="{fadeOut : profilClose}" ng-click="closePopIn()"></div>
+<div class="profilPopIn animated" ng-class="{hideElem : hideFriend}">
+    <div class="profilPopInBg animated fadeIn" ng-class="{fadeOut : friendClose}" ng-click="closePopIn()"></div>
     <div class="clear"></div>
-    <div class="profilPopInContent animated fadeInDown" ng-class="{fadeOutUp : profilClose}">
+    <div class="profilPopInContent animated fadeInDown" ng-class="{fadeOutUp : friendClose}">
         <i class="close" ng-click="closePopIn()">&#215</i>
         <div class="clear"></div>
         <img class="avatar" ng-src="{{me.avatar_url}}" alt="avatar">
         <div class="username">{{me.username}}</div>
         <div class="location">{{me.city}}</div>
-
+        <div class="ghostButton">
+            <div class="invert"></div>
+            <div class="text">EXCHANGE</div>
+        </div>
         <div class="songBloc">
-            <h2><i>&hearts;</i> Song you liked</h2>
+            <h2><i>&hearts;</i> Song he/she liked</h2>
             <ul class="songList">
                 <li ng-repeat="fav in favList" ng-click="openPopIn(fav.id,fav.title,fav.artwork_url,fav.duration)">
                     <img ng-src="{{fav.artwork_url}}" class="albumCover">

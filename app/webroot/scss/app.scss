@@ -189,13 +189,13 @@ a {
         }
     }
 }
-#profilPopIn {
+.profilPopIn {
     width : 100%;
     height : 100%;
     z-index: 1000;
     overflow : hidden;
 
-    #profilPopInBg {
+    .profilPopInBg {
         top : 0; bottom: 0;left: 0;right: 0;
         position : absolute;
         background: rgba(0,0,0,0.4);
@@ -203,7 +203,7 @@ a {
         cursor : pointer;
     }
 
-    #profilPopInContent {
+    .profilPopInContent {
         color : white;
         text-align : center;
         width : 700px;
@@ -235,7 +235,7 @@ a {
         scrollbar-arrow-color: white;
         scrollbar-shadow-color: #5f5f5f;
         scrollbar-dark-shadow-color: #5f5f5f;
-        #close {
+        .close {
             cursor : pointer;
             float : right ; 
             font-size: 1.5em;
@@ -1487,8 +1487,9 @@ a {
         .songYouReposted {
             h2 {
                 background: url('http://mmm.nclsndr.fr/img/app/pictoRepost.png') left center no-repeat;
-                padding-left: 45px;
-                background-size: 33px 18px;
+                padding-left: 46px;
+                background-size: 41px 24px;
+                margin-left: 9%;
             }
             background: black;
         }

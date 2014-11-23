@@ -94,8 +94,8 @@ strong {
 }
 
 .albumCover, #albumCoverP2 {
-  width: 280px;
-  height: 280px;
+  width: 270px;
+  height: 270px;
   display: block;
   margin: 35px auto;
 }
@@ -115,6 +115,10 @@ strong {
   border-radius: 50%;
   background: url("http://mmm.nclsndr.fr/img/app/noPicture.jpg") center no-repeat;
   background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 /* --------------- OVERLAY : ADDFRIEND, NEXTSONG & INDICATIONS --------------- */
