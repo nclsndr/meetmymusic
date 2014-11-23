@@ -6,16 +6,19 @@
         
         <aside>
             <div class="topAside">
-                <img class="" src="http://mmm.nclsndr.fr/img/app/refreshPicto.png" width="24" height="24" alt="refresh">
+                <img ng-class="ui.refreshStatus" ng-click="refreshAside()" class="refreshBt" src="http://mmm.nclsndr.fr/img/app/refreshPicto.png" width="24" height="24" alt="refresh">
             </div>
 
             <div class="asideElem" id="lastSongPlayed">
                 <h3>Last song listened</h3>
-                <img src="http://placekitten.com/g/200/200" width="55" height="55" alt="album cover">
-                <div class="asideElemTxt">
-                    <div class="songTitle"><span>Born to die</span></div>
-                    <div class="time"><span>6 minutes</span> ago</div>
+                <div ng-class="ui.asideStatus">
+                    <img ng-src="{{SC.lastTrack.sc.artwork_url}}" width="55" height="55" alt="album cover">
+                    <div class="asideElemTxt">
+                        <div class="songTitle"><span>{{SC.lastTrack.sc.title}}</span></div>
+                        <div class="time"><span>{{SC.lastTrack.created}}</span> ago</div>
+                    </div>    
                 </div>
+                
                 <div class="clear"></div>
             </div>
             <div class="asideElem" id="lastFriendAdded">
@@ -28,11 +31,11 @@
                 <div class="clear"></div>
             </div>
             <div class="asideElem" id="musicYouLiked">
-                <h3>Musics that you liked</h3>
-                <div class="asideElem" ng-repeat='fav in SC.favList'>
-                    <a href="{{fav.permalink_url}}" target="_blank"><img ng-src="{{fav.artwork_url}}" width="55" height="55" alt="album cover"></a>
+                <h3>Musics that you played</h3>
+                <div class="asideElem" ng-class="ui.asideStatus" ng-repeat='trackInfos in SC.userHistory track by $index'>
+                    <a href="{{trackInfos.sc.permalink_url}}" target="_blank"><img ng-src="{{trackInfos.sc.artwork_url}}" width="55" height="55" alt="album cover"></a>
                     <div class="asideElemTxt">
-                        <div class="songTitle"><a href="{{fav.permalink_url}}" target="_blank"><span>{{fav.title}}</span></a></div>
+                        <div class="songTitle"><a href="{{trackInfos.sc.permalink_url}}" target="_blank"><span>{{trackInfos.sc.title}}</span></a></div>
                     </div>
                     <div class="clear"></div>
                 </div>

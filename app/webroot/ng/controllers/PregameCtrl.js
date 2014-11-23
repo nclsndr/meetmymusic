@@ -15,9 +15,10 @@ mmmApp.controller('PregameCtrl', ['NotificationFactory', 'UserFactory', 'Soundcl
 		$scope.me = UserFactory.User;
 
 		SocketFactory.on('confirmSetTwins', function(data){
-			console.log(data);
+			console.log('confirmSetTwins : ',data);
 			$scope.ui.choseStack = 'hidden';
 			$scope.ui.loadeer = 'fadeIn';
+			$scope.$apply();
 			NotificationFactory.add('you\'re phone is now connected', 'success');
 			SoundcloudService.getTrackInfos(SoundcloudService.meTrackId)
 			.then(
@@ -52,6 +53,10 @@ mmmApp.controller('PregameCtrl', ['NotificationFactory', 'UserFactory', 'Soundcl
 				function(dataSuccess){
 					console.log('Peer User : ', dataSuccess);
 					NotificationFactory.add('You\'re connected with '+dataSuccess.username, 'success');
+
+					GmapService.setMarker('peer',UserFactory.Peer.lat, UserFactory.Peer.lng);
+					GmapService.autoCenter();
+
 					var store = {
 						to : UserFactory.token.peer,
 						ev : 'sendMeTrackId',
