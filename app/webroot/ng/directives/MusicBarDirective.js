@@ -18,6 +18,7 @@ mmmApp.directive('musicbar', ['SoundcloudService', function(SoundcloudService) {
                 //     scope.cursorPercent = (scope.tcProgress * 100) / scope.tcTotal;
                 //     // scope.setWidth(scope.cursorPercent+'%');
                 // }
+
             }
             
             scope.updateBar();

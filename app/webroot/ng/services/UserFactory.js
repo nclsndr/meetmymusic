@@ -6,7 +6,7 @@ function ($http, $location, $q, LSFactory, SocketFactory) {
 		Peer:{},
 		location : {},
 		token : {
-			both : false,
+			both:false,
 			me : false,
 			peer:false
 		},
@@ -99,7 +99,7 @@ function ($http, $location, $q, LSFactory, SocketFactory) {
 
 		getPeer:function(finalToken){
 			var peerToken = Factory.getPeerToken(finalToken);
-
+			console.log('Peer Token',peerToken);
 			// Use for debug
 			// var peerToken = finalToken;
 

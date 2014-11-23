@@ -201,7 +201,7 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		    return  hours + ':' + minutes + ':' + seconds;
 		}
 
-		this.getlargeArtwork = function(artwork_url){
+		this.getLargeArtwork = function(artwork_url){
 			var large = artwork_url.replace('-large.jpg', '-t500x500.jpg');
 			return large;
 		}
