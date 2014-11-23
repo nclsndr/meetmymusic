@@ -22,7 +22,7 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 					isGeoloc = true;
 				},
 				function(msg){
-					NotificationFactory.add(msg);
+					NotificationFactory.add(msg,'error');
 				}
 			);
 		
@@ -113,7 +113,6 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 			$scope.ui.msgRegisterState = 'fadeIn';
 			$scope.ui.validateMessage = 'fadeIn';
 			$scope.ui.showCreateAccount = false;
-			alert($scope.ui.showCreateAccount);
 		}
 
 

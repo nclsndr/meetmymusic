@@ -8,11 +8,13 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 		$scope.me = UserFactory.User;
 		$scope.peer = UserFactory.Peer;
 		$scope.tcProgress = 0;
+		$scope.meTrack = {};
 
 		$scope.ui = {
 			bgHeight : window.innerHeight,
 			friendRequestTg : ''
 		};
+
 
 		$scope.track = {
 			title : 'love',
@@ -81,28 +83,13 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 			// alert('pause debug');
 		}
 
-		// SoundcloudService.getTrackInfo()
-		// .then(
-		// 	function(data){
-		// 		$scope.trackChoosen = data;
-		// 		if(data) $scope.tcTotal = data.duration;
-				
-		// 		console.log('-------$scope data-------');
-		// 		console.log($scope.trackChoosen);
-		// 		console.log('$scope.tcTotal = ' + $scope.tcTotal)
-		// 	}
-		// );
+		SoundcloudService.getTrackInfos(SoundcloudService.meTrackId)
+		.then(function(dataSuccess){
+				$scope.meTrack = dataSuccess;
+				console.log('SC OBJECT : ', $scope.meTrack);
+			}
+		);
 
-		// SocketFactory.removeAllListeners();
-
-		// SoundcloudService.init();
-		// $scope.SC = {};
-
-		// SocketFactory.on('authToken', function(debug){
-		// 	if (debug) {
-		// 		$scope.nodeDatas = debug;
-		// 	}
-		// });
 		
 		GmapService.hideMap(false);
 		

@@ -55,6 +55,7 @@ mmmApp.controller('PregameCtrl', ['NotificationFactory', 'UserFactory', 'Soundcl
 					NotificationFactory.add('You\'re connected with '+dataSuccess.username, 'success');
 
 					GmapService.setMarker('peer',UserFactory.Peer.lat, UserFactory.Peer.lng);
+
 					GmapService.autoCenter();
 
 					var store = {

@@ -58,7 +58,7 @@ form .form_error{
 }
 
 .loadPeer{
-	position: relative;
+	position: absolute;
 	width: 100%;
 	margin-top: 20rem;
 	text-align: center;
