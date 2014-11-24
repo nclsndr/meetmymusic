@@ -221,7 +221,11 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 			}
 		}
 
-		
+		this.resetPlayer = function(callback){
+
+			return callback.call(this);
+		}
+
 		this.playThis=function(listIndex){
 			self.trackList[listIndex].obj.play();
 		}

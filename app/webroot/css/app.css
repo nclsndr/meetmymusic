@@ -238,13 +238,13 @@ a:hover {
   background: #e40151;
 }
 
-#profilPopIn {
+.profilPopIn {
   width: 100%;
   height: 100%;
   z-index: 1000;
   overflow: hidden;
 }
-#profilPopIn #profilPopInBg {
+.profilPopIn .profilPopInBg {
   top: 0;
   bottom: 0;
   left: 0;
@@ -254,7 +254,7 @@ a:hover {
   z-index: 10000;
   cursor: pointer;
 }
-#profilPopIn #profilPopInContent {
+.profilPopIn .profilPopInContent {
   color: white;
   text-align: center;
   width: 700px;
@@ -276,23 +276,23 @@ a:hover {
   scrollbar-shadow-color: #5f5f5f;
   scrollbar-dark-shadow-color: #5f5f5f;
 }
-#profilPopIn #profilPopInContent::-webkit-scrollbar-track {
+.profilPopIn .profilPopInContent::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #000;
 }
-#profilPopIn #profilPopInContent::-webkit-scrollbar {
+.profilPopIn .profilPopInContent::-webkit-scrollbar {
   width: 6px;
   background-color: #000;
 }
-#profilPopIn #profilPopInContent::-webkit-scrollbar-thumb {
+.profilPopIn .profilPopInContent::-webkit-scrollbar-thumb {
   background-color: #5f5f5f;
 }
-#profilPopIn #profilPopInContent #close {
+.profilPopIn .profilPopInContent .close {
   cursor: pointer;
   float: right;
   font-size: 1.5em;
 }
-#profilPopIn #profilPopInContent .avatar {
+.profilPopIn .profilPopInContent .avatar {
   display: block;
   margin: auto;
   width: 120px;
@@ -303,32 +303,32 @@ a:hover {
   overflow: hidden;
   border: 3px solid white;
 }
-#profilPopIn #profilPopInContent .username {
+.profilPopIn .profilPopInContent .username {
   margin-top: 10px;
   margin-bottom: 9px;
 }
-#profilPopIn #profilPopInContent .location {
+.profilPopIn .profilPopInContent .location {
   margin-top: 10px;
   margin-bottom: 15px;
 }
-#profilPopIn #profilPopInContent .ghostButton {
+.profilPopIn .profilPopInContent .ghostButton {
   border-color: #0edfb5;
 }
-#profilPopIn #profilPopInContent .ghostButton .invert {
+.profilPopIn .profilPopInContent .ghostButton .invert {
   background: #0edfb5;
 }
-#profilPopIn #profilPopInContent .ghostButton .text {
+.profilPopIn .profilPopInContent .ghostButton .text {
   color: #0edfb5;
 }
-#profilPopIn #profilPopInContent .ghostButton:hover .text {
+.profilPopIn .profilPopInContent .ghostButton:hover .text {
   color: white;
 }
-#profilPopIn #profilPopInContent .songBloc {
+.profilPopIn .profilPopInContent .songBloc {
   bacground: black;
   width: 100%;
   height: 300px;
 }
-#profilPopIn #profilPopInContent .songBloc h2 {
+.profilPopIn .profilPopInContent .songBloc h2 {
   height: 50px;
   line-height: 50px;
   font-weight: normal;
@@ -340,11 +340,21 @@ a:hover {
   border-top: 1px solid rgba(255, 255, 255, 0.8);
   border-bottom: 1px solid rgba(255, 255, 255, 0.8);
 }
-#profilPopIn #profilPopInContent .songBloc h2 i {
+.profilPopIn .profilPopInContent .songBloc h2 i {
   margin-right: 10px;
 }
-#profilPopIn #profilPopInContent .songBloc .songList {
+.profilPopIn .profilPopInContent .songBloc .songList {
   overflow: visible;
+}
+
+#background {
+  position: fixed;
+  background: url(http://mmm.nclsndr.fr/img/app/loginbg.jpg) no-repeat center fixed;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
 
 .user.login_register {
@@ -852,14 +862,20 @@ a:hover {
 .dashboardContainer aside .asideElem img, .desktopContainer aside .asideElem img {
   float: left;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  background: url("http://mmm.nclsndr.fr/img/app/noPicture.jpg") center no-repeat;
+  background-size: cover;
 }
 .dashboardContainer aside .asideElem .asideElemTxt, .desktopContainer aside .asideElem .asideElemTxt {
   float: left;
   font-size: 0.72rem;
   width: 100px;
+  margin-left: 17px;
   div: nth-child(2);
   div-margin: 9px 0;
-  margin-left: 17px;
+}
+.dashboardContainer aside .asideElem .asideElemTxt .time, .desktopContainer aside .asideElem .asideElemTxt .time {
+  margin-top: 8px;
+  color: #ddd;
 }
 .dashboardContainer aside #musicYouLiked .asideElemTxt .songTitle, .desktopContainer aside #musicYouLiked .asideElemTxt .songTitle {
   line-height: 50px;
@@ -972,7 +988,6 @@ a:hover {
 /* ———————————————————————————— END DASHBOARD ———————————————————————————— */
 /* --------------- PREGAME PAGE --------------- */
 #preGame {
-  background: url(http://mmm.nclsndr.fr/img/app/loginbg.jpg) no-repeat center fixed;
   background-size: cover;
   width: 100%;
   height: 100%;
@@ -991,7 +1006,7 @@ a:hover {
   max-width: 700px;
   min-width: 620px;
   display: block;
-  margin: 70px auto 0 auto;
+  margin: 55px auto 0 auto;
   position: relative;
 }
 #preGame .preGameContainer div span {
@@ -1018,7 +1033,7 @@ a:hover {
 }
 #preGame .ghostButton {
   width: 225px;
-  margin-top: 70px;
+  margin-top: 55px;
   cursor: pointer;
   font-size: 0.8rem;
 }
@@ -1160,8 +1175,8 @@ a:hover {
   top: -65px;
 }
 .musicInfo .listeningCover {
-  width: 120px;
-  height: 120px;
+  width: 135px;
+  height: 135px;
   margin: auto;
   display: block;
   -webkit-border-radius: 50%;
@@ -1187,7 +1202,7 @@ a:hover {
 .musicInfo #musicBar #musicBarCursor {
   background: #0edfb5;
   height: 100%;
-  width: 20%;
+  width: 0;
   position: relative;
   -webkit-transition: all 1s linear;
   -moz-transition: all 1s linear;
@@ -1219,7 +1234,9 @@ a:hover {
 }
 .musicInfo .isNowPlaying {
   clear: both;
+  margin: auto;
   margin-top: 30px;
+  width: 50%;
 }
 .musicInfo .musicController {
   width: 100px;
@@ -1314,10 +1331,10 @@ a:hover {
   margin-left: -220px;
   background: rgba(0, 0, 0, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  position: absolute;
-  top: 20%;
+  position: fixed;
+  top: 23%;
   left: 50%;
-  z-index: 1000;
+  z-index: 1001;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -ms-transition: all 0.2s ease-in-out;
@@ -1513,8 +1530,9 @@ a:hover {
 }
 .searchContainer .songRecap .songYouReposted h2 {
   background: url("http://mmm.nclsndr.fr/img/app/pictoRepost.png") left center no-repeat;
-  padding-left: 45px;
-  background-size: 33px 18px;
+  padding-left: 46px;
+  background-size: 41px 24px;
+  margin-left: 9%;
 }
 
 .songList {

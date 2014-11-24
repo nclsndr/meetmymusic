@@ -7,64 +7,135 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 
 		$scope.me = UserFactory.User;
 		$scope.peer = UserFactory.Peer;
-		$scope.tcProgress = 0;
 
 		$scope.ui = {
 			bgHeight : window.innerHeight,
-			friendRequestTg : ''
+			friendRequestStatus : '',
+			leaveGameStatus : 'flipInY'
 		};
+		$scope.friendRequestMsg = 'Add to friends';
 
-		$scope.track = {
-			title : 'love',
-			duration : 62737474
-		};
-		
+
+
+		$scope.peer = {
+			username : 'username',
+			avatar_url : 'http://placekitten.com/g/200/200',
+			city : 'Berlin !'
+		}
+
 		SoundcloudService.isDefine(function(){
 			SoundcloudService.getTrack(121346458)
 			.then(
-				function(data){
-					console.log(data);
+				function(currentTrack){
+					console.log(currentTrack);
+					$scope.track = {
+						title : currentTrack.sc.title,
+						duration : currentTrack.sc.duration
+					};
+
+					SoundcloudService.currentTrack.obj.options.onplay = function(){
+						console.log('is played');
+						var store = {
+							to : UserFactory.token.me,
+							ev : 'trackPlay',
+							data : {
+								play : true
+							}
+						};
+						SocketFactory.emit('mmmRouterBroadcast', store);
+					}
+
+					SoundcloudService.currentTrack.obj.options.onpause = function(){
+						console.log('is paused');
+						var store = {
+							to : UserFactory.token.me,
+							ev : 'trackPause',
+							data : {
+								play : false
+							}
+						};
+						SocketFactory.emit('mmmRouterBroadcast', store);
+					}
+
+					SoundcloudService.currentTrack.obj.options.onfinish = function(){
+						console.log('track is finished');
+						leaveGame('/dashboard');
+					}
+					SoundcloudService.currentTrack.obj.paused = true;
 				}
 			);
 		});
 
-		// if (!SoundcloudService.isEmpty(SoundcloudService.currentTrack)) {
-		// 	// Set large IMG
-		// 	SoundcloudService.currentTrack.sc.artwork_url = SoundcloudService.getLargeArtwork(SoundcloudService.currentTrack.sc.artwork_url);
-			
-		// 	$scope.track = {
-		// 		title : SoundcloudService.currentTrack.sc.title,
-		// 		artwork_url : SoundcloudService.currentTrack.sc.artwork_url,
-		// 		duration : SoundcloudService.currentTrack.sc.duration
-		// 	};
 
-		// 	TrackFactory.addHistory(SoundcloudService.currentTrack.id)
-		// 	.then(
-		// 		function(dataSuccess){
-		// 			console.log('Song add to History : ', dataSuccess);
-		// 		}
-		// 	);	
+		
 
-		// 	var store = {
-		// 		to : UserFactory.token.me,
-		// 		ev : 'trackInfosMobile',
-		// 		data : {
-		// 			track : SoundcloudService.currentTrack.sc
-		// 		}
-		// 	};
-		// 	SocketFactory.emit('mmmRouter', store);
-		// }
+		if (!SoundcloudService.isEmpty(SoundcloudService.currentTrack)) {
+			// Set large IMG
+			SoundcloudService.currentTrack.sc.artwork_url = SoundcloudService.getLargeArtwork(SoundcloudService.currentTrack.sc.artwork_url);
+
+			// SET PEER PLAYER INFO
+			SoundcloudService.isDefine(function(){
+				SoundcloudService.getTrackInfos(SoundcloudService.meTrackId)
+				.then(function(dataSuccess){
+						$scope.meTrack = dataSuccess;
+						console.log('SC OBJECT : ', $scope.meTrack);
+					}
+				);	
+			});
+
+			// SET EVENT TO EMIT IN SOCKET IO
+
+			// SET UI
+			$scope.track = {
+				title : SoundcloudService.currentTrack.sc.title,
+				artwork_url : SoundcloudService.currentTrack.sc.artwork_url,
+				duration : SoundcloudService.currentTrack.sc.duration
+			};
+
+			// ADD TRACK TO USER HISTORY 
+			TrackFactory.addHistory(SoundcloudService.currentTrack.id)
+			.then(
+				function(dataSuccess){
+					console.log('Song add to History : ', dataSuccess);
+				}
+			);	
+
+			// INIT MOBILE CONTENT
+			var store = {
+				to : UserFactory.token.me,
+				ev : 'trackInfosMobile',
+				data : {
+					track : SoundcloudService.currentTrack.sc
+				}
+			};
+			SocketFactory.emit('mmmRouter', store);
+		}
+
+		GmapService.hideMap(false);
 
 		$scope.addToFriends = function() {
-			NotificationFactory.add('Friend request send');
-			$scope.ui.friendRequestTg = 'friendRequest';
-			console.log('addToFriends');
-			// alert('addToFriendsDebug');
+			if ($scope.ui.friendRequestStatus == '') {
+				NotificationFactory.add('Friend request send');
+				$scope.ui.friendRequestStatus = 'fromMe';
+				$scope.friendRequestMsg = 'Waiting ...';
+
+				var store = {
+					to : UserFactory.token.peer,
+					ev : 'friendRequest',
+					data : {
+						caller : UserFactory.User.id
+					}
+				};
+				SocketFactory.emit('mmmRouterBroadcast', store);
+			}
 		}
 
 		$scope.passTheSong = function() {
-			NotificationFactory.add('Song paCtrlssed');
-			// alert('passTheSongDebug');
+			NotificationFactory.add('Song skiped');
+			leaveGame('/search');
+		}
+		$scope.toDashboard = function(){
+			leaveGame('/dashboard');
 		}
 
 		$scope.addToFavorites = function() {
@@ -73,37 +144,82 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 		}
 
 		$scope.play = function() {
-			SoundcloudService.currentTrack.obj.play();
+			console.log(SoundcloudService.currentTrack.obj.paused);
+			if (SoundcloudService.currentTrack.obj.paused == true) {
+				SoundcloudService.currentTrack.obj.play();
+			}
 			// alert('play debug');
 		}
 		$scope.pause = function() {
-			SoundcloudService.currentTrack.obj.pause();
+			console.log(SoundcloudService.currentTrack.obj.paused);
+			if (SoundcloudService.currentTrack.obj.paused==false) {
+				SoundcloudService.currentTrack.obj.pause();
+			}
 			// alert('pause debug');
 		}
 
-		// SoundcloudService.getTrackInfo()
-		// .then(
-		// 	function(data){
-		// 		$scope.trackChoosen = data;
-		// 		if(data) $scope.tcTotal = data.duration;
-				
-		// 		console.log('-------$scope data-------');
-		// 		console.log($scope.trackChoosen);
-		// 		console.log('$scope.tcTotal = ' + $scope.tcTotal)
-		// 	}
-		// );
+		function leaveGame(leavePath){
+			SoundcloudService.resetPlayer(function(){
+				var store = {
+					to : UserFactory.token.peer,
+					ev : 'leaveGame',
+					data : {
+						user : UserFactory.Peer.id
+					}
+				};
+				SocketFactory.emit('mmmRouterBroadcast', store);
+				var del = {
+					token : UserFactory.token.me,
+					finalToken : UserFactory.token.both
+				}
+				SocketFactory.emit('leaveRooms', store);
 
-		// SocketFactory.removeAllListeners();
+				$location.path(leavePath);
+			});
+		}
 
-		// SoundcloudService.init();
-		// $scope.SC = {};
+		// SOCKET IO EVENTS TO LISTEN
 
-		// SocketFactory.on('authToken', function(debug){
-		// 	if (debug) {
-		// 		$scope.nodeDatas = debug;
-		// 	}
-		// });
-		
-		GmapService.hideMap(false);
+		SocketFactory.on('friendRequest', function(data){
+			$scope.ui.friendRequestStatus = 'fromPeer';
+			$scope.friendRequestMsg = 'Accept demand';
+			$scope.$apply();
+
+			console.log('friendRequest : ', data);
+		});
+
+		SocketFactory.on('playPause', function(data){
+			if (data.play && SoundcloudService.currentTrack.obj.paused==true) {
+				SoundcloudService.currentTrack.obj.play();
+			}else{
+				SoundcloudService.currentTrack.obj.pause();
+			}
+		});
+
+		SocketFactory.on('leaveGame', function(data){
+			$scope.ui.leaveGameStatus = 'leave';
+			NotificationFactory.add( UserFactory.Peer.username+' have left the game', 'error');
+			$scope.$apply();
+
+			console.log('leaveGame : ', data);
+		});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		
 }]);
