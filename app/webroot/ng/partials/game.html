@@ -16,15 +16,17 @@
             <div class="pseudo">{{me.username}}</div>
             <div class="location">{{me.city}}</div>
         </div>
-        <div id="player2wrapper" class="ng-class: ui.friendRequestTg;"> <!-- .friendrequest for interraction -->
+        <div id="player2wrapper" class="ng-class: ui.friendRequestStatus;"> <!-- .friendrequest for interraction -->
             <div id="player2" class="player animated flipInY">
-                <div class="friendRequestBg animated fadeInUp"></div>
+                <div class="fromMeRequest animated fadeInUp"></div>
+                <div class="fromPeerRequest animated fadeInDown"></div>
                 <div class="avatar">
                     <img ng-src="{{peer.avatar_url}}" alt="">
                 </div>
                 <div class="pseudo">{{peer.username}}</div>
                 <div class="location">{{peer.city}}</div>
-                <div class="friendDemand animated zoomIn">- Send you a friend request -</div>
+                <div class="fromMeMessage animated zoomIn">- Send a friend request -</div>
+                <div class="fromPeerMessage animated zoomIn">- Recieve a friend request -</div>
                 <div class="clear"></div>
             </div>
             <div class="clear"></div>

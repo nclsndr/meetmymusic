@@ -341,12 +341,12 @@ strong {
   margin-top: 0;
   margin-bottom: 0;
 }
-#step3 .playPauseBtn #pauseBtn {
+#step3 .playPauseBtn #playBtn {
   float: left;
   background: url("http://mmm.nclsndr.fr/img/app/playBtn.png") no-repeat;
   background-size: cover;
 }
-#step3 .playPauseBtn #playBtn {
+#step3 .playPauseBtn #pauseBtn {
   float: right;
   background: url("http://mmm.nclsndr.fr/img/app/pauseBtn.png") no-repeat;
   background-size: cover;

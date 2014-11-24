@@ -1,8 +1,8 @@
 <div class="view">
     <!-- OVERLAY PAN ON ALBUM COVER -->
     <div id="overlay">
-        <span class="passTheSong"></span>
-        <span class="addFriend"></span>
+        <span class="passTheSong">&Lang;-- &nbsp;  Pass the song</span>
+        <span class="addFriend">Add to friend  &nbsp; --&Rang;</span>
     </div>
 
     <!-- ADD FRIEND ANIMATION -->
@@ -55,14 +55,14 @@
         </div>
 
         <div class="timeCodeContainer">
-            <span id="tcProgress">00:00</span>&nbsp;/&nbsp;<span id="tcTotal">00:00</span>
+            <span id="tcProgress">{{musicBar.tcProgressConvert}}</span>&nbsp;/&nbsp;<span id="tcTotal">{{musicBar.tcTotalConvert}}</span>
         </div>
         <h2 id="band">{{track.title}}</h2>
         <!-- <h3 id="title">{{track.user.username}}</h2> -->
             <div class="controlPlayer">
                 <div class="playPauseBtn">
-                    <button id="playBtn"></button>
-                    <button class="animated zoomIn" id="pauseBtn"></button>
+                    <button class="animated zoomIn" id="playBtn" ng-click="play()"></button>
+                    <button class="animated zoomIn" id="pauseBtn" ng-click="pause()"></button>
                 </div>
             </div>
             <div class="clear"></div>
