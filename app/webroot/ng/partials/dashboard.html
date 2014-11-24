@@ -31,7 +31,7 @@
                 <div class="clear"></div>
             </div>
             <div class="asideElem" id="musicYouLiked">
-                <h3>Musics that you played</h3>
+                <h3>Song that you listened</h3>
                 <div class="asideElem" ng-class="ui.asideStatus" ng-repeat='trackInfos in SC.userHistory track by $index'>
                     <a href="{{trackInfos.sc.permalink_url}}" target="_blank"><img ng-src="{{trackInfos.sc.artwork_url}}" width="55" height="55" alt="album cover"></a>
                     <div class="asideElemTxt">

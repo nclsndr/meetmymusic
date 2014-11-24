@@ -1,5 +1,5 @@
-mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q', '$location','$window', '$scope','$http', 'GmapService',
-	function (NotificationFactory, UserFactory, SoundcloudService, $q, $location, $window, $scope,$http, GmapService) {
+mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'SoundcloudService', '$q', '$location','$window', '$scope','$http', 'GmapService', 'TrackFactory',
+	function (NotificationFactory, UserFactory, SoundcloudService, $q, $location, $window, $scope,$http, GmapService, TrackFactory) {
 
 		if (UserFactory.isNotLogged()) {
 			NotificationFactory.add('You are not logged', 'error');
@@ -34,10 +34,20 @@ mmmApp.controller('SearchCtrl', ['NotificationFactory', 'UserFactory', 'Soundclo
 				$scope.SC.favList = data;
 				// console.log(data);
 			});
-			SoundcloudService.getHotTracks().then(function(data){
-				$scope.SC.hotTracks = data;
-				// console.log(data);
-			});
+
+			TrackFactory.getHistory(UserFactory.User.id, 20)
+			.then(
+				function(trackList){
+					$scope.SC.userHistory = {};
+					$scope.SC.userHistory = trackList;
+					$scope.SC.lastTrack = trackList[0];
+					$scope.ui.asideStatus = 'fadeIn';
+					$scope.ui.refreshStatus = 'none';
+				},
+				function(error){
+					console.log(error);
+				}
+			);
 		});
 
 		$scope.validateSelection = function(){

@@ -54,16 +54,16 @@
                     </ul>
                 </div>
                 <div class="songRecapHalf songYouReposted">
-                    <h2>Hot Tracks :</h2>
+                    <h2>Song you listened :</h2>
                     <div class="greySep"></div>
                     <ul class="songList">
-                        <li ng-repeat="hotTrack in SC.hotTracks" ng-click="openPopIn(hotTrack.id,hotTrack.title,hotTrack.artwork_url,hotTrack.duration)">
-                            <img ng-src="{{hotTrack.artwork_url}}" class="albumCover">
+                        <li ng-repeat="trackInfos in SC.userHistory track by $index" ng-click="openPopIn(trackInfos.sc.id,trackInfos.sc.title,trackInfos.sc.artwork_url,trackInfos.sc.duration)">
+                            <img ng-src="{{trackInfos.sc.artwork_url}}" class="albumCover">
                             <div class="description">
                                 <div class="title">
-                                    {{hotTrack.title}}
+                                    {{trackInfos.sc.title}}
                                 </div>
-                                <tc duration="{{hotTrack.duration}}">
+                                <tc duration="{{trackInfos.sc.duration}}">
                             </div>
                             <div class="clear"></div>
                         </li>

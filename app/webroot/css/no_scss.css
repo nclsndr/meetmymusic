@@ -58,13 +58,94 @@ form .form_error{
 }
 
 .loadPeer{
-	position: absolute;
+	position: relative;
 	width: 100%;
 	margin-top: 20rem;
 	text-align: center;
 }
 .loadPeer h3{
 	color: #FFF;
+}
+
+
+.playerContainer #player2 .fromMeRequest{
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background: rgba(14, 223, 181, 0.6);
+  z-index: -1;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -ms-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+
+.playerContainer #player2 .fromPeerRequest{
+	display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background: rgba(14, 223, 181, 0.6);
+  z-index: -1;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -ms-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+
+.playerContainer #player2 .fromMeMessage, .playerContainer #player2 .fromPeerMessage {
+  display: none;
+}
+
+.playerContainer .fromMe #player2 .fromMeRequest {
+  display: block !important;
+}
+.playerContainer .fromMe #player2 .location {
+  margin-bottom: 15px;
+}
+.playerContainer .fromMe #player2 .fromMeMessage {
+  display: block;
+}
+.playerContainer .fromMe #addToFriendsBtn {
+  border-color: #0edfb5;
+}
+.playerContainer .fromMe #addToFriendsBtn .invert {
+  background: #0edfb5;
+}
+.playerContainer .fromMe #addToFriendsBtn .text {
+  color: #0edfb5 !important;
+}
+.playerContainer .fromMe #addToFriendsBtn:hover .text {
+  color: white !important;
+}
+
+.playerContainer .fromPeer #player2 .fromPeerRequest {
+  display: block !important;
+}
+.playerContainer .fromPeer #player2 .location {
+  margin-bottom: 15px;
+}
+.playerContainer .fromPeer #player2 .fromPeerMessage {
+  display: block;
+}
+.playerContainer .fromPeer #addToFriendsBtn {
+  border-color: #0edfb5;
+}
+.playerContainer .fromPeer #addToFriendsBtn .invert {
+  background: #0edfb5;
+}
+.playerContainer .fromPeer #addToFriendsBtn .text {
+  color: #0edfb5 !important;
+}
+.playerContainer .fromPeer #addToFriendsBtn:hover .text {
+  color: white !important;
 }
 
 
