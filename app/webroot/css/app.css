@@ -1285,7 +1285,7 @@ a:hover {
 }
 .musicInfo .musicController #favBtn:hover .favDescription {
   opacity: 1 !important;
-  bottom: 32px;
+  bottom: 36px;
 }
 .musicInfo .musicController .favDescription {
   position: absolute;
