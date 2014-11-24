@@ -3,6 +3,7 @@ mmmApp.controller('MbMusicRemoteCtrl', ['$q','$scope', '$location','$interval', 
 		
 		$scope.peer = UserFactory.Peer;
 		$scope.track = SoundcloudService.currentTrackMobile;
+		$scope.showFriendDemand = true;
 		var isPlaying = false;
 		$scope.play = function() {
 			if (isPlaying==false) {

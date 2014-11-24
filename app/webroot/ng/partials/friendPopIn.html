@@ -1,18 +1,20 @@
 <div class="profilPopIn animated" ng-class="{hideElem : hideFriend}">
-    <div class="profilPopInBg animated fadeIn" ng-class="{fadeOut : friendClose}" ng-click="closePopIn()"></div>
+    <div class="profilPopInBg animated fadeIn" ng-class="{fadeOut : friendClose}" ng-click="closeFriend()"></div>
     <div class="clear"></div>
-    <div class="profilPopInContent animated fadeInDown" ng-class="{fadeOutUp : friendClose}">
-        <i class="close" ng-click="closePopIn()">&#215</i>
+    <div class="profilPopInContent animated fadeInUp" ng-class="{fadeOutUp : friendClose}">
+        <i class="close" ng-click="closeFriend()">&#215</i>
         <div class="clear"></div>
-        <img class="avatar" ng-src="{{me.avatar_url}}" alt="avatar">
-        <div class="username">{{me.username}}</div>
-        <div class="location">{{me.city}}</div>
-        <div class="ghostButton">
-            <div class="invert"></div>
-            <div class="text">EXCHANGE</div>
-        </div>
+        <img class="avatar" ng-src="https://i1.sndcdn.com/avatars-000115076685-8bv6ou-large.jpg" alt="avatar">
+        <div class="username">HENG Patrick</div>
+        <div class="location">Paris, France</div>
+        <a href="http://mmm.nclsndr.fr:3000/#/search">
+            <button class="ghostButton">
+                <div class="invert"></div>
+                <div class="text">EXCHANGE</div>
+            </button>
+        </a>
         <div class="songBloc">
-            <h2><i>&hearts;</i> Song he/she liked</h2>
+            <h2><i>&hearts;</i> Song he / she liked</h2>
             <ul class="songList">
                 <li ng-repeat="fav in favList" ng-click="openPopIn(fav.id,fav.title,fav.artwork_url,fav.duration)">
                     <img ng-src="{{fav.artwork_url}}" class="albumCover">
