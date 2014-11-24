@@ -29,6 +29,11 @@ io.on('connection', function(socket){
 		console.log('mmmRouter : ', stored.ev);
 		io.to(stored.to).emit(stored.ev, stored.data);
 	});
+	// Routine de passage broadcast multi-duplex
+	socket.on('mmmRouterBroadcast', function(stored){
+		console.log('mmmRouterBroadcast : ', stored.ev);
+		socket.broadcast.to(stored.to).emit(stored.ev, stored.data);
+	});
 	// EX :
 	// var store = {
 	// 	to : UserFactory.token.peer,
@@ -38,16 +43,26 @@ io.on('connection', function(socket){
 	// 	}
 	// };
 	// SocketFactory.emit('mmmRouter', store);
+
 	
 
-	// Routine de passage TWIN ONLY
-	socket.on('twin', function(data){
-		io.to(data.token).emit('twin', data.msg);
+	socket.on('leaveRooms', function(data){
+		// var del = {
+		// 	token : UserFactory.token.me,
+		// 	finalToken : UserFactory.token.both
+		// }
+		console.log('leaveRooms');
 	});
-	// Routine de passage PEER
-	socket.on('peer', function(data){
-		io.to(data.finalToken).emit('peer', data.msg);
-	});
+	
+	// TO DELETE LATER
+	// // Routine de passage TWIN ONLY
+	// socket.on('twin', function(data){
+	// 	io.to(data.token).emit('twin', data.msg);
+	// });
+	// // Routine de passage PEER
+	// socket.on('peer', function(data){
+	// 	io.to(data.finalToken).emit('peer', data.msg);
+	// });
 
 	socket.on('disconnect', function(token) {
       console.log('a user disconnect : ', token);

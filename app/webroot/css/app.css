@@ -238,13 +238,13 @@ a:hover {
   background: #e40151;
 }
 
-#profilPopIn {
+.profilPopIn {
   width: 100%;
   height: 100%;
   z-index: 1000;
   overflow: hidden;
 }
-#profilPopIn #profilPopInBg {
+.profilPopIn .profilPopInBg {
   top: 0;
   bottom: 0;
   left: 0;
@@ -254,7 +254,7 @@ a:hover {
   z-index: 10000;
   cursor: pointer;
 }
-#profilPopIn #profilPopInContent {
+.profilPopIn .profilPopInContent {
   color: white;
   text-align: center;
   width: 700px;
@@ -276,23 +276,23 @@ a:hover {
   scrollbar-shadow-color: #5f5f5f;
   scrollbar-dark-shadow-color: #5f5f5f;
 }
-#profilPopIn #profilPopInContent::-webkit-scrollbar-track {
+.profilPopIn .profilPopInContent::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #000;
 }
-#profilPopIn #profilPopInContent::-webkit-scrollbar {
+.profilPopIn .profilPopInContent::-webkit-scrollbar {
   width: 6px;
   background-color: #000;
 }
-#profilPopIn #profilPopInContent::-webkit-scrollbar-thumb {
+.profilPopIn .profilPopInContent::-webkit-scrollbar-thumb {
   background-color: #5f5f5f;
 }
-#profilPopIn #profilPopInContent #close {
+.profilPopIn .profilPopInContent .close {
   cursor: pointer;
   float: right;
   font-size: 1.5em;
 }
-#profilPopIn #profilPopInContent .avatar {
+.profilPopIn .profilPopInContent .avatar {
   display: block;
   margin: auto;
   width: 120px;
@@ -303,32 +303,32 @@ a:hover {
   overflow: hidden;
   border: 3px solid white;
 }
-#profilPopIn #profilPopInContent .username {
+.profilPopIn .profilPopInContent .username {
   margin-top: 10px;
   margin-bottom: 9px;
 }
-#profilPopIn #profilPopInContent .location {
+.profilPopIn .profilPopInContent .location {
   margin-top: 10px;
   margin-bottom: 15px;
 }
-#profilPopIn #profilPopInContent .ghostButton {
+.profilPopIn .profilPopInContent .ghostButton {
   border-color: #0edfb5;
 }
-#profilPopIn #profilPopInContent .ghostButton .invert {
+.profilPopIn .profilPopInContent .ghostButton .invert {
   background: #0edfb5;
 }
-#profilPopIn #profilPopInContent .ghostButton .text {
+.profilPopIn .profilPopInContent .ghostButton .text {
   color: #0edfb5;
 }
-#profilPopIn #profilPopInContent .ghostButton:hover .text {
+.profilPopIn .profilPopInContent .ghostButton:hover .text {
   color: white;
 }
-#profilPopIn #profilPopInContent .songBloc {
+.profilPopIn .profilPopInContent .songBloc {
   bacground: black;
   width: 100%;
   height: 300px;
 }
-#profilPopIn #profilPopInContent .songBloc h2 {
+.profilPopIn .profilPopInContent .songBloc h2 {
   height: 50px;
   line-height: 50px;
   font-weight: normal;
@@ -340,10 +340,10 @@ a:hover {
   border-top: 1px solid rgba(255, 255, 255, 0.8);
   border-bottom: 1px solid rgba(255, 255, 255, 0.8);
 }
-#profilPopIn #profilPopInContent .songBloc h2 i {
+.profilPopIn .profilPopInContent .songBloc h2 i {
   margin-right: 10px;
 }
-#profilPopIn #profilPopInContent .songBloc .songList {
+.profilPopIn .profilPopInContent .songBloc .songList {
   overflow: visible;
 }
 
@@ -1530,8 +1530,9 @@ a:hover {
 }
 .searchContainer .songRecap .songYouReposted h2 {
   background: url("http://mmm.nclsndr.fr/img/app/pictoRepost.png") left center no-repeat;
-  padding-left: 45px;
-  background-size: 33px 18px;
+  padding-left: 46px;
+  background-size: 41px 24px;
+  margin-left: 9%;
 }
 
 .songList {

@@ -1,9 +1,6 @@
 <div class="dashboardContainer" id="gamePage">
     <dropdown></dropdown>
-
-    <a href="http://mmm.nclsndr.fr:3000/#/dashboard">
-        <button class="backBtn animated fadeIn" ng-click='quitGame()'>Back</button>
-    </a>
+        <button class="backBtn animated fadeIn" ng-click='toDashboard()'>Back</button>
     
     <div class="playerContainer">
       
@@ -16,22 +13,24 @@
             <div class="pseudo">{{me.username}}</div>
             <div class="location">{{me.city}}</div>
         </div>
-        <div id="player2wrapper" class="ng-class: ui.friendRequestTg;"> <!-- .friendrequest for interraction -->
-            <div id="player2" class="player animated flipInY">
-                <div class="friendRequestBg animated fadeInUp"></div>
+        <div id="player2wrapper" class="ng-class: ui.friendRequestStatus;"> <!-- .friendrequest for interraction -->
+            <div id="player2"  class="ng-class:ui.leaveGameStatus; player animated">
+                <div class="fromMeRequest animated fadeInUp"></div>
+                <div class="fromPeerRequest animated fadeInDown"></div>
                 <div class="avatar">
                     <img ng-src="{{peer.avatar_url}}" alt="">
                 </div>
                 <div class="pseudo">{{peer.username}}</div>
                 <div class="location">{{peer.city}}</div>
-                <div class="friendDemand animated zoomIn">- Send you a friend request -</div>
+                <div class="fromMeMessage animated zoomIn">- Send a friend request -</div>
+                <div class="fromPeerMessage animated zoomIn">- Recieve a friend request -</div>
                 <div class="clear"></div>
             </div>
             <div class="clear"></div>
             <div class="btnActionContainer">
                 <button class="ghostButton" id="addToFriendsBtn" ng-click="addToFriends()">
                     <span class="invert"></span>
-                    <span class="text"><i>☺</i> Add to friends</span>
+                    <span class="text"><i>☺</i>{{friendRequestMsg}}</span>
                 </button>
       
                 <button class="ghostButton" id="skipTheSongBtn" ng-click="passTheSong()">
