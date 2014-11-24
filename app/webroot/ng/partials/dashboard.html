@@ -23,17 +23,17 @@
             </div>
             <div class="asideElem" id="lastFriendAdded">
                 <h3>Last friend added</h3>
-                <img src="http://mmm.nclsndr.fr/img/app/avatarSample.png" width="55" height="55" alt="album cover">
+                <img src="http://mmm.nclsndr.fr/img/app/faceUi2.jpg" width="55" height="55" alt="album cover">
                 <div class="asideElemTxt">
-                    <div class="songTitle"><span>Lana Del ray</span></div>
-                    <div class="time"><span>11 minutes</span> ago</div>
+                    <div class="songTitle"><span>Mike Mai</span></div>
+                    <div class="time"><span>5 days</span> ago</div>
                 </div>
                 <div class="clear"></div>
             </div>
             <div class="asideElem" id="musicYouLiked">
                 <h3>Song that you listened</h3>
                 <div class="asideElem" ng-class="ui.asideStatus" ng-repeat='trackInfos in SC.userHistory track by $index'>
-                    <a href="{{trackInfos.sc.permalink_url}}" target="_blank"><img ng-src="{{trackInfos.sc.artwork_url}}" width="55" height="55" alt="album cover"></a>
+                    <a href="{{trackInfos.sc.permalink_url}}" target="_blank"><img ng-src="{{trackInfos.sc.artwork_url}}" width="55" height="55"></a>
                     <div class="asideElemTxt">
                         <div class="songTitle"><a href="{{trackInfos.sc.permalink_url}}" target="_blank"><span>{{trackInfos.sc.title}}</span></a></div>
                     </div>

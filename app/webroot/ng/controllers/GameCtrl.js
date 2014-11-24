@@ -33,8 +33,6 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 		// 				duration : currentTrack.sc.duration
 		// 			};
 					
-					
-					
 		// 		}
 		// 	);
 		// });
@@ -93,7 +91,6 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 					100
 				);
 			});
-
 
 			// SET UI
 			$scope.track = {
