@@ -1073,6 +1073,7 @@ a:hover {
   width: 25%;
   min-width: 250px;
   height: 100%;
+  position: relative;
 }
 .playerContainer .player .avatar {
   width: 60%;
@@ -1284,7 +1285,7 @@ a:hover {
 }
 .musicInfo .musicController #favBtn:hover .favDescription {
   opacity: 1 !important;
-  bottom: 35px;
+  bottom: 32px;
 }
 .musicInfo .musicController .favDescription {
   position: absolute;
