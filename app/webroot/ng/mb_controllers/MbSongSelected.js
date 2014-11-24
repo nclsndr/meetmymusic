@@ -8,12 +8,9 @@ mmmApp.controller('MbSongSelectedCtrl', ['$q','$scope', '$location', 'SocketFact
 			console.log(token);
 			SocketFactory.emit('setTwins', token);
 
-			SocketFactory.on('confirmSetTwins', function(data){
-				console.log(data);
-			});	
-
+			UserFactory.token.me = token;
+			
 			SocketFactory.on('mobileDataInit', function(data){
-				console.log(data);
 				UserFactory.User = data.user;
 				$scope.track = data.trackMobile;
 				$scope.$apply();	

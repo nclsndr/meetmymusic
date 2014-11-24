@@ -124,6 +124,7 @@ function ($http, $location, $q, LSFactory, SocketFactory) {
 			}
 		},
 		getPeerToken:function(finalToken){
+			Factory.token.both = finalToken;
 			var splited = finalToken.split('_');
 			if (splited.length == 2) {
 				if (splited[0]==Factory.token.me) {
@@ -135,6 +136,12 @@ function ($http, $location, $q, LSFactory, SocketFactory) {
 				}	
 			}
 		},
+		resetPeer:function(){
+			Factory.Peer = {};
+			Factory.token.peer = false;
+			Factory.token.both = false;
+		},
+
 		geolocation:function(){
 			var deferred = $q.defer();
 
@@ -181,6 +188,8 @@ function ($http, $location, $q, LSFactory, SocketFactory) {
 				});
 			return deferred.promise;
 		}
+
+		
 
 	}
 	return Factory;

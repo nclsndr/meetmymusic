@@ -27,11 +27,13 @@ io.on('connection', function(socket){
 	// Routine de passage multi-duplex
 	socket.on('mmmRouter', function(stored){
 		console.log('mmmRouter : ', stored.ev);
+		console.log('To : ', stored.to);
 		io.to(stored.to).emit(stored.ev, stored.data);
 	});
 	// Routine de passage broadcast multi-duplex
 	socket.on('mmmRouterBroadcast', function(stored){
 		console.log('mmmRouterBroadcast : ', stored.ev);
+		console.log('To : ', stored.to);
 		socket.broadcast.to(stored.to).emit(stored.ev, stored.data);
 	});
 	// EX :
@@ -44,25 +46,10 @@ io.on('connection', function(socket){
 	// };
 	// SocketFactory.emit('mmmRouter', store);
 
-	
-
 	socket.on('leaveRooms', function(data){
-		// var del = {
-		// 	token : UserFactory.token.me,
-		// 	finalToken : UserFactory.token.both
-		// }
-		console.log('leaveRooms');
+		console.log('leaveRooms : ',data.finalToken);
+		// mmm.peers.delete(data.finalToken);
 	});
-	
-	// TO DELETE LATER
-	// // Routine de passage TWIN ONLY
-	// socket.on('twin', function(data){
-	// 	io.to(data.token).emit('twin', data.msg);
-	// });
-	// // Routine de passage PEER
-	// socket.on('peer', function(data){
-	// 	io.to(data.finalToken).emit('peer', data.msg);
-	// });
 
 	socket.on('disconnect', function(token) {
       console.log('a user disconnect : ', token);
@@ -187,6 +174,21 @@ var mmm = {
 				// io.to(finalToken).emit('finalToken', finalToken);
 				io.sockets.in(finalToken).emit('finalToken', finalToken);
 			}
+		}, 
+		delete:function(finalToken){
+
+			var splited = finalToken.split('_');
+
+			mmm.usersObj[splited[0]+'_D'].leave(finalToken);
+			mmm.usersObj[splited[1]+'_D'].leave(finalToken);
+
+			if (mmm.usersObj[splited[0]+'_M']) {
+				mmm.usersObj[splited[0]+'_M'].leave(finalToken);
+			}
+			if (mmm.usersObj[splited[1]+'_M']) {
+				mmm.usersObj[splited[1]+'_M'].leave(finalToken);
+			}
+
 		}
 	}
 }

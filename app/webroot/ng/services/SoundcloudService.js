@@ -6,7 +6,6 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		this.defineApply = [];
 		this.SCUser = {};
 		this.currentTrack= {};
-		this.currentTrackTime= 0;
 		this.currentTrackMobile= {};
 		this.meTrackId = false;
 		this.trackList = {};
@@ -153,8 +152,6 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 						// self.trackList[self.listIndex] = store;
 						// self.listIndex++;
 						self.currentTrack = store
-						console.log('----- CURRENT TRACK ------ :');
-						console.log(self.currentTrack);
 						deferred.resolve(self.currentTrack);
 					});
 				});	
@@ -224,7 +221,10 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		}
 
 		this.resetPlayer = function(callback){
-
+			self.currentTrack.obj.pause();
+			self.currentTrack = {};
+			self.currentTrackMobile = {};
+			self.meTrackId = false;
 			return callback.call(this);
 		}
 

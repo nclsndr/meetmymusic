@@ -23,6 +23,7 @@ mmmApp.controller('PregameCtrl', ['NotificationFactory', 'UserFactory', 'Soundcl
 			SoundcloudService.getTrackInfos(SoundcloudService.meTrackId)
 			.then(
 				function(dataSuccess){
+
 					dataSuccess.artwork_url = SoundcloudService.getLargeArtwork(dataSuccess.artwork_url);
 					var stored = {
 						to : UserFactory.token.me,
@@ -32,8 +33,8 @@ mmmApp.controller('PregameCtrl', ['NotificationFactory', 'UserFactory', 'Soundcl
 							trackMobile : dataSuccess	
 						}
 					};
-					GmapService.hideMap(false);
-					SocketFactory.emit('mmmRouter', stored);		
+					SocketFactory.emit('mmmRouter', stored);
+					GmapService.hideMap(false);	
 				}
 			);
 		});	

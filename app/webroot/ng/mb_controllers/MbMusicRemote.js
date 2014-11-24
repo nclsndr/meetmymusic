@@ -1,15 +1,48 @@
-mmmApp.controller('MbMusicRemoteCtrl', ['$q','$scope', '$location','$interval', 'UserFactory', 'SoundcloudService',
-	function ($q, $scope, $location, $interval, UserFactory, SoundcloudService) {
+mmmApp.controller('MbMusicRemoteCtrl', ['$q','$scope', '$location','$interval', 'UserFactory', 'SoundcloudService','SocketFactory',
+	function ($q, $scope, $location, $interval, UserFactory, SoundcloudService, SocketFactory) {
 		
 		$scope.peer = UserFactory.Peer;
 		$scope.track = SoundcloudService.currentTrackMobile;
-		var isPlaying = true;
-		$scope.pause = function() {
-			isPlaying = false;
-		}
+		var isPlaying = false;
 		$scope.play = function() {
-			isPlaying = true;
+			if (isPlaying==false) {
+				var store = {
+					to : UserFactory.token.me,
+					ev : 'MobileplayPause',
+					data : {
+						play : true
+					}
+				};
+				isPlaying = true;
+				SocketFactory.emit('mmmRouterBroadcast', store);	
+			}
 		}
+		$scope.pause = function() {
+			if (isPlaying==true) {
+				var store = {
+					to : UserFactory.token.me,
+					ev : 'MobileplayPause',
+					data : {
+						play : false
+					}
+				};
+				isPlaying = false;
+				SocketFactory.emit('mmmRouterBroadcast', store);	
+			}
+		}
+
+		SocketFactory.on('DesktopPlayPause', function(data){
+			isPlaying = data.play
+			// if (data.play && !isPlaying) {
+			// 	isPlaying = true;
+			// }else{
+			// 	isPlaying = false;
+			// }
+		});
+
+		SocketFactory.on('leaveGame', function(data){
+			onSwipeLeft(true);
+		});
 
 		
 		/* -------------------- HAMMER -------------------- */ 
@@ -133,11 +166,31 @@ mmmApp.controller('MbMusicRemoteCtrl', ['$q','$scope', '$location','$interval', 
 		    onPanSwipe = false;
 		}
 
-		function onSwipeLeft(ev) {
+		function onSwipeLeft(isSocket) {
+			if (typeof isSocket == 'undefined') {
+				isSocket = false;
+			}
 		    songPassedOverlay.style.display = "block";
 		    step3.style.display = "none";
+
 		    setTimeout(function() {
 		        songPassedOverlay.classList.add("fadeOut");
+
+		        if (isSocket) {
+			        var store = {
+						to : UserFactory.token.peer,
+						ev : 'leaveGame',
+						data : {
+							user : UserFactory.Peer.id
+						}
+					};
+					SocketFactory.emit('mmmRouterBroadcast', store);
+					var del = {
+						token : UserFactory.token.me,
+						finalToken : UserFactory.token.both
+					}
+					SocketFactory.emit('leaveRooms', store);
+		        }
 
 		        setTimeout(function() {
 		            songPassedOverlay.style.display = "none";
@@ -145,6 +198,7 @@ mmmApp.controller('MbMusicRemoteCtrl', ['$q','$scope', '$location','$interval', 
 		            step3.style.display = "block";
 		            START_X = Math.round((window.innerWidth - albumCover.offsetWidth) / 2);
 		            resetElement();
+		            $location.path('/landing');
 		        }, 400);
 		    }, 5000);
 		}
@@ -154,6 +208,16 @@ mmmApp.controller('MbMusicRemoteCtrl', ['$q','$scope', '$location','$interval', 
 		    step3.style.display = "none";
 		    setTimeout(function() {
 		        addFrienOverlay.classList.add("fadeOut");
+
+		        var store = {
+					to : UserFactory.token.both,
+					ev : 'friendRequest',
+					data : {
+						caller : UserFactory.User.id
+					}
+				};
+				SocketFactory.emit('mmmRouterBroadcast', store);
+
 
 		        setTimeout(function() {
 		            addFrienOverlay.style.display = "none";
@@ -177,9 +241,15 @@ mmmApp.controller('MbMusicRemoteCtrl', ['$q','$scope', '$location','$interval', 
 		};
 
 		/* --------------- MUSIC PROGRESS BAR --------------- */
+		if (typeof parseInt(SoundcloudService.currentTrackMobile.duration) == 'number') {
+			var durationTrack = parseInt(SoundcloudService.currentTrackMobile.duration);
+		}else{
+			var durationTrack = 0;
+		}
+		
 		$scope.musicBar = {
-            tcTotal : 120000,
-            tcTotalConvert : SoundcloudService.setTimeCode(120000),
+            tcTotal : durationTrack,
+            tcTotalConvert : SoundcloudService.setTimeCode(durationTrack),
             tcProgressConvert : '00:00:00'
         }
 

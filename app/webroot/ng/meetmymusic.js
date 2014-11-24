@@ -27,7 +27,12 @@ mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider', '$
         .when('/remote', {
             templateUrl: mbPartialsF+'/musicRemote.html',
             controller: 'MbMusicRemoteCtrl'
-        }).otherwise({
+        })
+        .when('/landing', {
+            templateUrl: mbPartialsF+'/start.html',
+            controller: 'MbStartCtrl'
+        })
+        .otherwise({
             redirectTo: '/'
         }); 
         
