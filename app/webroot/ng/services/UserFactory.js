@@ -1,5 +1,5 @@
-mmmApp.factory('UserFactory', ['$http', '$location', '$q', 'LSFactory', 'SocketFactory',
-function ($http, $location, $q, LSFactory, SocketFactory) {
+mmmApp.factory('UserFactory', ['$http', '$location', '$q', 'LSFactory', 'SocketFactory', 'SoundcloudService',
+function ($http, $location, $q, LSFactory, SocketFactory, SoundcloudService) {
 	var Factory = {
 
 		User: {},
@@ -46,13 +46,17 @@ function ($http, $location, $q, LSFactory, SocketFactory) {
 		},
 
 		isNotLogged:function(){
-			if (Factory.User == null) return true;
-		    if (Factory.User.length > 0)    return false;
-		    if (Factory.User.length === 0)  return true;
-		    for (var key in Factory.User) {
-		        if (hasOwnProperty.call(Factory.User, key)) return false;
-		    }
-		    return true;
+			if (SoundcloudService.isEmpty(SoundcloudService.SC)) {
+				return true;
+			}
+		    else {
+		    	return false;
+		    };    
+
+		    // for (var key in Factory.User) {
+		    //     if (hasOwnProperty.call(Factory.User, key)) return false;
+		    // }
+		    // return true;
 		},
 
 		hasAccount:function(api_id){

@@ -5,9 +5,9 @@
         <dropdown></dropdown>
         
         <aside>
-            <div class="topAside">
+            <!-- <div class="topAside">
                 <img ng-class="ui.refreshStatus" ng-click="refreshAside()" class="refreshBt" src="http://mmm.nclsndr.fr/img/app/refreshPicto.png" width="24" height="24" alt="refresh">
-            </div>
+            </div> -->
 
             <div class="asideElem" id="lastSongPlayed">
                 <h3>Last song listened</h3>
@@ -15,7 +15,7 @@
                     <img ng-src="{{SC.lastTrack.sc.artwork_url}}" width="55" height="55" alt="album cover">
                     <div class="asideElemTxt">
                         <div class="songTitle"><span>{{SC.lastTrack.sc.title}}</span></div>
-                        <div class="time"><span>{{SC.lastTrack.created}}</span></div>
+                        <div class="time"><span>{{(SC.lastTrack.created)}}</span></div>
                     </div>    
                 </div>
                 

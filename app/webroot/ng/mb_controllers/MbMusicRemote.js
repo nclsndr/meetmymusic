@@ -1,10 +1,11 @@
 mmmApp.controller('MbMusicRemoteCtrl', ['$q','$scope', '$location','$interval', 'UserFactory', 'SoundcloudService','SocketFactory',
 	function ($q, $scope, $location, $interval, UserFactory, SoundcloudService, SocketFactory) {
-		
+
 		$scope.peer = UserFactory.Peer;
 		$scope.track = SoundcloudService.currentTrackMobile;
-		$scope.showFriendDemand = true;
+		$scope.showFriendDemand = false;
 		var isPlaying = false;
+		$scope.closeFriendDemand = false;
 		$scope.play = function() {
 			if (isPlaying==false) {
 				var store = {
@@ -14,8 +15,8 @@ mmmApp.controller('MbMusicRemoteCtrl', ['$q','$scope', '$location','$interval', 
 						play : true
 					}
 				};
+				SocketFactory.emit('mmmRouterBroadcast', store);
 				isPlaying = true;
-				SocketFactory.emit('mmmRouterBroadcast', store);	
 			}
 		}
 		$scope.pause = function() {
@@ -32,8 +33,27 @@ mmmApp.controller('MbMusicRemoteCtrl', ['$q','$scope', '$location','$interval', 
 			}
 		}
 
+		$scope.acceptFriendRequest = function() {
+			
+		$scope.closeFriendDemand = true;
+			setTimeout(function() {
+				$scope.showFriendDemand = false;
+				SocketFactory.emit('friendRequest', store);
+			}, 400);
+		}
+
+		var store = {
+			to : UserFactory.token.me,
+			ev : 'remoteIsReady',
+			data : {
+				readyState : true
+			}
+		};
+		SocketFactory.emit('mmmRouterBroadcast', store);
+
 		SocketFactory.on('DesktopPlayPause', function(data){
-			isPlaying = data.play
+			isPlaying = data.play;
+			alert(data.play);
 			// if (data.play && !isPlaying) {
 			// 	isPlaying = true;
 			// }else{
@@ -44,6 +64,14 @@ mmmApp.controller('MbMusicRemoteCtrl', ['$q','$scope', '$location','$interval', 
 		SocketFactory.on('leaveGame', function(data){
 			onSwipeLeft(true);
 		});
+
+
+		SocketFactory.on('friendRequest', function(data){
+			alert('You receive a friend request !');
+			$scope.showFriendDemand = true;
+			$scope.$apply();
+		});
+		
 
 		
 		/* -------------------- HAMMER -------------------- */ 
@@ -333,7 +361,6 @@ mmmApp.controller('MbMusicRemoteCtrl', ['$q','$scope', '$location','$interval', 
 		    if(angle<0) {
 		        angle = 360 + angle;
 		    }
-		    // console.log('Rotate de base : ' + angle );
 		    return angle;
 		}
 

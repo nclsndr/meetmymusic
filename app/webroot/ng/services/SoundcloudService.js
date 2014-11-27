@@ -62,6 +62,7 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		    return true;
 		}
 
+
 		this.connect=function(){
 			var deferred = $q.defer();
 			// initiate auth popup
@@ -81,7 +82,7 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		this.getSelfTracks=function(){
 			var deferred = $q.defer();
 			self.isDefine(function() {
-				self.SC.get('/me/tracks', { limit: 10 }, function(tracks) {
+				self.SC.get('/me/tracks', { streamable: 'true', limit: 10 }, function(tracks) {
 					deferred.resolve(tracks);
 				});
 			});
@@ -113,7 +114,7 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		this.getFavoritesTracks=function(){
 			var deferred = $q.defer();
 			self.isDefine(function(){
-				self.SC.get('/me/favorites', { limit: 50 }, function(tracks) {
+				self.SC.get('/me/favorites', { streamable: 'true', limit: 50 }, function(tracks) {
 					deferred.resolve(tracks);
 				});
 			})
@@ -221,7 +222,7 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 		}
 
 		this.resetPlayer = function(callback){
-			self.currentTrack.obj.pause();
+			
 			self.currentTrack = {};
 			self.currentTrackMobile = {};
 			self.meTrackId = false;
@@ -235,29 +236,6 @@ mmmApp.service('SoundcloudService',['$http', '$q', '$rootScope',
 			self.trackList[listIndex].obj.pause();
 		}
 		self = this;
-
-		// this.addSound=function(soundId){
-		// 	if (!soundId) return false;
-		// 	var deferred = $q.defer();
-		// 	var store = {};
-		// 	store.id = soundId;
-		// 	self.isDefine(function(){
-		// 		self.SC.get("/tracks/"+soundId, function(track){
-		// 			store.sc = track;
-		// 			self.SC.stream("/tracks/"+soundId, function(soundObj){
-		// 				self.idList.push(store.id);
-		// 				store.obj = soundObj;
-		// 				console.log('store : ', store);
-		// 				self.trackList[self.listIndex] = store;
-		// 				self.listIndex++;
-		// 				deferred.resolve(self.trackList);
-		// 			});
-		// 		});	
-		// 	});
-		// 	// deferred.reject('impossible de finaliser');
-		// 	return deferred.promise;
-		// }
-
 		
 	}
 ]);

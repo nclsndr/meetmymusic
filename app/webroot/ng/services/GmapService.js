@@ -60,7 +60,7 @@ mmmApp.service('GmapService',['$http', '$q', '$rootScope',
 				lng = 2.294694;
 			}
 			if (zoom===false) {
-				zoom = 8;
+				zoom = 6;
 			}
 			self.DomElm = DomElm;
 			$rootScope.hiddenMap = true;
@@ -71,7 +71,7 @@ mmmApp.service('GmapService',['$http', '$q', '$rootScope',
 				backgroundColor : '#222',
 				// disableDefaultUI : true,
 				disableDoubleClickZoom : true,
-				minZoom : 3,
+				minZoom : 5,
 				styles : self.mapLayer,
 				panControl : false,
 				rotateControl : false,

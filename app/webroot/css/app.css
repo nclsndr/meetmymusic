@@ -852,6 +852,7 @@ a:hover {
 .dashboardContainer aside .asideElem, .desktopContainer aside .asideElem {
   padding: 15px 7%;
   width: 100%;
+  overflow: hidden;
   color: white;
   cursor: pointer;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
@@ -880,6 +881,9 @@ a:hover {
   margin-top: 8px;
   color: #ddd;
 }
+.dashboardContainer aside .asideElem .asideElemTxt .songTitle span, .desktopContainer aside .asideElem .asideElemTxt .songTitle span {
+  line-height: 0.95rem;
+}
 .dashboardContainer aside #musicYouLiked .asideElemTxt .songTitle, .desktopContainer aside #musicYouLiked .asideElemTxt .songTitle {
   line-height: 50px;
   height: 50px;
@@ -888,6 +892,7 @@ a:hover {
   line-height: normal;
   vertical-align: middle;
   display: inline-block;
+  line-height: 0.95rem;
 }
 
 .dashboardContainer .ghostButton {
@@ -999,6 +1004,7 @@ a:hover {
   color: white;
   text-align: center;
   font-size: 1.1rem;
+  line-height: 1.4rem;
   font-weight: normal;
   font-family: "Montserrat", helvetica, arial, sans-serif;
   margin-top: 65px;
@@ -1019,6 +1025,7 @@ a:hover {
   text-align: center;
   margin-top: 18px;
   font-size: 0.9rem;
+  line-height: 1.15rem;
 }
 #preGame .preGameContainer #qrCode {
   width: 220px;
@@ -1243,6 +1250,7 @@ a:hover {
   margin-top: 30px;
   margin-bottom: 25px;
   width: 50%;
+  line-height: 1.2rem;
 }
 .musicInfo .musicController {
   width: 100px;
@@ -1286,7 +1294,7 @@ a:hover {
 }
 .musicInfo .musicController #favBtn:hover .favDescription {
   opacity: 1 !important;
-  bottom: 36px;
+  bottom: 25px;
 }
 .musicInfo .musicController .favDescription {
   position: absolute;
@@ -1350,6 +1358,7 @@ a:hover {
 .searchContainer #popInValidateContent #title {
   width: 70%;
   margin: 20px auto 40px auto;
+  line-height: 1.35rem;
 }
 .searchContainer #popInValidateContent #timecode {
   margin-top: 10px;

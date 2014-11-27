@@ -108,14 +108,18 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 			);	
 
 			// INIT MOBILE CONTENT
-			var store = {
+			SocketFactory.emit('mmmRouterBroadcast', store1);
+			var store2 = {
 				to : UserFactory.token.me,
 				ev : 'trackInfosMobile',
 				data : {
 					track : SoundcloudService.currentTrack.sc
 				}
 			};
-			SocketFactory.emit('mmmRouter', store);
+			SocketFactory.emit('mmmRouterBroadcast', store2);
+
+
+			
 		}
 
 		GmapService.hideMap(false);
@@ -184,6 +188,8 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 				UserFactory.resetPeer(function(){
 					$location.path(leavePath);
 				});
+
+
 			});
 		}
 
@@ -216,27 +222,10 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 		SocketFactory.on('leaveGame', function(data){
 			$scope.ui.leaveGameStatus = 'leave';
 			NotificationFactory.add( UserFactory.Peer.username+' have left the game', 'error');
+			
 			$scope.$apply();
 
 			console.log('leaveGame : ', data);
 		});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
+	
 }]);

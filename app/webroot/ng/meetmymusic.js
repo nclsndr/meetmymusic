@@ -47,32 +47,72 @@ mmmApp.config(['$routeProvider', '$locationProvider', '$sceDelegateProvider', '$
             templateUrl: partialsF+'/dashboard.html',
             controller: 'DashboardCtrl',
             resolve: {
-                // auth : function(UserFactory, $location, NotificationFactory){
-                //     if (UserFactory.isNotLogged()) {
-                //         NotificationFactory.add('You are not logged', 'error');
-                //         $location.path('/');
-                //     }
-                // }
+                auth : function(UserFactory, $location, NotificationFactory){
+                    if (UserFactory.isNotLogged()) {
+                        NotificationFactory.add('You are not logged', 'error');
+                        $location.path('/');
+                    }
+                }
             }
         })
         .when('/pregame', {
             templateUrl: partialsF+'/pregame.html',
-            controller: 'PregameCtrl'
+            controller: 'PregameCtrl',
+            resolve: {
+                auth : function(UserFactory, $location, NotificationFactory){
+                    if (UserFactory.isNotLogged()) {
+                        NotificationFactory.add('You are not logged', 'error');
+                        $location.path('/');
+                    }
+                }
+            }
         })
         .when('/debug', {
             templateUrl: partialsF+'/debug.html',
-            controller: 'DebugCtrl'
+            controller: 'DebugCtrl',
+            resolve: {
+                auth : function(UserFactory, $location, NotificationFactory){
+                    if (UserFactory.isNotLogged()) {
+                        NotificationFactory.add('You are not logged', 'error');
+                        $location.path('/');
+                    }
+                }
+            }
         })
         .when('/login', {
             templateUrl: partialsF+'/login.html',
-            controller: 'UserCtrl'
+            controller: 'UserCtrl',
+            resolve: {
+                auth : function(UserFactory, $location, NotificationFactory){
+                    if (UserFactory.isNotLogged()) {
+                        NotificationFactory.add('You are not logged', 'error');
+                        $location.path('/');
+                    }
+                }
+            }
         })
         .when('/search', {
             templateUrl: partialsF+'/search.html',
-            controller: 'SearchCtrl'
+            controller: 'SearchCtrl',
+            resolve: {
+                auth : function(UserFactory, $location, NotificationFactory){
+                    if (UserFactory.isNotLogged()) {
+                        NotificationFactory.add('You are not logged', 'error');
+                        $location.path('/');
+                    }
+                }
+            }
         }).when('/game', {
             templateUrl: partialsF+'/game.html',
-            controller: 'GameCtrl'
+            controller: 'GameCtrl',
+            resolve: {
+                auth : function(UserFactory, $location, NotificationFactory){
+                    if (UserFactory.isNotLogged()) {
+                        NotificationFactory.add('You are not logged', 'error');
+                        $location.path('/');
+                    }
+                }
+            }
         })
         .otherwise({
             redirectTo: '/'

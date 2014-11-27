@@ -15,11 +15,11 @@
                 <div class="btnContainer">
                     <button class="ghostButton" id="confirm" ng-click="validateSelection()">
                         <span class="invert"></span>
-                        <span class="text"><i>&#x2713;</i> &nbsp CONFIRM</span>
+                        <span class="text"><i>&#x2713;</i> &nbsp; CONFIRM</span>
                     </button>
                     <button class="ghostButton" id="cancel" ng-click="cancelSelection()">
                         <span class="invert"></span>
-                        <span class="text"><i>&#x2717;</i> &nbsp CANCEL</span>
+                        <span class="text"><i>&#x2717;</i> &nbsp; CANCEL</span>
                     </button>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                     <h2>Song you listened :</h2>
                     <div class="greySep"></div>
                     <ul class="songList">
-                        <li ng-repeat="trackInfos in SC.userHistory track by $index" ng-click="openPopIn(trackInfos.sc.id,trackInfos.sc.title,trackInfos.sc.artwork_url,trackInfos.sc.duration)">
+                        <li ng-repeat="trackInfos in SC.userHistory track by $index | orderBy:'$index':false" ng-click="openPopIn(trackInfos.sc.id,trackInfos.sc.title,trackInfos.sc.artwork_url,trackInfos.sc.duration)">
                             <img ng-src="{{trackInfos.sc.artwork_url}}" class="albumCover">
                             <div class="description">
                                 <div class="title">

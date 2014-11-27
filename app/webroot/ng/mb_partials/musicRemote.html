@@ -29,7 +29,7 @@
     </div>
 
     <!-- FRIEND REQUEST -->
-    <button id="acceptFriendDemand" class="animated fadeInRight" ng-show='showFriendDemand'>
+    <button id="acceptFriendDemand" class="animated fadeInRight" ng-click='acceptFriendRequest()' ng-show='showFriendDemand' ng-class="{fadeOutRight : closeFriendDemand}">
         <i>☺</i> - Accept friend demand
     </button>
 
