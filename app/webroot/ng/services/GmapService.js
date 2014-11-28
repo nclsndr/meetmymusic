@@ -189,11 +189,16 @@ mmmApp.service('GmapService',['$http', '$q', '$rootScope', 'UserFactory',
 			    icon : cursor
 			});
 
+			
+			// Clear all marker and draw new marker
+			for(var clef in self.markers){
+				self.markers[clef].setMap(null);
+			}
+			self.setMarker('me',lat, lng, false);
+			
+			// Re initialisation of Tab
 			self.markers = {};
 			self.markers['me']=marker;
-			
-			self.DrawObj.setAllMap(null);
-			self.setMarker('me',lat, lng, false);
 		}
 
 		var self = this;

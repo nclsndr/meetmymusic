@@ -23,7 +23,7 @@ mmmApp.directive('musicbar', ['SoundcloudService', '$interval', function(Soundcl
             $interval(function(){
                 if (SoundcloudService.currentTrack.obj) {
                     // console.log(SoundcloudService.currentTrack.obj.position);
-                    // console.log(attrs.duration);
+                    console.log('------- POSITION : ',SoundcloudService.currentTrack.obj.position);
                     $scope.musicBar.tcTotalConvert = SoundcloudService.setTimeCode(attrs.duration);
                     $scope.musicBar.progress = (SoundcloudService.currentTrack.obj.position*100)/parseInt(attrs.duration);
                     $scope.musicBar.tcProgressConvert = SoundcloudService.setTimeCode(SoundcloudService.currentTrack.obj.position);

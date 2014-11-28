@@ -1358,11 +1358,11 @@ img[src=''], img[ng-src=''] {
 }
 .musicInfo .musicController #favBtn:hover .favDescription {
   opacity: 1 !important;
-  bottom: 25px;
+  top: 324px !important;
 }
 .musicInfo .musicController .favDescription {
   position: absolute;
-  bottom: 20px;
+  top: 360px;
   left: 50%;
   margin-left: -42.5px;
   opacity: 0;

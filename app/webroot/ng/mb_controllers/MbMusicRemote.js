@@ -217,7 +217,7 @@ mmmApp.controller('MbMusicRemoteCtrl', ['$q','$scope', '$location','$interval', 
 						token : UserFactory.token.me,
 						finalToken : UserFactory.token.both
 					}
-					SocketFactory.emit('leaveRooms', store);
+					SocketFactory.emit('leaveRooms', del);
 		        }
 
 		        setTimeout(function() {

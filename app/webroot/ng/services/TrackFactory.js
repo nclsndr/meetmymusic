@@ -63,15 +63,15 @@ mmmApp.factory('TrackFactory', ['UserFactory', '$q', '$http', 'SoundcloudService
 							SoundcloudService.getTrackList(IDS)
 							.then(
 								function(dataSuccess){
-										Factory.UserHistory = [];
-										for (var i = 0; i < dataSuccess.length; i++) {
-											Factory.SCSources[dataSuccess[i].id] = dataSuccess[i];
-										};
-										for (var i = 0; i < Factory.UserHistoryList.length; i++) {
-											Factory.UserHistoryList[i].sc = Factory.SCSources[Factory.UserHistoryList[i].track_id];
-											Factory.UserHistory.push(Factory.UserHistoryList[i]);
-										};
-										deferred.resolve(Factory.UserHistory);
+									Factory.UserHistory = [];
+									for (var i = 0; i < dataSuccess.length; i++) {
+										Factory.SCSources[dataSuccess[i].id] = dataSuccess[i];
+									};
+									for (var i = 0; i < Factory.UserHistoryList.length; i++) {
+										Factory.UserHistoryList[i].sc = Factory.SCSources[Factory.UserHistoryList[i].track_id];
+										Factory.UserHistory.unshift(Factory.UserHistoryList[i]);
+									};
+									deferred.resolve(Factory.UserHistory);
 								}
 							)
 						});

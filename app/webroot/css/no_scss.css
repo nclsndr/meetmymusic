@@ -70,8 +70,8 @@ form .form_error{
 
 
 
-.playerContainer .leave{
-	opacity: .5;
+.leave{
+	opacity: 0.5 !important;
 }
 
 

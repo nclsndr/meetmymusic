@@ -16,27 +16,6 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 		$scope.friendRequestMsg = 'Add to friends';
 
 
-
-		// $scope.peer = {
-		// 	username : 'username',
-		// 	avatar_url : 'http://placekitten.com/g/200/200',
-		// 	city : 'Berlin !'
-		// }
-
-		// SoundcloudService.isDefine(function(){
-		// 	SoundcloudService.getTrack(121346458)
-		// 	.then(
-		// 		function(currentTrack){
-		// 			console.log(currentTrack);
-		// 			$scope.track = {
-		// 				title : currentTrack.sc.title,
-		// 				duration : currentTrack.sc.duration
-		// 			};
-					
-		// 		}
-		// 	);
-		// });
-
 		if (!SoundcloudService.isEmpty(SoundcloudService.currentTrack)) {
 			// Set large IMG
 			SoundcloudService.currentTrack.sc.artwork_url = SoundcloudService.getLargeArtwork(SoundcloudService.currentTrack.sc.artwork_url);
@@ -62,6 +41,7 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 					}
 				};
 				SocketFactory.emit('mmmRouterBroadcast', store);
+				musicBarInterval();
 			}
 
 			SoundcloudService.currentTrack.obj.options.onpause = function(){
@@ -74,6 +54,7 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 					}
 				};
 				SocketFactory.emit('mmmRouterBroadcast', store);
+				$interval.cancel(musicBarInterval);
 			}
 
 			SoundcloudService.currentTrack.obj.options.onfinish = function(){
@@ -85,7 +66,9 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 				var vol = 0;
 				$interval(
 					function(){
-						SoundcloudService.currentTrack.obj.setVolume(vol++);
+						if (typeof SoundcloudService.currentTrack != 'undefined') {
+							SoundcloudService.currentTrack.obj.setVolume(vol++);
+						}
 					},
 					100,
 					100
@@ -108,7 +91,6 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 			);	
 
 			// INIT MOBILE CONTENT
-			SocketFactory.emit('mmmRouterBroadcast', store1);
 			var store2 = {
 				to : UserFactory.token.me,
 				ev : 'trackInfosMobile',
@@ -117,9 +99,6 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 				}
 			};
 			SocketFactory.emit('mmmRouterBroadcast', store2);
-
-
-			
 		}
 
 		GmapService.hideMap(false);
@@ -168,31 +147,35 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 		}
 
 		function leaveGame(leavePath){
-			GmapService.resetMap();
 			var leavePath = leavePath;
+			console.log('First');
+			$interval.cancel(musicBarInterval);
 			SoundcloudService.resetPlayer(function(){
+				console.log('Second');
 				var store = {
-					to : UserFactory.token.peer,
-					ev : 'leaveGame',
 					data : {
-						user : UserFactory.Peer.id
+						data : UserFactory.token.peer
 					}
 				};
-				SocketFactory.emit('mmmRouterBroadcast', store);
-				
-				var del = {
-					token : UserFactory.token.me,
-					finalToken : UserFactory.token.both
-				}
-				SocketFactory.emit('leaveRooms', store);
+				SocketFactory.emit('leaveGame', store);
 
 				UserFactory.resetPeer(function(){
+					console.log('readyToLeave');
 					$location.path(leavePath);
 				});
-
-
 			});
 		}
+
+		var musicBarInterval = $interval(function(){
+            if (SoundcloudService.currentTrack.obj) {
+                // console.log(SoundcloudService.currentTrack.obj.position);
+                console.log('------- POSITION : ',SoundcloudService.currentTrack.obj.position);
+                $scope.musicBar.tcTotalConvert = SoundcloudService.setTimeCode(attrs.duration);
+                $scope.musicBar.progress = (SoundcloudService.currentTrack.obj.position*100)/parseInt(attrs.duration);
+                $scope.musicBar.tcProgressConvert = SoundcloudService.setTimeCode(SoundcloudService.currentTrack.obj.position);
+            }
+        }, 1000);
+
 
 		// SOCKET IO EVENTS TO LISTEN
 
@@ -220,13 +203,13 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 			}
 		});
 
-		SocketFactory.on('leaveGame', function(data){
+		SocketFactory.on('confirmLeaveGame', function(data){
 			$scope.ui.leaveGameStatus = 'leave';
 			NotificationFactory.add( UserFactory.Peer.username+' have left the game', 'error');
 			
 			$scope.$apply();
 
-			console.log('leaveGame : ', data);
+			console.log('confirmLeaveGame : ', data);
 		});
 	
 }]);
