@@ -22,8 +22,6 @@ io.on('connection', function(socket){
 		io.to(token).emit('confirmSetSolo', 'soloOk');
 	});
 
-	
-
 	// Routine de passage multi-duplex
 	socket.on('mmmRouter', function(stored){
 		console.log('mmmRouter : ', stored.ev);

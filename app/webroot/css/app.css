@@ -134,6 +134,62 @@ a:hover {
   }
 }
 
+img[src=''], img[ng-src=''] {
+  background: url("http://mmm.nclsndr.fr/img/app/noPicture.jpg") center no-repeat;
+  background-size: cover;
+}
+
+#loader {
+  position: absolute;
+  left: 50%;
+  right: 0;
+  margin-left: -30px;
+  margin-top: 40px;
+  height: 60px;
+}
+#loader span {
+  background-color: #ffffff;
+  width: 15px;
+  height: 10px;
+  float: left;
+  margin-right: 5px;
+}
+#loader span:nth-child(1) {
+  -webkit-animation: loaderAnim 0.85s ease-in-out infinite 0;
+  -moz-animation: loaderAnim 0.85s ease-in-out infinite 0;
+  -ms-animation: loaderAnim 0.85s ease-in-out infinite 0;
+  animation: loaderAnim 0.85s ease-in-out infinite 0;
+}
+#loader span:nth-child(2) {
+  -webkit-animation: loaderAnim 0.85s ease-in-out infinite -0.2s;
+  -moz-animation: loaderAnim 0.85s ease-in-out infinite -0.2s;
+  -ms-animation: loaderAnim 0.85s ease-in-out infinite -0.2s;
+  animation: loaderAnim 0.85s ease-in-out infinite -0.2s;
+}
+#loader span:nth-child(3) {
+  -webkit-animation: loaderAnim 0.85s ease-in-out infinite -0.4s;
+  -moz-animation: loaderAnim 0.85s ease-in-out infinite -0.4s;
+  -ms-animation: loaderAnim 0.85s ease-in-out infinite -0.4s;
+  animation: loaderAnim 0.85s ease-in-out infinite -0.4s;
+}
+
+@-webkit-keyframes 'loaderAnim' {
+  0% {
+    height: 10px;
+    margin-top: 25px;
+  }
+
+  50% {
+    height: 50px;
+    margin-top: 0px;
+  }
+
+  100% {
+    height: 10px;
+    margin-top: 25px;
+  }
+}
+
 .ghostButton {
   cursor: pointer;
   display: block;
@@ -865,14 +921,14 @@ a:hover {
 }
 .dashboardContainer aside .asideElem img, .desktopContainer aside .asideElem img {
   float: left;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: url("http://mmm.nclsndr.fr/img/app/noPicture.jpg") center no-repeat;
-  background-size: cover;
+}
+.dashboardContainer aside .asideElem img[src=''], .dashboardContainer aside .asideElem img[ng-src=''], .desktopContainer aside .asideElem img[src=''], .desktopContainer aside .asideElem img[ng-src=''] {
+  display: none;
 }
 .dashboardContainer aside .asideElem .asideElemTxt, .desktopContainer aside .asideElem .asideElemTxt {
   float: left;
   font-size: 0.72rem;
-  width: 100px;
+  width: 98px;
   margin-left: 17px;
   div: nth-child(2);
   div-margin: 9px 0;
@@ -886,7 +942,7 @@ a:hover {
 }
 .dashboardContainer aside #musicYouLiked .asideElemTxt .songTitle, .desktopContainer aside #musicYouLiked .asideElemTxt .songTitle {
   line-height: 50px;
-  height: 50px;
+  min-height: 50px;
 }
 .dashboardContainer aside #musicYouLiked .asideElemTxt .songTitle span, .desktopContainer aside #musicYouLiked .asideElemTxt .songTitle span {
   line-height: normal;
@@ -895,6 +951,14 @@ a:hover {
   line-height: 0.95rem;
 }
 
+.dashboardContainer .img-bg {
+  min-width: 55px;
+  min-height: 55px;
+  background: url("http://mmm.nclsndr.fr/img/app/noPicture.jpg") center no-repeat;
+  background-size: contain;
+  float: left;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
 .dashboardContainer .ghostButton {
   width: 270px;
   border: 2px solid white;
@@ -1473,15 +1537,18 @@ a:hover {
 }
 .searchContainer .searchBar ul li span {
   position: relative;
-  vertical-align: 13px;
+  margin-top: 11px;
+  width: 90%;
   font-size: 1.1rem;
+  float: left;
+  diplay: block;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -ms-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-.searchContainer .searchBar ul li img {
+.searchContainer .searchBar ul li .img-bg {
   width: 40px;
   height: 40px;
   margin-right: 15px;
@@ -1490,6 +1557,13 @@ a:hover {
   -webkit-border-radius: 50%;
   background: url("http://mmm.nclsndr.fr/img/app/noPicture.jpg") center no-repeat;
   background-size: cover;
+  overflow: hidden;
+  float: left;
+}
+.searchContainer .searchBar ul li img {
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
 }
 .searchContainer .searchBar ul li:hover {
   color: black;
@@ -1592,13 +1666,12 @@ a:hover {
   height: 55px;
   margin-left: 5%;
   margin-right: 20px;
-  background: url("http://mmm.nclsndr.fr/img/app/noPicture.jpg") center no-repeat;
-  background-size: cover;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 .songList li .description {
   float: left;

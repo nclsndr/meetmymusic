@@ -168,6 +168,7 @@ mmmApp.controller('GameCtrl', ['SocketFactory','NotificationFactory', 'UserFacto
 		}
 
 		function leaveGame(leavePath){
+			GmapService.resetMap();
 			var leavePath = leavePath;
 			SoundcloudService.resetPlayer(function(){
 				var store = {

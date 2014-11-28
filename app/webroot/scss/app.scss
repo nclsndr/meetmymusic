@@ -18,6 +18,7 @@ a {
   text-decoration : none;
 }
 
+
 html, body {
     min-width : 650px;
     font-family: $montserrat;
@@ -97,6 +98,64 @@ a {
         -webkit-transform: rotate(360deg);
     }
 }
+
+img[src=''],img[ng-src=''] {
+    background : url('http://mmm.nclsndr.fr/img/app/noPicture.jpg') center no-repeat;
+    background-size : cover;
+}
+
+#loader{
+    position: absolute;
+    left: 50%;
+    right: 0;
+    margin-left: -30px;
+    margin-top: 40px;
+    height: 60px;
+
+    span {
+        background-color:#ffffff;
+        width: 15px;
+        height:10px;
+        float:left;
+        margin-right:5px;
+    }
+
+    span:nth-child(1){
+      -webkit-animation: loaderAnim 0.85s ease-in-out infinite 0;
+      -moz-animation: loaderAnim 0.85s ease-in-out infinite 0;
+      -ms-animation: loaderAnim 0.85s ease-in-out infinite 0;
+      animation: loaderAnim 0.85s ease-in-out infinite 0;
+    }
+    span:nth-child(2){
+      -webkit-animation: loaderAnim 0.85s ease-in-out infinite -0.2s;
+      -moz-animation: loaderAnim 0.85s ease-in-out infinite -0.2s;
+      -ms-animation: loaderAnim 0.85s ease-in-out infinite -0.2s;
+      animation: loaderAnim 0.85s ease-in-out infinite -0.2s;
+    }
+    span:nth-child(3){
+      -webkit-animation: loaderAnim 0.85s ease-in-out infinite -0.4s;
+      -moz-animation: loaderAnim 0.85s ease-in-out infinite -0.4s;
+      -ms-animation: loaderAnim 0.85s ease-in-out infinite -0.4s;
+      animation: loaderAnim 0.85s ease-in-out infinite -0.4s;
+    }
+}
+
+
+@-webkit-keyframes 'loaderAnim' {
+    0%{
+        height: 10px;
+        margin-top: 25px;
+    }
+    50%{
+        height:50px;
+        margin-top: 0px;
+    }
+    100%{
+        height: 10px;
+        margin-top: 25px;
+    }
+}
+
 .ghostButton {
     cursor : pointer;
     display: block;
@@ -797,14 +856,14 @@ a {
             }
             img {
                 float: left;
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                background: url("http://mmm.nclsndr.fr/img/app/noPicture.jpg") center no-repeat;
-                background-size: cover;
+            }
+            img[src=''],img[ng-src='']{
+                display : none;
             }
             .asideElemTxt {
                 float: left;
                 font-size: 0.72rem;
-                width: 100px;
+                width: 98px;
                 margin-left: 17px;
                 div: nth-child(2) {
                     margin: 9px 0;
@@ -824,7 +883,7 @@ a {
             .asideElemTxt {
                 .songTitle {
                     line-height : 50px;
-                    height : 50px;
+                    min-height : 50px;
                     span {
                         line-height : normal;
                         vertical-align:middle;
@@ -838,6 +897,15 @@ a {
     
 }
 .dashboardContainer {
+    .img-bg {
+        min-width: 55px;  
+        min-height: 55px;  
+        background: url("http://mmm.nclsndr.fr/img/app/noPicture.jpg") center no-repeat;
+        background-size: contain;
+        float : left;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+    } 
+
     .ghostButton {
         width: 270px;
         border: 2px solid white;
@@ -1404,12 +1472,15 @@ a {
                 border-top : 1px solid rgba(0,0,0,0.2);
                 @include transition(all, 0.2s, ease-in-out);
                 span {
-                    position : relative;
-                    vertical-align: 13px;
+                    position: relative;
+                    margin-top: 11px;
+                    width: 90%;
                     font-size: 1.1rem;
+                    float : left;
+                    diplay:block;
                     @include transition(all, 0.2s, ease-in-out);
                 }
-                img {
+                .img-bg {
                     width: 40px;
                     height: 40px;
                     margin-right: 15px;
@@ -1418,7 +1489,13 @@ a {
                     -webkit-border-radius : 50%;
                     background : url('http://mmm.nclsndr.fr/img/app/noPicture.jpg') center no-repeat;
                     background-size : cover;
-
+                    overflow:hidden;
+                    float : left;
+                }
+                img {
+                    border-radius : 50%;
+                    -moz-border-radius : 50%;
+                    -webkit-border-radius : 50%;
                 }
                 &:hover {
                     color : black;
@@ -1538,9 +1615,8 @@ a {
             height: 55px;
             margin-left: 5%;
             margin-right: 20px;
-            background : url('http://mmm.nclsndr.fr/img/app/noPicture.jpg') center no-repeat;
-            background-size : cover;
             @include transition(all, 0.5s, ease-in-out);
+            border : 1px solid rgba(255,255,255,0.5);
         }
         .description {
             float: left;

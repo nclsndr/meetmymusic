@@ -12,9 +12,14 @@ mmmApp.directive('gmap', ['GmapService', 'UserFactory', function(GmapService, Us
 				function(position){
 					// console.log(position);
 					$scope.init(elmt,position.coords.latitude,position.coords.longitude,false);
+					console.log('lat : ' +position.coords.latitude);
+					console.log('lng : ' +position.coords.longitude);
+
 				},
 				function(data){
-					$scope.init(elmt,false,false,false);
+					$scope.init(elmt,UserFactory.location.lat,UserFactory.location.lng,false);
+					console.log('lat : ' +UserFactory.location.lat);
+					console.log('lng : ' +UserFactory.location.lng);
 				}
 			);
 		},

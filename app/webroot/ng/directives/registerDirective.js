@@ -50,6 +50,9 @@ mmmApp.directive('mapsAutoComplete', function($q, $timeout, GmapService) {
       scope.autoComplete = GmapService.autoComplete(elm[0]);
       GmapService.addListener(scope.autoComplete, 'place_changed', function(){
         var place = scope.autoComplete.getPlace();
+        console.log('----------place.geometry');
+        console.log(place.geometry);
+
         scope.$apply(function() {
           scope.register.lat.$setViewValue(place.geometry.location.B);
           scope.register.lng.$setViewValue(place.geometry.location.k);

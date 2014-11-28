@@ -1,4 +1,4 @@
-mmmApp.directive('dropdown', [function (){
+mmmApp.directive('dropdown', ['$location', function(location){
 	return {
 		restrict: 'E',
 		templateUrl : 'http://mmm.nclsndr.fr/ng/partials/dropdown.html',
@@ -19,6 +19,27 @@ mmmApp.directive('dropdown', [function (){
 					}, 400);
 				}
 			};
+
+			$scope.clickLogo = function(){
+				var currentPage = window.location.href.toString().split(window.location.host+'/#/')[1];
+				switch(currentPage){
+					case 'dashboard':
+						console.log('Dashboard Menu Back');
+						break;
+					case 'search':
+						console.log('Search Back');
+						break;
+					case 'pregame':
+						console.log('Pregame Back');
+						break;
+					case 'game':
+						console.log('Game Back');
+						break;
+					default:
+						console.log('Default Back');
+						break;
+				}
+			}
 		},
 		
 	}

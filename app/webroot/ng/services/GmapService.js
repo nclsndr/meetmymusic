@@ -1,5 +1,5 @@
-mmmApp.service('GmapService',['$http', '$q', '$rootScope',
-	function ($http, $q, $rootScope){
+mmmApp.service('GmapService',['$http', '$q', '$rootScope', 'UserFactory',
+	function ($http, $q, $rootScope, UserFactory){
 
 		this.Map = null;
 		this.isInit = false;
@@ -53,14 +53,19 @@ mmmApp.service('GmapService',['$http', '$q', '$rootScope',
 			if (!self.isInit) {
 				self.init();
 			}
+			var lat, lng;
 			if (lat===false) {
 				lat = 48.858093;
+			}else{
+				lat = parseFloat(lat)
 			}
 			if (lng===false) {
 				lng = 2.294694;
+			}else{
+				lng = parseFloat(lng)
 			}
 			if (zoom===false) {
-				zoom = 6;
+				zoom = 7;
 			}
 			self.DomElm = DomElm;
 			$rootScope.hiddenMap = true;
@@ -71,7 +76,7 @@ mmmApp.service('GmapService',['$http', '$q', '$rootScope',
 				backgroundColor : '#222',
 				// disableDefaultUI : true,
 				disableDoubleClickZoom : true,
-				minZoom : 5,
+				minZoom : 3,
 				styles : self.mapLayer,
 				panControl : false,
 				rotateControl : false,
@@ -172,6 +177,23 @@ mmmApp.service('GmapService',['$http', '$q', '$rootScope',
 
 		this.getLatLng = function(lat, lng){
 			return new self.Map.LatLng(lat,lng);
+		}
+
+		this.resetMap = function() {
+			var lat = parseFloat(UserFactory.location.lat);
+			var lng = parseFloat(UserFactory.location.lng);
+			var marker = new self.Map.Marker({
+			    position: new self.Map.LatLng(lat,lng),
+			    map: self.DrawObj,
+			    opacity : 0.8,
+			    icon : cursor
+			});
+
+			self.markers = {};
+			self.markers['me']=marker;
+			
+			self.DrawObj.setAllMap(null);
+			self.setMarker('me',lat, lng, false);
 		}
 
 		var self = this;

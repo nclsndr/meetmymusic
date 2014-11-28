@@ -53,7 +53,6 @@ mmmApp.controller('MbMusicRemoteCtrl', ['$q','$scope', '$location','$interval', 
 
 		SocketFactory.on('DesktopPlayPause', function(data){
 			isPlaying = data.play;
-			alert(data.play);
 			// if (data.play && !isPlaying) {
 			// 	isPlaying = true;
 			// }else{

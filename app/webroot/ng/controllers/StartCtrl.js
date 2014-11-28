@@ -15,14 +15,19 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 
 		var isGeoloc = false, location = null;
 
+		// RESET LOCAL STORAGE 
+		// localStorage.removeItem('User');
+
 		UserFactory.geolocation()
 			.then(
 				function(position){
 					location = position;
+					console.log(location);
 					isGeoloc = true;
 				},
 				function(msg){
 					NotificationFactory.add(msg,'error');
+					// console.log(location);
 				}
 			);
 		
@@ -58,18 +63,22 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 								$scope.ui.avatar_url = SCUser.avatar_url;
 								$scope.username = SCUser.username;
 							}else{
+								var localToken = dataSuccess.token;
+								NotificationFactory.add('You are logged', 'success');
 								if (isGeoloc) {
 									UserFactory.updateGeoloc().then(
 										function(dataSuccess){
 											NotificationFactory.add('Your geolocation is updated');
+											SocketFactory.emit('initTwins', localToken);
+											$location.path('/dashboard');
+											// REDIRECT TO DASHBOARD
 										}
 									);
+								}else{
+									SocketFactory.emit('initTwins', localToken);
+									$location.path('/dashboard');
 								}
-								SocketFactory.emit('initTwins', dataSuccess.token);
-								console.log();
-								NotificationFactory.add('You are logged', 'success');
-								$location.path('/dashboard');
-								// REDIRECT TO DASHBOARD
+											
 							}
 						},
 						function(data, status){
@@ -115,6 +124,7 @@ mmmApp.controller('StartCtrl', ['NotificationFactory', 'UserFactory', 'Soundclou
 			$scope.ui.showCreateAccount = false;
 		}
 
+		GmapService.hideMap(true);
 
 	}
 ]);

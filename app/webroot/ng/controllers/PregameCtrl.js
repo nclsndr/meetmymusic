@@ -39,7 +39,6 @@ mmmApp.controller('PregameCtrl', ['NotificationFactory', 'UserFactory', 'Soundcl
 			);
 		});	
 
-
 		SocketFactory.on('confirmSetSolo', function(data){
 			console.log('confirmSetSolo : ',data);
 			$scope.ui.choseStack = 'hidden';
@@ -76,7 +75,6 @@ mmmApp.controller('PregameCtrl', ['NotificationFactory', 'UserFactory', 'Soundcl
 
 		SocketFactory.on('sendMeTrackId', function(data){
 			console.log('trackId : ', data.trackId);
-			
 			SoundcloudService.getTrack(data.trackId)
 				.then(
 					function(dataSuccess){
@@ -86,15 +84,14 @@ mmmApp.controller('PregameCtrl', ['NotificationFactory', 'UserFactory', 'Soundcl
 				);
 		});
 
-		
-
 		// SocketFactory.emit('initTwins', UserFactory.User.token);
 		$scope.solo = function(){
-			SocketFactory.emit('setSolo', UserFactory.User.token);
 			NotificationFactory.add('We search for someone', 'success');
+			SocketFactory.emit('setSolo', UserFactory.User.token);
+			var vid = videojs("player");
+			vid.pause(); 
 		}
-		
+
 		// console.log(google);
-		console.log(UserFactory.User);
-		GmapService.hideMap(true);
+		
 }]);

@@ -2,9 +2,8 @@
 	<div class="desktopContainer" id="preGame">
 		<dropdown></dropdown>
         <div ng-class="ui.choseStack" class="animated" id="background"></div>
-
+        <a href="http://mmm.nclsndr.fr:3000/#/search"><button class="backBtn animated fadeIn">Back</button></a>
         <div ng-class="ui.choseStack" class="animated">
-            <a href="http://mmm.nclsndr.fr:3000/#/search"><button class="backBtn animated fadeIn">Back</button></a>
             <div class="midHeader">
                 <h2 class="animated fadeInDown">For maximum experience with the application,<br>flash this code with your smarphone.</h2>
             </div>
@@ -18,12 +17,12 @@
                 </div>
 
                 <div id="motion">
-                    <video class="video-js vjs-default-skin" controls
+                    <video  id="player" class="video-js vjs-default-skin" controls
                      preload="auto" width="391" height="219" poster="http://mmm.nclsndr.fr/img/app/motionPoster.jpg"
                      data-setup="{}">
-                     <source src="http://www.w3schools.com/html/mov_bbb.mp4" type='video/mp4'>
-                     <source src="http://www.w3schools.com/html/mov_bbb.webm" type='video/webm'>
-                     <source src="http://www.w3schools.com/html/mov_bbb.ogg" type='video/ogg'>
+                     <source src="http://mmm.nclsndr.fr/video/mmmMotion.mp4" type='video/mp4'>
+                     <source src="http://mmm.nclsndr.fr/video/mmmMotion.webm" type='video/webm'>
+                     <source src="http://mmm.nclsndr.fr/video/mmmMotion.ogg" type='video/ogg'>
                      <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
                     </video>
                     <span>Learn how to use our application <br>
@@ -31,15 +30,20 @@
                 </div>
                 <div class="clear"></div>
             </div>
-            <button ng-click="solo()" class="ghostButton">
+            <button id="soloBtn" ng-click="solo()" class="ghostButton">
                 <span class="invert"></span>
                 <span class="text">Continue without a phone</span>
             </button>
             <div class="clear"></div>   
         </div>
 
-        <div ng-class="ui.loadPeer" class="animated loadPeer">
-            <h3>We are looking for a user to play with you</h3>
+        <div  ng-class="ui.loadPeer" class="animated loadPeer">
+            <h3>We are looking for a user to play with you ...</h3>
+            <div id="loader">
+              <span></span>
+              <span></span>
+              <span></span>
+            <div>
         </div>
         
 	</div>
